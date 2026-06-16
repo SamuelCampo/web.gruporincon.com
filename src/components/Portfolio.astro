@@ -1,0 +1,326 @@
+---
+const projects = [
+  {
+    name: "Avalora",
+    url: "https://avalora.com",
+    industry: "Tecnología",
+    description: " Integradora Tecnológica con años que desarrolla sistemas, infraestructuras, servicios y soluciones.",
+    image: "/portfolio/Avalora.png",
+  },
+  {
+    name: "Karina Rivera Mentora",
+    url: "https://karinariveramentora.com",
+    industry: "Coaching & Educación",
+    description: "Sitio de alto impacto para coach certificada con embudo de ventas, agenda integrada y membresías.",
+    image: "/portfolio/Karina.png",
+  },
+  {
+    name: "Explorex Group",
+    url: "https://explorexgroup.com",
+    industry: "Transporte",
+    description: "Servicio de transporte turístico, viajes corporativos con vehículos modernos y conductores altamente capacitados. ",
+    image: "/portfolio/Explorex.png",
+  },
+  {
+    name: "Colectivo Traso",
+    url: "https://colectivotraso.org",
+    industry: "Organización Social",
+    description: "Plataforma de captación de donantes y voluntarios para organización sin fines de lucro.",
+    image: "/portfolio/Colectivo.png",
+  },
+  {
+    name: "Doral Cartagena",
+    url: "https://doralcartagena.com",
+    industry: "Hotelería & Turismo",
+    description: "Equipo de constructores visionarios con experiencia en desarrollo urbano y residencial.",
+    image: "/portfolio/Doral.png",
+  },
+  {
+    name: "Mexicarga",
+    url: "https://mexicarga.com",
+    industry: "Logística",
+    description: "Equipo líder en soluciones logísticas, especializado en el envío y exportación de paquetería hacia toda la República Mexicana. ",
+    image: "/portfolio/mexicarga.png",
+  },
+];
+---
+
+<section id="portafolio" class="bg-zinc-950 py-20 lg:py-28 relative overflow-hidden">
+  <!-- Ambient glow -->
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-secondary-500/4 blur-[140px] pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-secondary-600/3 blur-[120px] pointer-events-none" aria-hidden="true"></div>
+
+  <div class="relative z-10">
+    <!-- Section Header -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12 lg:mb-16 reveal">
+        <div>
+          <span class="text-xs font-bold text-secondary-500 uppercase tracking-widest bg-secondary-500/10 px-3.5 py-1.5 rounded-full font-display">Casos de Éxito</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white mt-4 font-display leading-tight">
+            Proyectos que impulsan<br class="hidden sm:block" /> negocios reales.
+          </h2>
+        </div>
+        <!-- Arrow Controls -->
+        <div class="flex items-center gap-3 flex-shrink-0">
+          <button
+            id="portfolio-prev"
+            aria-label="Proyecto anterior"
+            class="group w-12 h-12 rounded-full border border-zinc-700 hover:border-secondary-500/60 bg-zinc-900/80 hover:bg-secondary-500/10 flex items-center justify-center transition-all duration-300 cursor-pointer"
+          >
+            <svg class="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            id="portfolio-next"
+            aria-label="Proyecto siguiente"
+            class="group w-12 h-12 rounded-full border border-zinc-700 hover:border-secondary-500/60 bg-zinc-900/80 hover:bg-secondary-500/10 flex items-center justify-center transition-all duration-300 cursor-pointer"
+          >
+            <svg class="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Track (overflow hidden wrapper) -->
+    <div class="overflow-hidden w-full">
+      <div id="portfolio-track" class="flex gap-4 lg:gap-6 will-change-transform px-4 sm:px-6 lg:px-8">
+        {
+          projects.map((project, i) => (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-portfolio-card
+              class="group relative flex-shrink-0 rounded-2xl lg:rounded-3xl overflow-hidden cursor-pointer shadow-2xl shadow-black/50 transition-all duration-500"
+              style="width: clamp(280px, 75vw, 860px); aspect-ratio: 16/10;"
+              aria-label={`Ver proyecto ${project.name}`}
+            >
+              <!-- Background Image -->
+              <img
+                src={project.image}
+                alt={`Proyecto ${project.name} — ${project.industry}`}
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                loading={i === 0 ? "eager" : "lazy"}
+              />
+              <!-- Gradient overlays -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent z-10"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent z-10"></div>
+              <!-- Content -->
+              <div class="absolute inset-0 z-20 flex flex-col justify-end p-6 sm:p-8 lg:p-10">
+                <div class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <span class="inline-block text-[10px] font-bold text-secondary-300 uppercase tracking-widest bg-secondary-500/20 border border-secondary-500/30 backdrop-blur-sm px-3 py-1 rounded-full mb-3 font-display">
+                    {project.industry}
+                  </span>
+                  <h3 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight font-display leading-tight">
+                    {project.name}
+                  </h3>
+                  <p class="mt-2 text-zinc-300 text-sm sm:text-base leading-relaxed max-w-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+                    {project.description}
+                  </p>
+                  <div class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-white/80 group-hover:text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                    <span>Visitar sitio</span>
+                    <svg class="w-3.5 h-3.5 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <!-- Number badge -->
+              <div class="absolute top-5 right-5 z-20 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center">
+                <span class="text-[10px] font-black text-white/70 font-display">{String(i + 1).padStart(2, '0')}</span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Dot Indicators + Counter -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mt-8" id="portfolio-dots" role="tablist" aria-label="Navegación del portafolio">
+        {
+          projects.map((_, i) => (
+            <button
+              data-dot={i}
+              role="tab"
+              aria-selected={i === 0 ? "true" : "false"}
+              aria-label={`Ir al proyecto ${i + 1}`}
+              class={`portfolio-dot rounded-full transition-all duration-300 cursor-pointer ${i === 0 ? "w-6 h-2 bg-secondary-500" : "w-2 h-2 bg-zinc-700 hover:bg-zinc-500"}`}
+            />
+          ))
+        }
+      </div>
+      <p class="text-center mt-4 text-xs text-zinc-600 font-display font-semibold tracking-widest">
+        <span id="portfolio-current">01</span> / <span id="portfolio-total">{String(projects.length).padStart(2, '0')}</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initPortfolioCarousel() {
+    const track     = document.getElementById("portfolio-track") as HTMLElement | null;
+    const prevBtn   = document.getElementById("portfolio-prev");
+    const nextBtn   = document.getElementById("portfolio-next");
+    const dots      = document.querySelectorAll(".portfolio-dot");
+    const currentEl = document.getElementById("portfolio-current");
+
+    if (!track || !prevBtn || !nextBtn) return;
+
+    // ── 1. Snapshot originals BEFORE touching the DOM ─────────────────────
+    const originals = Array.from(track.children) as HTMLElement[];
+    const N = originals.length;
+    if (N === 0) return;
+
+    // ── 2. Build clone sets ────────────────────────────────────────────────
+    // We prepend clones of the LAST slides (so scrolling left from slide 0
+    // shows the end of the list) and append clones of the FIRST slides
+    // (so scrolling right from the last slide shows the start of the list).
+    //
+    // Final track layout:
+    //   [clone(N-1)…clone(0)]  [real(0)…real(N-1)]  [clone(0)…clone(N-1)]
+    //    domIdx: 0 … N-1         domIdx: N … 2N-1       domIdx: 2N … 3N-1
+
+    function cloneCard(el: HTMLElement): HTMLElement {
+      const c = el.cloneNode(true) as HTMLElement;
+      c.setAttribute("aria-hidden", "true");
+      (c as HTMLElement).querySelectorAll("a, button").forEach((n) =>
+        (n as HTMLElement).setAttribute("tabindex", "-1")
+      );
+      return c;
+    }
+
+    // Prepend: reversed originals as clones before position 0
+    originals.slice().reverse().forEach((el) => track.prepend(cloneCard(el)));
+    // Append: originals as clones after the last real slide
+    originals.forEach((el) => track.appendChild(cloneCard(el)));
+
+    // ── 3. State ──────────────────────────────────────────────────────────
+    // currentDomIdx always tracks our true position in the DOM.
+    // Real slides live at domIdx N … 2N-1.
+    let currentDomIdx = N; // start at real[0]
+    let transitioning  = false;
+
+    // ── 4. Helpers ────────────────────────────────────────────────────────
+    function cardWidth(): number {
+      const gap = window.innerWidth >= 1024 ? 24 : 16;
+      return (track.children[0] as HTMLElement).offsetWidth + gap;
+    }
+
+    function jumpTo(idx: number) {
+      // Instant, no animation
+      track.style.transition = "none";
+      track.style.transform  = `translateX(-${idx * cardWidth()}px)`;
+      track.getBoundingClientRect(); // force reflow
+    }
+
+    function slideTo(idx: number) {
+      track.style.transition = "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)";
+      track.style.transform  = `translateX(-${idx * cardWidth()}px)`;
+    }
+
+    // Map any domIdx → 0-based real index (0 … N-1)
+    function toRealIdx(domIdx: number): number {
+      return ((domIdx - N) % N + N) % N;
+    }
+
+    // ── 5. UI update ──────────────────────────────────────────────────────
+    function updateUI(domIdx: number) {
+      const ri = toRealIdx(domIdx);
+
+      dots.forEach((dot, i) => {
+        const el = dot as HTMLElement;
+        if (i === ri) {
+          el.classList.remove("w-2", "h-2", "bg-zinc-700", "hover:bg-zinc-500");
+          el.classList.add("w-6", "h-2", "bg-secondary-500");
+          el.setAttribute("aria-selected", "true");
+        } else {
+          el.classList.remove("w-6", "bg-secondary-500");
+          el.classList.add("w-2", "h-2", "bg-zinc-700", "hover:bg-zinc-500");
+          el.setAttribute("aria-selected", "false");
+        }
+      });
+
+      if (currentEl) currentEl.textContent = String(ri + 1).padStart(2, "0");
+    }
+
+    // ── 6. Navigate by ±1 step ────────────────────────────────────────────
+    function step(dir: 1 | -1) {
+      if (transitioning) return;
+      transitioning   = true;
+      currentDomIdx  += dir;
+      slideTo(currentDomIdx);
+      updateUI(currentDomIdx);
+    }
+
+    // ── 7. Go directly to a real slide (for dots) ─────────────────────────
+    function goToReal(ri: number) {
+      if (transitioning) return;
+      transitioning  = true;
+      currentDomIdx  = N + ri;
+      slideTo(currentDomIdx);
+      updateUI(currentDomIdx);
+    }
+
+    // ── 8. After each transition: silently re-anchor if in clone zone ──────
+    track.addEventListener("transitionend", () => {
+      transitioning = false;
+      // Clone zone before originals: domIdx < N  → jump to real equivalent
+      // Clone zone after  originals: domIdx >= 2N → jump to real equivalent
+      if (currentDomIdx < N || currentDomIdx >= 2 * N) {
+        currentDomIdx = N + toRealIdx(currentDomIdx);
+        jumpTo(currentDomIdx);
+      }
+    });
+
+    // ── 9. Init position ──────────────────────────────────────────────────
+    jumpTo(currentDomIdx);
+    updateUI(currentDomIdx);
+
+    // ── 10. Wire controls ─────────────────────────────────────────────────
+    prevBtn.addEventListener("click", () => step(-1));
+    nextBtn.addEventListener("click", () => step(1));
+    dots.forEach((dot, i) => dot.addEventListener("click", () => goToReal(i)));
+
+    // Touch / swipe
+    let startX = 0;
+    track.addEventListener("touchstart", (e: TouchEvent) => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener("touchend",   (e: TouchEvent) => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) step(diff > 0 ? 1 : -1);
+    });
+
+    // Keyboard (only when section is in viewport)
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      const section = track.closest("section");
+      if (!section) return;
+      const rect = section.getBoundingClientRect();
+      if (rect.top > window.innerHeight || rect.bottom < 0) return;
+      if (e.key === "ArrowRight") step(1);
+      if (e.key === "ArrowLeft")  step(-1);
+    });
+
+    // Autoplay — pauses on hover/focus
+    let timer: ReturnType<typeof setInterval> | null = null;
+    const play  = () => { if (timer) clearInterval(timer); timer = setInterval(() => step(1), 5000); };
+    const pause = () => { if (timer) { clearInterval(timer); timer = null; } };
+    play();
+    track.addEventListener("mouseenter", pause);
+    track.addEventListener("mouseleave", play);
+    track.addEventListener("focusin",    pause);
+    track.addEventListener("focusout",   play);
+
+    // Recalculate on window resize
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => jumpTo(currentDomIdx), 100);
+    });
+  }
+
+  initPortfolioCarousel();
+  document.addEventListener("astro:page-load", initPortfolioCarousel);
+</script>

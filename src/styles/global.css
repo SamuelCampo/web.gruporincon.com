@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #09090b;
+  --color-primary-100: #121215;
+  --color-primary-200: #18181b;
+  --color-primary-300: #27272a;
+  --color-primary-400: #52525b;
+  --color-primary-500: #71717a;
+  --color-primary-600: #a1a1aa;
+  --color-primary-700: #d4d4d8;
+  --color-primary-800: #f4f4f5;
+  --color-primary-900: #ffffff;
+
+  --color-secondary-50: #e0e7ff;
+  --color-secondary-100: rgba(0, 51, 151, 0.06);
+  --color-secondary-200: #c7d2fe;
+  --color-secondary-300: #a5b4fc;
+  --color-secondary-400: #818cf8;
+  --color-secondary-500: #003397; /* Brand Blue */
+  --color-secondary-600: #001C73; /* Brand Dark Blue */
+  --color-secondary-700: #001557;
+  --color-secondary-800: #000c33;
+  --color-secondary-900: #00071c;
+
+  --color-accent-50: #0f172a;
+  --color-accent-100: #1e293b;
+  --color-accent-200: #334155;
+  --color-accent-300: #475569;
+  --color-accent-400: #64748b;
+  --color-accent-500: #94a3b8;
+  --color-accent-600: #cbd5e1;
+  --color-accent-700: #e2e8f0;
+  --color-accent-800: #f1f5f9;
+  --color-accent-900: #f8fafc;
+
+  --color-surface: #000000; /* OLED Black from brand */
+  --color-surface-muted: #000414; /* Deepest dark blue-grey from brand */
+  --color-border: rgba(255, 255, 255, 0.05);
+
+  --font-family-sans: "Inter", "Montserrat", system-ui, -apple-system, sans-serif;
+  --font-family-display: "Montserrat", "Inter", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  color: var(--color-primary-600);
+  background-color: var(--color-surface);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(0, 51, 151, 0.3);
+  color: var(--color-primary-900);
+}
+
+/* Glass panel base styling */
+.glass-panel {
+  background: rgba(0, 28, 115, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 51, 151, 0.15);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(0, 28, 115, 0.14);
+  border-color: rgba(0, 51, 151, 0.45);
+  box-shadow: 0 0 35px rgba(0, 51, 151, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.01);
+  transform: translateY(-2px);
+}
+
+/* Buttons with brand blue glowing effect */
+.glow-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.glow-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+  transform: scale(0);
+  transition: transform 0.5s ease-out;
+  pointer-events: none;
+}
+
+.glow-btn:hover::after {
+  transform: scale(1);
+}
+
+.glow-btn:hover {
+  box-shadow: 0 0 25px rgba(0, 51, 151, 0.5);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.21, 1.02, 0.43, 1.01), transform 0.7s cubic-bezier(0.21, 1.02, 0.43, 1.01);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+

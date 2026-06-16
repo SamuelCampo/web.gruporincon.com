@@ -1,0 +1,58 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const canonicalURL = Astro.url;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description || "Grupo Rincon — Desarrollo de software y páginas web para PYMES"} />
+    <meta name="keywords" content="desarrollo web, software, páginas web, PYMES, Colombia, Venezuela, Grupo Rincon" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description || "Desarrollamos el software y las páginas web que tu negocio necesita"} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => e.target.classList.toggle("visible", e.isIntersecting));
+          },
+          { threshold: 0.15 }
+        );
+        function observeReveals() {
+          document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+        }
+        observeReveals();
+        document.addEventListener("astro:page-load", observeReveals);
+      });
+    </script>
+  </head>
+  <body class="bg-black text-zinc-300 antialiased">
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <WhatsAppButton />
+    <Footer />
+  </body>
+</html>

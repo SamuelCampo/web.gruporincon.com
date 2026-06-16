@@ -1,0 +1,165 @@
+---
+const services = [
+  {
+    title: "Web & Landing Pages",
+    description:
+      "Sitios rápidos, modernos y optimizados para convertir visitantes en clientes.",
+    tech: ["WordPress", "React"],
+    icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
+  },
+  {
+    title: "E-commerce a Medida",
+    description:
+      "Tiendas online escalables con pasarelas de pago locales e internacionales.",
+    tech: ["WooCommerce"],
+    icon: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z",
+  },
+  {
+    title: "Desarrollo & Automatización",
+    description:
+      "Automatizamos tareas repetitivas y construimos sistemas que trabajan por ti 24/7.",
+    tech: ["Laravel", "Python", "AWS"],
+    icon: "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z",
+  },
+  {
+    title: "Apps Móviles",
+    description:
+      "Aplicaciones intuitivas, rápidas y seguras para iOS y Android.",
+    tech: ["Flutter", "React native"],
+    icon: "M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z",
+  },
+  {
+    title: "Soporte & Mantenimiento",
+    description:
+      "Nos encargamos de que todo funcione siempre: actualizaciones, backups y soporte proactivo.",
+    tech: ["Monitoreo", "Updates"],
+    icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
+  },
+];
+---
+
+<section
+  id="servicios"
+  class="bg-zinc-950 py-20 lg:py-28 relative overflow-hidden"
+>
+  <div class="absolute inset-0 z-0 pointer-events-none">
+    <img
+      src="/services/servicios.png"
+      alt="Servicios"
+      class="absolute right-0 top-0 w-full lg:w-[60%] h-[120%] object-cover opacity-60 mix-blend-screen translate-x-10 -translate-y-10"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/90 to-transparent"
+    >
+    </div>
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"
+    >
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-2xl mb-16 lg:mb-24 reveal">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-950/30 border border-blue-900/40 mb-6"
+      >
+        <span
+          class="text-[10px] font-bold text-blue-500 uppercase tracking-widest font-display"
+          >Servicios Especializados</span
+        >
+      </div>
+      <h2
+        class="text-4xl sm:text-5xl lg:text-[3.5rem] font-black text-white mt-4 font-display leading-[1.1] mb-6"
+      >
+        Tecnología que impulsa<br class="hidden sm:block" /> tu crecimiento
+      </h2>
+      <p class="text-zinc-400 text-base sm:text-lg max-w-lg leading-relaxed">
+        Diseñamos soluciones digitales a medida para optimizar procesos,
+        conectar con tus clientes y llevar tu negocio al siguiente nivel.
+      </p>
+    </div>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5 mb-16"
+    >
+      {
+        services.map((service, i) => (
+          <a
+            href={`https://wa.me/584262590251?text=${encodeURIComponent('Hola, me interesa el servicio de ' + service.title)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group bg-zinc-900/40 border border-white/5 hover:border-white/10 rounded-2xl p-6 flex flex-col relative transition-all duration-300 reveal cursor-pointer h-full backdrop-blur-sm"
+            style={`animation-delay: ${i * 100}ms`}
+          >
+            <div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-blue-500/20 transition-colors duration-300">
+              <svg
+                class="w-5 h-5 text-blue-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d={service.icon}
+                />
+              </svg>
+            </div>
+
+            <h3 class="text-lg font-bold text-white mb-3 tracking-tight font-display leading-snug">
+              {service.title}
+            </h3>
+            <p class="text-zinc-400 text-[13px] leading-relaxed mb-6 flex-1">
+              {service.description}
+            </p>
+
+            <div class="mt-auto pt-4 border-t border-white/5">
+              <div class="flex flex-wrap gap-1.5">
+                {service.tech.map((t) => (
+                  <span class="text-[10px] font-medium text-zinc-400 bg-white/5 border border-white/5 px-2.5 py-1 rounded-full font-display">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <div
+      class="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-white/5 reveal gap-6"
+    >
+      <div
+        class="flex items-center gap-6 text-[11px] font-bold text-zinc-500 uppercase tracking-widest font-display"
+      >
+        <span>Tecnología</span>
+        <span class="w-1 h-1 rounded-full bg-zinc-700"></span>
+        <span>Estrategia</span>
+        <span class="w-1 h-1 rounded-full bg-zinc-700"></span>
+        <span>Resultados</span>
+      </div>
+
+      <a
+        href="https://wa.me/584262590251"
+        class="inline-flex items-center gap-2 bg-transparent hover:bg-white/5 border border-white/10 text-zinc-300 px-6 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all duration-300 font-display"
+      >
+        Hablemos de tu proyecto
+        <svg
+          class="w-3.5 h-3.5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,110 @@
+---
+const year = new Date().getFullYear();
+
+const footerLinks = [
+  {
+    title: "Servicios",
+    links: [
+      { href: "/#servicios", label: "Páginas Web" },
+      { href: "/#servicios", label: "E-commerce" },
+      { href: "/#servicios", label: "Software a la Medida" },
+      { href: "/#servicios", label: "Apps Móviles" },
+    ],
+  },
+  {
+    title: "Compañía",
+    links: [
+      { href: "/nosotros", label: "Nosotros" },
+      { href: "/#portafolio", label: "Portafolio" },
+      { href: "/#proceso", label: "Nuestro Proceso" },
+    ],
+  },
+  {
+    title: "Contacto",
+    links: [
+      {
+        href: "https://wa.me/584262590251",
+        label: "WhatsApp Venezuela",
+        external: true,
+      },
+      {
+        href: "https://wa.me/573219646346",
+        label: "WhatsApp Colombia",
+        external: true,
+      },
+    ],
+  },
+];
+---
+
+<footer class="bg-zinc-950 border-t border-zinc-900/80 text-zinc-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12"
+    >
+      <div>
+        <a
+          href="/"
+          class="inline-block mb-4"
+          aria-label="Grupo Rincon - Inicio"
+        >
+          <img
+            src="/Logo/Logo blanco.png"
+            alt="Grupo Rincon"
+            class="h-10 w-auto object-contain"
+            loading="lazy"
+          />
+        </a>
+        <p class="text-zinc-500 text-sm leading-relaxed max-w-xs">
+          Desarrollamos el software y la página web que tu negocio necesita para
+          vender más y operar mejor.
+        </p>
+      </div>
+
+      {
+        footerLinks.map((group) => (
+          <div>
+            <h3 class="font-bold text-white mb-5 text-xs uppercase tracking-widest">
+              {group.title}
+            </h3>
+            <ul class="space-y-3">
+              {group.links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                    class="text-zinc-400 hover:text-white text-sm transition-colors duration-200 cursor-pointer"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-zinc-900/80">
+      <div
+        class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-zinc-500"
+      >
+        <p>&copy; {year} Grupo Rincon. Todos los derechos reservados.</p>
+        <div
+          class="flex items-center gap-4 text-xs font-semibold tracking-wider"
+        >
+          <span>gruporincon.com.ve</span>
+          <span class="text-zinc-800">|</span>
+          <span>gruporincon.com.co</span>
+        </div>
+      </div>
+      <p
+        class="mt-4 text-xs text-zinc-600 text-center md:text-left leading-relaxed"
+      >
+        Desarrollo de software en Caracas, Maracaibo, Valencia, Bogotá,
+        Medellín, Cali, Cartagena y toda Latinoamérica.
+      </p>
+    </div>
+  </div>
+</footer>
