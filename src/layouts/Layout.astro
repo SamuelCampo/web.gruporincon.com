@@ -18,35 +18,63 @@ const canonicalURL = Astro.url;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description || "Grupo Rincon — Agencia de desarrollo de software, páginas web y soluciones digitales integrales para PYMES en Colombia y Venezuela."} />
-    <meta name="keywords" content="desarrollo web, desarrollo de software, diseño web, páginas web, aplicaciones web, soluciones digitales, PYMES, Colombia, Venezuela, Grupo Rincon, tecnología" />
+    <meta
+      name="description"
+      content={description ||
+        "Grupo Rincon — Agencia de desarrollo de software, páginas web y soluciones digitales integrales para PYMES en Colombia y Venezuela."}
+    />
+    <meta
+      name="keywords"
+      content="desarrollo web, desarrollo de software, diseño web, páginas web, aplicaciones web, soluciones digitales, PYMES, Colombia, Venezuela, Grupo Rincon, tecnología"
+    />
     <meta name="author" content="Grupo Rincon" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description || "Desarrollamos el software y las páginas web que tu negocio necesita para crecer en el mundo digital."} />
+    <meta
+      property="og:description"
+      content={description ||
+        "Desarrollamos el software y las páginas web que tu negocio necesita para crecer en el mundo digital."}
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content="Grupo Rincon" />
-    <meta property="og:image" content={new URL("/Logo/Favicon.png", canonicalURL).toString()} />
+    <meta
+      property="og:image"
+      content={new URL("/Logo/Favicon.png", canonicalURL).toString()}
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description || "Desarrollamos el software y las páginas web que tu negocio necesita para crecer en el mundo digital."} />
-    <meta name="twitter:image" content={new URL("/Logo/Favicon.png", canonicalURL).toString()} />
+    <meta
+      name="twitter:description"
+      content={description ||
+        "Desarrollamos el software y las páginas web que tu negocio necesita para crecer en el mundo digital."}
+    />
+    <meta
+      name="twitter:image"
+      content={new URL("/Logo/Favicon.png", canonicalURL).toString()}
+    />
     <link rel="canonical" href={canonicalURL} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" type="image/png" href="/Logo/Favicon.png" />
     <title>{title}</title>
     <script is:inline>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         const observer = new IntersectionObserver(
           (entries) => {
-            entries.forEach((e) => e.target.classList.toggle("visible", e.isIntersecting));
+            entries.forEach((e) =>
+              e.target.classList.toggle("visible", e.isIntersecting),
+            );
           },
-          { threshold: 0.15 }
+          { threshold: 0.15 },
         );
         function observeReveals() {
-          document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+          document
+            .querySelectorAll(".reveal")
+            .forEach((el) => observer.observe(el));
         }
         observeReveals();
         document.addEventListener("astro:page-load", observeReveals);
