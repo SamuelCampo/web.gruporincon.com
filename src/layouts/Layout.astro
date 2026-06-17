@@ -41,6 +41,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       property="og:image"
       content={new URL("/open-image.jpeg", canonicalURL).toString()}
     />
+    <meta
+      property="og:logo"
+      content={new URL("/Logo/Logo blanco.png", canonicalURL).toString()}
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta
