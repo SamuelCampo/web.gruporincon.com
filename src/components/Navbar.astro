@@ -11,7 +11,7 @@ const links = [
 <header class="fixed top-4 left-4 right-4 z-50 max-w-7xl mx-auto">
   <div
     id="navbar-container"
-    class="glass-panel rounded-full px-6 py-3 shadow-lg shadow-black/30 transition-all duration-300"
+    class="glass-panel rounded-full px-6 py-3 shadow-lg shadow-black/30 transition-colors duration-300"
   >
     <nav
       class="flex items-center justify-between"
@@ -136,25 +136,39 @@ const links = [
   const menu = document.getElementById("mobile-menu");
   const navbarContainer = document.getElementById("navbar-container");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
+  const updateNavbar = () => {
+    const isScrolled = window.scrollY > 50;
+    const isMenuOpen = toggle?.getAttribute("aria-expanded") === "true";
+
+    if (isScrolled || isMenuOpen) {
       navbarContainer?.classList.add(
-        "bg-zinc-950/95",
         "backdrop-blur-md",
         "border",
-        "border-white/10",
+        "border-white/10"
       );
+      
+      if (isMenuOpen) {
+        navbarContainer?.classList.add("bg-black");
+        navbarContainer?.classList.remove("bg-zinc-950/95");
+      } else {
+        navbarContainer?.classList.add("bg-zinc-950/95");
+        navbarContainer?.classList.remove("bg-black");
+      }
+      
       navbarContainer?.classList.remove("glass-panel");
     } else {
       navbarContainer?.classList.remove(
         "bg-zinc-950/95",
+        "bg-black",
         "backdrop-blur-md",
         "border",
-        "border-white/10",
+        "border-white/10"
       );
       navbarContainer?.classList.add("glass-panel");
     }
-  });
+  };
+
+  window.addEventListener("scroll", updateNavbar);
 
   if (toggle && menu) {
     toggle.addEventListener("click", () => {
@@ -169,6 +183,7 @@ const links = [
         navbarContainer?.classList.remove("rounded-2xl");
         navbarContainer?.classList.add("rounded-full");
       }
+      updateNavbar();
     });
     document.querySelectorAll("#mobile-menu a").forEach((link) => {
       link.addEventListener("click", () => {
@@ -176,6 +191,7 @@ const links = [
         toggle.setAttribute("aria-expanded", "false");
         navbarContainer?.classList.remove("rounded-2xl");
         navbarContainer?.classList.add("rounded-full");
+        updateNavbar();
       });
     });
   }
