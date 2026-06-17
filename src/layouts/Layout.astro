@@ -10,7 +10,7 @@ export interface Props {
 }
 
 const { title, description } = Astro.props;
-const canonicalURL = Astro.url;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
