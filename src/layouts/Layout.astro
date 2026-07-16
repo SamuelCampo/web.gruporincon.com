@@ -87,9 +87,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </script>
     <!-- Google tag (gtag.js) -->
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPGR430P22"
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-ZPGR430P22"
     ></script>
-    <script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
