@@ -93,12 +93,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       src="https://www.googletagmanager.com/gtag/js?id=G-ZPGR430P22"></script>
     <script is:inline type="text/partytown">
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+      window.gtag = function gtag() {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag("js", new Date());
 
-      gtag("config", "G-ZPGR430P22");
+      window.gtag("config", "G-ZPGR430P22");
     </script>
     <Analytics />
   </head>
