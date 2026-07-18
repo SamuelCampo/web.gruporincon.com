@@ -1,0 +1,1111 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const webProjects = [
+    {
+        name: "Karina Rivera Mentora",
+        url: "https://karinariveramentora.com",
+        industry: "Coaching & Educación",
+        description:
+            "Sitio de alto impacto para coach certificada con embudo de ventas, agenda integrada y membresías.",
+        image: "/portfolio/Karina.png",
+    },
+    {
+        name: "Doral Cartagena",
+        url: "https://doralcartagena.com",
+        industry: "Hotelería & Turismo",
+        description:
+            "Plataforma institucional para constructora visionaria con experiencia en desarrollo urbano y residencial.",
+        image: "/portfolio/Doral.png",
+    },
+];
+
+const formOptions = {
+    needs: ["Página Web", "Landing Page", "Tienda Online", "No estoy seguro"],
+    budgetsCOP: ["Menos de $3M", "$3M a $7M", "Más de $7M"],
+    budgetsUSD: ["Menos de $500", "$500 a $1.500", "Más de $1.500"],
+};
+---
+
+<Layout
+    title="Diseño de Páginas Web y E-commerce para PYMEs | Grupo Rincón"
+    description="Creamos páginas web rápidas y tiendas online (E-commerce) optimizadas para vender. Más de 10 años impulsando negocios en Colombia. ¡Cotiza tu proyecto hoy!"
+>
+    <!-- ════════════════════════════════════════════════════
+       SECTION 1: HERO
+       ════════════════════════════════════════════════════ -->
+    <section
+        class="relative min-h-screen flex items-center overflow-hidden bg-black"
+    >
+        <div class="absolute inset-0 bg-black/60" aria-hidden="true"></div>
+        <div
+            class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent"
+            aria-hidden="true"
+        >
+        </div>
+        <div
+            class="absolute top-[-5%] left-[-5%] w-[55%] h-[55%] rounded-full bg-secondary-500/10 blur-[140px] pointer-events-none"
+            aria-hidden="true"
+        >
+        </div>
+        <div
+            class="absolute bottom-[-10%] right-[-5%] w-[45%] h-[45%] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none"
+            aria-hidden="true"
+        >
+        </div>
+
+        <div
+            class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-28 lg:pt-44 lg:pb-36"
+        >
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <div
+                        class="inline-flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full mb-8"
+                    >
+                        <span
+                            class="w-1.5 h-1.5 rounded-full bg-secondary-400 animate-pulse"
+                        ></span>
+                        <span
+                            class="text-xs font-semibold text-zinc-300 tracking-widest uppercase font-display"
+                            >+10 años impulsando PYMEs</span
+                        >
+                    </div>
+
+                    <h1
+                        class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight font-display"
+                    >
+                        Diseño de Páginas Web y<br class="hidden sm:block" />
+                        E-commerce que impulsan<br class="hidden sm:block" />
+                        <span
+                            class="bg-gradient-to-r from-secondary-300 via-blue-300 to-secondary-400 bg-clip-text text-transparent"
+                            >tus ventas</span
+                        >
+                    </h1>
+
+                    <p
+                        class="mt-6 text-base sm:text-lg text-zinc-300 leading-relaxed max-w-xl"
+                    >
+                        No diseñamos "folletos digitales". Creamos plataformas
+                        web de alta velocidad y tiendas online a medida que
+                        convierten visitantes en clientes reales y automatizan
+                        tus procesos comerciales.
+                    </p>
+
+                    <div
+                        class="mt-10 flex flex-col sm:flex-row items-start gap-4"
+                    >
+                        <a
+                            href="#contacto"
+                            class="glow-btn cursor-pointer inline-flex items-center gap-2.5 bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide transition-all duration-300 shadow-lg shadow-secondary-500/30"
+                        >
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2.5"
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                ></path>
+                            </svg>
+                            Cotizar mi Proyecto
+                        </a>
+                        <a
+                            href="https://wa.me/584262590251"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="cursor-pointer inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white/80 hover:text-white px-8 py-4 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10"
+                        >
+                            <svg
+                                class="w-4 h-4"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                                ></path>
+                            </svg>
+                            Hablar con un Asesor
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                    class="hidden lg:flex items-center justify-center reveal"
+                    style="animation-delay: 200ms;"
+                >
+                    <div class="relative w-full max-w-lg">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-secondary-500/20 to-blue-600/20 rounded-3xl blur-3xl"
+                        >
+                        </div>
+                        <div
+                            class="relative glass-panel rounded-3xl p-8 border border-white/10"
+                        >
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-secondary-500/20 flex items-center justify-center"
+                                    >
+                                        <svg
+                                            class="w-5 h-5 text-secondary-400"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                            ><path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                                            ></path></svg
+                                        >
+                                    </div>
+                                    <div class="flex-1 space-y-1.5">
+                                        <div
+                                            class="h-2.5 bg-white/10 rounded-full w-3/4"
+                                        >
+                                        </div>
+                                        <div
+                                            class="h-2 bg-white/5 rounded-full w-1/2"
+                                        >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-3">
+                                    <div
+                                        class="aspect-square rounded-xl bg-white/5 border border-white/5 flex items-center justify-center"
+                                    >
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-purple-500 opacity-60"
+                                        >
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="aspect-square rounded-xl bg-white/5 border border-white/5 flex items-center justify-center"
+                                    >
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-teal-500 opacity-60"
+                                        >
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="aspect-square rounded-xl bg-white/5 border border-white/5 flex items-center justify-center"
+                                    >
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 opacity-60"
+                                        >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="h-32 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center"
+                                >
+                                    <div class="text-center">
+                                        <div
+                                            class="w-16 h-10 mx-auto rounded-md bg-gradient-to-b from-secondary-500/30 to-secondary-500/10 border border-secondary-500/20 flex items-center justify-center mb-2"
+                                        >
+                                            <svg
+                                                class="w-5 h-5 text-secondary-400"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                                ><path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                                                ></path><path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                ></path></svg
+                                            >
+                                        </div>
+                                        <span
+                                            class="text-[10px] text-zinc-500 font-display"
+                                            >Mockup interactivo</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 hover:opacity-80 transition-opacity"
+            aria-hidden="true"
+        >
+            <div
+                class="w-px h-10 bg-gradient-to-b from-transparent via-white to-transparent animate-pulse"
+            >
+            </div>
+            <svg
+                class="w-3 h-3 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"></path></svg
+            >
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+       SECTION 2: DOLOR / SOLUCIÓN
+       ════════════════════════════════════════════════════ -->
+    <section class="bg-zinc-950 py-20 lg:py-28 relative overflow-hidden">
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-secondary-500/4 blur-[140px] pointer-events-none"
+            aria-hidden="true"
+        >
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20 reveal">
+                <h2
+                    class="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-display leading-[1.1] tracking-tight"
+                >
+                    ¿Tu página web actual no genera resultados o no sabes por
+                    dónde empezar?
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                <div class="glass-panel rounded-3xl p-8 lg:p-10 reveal">
+                    <div
+                        class="w-12 h-12 bg-red-500/10 border border-red-500/20 rounded-2xl flex items-center justify-center mb-6"
+                    >
+                        <svg
+                            class="w-5 h-5 text-red-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-xl font-bold text-white mb-3 tracking-tight font-display"
+                    >
+                        Páginas lentas que pierden clientes
+                    </h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Un sitio que tarda más de 3 segundos en cargar pierde el
+                        53% de sus visitantes. Optimizamos cada kilobyte con
+                        técnicas WPO para que tu web vuele y retengas cada
+                        oportunidad de venta.
+                    </p>
+                </div>
+
+                <div
+                    class="glass-panel rounded-3xl p-8 lg:p-10 reveal"
+                    style="animation-delay: 100ms;"
+                >
+                    <div
+                        class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-2xl flex items-center justify-center mb-6"
+                    >
+                        <svg
+                            class="w-5 h-5 text-amber-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                            ></path>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-xl font-bold text-white mb-3 tracking-tight font-display"
+                    >
+                        E-commerce difíciles de administrar
+                    </h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Olvídate de depender de un desarrollador para cada
+                        cambio. Con WooCommerce, Shopify o React, tendrás el
+                        control total de tu catálogo, inventario y pedidos desde
+                        un panel intuitivo y autogestionable.
+                    </p>
+                </div>
+
+                <div
+                    class="glass-panel rounded-3xl p-8 lg:p-10 reveal"
+                    style="animation-delay: 200ms;"
+                >
+                    <div
+                        class="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-2xl flex items-center justify-center mb-6"
+                    >
+                        <svg
+                            class="w-5 h-5 text-blue-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-xl font-bold text-white mb-3 tracking-tight font-display"
+                    >
+                        Falta de optimización en buscadores (SEO)
+                    </h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Si no apareces en las primeras posiciones de Google,
+                        prácticamente no existes para tus clientes. Aplicamos
+                        SEO técnico desde la arquitectura del sitio hasta cada
+                        etiqueta para que te encuentren fácilmente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+       SECTION 3: SOLUCIONES DETALLADAS
+       ════════════════════════════════════════════════════ -->
+    <section class="bg-zinc-950 py-20 lg:py-28 relative overflow-hidden">
+        <div
+            class="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-blue-500/3 blur-[140px] pointer-events-none"
+            aria-hidden="true"
+        >
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-2xl mb-16 lg:mb-24 reveal">
+                <span
+                    class="text-xs font-bold text-secondary-500 uppercase tracking-widest bg-secondary-500/10 px-3.5 py-1.5 rounded-full font-display"
+                    >Nuestras Soluciones</span
+                >
+                <h2
+                    class="text-4xl sm:text-5xl lg:text-[3.5rem] font-black text-white mt-4 font-display leading-[1.1]"
+                >
+                    Soluciones de Desarrollo Web a la Medida
+                </h2>
+            </div>
+
+            <!-- Block 1: Corporativas -->
+            <div
+                class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 lg:mb-32 reveal"
+            >
+                <div>
+                    <div
+                        class="w-14 h-14 bg-gradient-to-br from-secondary-500/20 to-blue-500/20 border border-secondary-500/20 rounded-2xl flex items-center justify-center mb-6"
+                    >
+                        <svg
+                            class="w-6 h-6 text-secondary-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-2xl sm:text-3xl font-bold text-white mb-4 font-display tracking-tight"
+                    >
+                        Páginas Web Corporativas y Landing Pages
+                    </h3>
+                    <p class="text-zinc-400 text-base leading-relaxed mb-6">
+                        Sitios institucionales y páginas de aterrizaje
+                        optimizadas para campañas de Google Ads y Meta Ads.
+                        Ideales para captación de leads (contactos).
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-xs font-medium text-zinc-400 bg-white/5 border border-white/5 px-3 py-1.5 rounded-full font-display"
+                            >WordPress</span
+                        >
+                        <span
+                            class="text-xs font-medium text-zinc-400 bg-white/5 border border-white/5 px-3 py-1.5 rounded-full font-display"
+                            >React</span
+                        >
+                    </div>
+                </div>
+                <div class="relative">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-secondary-500/10 to-blue-600/10 rounded-3xl blur-2xl"
+                    >
+                    </div>
+                    <div
+                        class="relative glass-panel rounded-3xl p-8 border border-white/10 aspect-[4/3] flex items-center justify-center"
+                    >
+                        <div class="text-center">
+                            <svg
+                                class="w-24 h-24 mx-auto text-secondary-500/30 mb-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1"
+                                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                ></path></svg
+                            >
+                            <span class="text-sm text-zinc-500 font-display"
+                                >Páginas Corporativas</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 2: E-commerce (inverted) -->
+            <div
+                class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center reveal"
+            >
+                <div class="order-last lg:order-first relative">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-teal-600/10 rounded-3xl blur-2xl"
+                    >
+                    </div>
+                    <div
+                        class="relative glass-panel rounded-3xl p-8 border border-white/10 aspect-[4/3] flex items-center justify-center"
+                    >
+                        <div class="text-center">
+                            <svg
+                                class="w-24 h-24 mx-auto text-emerald-500/30 mb-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1"
+                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"
+                                ></path></svg
+                            >
+                            <span class="text-sm text-zinc-500 font-display"
+                                >Tiendas Online</span
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="order-first lg:order-last">
+                    <div
+                        class="w-14 h-14 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-500/20 rounded-2xl flex items-center justify-center mb-6"
+                    >
+                        <svg
+                            class="w-6 h-6 text-emerald-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-2xl sm:text-3xl font-bold text-white mb-4 font-display tracking-tight"
+                    >
+                        Tiendas Virtuales y E-commerce Escalables
+                    </h3>
+                    <p class="text-zinc-400 text-base leading-relaxed mb-6">
+                        Plataformas de comercio electrónico robustas con
+                        pasarelas de pago locales (ePayco, PayU, Bold, Mercado
+                        Pago) e internacionales.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-xs font-medium text-zinc-400 bg-white/5 border border-white/5 px-3 py-1.5 rounded-full font-display"
+                            >WooCommerce</span
+                        >
+                        <span
+                            class="text-xs font-medium text-zinc-400 bg-white/5 border border-white/5 px-3 py-1.5 rounded-full font-display"
+                            >Shopify</span
+                        >
+                        <span
+                            class="text-xs font-medium text-zinc-400 bg-white/5 border border-white/5 px-3 py-1.5 rounded-full font-display"
+                            >Desarrollos a medida</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+       SECTION 4: METODOLOGÍA
+       ════════════════════════════════════════════════════ -->
+    <section
+        class="bg-gradient-to-b from-[#f8f9ff] to-white py-20 lg:py-32 relative overflow-hidden"
+    >
+        <div
+            class="absolute top-0 right-0 w-full h-full opacity-40 pointer-events-none"
+            style="background: radial-gradient(circle at 80% -20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);"
+        >
+        </div>
+        <div
+            class="absolute top-40 right-20 w-96 h-96 bg-blue-100 rounded-full blur-[100px] opacity-30 pointer-events-none"
+        >
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div
+                class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-20"
+            >
+                <div class="max-w-2xl reveal">
+                    <span
+                        class="inline-block text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-50 px-3.5 py-1.5 rounded-full font-display mb-6 border border-blue-100"
+                        >Metodología de Trabajo</span
+                    >
+                    <h2
+                        class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] font-display tracking-tight"
+                    >
+                        Nuestro Proceso: De la <br class="hidden sm:block" /> Estrategia
+                        al Código en 4 Pasos
+                    </h2>
+                </div>
+                <div
+                    class="max-w-md lg:pb-3 reveal"
+                    style="animation-delay: 100ms;"
+                >
+                    <p class="text-slate-600 text-lg leading-relaxed">
+                        Un proceso claro, colaborativo y eficiente para
+                        transformar tus ideas en soluciones digitales sólidas y
+                        escalables.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div
+                    class="bg-slate-900 rounded-[2rem] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] transition-all duration-500 border border-slate-800 flex flex-col relative group min-h-[420px] reveal"
+                    style="animation-delay: 200ms;"
+                >
+                    <div
+                        class="absolute inset-0 z-0 overflow-hidden rounded-[2rem]"
+                    >
+                        <img
+                            src="/process/consultoria.png"
+                            alt=""
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/40 to-slate-900/90 z-10"
+                        >
+                        </div>
+                    </div>
+                    <div class="relative z-20 flex flex-col justify-end flex-1">
+                        <h3
+                            class="text-xl font-bold text-white mb-3 font-display tracking-tight"
+                        >
+                            Consultoría
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Analizamos a fondo las necesidades y los objetivos
+                            de tu negocio para trazar una ruta clara hacia el
+                            éxito digital.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-slate-900 rounded-[2rem] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] transition-all duration-500 border border-slate-800 flex flex-col relative group min-h-[420px] reveal"
+                    style="animation-delay: 300ms;"
+                >
+                    <div
+                        class="absolute inset-0 z-0 overflow-hidden rounded-[2rem]"
+                    >
+                        <img
+                            src="/process/UI UX.png"
+                            alt=""
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/40 to-slate-900/90 z-10"
+                        >
+                        </div>
+                    </div>
+                    <div class="relative z-20 flex flex-col justify-end flex-1">
+                        <h3
+                            class="text-xl font-bold text-white mb-3 font-display tracking-tight"
+                        >
+                            UI/UX
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Modelamos visualmente tu plataforma. Creamos
+                            interfaces modernas, intuitivas y centradas en la
+                            conversión.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-slate-900 rounded-[2rem] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] transition-all duration-500 border border-slate-800 flex flex-col relative group min-h-[420px] reveal"
+                    style="animation-delay: 400ms;"
+                >
+                    <div
+                        class="absolute inset-0 z-0 overflow-hidden rounded-[2rem]"
+                    >
+                        <img
+                            src="/process/desarrollo.png"
+                            alt=""
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/40 to-slate-900/90 z-10"
+                        >
+                        </div>
+                    </div>
+                    <div class="relative z-20 flex flex-col justify-end flex-1">
+                        <h3
+                            class="text-xl font-bold text-white mb-3 font-display tracking-tight"
+                        >
+                            Desarrollo Limpio
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Construimos tu plataforma escribiendo código limpio,
+                            seguro y escalable con las mejores prácticas del
+                            mercado.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-slate-900 rounded-[2rem] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] transition-all duration-500 border border-slate-800 flex flex-col relative group min-h-[420px] reveal"
+                    style="animation-delay: 500ms;"
+                >
+                    <div
+                        class="absolute inset-0 z-0 overflow-hidden rounded-[2rem]"
+                    >
+                        <img
+                            src="/process/lanzamiento.png"
+                            alt=""
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/40 to-slate-900/90 z-10"
+                        >
+                        </div>
+                    </div>
+                    <div class="relative z-20 flex flex-col justify-end flex-1">
+                        <h3
+                            class="text-xl font-bold text-white mb-3 font-display tracking-tight"
+                        >
+                            Pruebas de Rendimiento
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Sometemos el proyecto a rigurosos controles de
+                            calidad, velocidad y rendimiento antes de publicarlo
+                            al mundo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+       SECTION 5: CASOS DE ÉXITO (WEB / E-COMMERCE)
+       ════════════════════════════════════════════════════ -->
+    <section class="bg-zinc-950 py-20 lg:py-28 relative overflow-hidden">
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-secondary-500/4 blur-[140px] pointer-events-none"
+            aria-hidden="true"
+        >
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-secondary-600/3 blur-[120px] pointer-events-none"
+            aria-hidden="true"
+        >
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div
+                class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12 lg:mb-16 reveal"
+            >
+                <div>
+                    <span
+                        class="text-xs font-bold text-secondary-500 uppercase tracking-widest bg-secondary-500/10 px-3.5 py-1.5 rounded-full font-display"
+                        >Proyectos Web</span
+                    >
+                    <h2
+                        class="text-3xl sm:text-4xl lg:text-5xl font-black text-white mt-4 font-display leading-tight"
+                    >
+                        Proyectos web que ya están <br
+                            class="hidden sm:block"
+                        /> transformando negocios
+                    </h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                {
+                    webProjects.map((project, i) => (
+                        <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="group relative rounded-2xl lg:rounded-3xl overflow-hidden cursor-pointer shadow-2xl shadow-black/50 transition-all duration-500 reveal"
+                            style={`animation-delay: ${i * 150}ms`}
+                        >
+                            <div class="aspect-[16/10] relative">
+                                <img
+                                    src={project.image}
+                                    alt={`Proyecto ${project.name} — ${project.industry}`}
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                                    loading={i === 0 ? "eager" : "lazy"}
+                                />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent z-10" />
+                                <div class="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent z-10" />
+                            </div>
+                            <div class="absolute inset-0 z-20 flex flex-col justify-end p-6 sm:p-8 lg:p-10">
+                                <div class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    <span class="inline-block text-[10px] font-bold text-secondary-300 uppercase tracking-widest bg-secondary-500/20 border border-secondary-500/30 backdrop-blur-sm px-3 py-1 rounded-full mb-3 font-display">
+                                        {project.industry}
+                                    </span>
+                                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight font-display leading-tight">
+                                        {project.name}
+                                    </h3>
+                                    <p class="mt-2 text-zinc-300 text-sm sm:text-base leading-relaxed max-w-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+                                        {project.description}
+                                    </p>
+                                    <div class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-white/80 group-hover:text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                                        <span>
+                                            Ver Caso de Estudio Completo
+                                        </span>
+                                        <svg
+                                            class="w-3.5 h-3.5 text-secondary-400"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2.5"
+                                                d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+       SECTION 6: FORMULARIO DE CAPTACIÓN
+       ════════════════════════════════════════════════════ -->
+    <section
+        id="contacto"
+        class="bg-zinc-950 py-20 lg:py-28 relative overflow-hidden border-t border-zinc-900/60"
+    >
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 rounded-full border border-secondary-500/15 bg-gradient-to-br from-secondary-500/5 to-transparent blur-xl opacity-30 animate-pulse pointer-events-none"
+            aria-hidden="true"
+        >
+        </div>
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-secondary-500/3 blur-[120px] pointer-events-none"
+            aria-hidden="true"
+        >
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div
+                class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+            >
+                <div class="reveal">
+                    <h2
+                        class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight font-display"
+                    >
+                        ¿Listo para digitalizar y escalar tu negocio?
+                    </h2>
+                    <p
+                        class="mt-6 text-zinc-400 text-base sm:text-lg leading-relaxed"
+                    >
+                        Cuéntanos tu idea. Nuestro equipo técnico analizará tus
+                        requerimientos para entregarte una propuesta a la medida
+                        en menos de 48 horas.
+                    </p>
+
+                    <div class="mt-10 space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-secondary-500/10 border border-secondary-500/20 flex items-center justify-center flex-shrink-0"
+                            >
+                                <svg
+                                    class="w-4 h-4 text-secondary-400"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    ><path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                                    ></path></svg
+                                >
+                            </div>
+                            <span class="text-sm text-zinc-300"
+                                >Propuesta personalizada en menos de 48 horas</span
+                            >
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-secondary-500/10 border border-secondary-500/20 flex items-center justify-center flex-shrink-0"
+                            >
+                                <svg
+                                    class="w-4 h-4 text-secondary-400"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    ><path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
+                                    ></path></svg
+                                >
+                            </div>
+                            <span class="text-sm text-zinc-300"
+                                >Soporte directo con tu asesor técnico asignado</span
+                            >
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-secondary-500/10 border border-secondary-500/20 flex items-center justify-center flex-shrink-0"
+                            >
+                                <svg
+                                    class="w-4 h-4 text-secondary-400"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    ><path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    ></path></svg
+                                >
+                            </div>
+                            <span class="text-sm text-zinc-300"
+                                >Presupuestos transparentes sin costos ocultos</span
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel rounded-3xl p-8 lg:p-10 border border-white/10 reveal"
+                    style="animation-delay: 200ms;"
+                >
+                    <form
+                        action="https://formsubmit.co/contacto@gruporincon.com.co"
+                        method="POST"
+                        class="space-y-5"
+                    >
+                        <input
+                            type="hidden"
+                            name="_subject"
+                            value="Nuevo lead - Diseño Web y E-commerce"
+                        />
+                        <input type="hidden" name="_template" value="table" />
+                        <input type="hidden" name="_captcha" value="false" />
+
+                        <div>
+                            <label
+                                for="nombre"
+                                class="block text-sm font-medium text-zinc-300 mb-1.5 font-display"
+                                >Nombre Completo</label
+                            >
+                            <input
+                                type="text"
+                                id="nombre"
+                                name="nombre"
+                                required
+                                placeholder="Ej: Juan Pérez"
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-secondary-500/50 focus:border-secondary-500/50 transition-all duration-200"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                for="email"
+                                class="block text-sm font-medium text-zinc-300 mb-1.5 font-display"
+                                >Correo Corporativo</label
+                            >
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                placeholder="Ej: juan@empresa.com"
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-secondary-500/50 focus:border-secondary-500/50 transition-all duration-200"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                for="telefono"
+                                class="block text-sm font-medium text-zinc-300 mb-1.5 font-display"
+                                >Teléfono / WhatsApp</label
+                            >
+                            <input
+                                type="tel"
+                                id="telefono"
+                                name="telefono"
+                                required
+                                placeholder="Ej: +57 300 123 4567"
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-secondary-500/50 focus:border-secondary-500/50 transition-all duration-200"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                for="necesidad"
+                                class="block text-sm font-medium text-zinc-300 mb-1.5 font-display"
+                                >¿Qué necesitas desarrollar?</label
+                            >
+                            <select
+                                id="necesidad"
+                                name="necesidad"
+                                required
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-secondary-500/50 focus:border-secondary-500/50 transition-all duration-200"
+                            >
+                                <option
+                                    value=""
+                                    disabled
+                                    selected
+                                    class="bg-zinc-900"
+                                    >Selecciona una opción</option
+                                >
+                                {
+                                    formOptions.needs.map((opt) => (
+                                        <option value={opt} class="bg-zinc-900">
+                                            {opt}
+                                        </option>
+                                    ))
+                                }
+                            </select>
+                        </div>
+
+                        <div>
+                            <label
+                                for="presupuesto"
+                                id="budget-label"
+                                class="block text-sm font-medium text-zinc-300 mb-1.5 font-display"
+                                >Presupuesto estimado</label
+                            >
+                            <select
+                                id="presupuesto"
+                                name="presupuesto"
+                                required
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-secondary-500/50 focus:border-secondary-500/50 transition-all duration-200"
+                            >
+                                <option
+                                    value=""
+                                    disabled
+                                    selected
+                                    class="bg-zinc-900"
+                                    >Selecciona un rango</option
+                                >
+                            </select>
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="glow-btn w-full cursor-pointer inline-flex items-center justify-center gap-2.5 bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide transition-all duration-300 shadow-lg shadow-secondary-500/30"
+                        >
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2.5"
+                                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                                ></path></svg
+                            >
+                            Enviar y recibir propuesta
+                        </button>
+
+                        <p class="text-[11px] text-zinc-600 text-center">
+                            Tus datos están seguros. No compartimos información
+                            con terceros.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    (function () {
+        const host = window.location.hostname;
+        const isVE = host.includes("com.ve") || host.includes("localhost");
+        const select = document.getElementById("presupuesto");
+        const label = document.getElementById("budget-label");
+        if (!select || !label) return;
+
+        const options = isVE
+            ? ["Menos de \$500", "\$500 a \$1.500", "Más de \$1.500"]
+            : ["Menos de \$3M", "\$3M a \$7M", "Más de \$7M"];
+
+        label.textContent = isVE
+            ? "Presupuesto estimado (USD)"
+            : "Presupuesto estimado (COP)";
+
+        options.forEach(function (opt) {
+            const el = document.createElement("option");
+            el.value = opt;
+            el.textContent = opt;
+            el.className = "bg-zinc-900";
+            select.appendChild(el);
+        });
+    })();
+</script>
