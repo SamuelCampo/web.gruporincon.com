@@ -535,7 +535,7 @@ a {
 }
 .timeline {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0;
 }
 .timeline article {
@@ -572,7 +572,7 @@ a {
 }
 .payment-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(280px, 1fr);
   gap: 16px;
 }
 .payment-grid article {
@@ -661,6 +661,23 @@ a {
 .requirements p {
   margin: 0;
   font-size: 14px;
+}
+.requirement-alert {
+  margin-top: 42px;
+  padding: 24px 28px;
+  border: 1px solid rgba(129, 140, 248, 0.4);
+  border-radius: 18px;
+  background: rgba(37, 99, 235, 0.1);
+}
+.requirement-alert strong {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.requirement-alert p {
+  margin: 0;
+  max-width: 900px;
 }
 .cta {
   position: relative;
