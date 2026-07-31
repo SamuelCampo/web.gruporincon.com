@@ -1,0 +1,491 @@
+---
+import "../styles/propuesta-shopify.css";
+const scope = [
+  [
+    "01",
+    "Estrategia & arquitectura",
+    "Estructura comercial, navegación y modelo de catálogo pensado para una marca de perfumería.",
+  ],
+  [
+    "02",
+    "Diseño UI/UX",
+    "Experiencia premium inspirada en la categoría, adaptada a la identidad propia de la marca.",
+  ],
+  [
+    "03",
+    "Tienda Shopify",
+    "Catálogo, colecciones, variantes, inventario, carrito, checkout y cuentas de cliente.",
+  ],
+  [
+    "04",
+    "Pagos con Wompi",
+    "Configuración, pruebas y acompañamiento para habilitar la pasarela en Colombia.",
+  ],
+  [
+    "05",
+    "Contenido & lanzamiento",
+    "Carga inicial, analítica, SEO técnico, pruebas y publicación asistida.",
+  ],
+  [
+    "06",
+    "Entrega & capacitación",
+    "Accesos a nombre del cliente, manual operativo y sesión de formación.",
+  ],
+];
+
+const features = [
+  "Inicio editorial de 8–10 secciones",
+  "Catálogo y colecciones",
+  "Filtros por precio y disponibilidad",
+  "Buscador de productos",
+  "Ficha de perfume personalizada",
+  "Galería y variantes",
+  "Compra rápida y carrito lateral",
+  "Códigos de descuento",
+  "Cálculo y reglas de envío",
+  "Cuentas de cliente",
+  "Newsletter y primera compra",
+  "WhatsApp",
+  "Contacto y página de mayoristas",
+  "Historia, autenticidad y políticas",
+  "GA4, Meta Pixel y Search Console",
+  "SEO técnico básico",
+  "Hasta 30 productos iniciales",
+  "Responsive y accesibilidad esencial",
+];
+
+const phases = [
+  [
+    "Semana 1",
+    "Descubrimiento",
+    "Objetivos, inventario, contenidos y arquitectura.",
+  ],
+  ["Semanas 2–3", "Diseño", "Dirección visual, inicio, catálogo y producto."],
+  [
+    "Semanas 4–6",
+    "Desarrollo",
+    "Shopify, plantillas, Wompi, envíos y analítica.",
+  ],
+  ["Semana 7", "Validación", "Carga, pruebas, capacitación y correcciones."],
+  ["Semana 8", "Lanzamiento", "Publicación y acompañamiento inicial."],
+];
+
+const totalInvestment = 4800000;
+
+const paymentPlan = [
+  ["40", "Inicio del proyecto", "$5.520.000 COP"],
+  ["30", "Aprobación de diseño", "$4.140.000 COP"],
+  ["30", "Antes de publicación", "$4.140.000 COP"],
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="robots"
+      content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"
+    />
+    <meta
+      name="googlebot"
+      content="noindex, nofollow, noarchive, nosnippet, noimageindex"
+    />
+    <meta name="bingbot" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      name="description"
+      content="Propuesta privada para el desarrollo de una tienda Shopify de perfumería."
+    />
+    <title>Propuesta privada · E-commerce Shopify</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="nav-shell">
+      <nav class="nav container" aria-label="Navegación de la propuesta">
+        <a
+          class="brand"
+          href="#inicio"
+          aria-label="Grupo Rincón, volver al inicio"
+        >
+          <img
+            src="/Logo/Logo blanco.png"
+            alt="Grupo Rincón"
+            width="148"
+            height="52"
+          />
+        </a>
+        <div class="nav-links">
+          <a href="#alcance">Alcance</a><a href="#inversion">Inversión</a><a
+            href="#proyeccion">Proyección</a
+          ><a href="#pagos">Pagos</a>
+        </div>
+        <a class="button button-small" href="#aceptacion">Aprobar propuesta</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div><div
+          class="grid-lines"
+        >
+        </div>
+        <div class="container hero-inner">
+          <div class="eyebrow">
+            <span></span> PROPUESTA CONFIDENCIAL · SHOPIFY
+          </div>
+          <h1>
+            Una tienda de perfumes diseñada para <em
+              >vender, crecer y permanecer.</em
+            >
+          </h1>
+          <p class="hero-copy">
+            Diseño y desarrollo de un e-commerce premium en Shopify, inspirado
+            en la experiencia de ILMIN y construido alrededor de la identidad de
+            su marca.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#inversion">Ver inversión <span>↓</span></a>
+            <a class="button button-ghost" href="#alcance">Explorar alcance</a>
+          </div>
+          <div class="hero-note">
+            <span class="lock">●</span> Documento privado · válido por 15 días
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="metrics section-tight"
+        aria-label="Resumen de la propuesta"
+      >
+        <div class="container metrics-grid">
+          <div>
+            <strong>${totalInvestment.toLocaleString("es-CO")}</strong><span
+              >Inversión total</span
+            >
+          </div>
+          <div><strong>6–8</strong><span>Semanas de ejecución</span></div>
+          <div><strong>30</strong><span>Productos incluidos</span></div>
+          <div><strong>30 días</strong><span>Garantía correctiva</span></div>
+        </div>
+      </section>
+
+      <section class="section dark" id="alcance">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow"><span></span> ALCANCE DEL PROYECTO</div>
+            <h2>Todo lo necesario para <em>salir a vender.</em></h2>
+            <p>
+              Un proyecto integral: estrategia, experiencia, tecnología,
+              configuración comercial y acompañamiento.
+            </p>
+          </div>
+          <div class="scope-grid">
+            {
+              scope.map(([n, title, text]) => (
+                <article class="scope-card">
+                  <>
+                    <span>{n}</span>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="section light">
+        <div class="container split">
+          <div class="sticky-copy">
+            <div class="eyebrow dark-eye"><span></span> FUNCIONALIDADES</div>
+            <h2>
+              Una experiencia comparable con la referencia, <em
+                >sin copiarla.</em
+              >
+            </h2>
+            <p>
+              Tomaremos los patrones comerciales que funcionan en ILMIN y los
+              convertiremos en una experiencia propia, administrable y preparada
+              para crecer.
+            </p>
+          </div>
+          <div class="feature-list">
+            {
+              features.map((item, i) => (
+                <div>
+                  <>
+                    <span>{String(i + 1).padStart(2, "0")}</span>
+                    <p>{item}</p>
+                    <b>✓</b>
+                  </>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark" id="inversion">
+        <div class="container">
+          <div class="section-heading center">
+            <div class="eyebrow"><span></span> INVERSIÓN</div>
+            <h2>Una cifra clara. <em>Un alcance definido.</em></h2>
+          </div>
+          <div class="price-card">
+            <div class="price-top">
+              <div>
+                <span>Proyecto recomendado</span><h3>
+                  E-commerce Shopify · Perfumería
+                </h3>
+              </div><div class="price"><small>COP</small>$4.800.000</div>
+            </div>
+            <div class="price-body">
+              <ul>
+                <li>Diseño y desarrollo completo</li><li>
+                  Configuración Wompi y envíos
+                </li><li>Hasta 30 productos</li><li>
+                  Analítica y SEO básico
+                </li><li>Capacitación y entrega</li><li>30 días de garantía</li>
+              </ul>
+              <div class="price-note">
+                <strong>IVA</strong><p>
+                  No incluido. Se aplicará únicamente si corresponde a la
+                  facturación final.
+                </p>
+              </div>
+            </div>
+          </div>
+          <p class="caption">
+            La propuesta no incluye fotografía, identidad visual completa,
+            redacción masiva, ERP, facturación electrónica, pauta publicitaria
+            ni integraciones especiales no descritas.
+          </p>
+        </div>
+      </section>
+
+      <section class="section costs" id="proyeccion">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow dark-eye">
+              <span></span> COSTOS DE OPERACIÓN
+            </div>
+            <h2>Proyección mensual <em>transparente.</em></h2>
+            <p>
+              El cliente será titular de Shopify, dominio, Wompi y cualquier
+              licencia. Recomendamos una configuración liviana para evitar
+              dependencias innecesarias.
+            </p>
+          </div>
+          <div class="cost-table" role="table" aria-label="Costos recurrentes">
+            <div class="table-row table-head" role="row">
+              <span>Concepto</span><span>Frecuencia</span><span>Estimado</span
+              ><span>Tipo</span>
+            </div>
+            <div class="table-row">
+              <b>Shopify Basic</b><span>Mensual</span><strong>USD 39</strong><i
+                >Requerido</i
+              >
+            </div>
+            <div class="table-row">
+              <b>Dominio</b><span>Anual</span><strong>USD 15–30</strong><i
+                >Requerido</i
+              >
+            </div>
+            <div class="table-row">
+              <b>Tema Dawn personalizado</b><span>Único</span><strong
+                >USD 0</strong
+              ><i>Recomendado</i>
+            </div>
+            <div class="table-row">
+              <b>PageFly</b><span>Mensual</span><strong>USD 0–99</strong><i
+                class="optional">Opcional</i
+              >
+            </div>
+            <div class="table-row">
+              <b>LiveChat</b><span>Mensual</span><strong>USD 0–25</strong><i
+                class="optional">Opcional</i
+              >
+            </div>
+            <div class="table-row total">
+              <b>Base mensual recomendada</b><span></span><strong>USD 39</strong
+              ><i>+ dominio anual</i>
+            </div>
+          </div>
+          <div class="transaction-grid">
+            <article>
+              <span>Wompi</span><strong>2,65% + $700 COP + IVA</strong><p>
+                Tarifa publicada por transacción en el Plan Avanzado.
+              </p>
+            </article>
+            <article>
+              <span>Shopify Basic</span><strong>2,29% adicional</strong><p>
+                Comisión por utilizar un proveedor de pagos externo.
+              </p>
+            </article>
+            <article class="accent">
+              <span>Ejemplo: venta de $300.000</span><strong
+                >≈ $14.650 + IVA*</strong
+              ><p>*Estimado combinado antes del IVA aplicable a Wompi.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark timeline-section">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow"><span></span> PLAN DE TRABAJO</div><h2>
+              De la idea al lanzamiento <em>en cinco etapas.</em>
+            </h2>
+          </div>
+          <div class="timeline">
+            {
+              phases.map(([time, title, text], i) => (
+                <article>
+                  <>
+                    <div class="number">{i + 1}</div>
+                    <span>{time}</span>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="section payment" id="pagos">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow dark-eye">
+              <span></span> MÉTODO DE PAGO DEL PROYECTO
+            </div><h2>Pagos vinculados a <em>avances reales.</em></h2>
+          </div>
+          <div class="payment-grid">
+            {
+              paymentPlan.map(([percent, label, amount]) => (
+                <article>
+                  <>
+                    <strong>{percent}</strong>
+                    <h3>{label}</h3>
+                    <p>
+                      COP
+                      {(
+                        totalInvestment *
+                        (Number(percent) / 100)
+                      ).toLocaleString("es-CO")}
+                    </p>
+                  </>
+                </article>
+              ))
+            }
+          </div>
+          <div class="bank-card">
+            <div>
+              <span>DATOS PARA TRANSFERENCIA</span><h3>
+                Se comparten al aceptar la propuesta
+              </h3><p>
+                Por seguridad, los datos bancarios definitivos se enviarán por
+                el canal comercial validado y se incorporarán aquí únicamente
+                con autorización expresa.
+              </p>
+            </div>
+            <div class="bank-status">
+              <span></span> Pendiente de confirmación
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark requirements">
+        <div class="container split">
+          <div>
+            <div class="eyebrow">
+              <span></span> REQUERIMIENTOS DEL CLIENTE
+            </div><h2>Lo que necesitamos para <em>comenzar.</em></h2>
+          </div>
+          <ol>
+            <li>
+              <span>01</span><div>
+                <h3>Marca y contenido</h3><p>
+                  Logo, paleta, tipografías, historia, políticas y fotografías.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>02</span><div>
+                <h3>Catálogo</h3><p>
+                  Productos, precios, inventario, variantes, notas y
+                  descripciones.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>03</span><div>
+                <h3>Información comercial</h3><p>
+                  Datos fiscales, zonas de envío, costos, tiempos y cambios.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>04</span><div>
+                <h3>Cuentas y validaciones</h3><p>
+                  Shopify, dominio, Wompi y activos digitales a nombre del
+                  cliente.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="cta" id="aceptacion">
+        <div class="container cta-inner">
+          <div class="eyebrow"><span></span> SIGUIENTE PASO</div>
+          <h2>
+            Construyamos una marca que también se <em>pueda experimentar.</em>
+          </h2>
+          <p>
+            Al aprobar esta propuesta coordinamos la reunión de inicio, el
+            primer pago y el calendario de entregas.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="button"
+              href="https://wa.me/573219646346?text=Hola%2C%20quiero%20aprobar%20la%20propuesta%20Shopify%20para%20la%20marca%20de%20perfumes."
+              rel="noreferrer">Aprobar por WhatsApp</a
+            ><a class="button button-ghost" href="#inicio">Volver arriba ↑</a>
+          </div>
+          <div class="validity">
+            Propuesta válida por 15 días · Alcance sujeto a los requerimientos
+            aquí descritos.
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="brand">
+          <img
+            src="/Logo/Logo blanco.png"
+            alt="Grupo Rincón"
+            width="148"
+            height="52"
+          />
+        </div><p>
+          Desarrollamos la tecnología que tu negocio necesita para vender más y
+          operar mejor.
+        </p><span>Propuesta confidencial · 2026</span>
+      </div>
+    </footer>
+  </body>
+</html>
