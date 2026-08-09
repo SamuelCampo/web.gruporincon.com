@@ -1,0 +1,125 @@
+---
+import Layout from "./Layout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description}>
+  <header class="relative overflow-hidden border-b border-zinc-900/80 bg-zinc-950 pt-36 pb-16 lg:pt-44 lg:pb-20">
+    <div
+      class="pointer-events-none absolute -top-40 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-blue-700/10 blur-[120px]"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <p class="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-blue-400">
+        Información legal
+      </p>
+      <h1 class="max-w-3xl font-display text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+        Política de privacidad y tratamiento de datos personales
+      </h1>
+      <div class="mt-6 flex flex-col gap-2 text-sm text-zinc-400 sm:flex-row sm:items-center sm:gap-5">
+        <span>Última actualización: {frontmatter.lastUpdated}</span>
+        <span class="hidden text-zinc-700 sm:inline" aria-hidden="true">•</span>
+        <span>Aplicable a gruporincon.com.co y gruporincon.com.ve</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-black py-14 lg:py-20">
+    <article class="legal-content mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <slot />
+    </article>
+  </section>
+</Layout>
+
+<style>
+  :global(.legal-content) {
+    color: #a1a1aa;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  :global(.legal-content h2) {
+    margin-top: 3.5rem;
+    margin-bottom: 1.1rem;
+    scroll-margin-top: 7rem;
+    color: #fff;
+    font-family: "Montserrat", "Inter", system-ui, sans-serif;
+    font-size: clamp(1.25rem, 3vw, 1.55rem);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  :global(.legal-content h2:first-child) {
+    margin-top: 0;
+  }
+
+  :global(.legal-content p) {
+    margin: 0 0 1.15rem;
+  }
+
+  :global(.legal-content ul),
+  :global(.legal-content ol) {
+    margin: 0 0 1.4rem;
+    padding-left: 1.5rem;
+  }
+
+  :global(.legal-content ul) {
+    list-style: disc;
+  }
+
+  :global(.legal-content ol) {
+    list-style: decimal;
+  }
+
+  :global(.legal-content li) {
+    margin-bottom: 0.55rem;
+    padding-left: 0.25rem;
+  }
+
+  :global(.legal-content strong) {
+    color: #e4e4e7;
+    font-weight: 700;
+  }
+
+  :global(.legal-content a) {
+    color: #60a5fa;
+    text-decoration: underline;
+    text-decoration-color: rgba(96, 165, 250, 0.4);
+    text-underline-offset: 0.2em;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  }
+
+  :global(.legal-content a:hover) {
+    color: #93c5fd;
+    text-decoration-color: currentColor;
+  }
+
+  :global(.legal-content code) {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.4rem;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.1rem 0.35rem;
+    color: #d4d4d8;
+    font-size: 0.9em;
+  }
+
+  :global(.legal-content hr) {
+    margin: 3rem 0;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  @media (max-width: 640px) {
+    :global(.legal-content) {
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    :global(.legal-content h2) {
+      margin-top: 2.75rem;
+    }
+  }
+</style>
