@@ -1,0 +1,546 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const title = "Desarrollo y Automatización de Software a Medida | Grupo Rincón";
+const description =
+    "Automatizamos tareas repetitivas y creamos sistemas que trabajan por ti 24/7. Desarrollo de software a medida con Laravel, Python y AWS. Solicita tu diagnóstico gratuito.";
+
+const services = [
+    {
+        title: "Automatización de procesos",
+        description:
+            "Eliminamos tareas manuales como la carga de datos, generación de reportes, envío de correos, actualización de inventarios y conciliaciones.",
+        tag: "RPA & Scripts",
+        color: "blue",
+        icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
+    },
+    {
+        title: "Software a medida",
+        description:
+            "Creamos aplicaciones web, paneles administrativos, portales de clientes y sistemas internos adaptados a tu operación real.",
+        tag: "Sistemas internos",
+        color: "violet",
+        icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+    },
+    {
+        title: "Integración de sistemas y APIs",
+        description:
+            "Conectamos CRM, ERP, e-commerce, hojas de cálculo, WhatsApp y pasarelas de pago para eliminar la doble captura de información.",
+        tag: "Datos conectados",
+        color: "cyan",
+        icon: "M8 9l3 3-3 3m5 0h3m-9 4h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z",
+    },
+    {
+        title: "Automatización con IA",
+        description:
+            "Desarrollamos bots y flujos inteligentes para clasificar documentos, extraer datos, responder consultas y generar reportes.",
+        tag: "Python & IA",
+        color: "emerald",
+        icon: "M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082M9.75 3.104a24.3 24.3 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.25.75M19 14.5l-1.5 1.5M5 14.5l2.25.75M5 14.5l1.5 1.5m8.25-4.5h-5.5",
+    },
+    {
+        title: "Infraestructura en la nube",
+        description:
+            "Desplegamos soluciones seguras y escalables con monitoreo, copias de respaldo y alta disponibilidad para tu operación.",
+        tag: "Cloud & AWS",
+        color: "amber",
+        icon: "M3 15a4 4 0 004 4h9a5 5 0 10-.2-10A7 7 0 103 15z",
+    },
+];
+
+const benefits = [
+    "Ahorra horas de trabajo manual cada semana",
+    "Reduce errores humanos en procesos críticos",
+    "Escala sin aumentar el equipo operativo",
+    "Decide con datos actualizados en tiempo real",
+    "Mantén tus sistemas trabajando 24/7",
+];
+
+const process = [
+    {
+        number: "01",
+        title: "Diagnóstico gratuito",
+        description:
+            "Entendemos tu proceso actual e identificamos los cuellos de botella con mayor impacto.",
+    },
+    {
+        number: "02",
+        title: "Propuesta a medida",
+        description:
+            "Definimos la solución, el alcance, los entregables y un cronograma claro para tu equipo.",
+    },
+    {
+        number: "03",
+        title: "Desarrollo",
+        description:
+            "Construimos por etapas y compartimos avances funcionales para validar temprano cada decisión.",
+    },
+    {
+        number: "04",
+        title: "Implementación",
+        description:
+            "Integramos la solución en tu operación y capacitamos a las personas que la utilizarán.",
+    },
+    {
+        number: "05",
+        title: "Mejora continua",
+        description:
+            "Acompañamos el sistema después del lanzamiento y seguimos optimizando su rendimiento.",
+    },
+];
+
+const technologies = [
+    { name: "Laravel", detail: "Aplicaciones robustas" },
+    { name: "Python", detail: "Datos y automatización" },
+    { name: "AWS", detail: "Infraestructura cloud" },
+    { name: "APIs REST", detail: "Sistemas conectados" },
+    { name: "PostgreSQL / MySQL", detail: "Datos confiables" },
+    { name: "Docker", detail: "Despliegues consistentes" },
+];
+
+const projectTypes = [
+    "Automatizar un proceso repetitivo",
+    "Desarrollar un sistema a medida",
+    "Integrar sistemas o APIs",
+    "Implementar una solución con IA",
+    "Aún no estoy seguro",
+];
+
+const faqs = [
+    {
+        question: "¿Qué tipo de tareas se pueden automatizar?",
+        answer:
+            "Cualquier proceso repetitivo basado en reglas claras: generación de reportes, envío de notificaciones, carga de datos, conciliaciones, respuestas a clientes, gestión de inventario y muchos otros.",
+    },
+    {
+        question: "¿Necesito tener sistemas modernos para automatizar mi negocio?",
+        answer:
+            "No necesariamente. Podemos integrar hojas de cálculo, correos y sistemas existentes mediante APIs o scripts personalizados, sin obligarte a reemplazar todo lo que ya funciona.",
+    },
+    {
+        question: "¿Cuánto tiempo toma desarrollar una automatización o sistema a medida?",
+        answer:
+            "Depende de la complejidad. Una automatización sencilla puede estar lista en 1 o 2 semanas; un sistema más completo suele requerir entre 4 y 8 semanas.",
+    },
+    {
+        question: "¿Ofrecen soporte después de la implementación?",
+        answer:
+            "Sí. Nuestros proyectos incluyen un período de soporte y también ofrecemos planes de mantenimiento continuo para acompañar el crecimiento de la solución.",
+    },
+];
+
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+        },
+    })),
+};
+
+---
+
+<Layout title={title} description={description}>
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+    <section class="relative min-h-screen flex items-center overflow-hidden bg-black">
+        <div class="absolute inset-0 automation-grid opacity-50" aria-hidden="true"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black" aria-hidden="true"></div>
+        <div class="absolute -top-24 left-[12%] h-[34rem] w-[34rem] rounded-full bg-blue-600/10 blur-[150px]" aria-hidden="true"></div>
+        <div class="absolute -bottom-24 right-0 h-[30rem] w-[30rem] rounded-full bg-violet-600/10 blur-[140px]" aria-hidden="true"></div>
+
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-24 lg:pt-40 lg:pb-28">
+            <div class="grid grid-cols-1 lg:grid-cols-[1.08fr_.92fr] gap-14 lg:gap-16 items-center">
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-2.5 rounded-full border border-blue-400/20 bg-blue-500/10 px-4 py-2 mb-8">
+                        <span class="relative flex h-2 w-2">
+                            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-60"></span>
+                            <span class="relative inline-flex h-2 w-2 rounded-full bg-blue-400"></span>
+                        </span>
+                        <span class="text-[10px] sm:text-xs font-bold text-blue-300 tracking-[0.18em] uppercase font-display">Procesos inteligentes · Operación 24/7</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-[4.35rem] font-black text-white leading-[1.02] tracking-tight font-display">
+                        Automatización y<br class="hidden sm:block" />
+                        desarrollo <span class="bg-gradient-to-r from-blue-300 via-indigo-300 to-violet-400 bg-clip-text text-transparent">a medida</span>
+                    </h1>
+
+                    <p class="mt-7 text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl">
+                        Construimos sistemas que trabajan por ti, 24 horas al día, 7 días a la semana: sin errores humanos, sin tareas repetidas y sin tiempo perdido.
+                    </p>
+
+                    <div class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <a href="#diagnostico" class="glow-btn inline-flex justify-center items-center gap-2.5 bg-secondary-500 hover:bg-secondary-600 text-white px-7 py-4 rounded-full text-sm font-bold tracking-wide transition-all duration-300 shadow-lg shadow-blue-900/40">
+                            Solicita tu diagnóstico gratuito
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                        <a href="/#portafolio" class="inline-flex justify-center items-center gap-2 border border-white/15 hover:border-white/30 bg-white/[0.03] hover:bg-white/[0.07] text-zinc-200 px-7 py-4 rounded-full text-sm font-semibold transition-all duration-300">
+                            Ver casos de éxito
+                        </a>
+                    </div>
+
+                    <div class="mt-10 pt-7 border-t border-white/[0.07] flex flex-wrap items-center gap-x-8 gap-y-4 text-xs text-zinc-500 font-display">
+                        <span class="inline-flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Diagnóstico sin costo</span>
+                        <span class="inline-flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Solución 100% personalizada</span>
+                    </div>
+                </div>
+
+                <div class="hidden md:block reveal" style="animation-delay: 180ms;">
+                    <div class="relative max-w-xl mx-auto">
+                        <div class="absolute -inset-12 bg-blue-500/[0.08] blur-[80px] rounded-full"></div>
+                        <div class="relative rounded-[2rem] border border-white/10 bg-zinc-950/80 backdrop-blur-xl shadow-2xl shadow-blue-950/30 overflow-hidden">
+                            <div class="flex items-center justify-between px-5 py-4 border-b border-white/[0.07] bg-white/[0.02]">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-red-400/70"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400/70"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400/70"></span>
+                                </div>
+                                <span class="text-[10px] text-zinc-500 font-mono">workflow_grupo_rincon</span>
+                                <span class="inline-flex items-center gap-1.5 text-[9px] font-bold text-emerald-300 bg-emerald-400/10 border border-emerald-400/15 px-2.5 py-1 rounded-full uppercase tracking-wider"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Activo</span>
+                            </div>
+
+                            <div class="p-6 sm:p-8 space-y-5">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-11 h-11 rounded-xl bg-blue-500/15 border border-blue-400/20 flex items-center justify-center shrink-0">
+                                        <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex justify-between gap-4 mb-2"><span class="text-xs font-bold text-white font-display">Nueva solicitud recibida</span><span class="text-[10px] text-zinc-600">08:42</span></div>
+                                        <div class="h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="h-full w-full rounded-full bg-blue-500"></div></div>
+                                    </div>
+                                </div>
+
+                                <div class="ml-5 h-7 border-l border-dashed border-blue-500/30"></div>
+
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-4">
+                                        <div class="w-8 h-8 rounded-lg bg-violet-500/15 flex items-center justify-center mb-3"><svg class="w-4 h-4 text-violet-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                                        <p class="text-[11px] font-bold text-zinc-200 font-display">Datos validados</p>
+                                        <p class="text-[9px] text-zinc-600 mt-1">Sin intervención manual</p>
+                                    </div>
+                                    <div class="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-4">
+                                        <div class="w-8 h-8 rounded-lg bg-cyan-500/15 flex items-center justify-center mb-3"><svg class="w-4 h-4 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h10M4 18h10"></path></svg></div>
+                                        <p class="text-[11px] font-bold text-zinc-200 font-display">CRM actualizado</p>
+                                        <p class="text-[9px] text-zinc-600 mt-1">API sincronizada</p>
+                                    </div>
+                                </div>
+
+                                <div class="ml-5 h-7 border-l border-dashed border-blue-500/30"></div>
+
+                                <div class="rounded-2xl border border-emerald-400/15 bg-emerald-400/[0.06] p-4 flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-emerald-400/15 flex items-center justify-center shrink-0"><svg class="w-5 h-5 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                                    <div class="flex-1"><p class="text-xs font-bold text-white font-display">Proceso completado</p><p class="text-[10px] text-emerald-300/70 mt-1">Tiempo total: 1.8 segundos</p></div>
+                                    <span class="text-[10px] text-zinc-500 line-through">25 min</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-3 border-t border-white/[0.07] bg-white/[0.015]">
+                                <div class="p-4 text-center border-r border-white/[0.07]"><p class="text-lg font-black text-white font-display">98%</p><p class="text-[9px] text-zinc-600 uppercase tracking-wider">Automático</p></div>
+                                <div class="p-4 text-center border-r border-white/[0.07]"><p class="text-lg font-black text-white font-display">24/7</p><p class="text-[9px] text-zinc-600 uppercase tracking-wider">Disponible</p></div>
+                                <div class="p-4 text-center"><p class="text-lg font-black text-white font-display">0</p><p class="text-[9px] text-zinc-600 uppercase tracking-wider">Errores</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative bg-zinc-950 py-20 lg:py-28 overflow-hidden">
+        <div class="absolute right-0 top-0 w-[32rem] h-[32rem] bg-blue-600/[0.04] rounded-full blur-[120px]" aria-hidden="true"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-[.82fr_1.18fr] gap-12 lg:gap-24 items-start">
+                <div class="reveal lg:sticky lg:top-36">
+                    <span class="inline-flex text-[10px] font-bold text-blue-300 uppercase tracking-[0.2em] bg-blue-500/10 border border-blue-500/15 px-3.5 py-1.5 rounded-full font-display">Menos operación, más crecimiento</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white mt-5 font-display leading-[1.08] tracking-tight">El trabajo repetitivo no debería frenar a tu equipo</h2>
+                </div>
+                <div class="reveal" style="animation-delay: 100ms;">
+                    <p class="text-lg sm:text-xl text-zinc-300 leading-relaxed">Cada hora que tu equipo dedica a copiar datos entre sistemas, generar reportes manuales o responder los mismos correos es una hora que no está generando valor para tu negocio.</p>
+                    <p class="mt-6 text-base text-zinc-500 leading-relaxed">En Grupo Rincón diseñamos <strong class="text-zinc-300 font-semibold">software a medida y sistemas de automatización</strong> que eliminan esas tareas, conectan tus herramientas actuales y permiten que tu operación funcione incluso cuando tú no estás mirando.</p>
+                    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-6"><p class="text-3xl font-black text-white font-display">100%</p><p class="text-sm text-zinc-500 mt-2">Diseñado alrededor de tu proceso real</p></div>
+                        <div class="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-6"><p class="text-3xl font-black text-white font-display">24/7</p><p class="text-sm text-zinc-500 mt-2">Sistemas disponibles para tu operación</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative bg-black py-20 lg:py-28 overflow-hidden">
+        <div class="absolute inset-0 automation-grid opacity-20" aria-hidden="true"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-14 lg:mb-20 reveal">
+                <span class="text-[10px] font-bold text-blue-300 uppercase tracking-[0.2em] bg-blue-500/10 border border-blue-500/15 px-3.5 py-1.5 rounded-full font-display">Servicios especializados</span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mt-5 font-display leading-[1.05] tracking-tight">Tecnología construida alrededor de tu negocio</h2>
+                <p class="mt-6 text-zinc-400 text-base sm:text-lg leading-relaxed max-w-2xl">No adaptamos tu operación a una plantilla. Analizamos cómo trabaja tu empresa y construimos la solución exacta para hacerla más ágil.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5">
+                {services.map((service, i) => (
+                    <article class:list={["service-card group rounded-3xl border border-white/[0.07] bg-zinc-950/80 p-7 lg:p-8 reveal", i < 2 ? "lg:col-span-3" : "lg:col-span-2"]} style={`animation-delay: ${i * 70}ms`}>
+                        <div class:list={["w-12 h-12 rounded-2xl flex items-center justify-center mb-7 border", `service-icon-${service.color}`]}>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d={service.icon}></path></svg>
+                        </div>
+                        <span class="text-[9px] font-bold text-zinc-600 uppercase tracking-[0.18em] font-display">{service.tag}</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-4 font-display tracking-tight">{service.title}</h3>
+                        <p class="text-sm text-zinc-500 leading-relaxed">{service.description}</p>
+                    </article>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section class="relative bg-[#f6f8fc] py-20 lg:py-28 overflow-hidden text-slate-900">
+        <div class="absolute -top-32 -right-24 w-[34rem] h-[34rem] rounded-full bg-blue-200/40 blur-[120px]" aria-hidden="true"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-24 items-center">
+                <div class="reveal">
+                    <span class="inline-flex text-[10px] font-bold text-blue-700 uppercase tracking-[0.2em] bg-blue-100 border border-blue-200 px-3.5 py-1.5 rounded-full font-display">Impacto medible</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-black mt-5 font-display leading-[1.06] tracking-tight">Más capacidad sin sumar complejidad</h2>
+                    <p class="mt-6 text-slate-600 text-lg leading-relaxed">Libera a tu equipo para que se enfoque en decisiones, clientes y crecimiento. La tecnología se encarga del resto.</p>
+                    <a href="#diagnostico" class="mt-9 inline-flex items-center gap-2 text-sm font-bold text-blue-700 hover:text-blue-900 transition-colors font-display">Descubre qué puedes automatizar <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+                </div>
+                <div class="grid gap-3 reveal" style="animation-delay: 120ms;">
+                    {benefits.map((benefit, i) => (
+                        <div class="group flex items-center gap-4 bg-white border border-slate-200/80 rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                            <span class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 text-blue-700 font-black text-xs font-display">{String(i + 1).padStart(2, "0")}</span>
+                            <p class="text-sm sm:text-base font-semibold text-slate-800">{benefit}</p>
+                            <svg class="w-4 h-4 text-blue-600 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative bg-zinc-950 py-20 lg:py-28 overflow-hidden">
+        <div class="absolute left-0 top-1/3 w-[28rem] h-[28rem] rounded-full bg-violet-600/[0.04] blur-[130px]" aria-hidden="true"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-20 reveal">
+                <span class="text-[10px] font-bold text-blue-300 uppercase tracking-[0.2em] bg-blue-500/10 border border-blue-500/15 px-3.5 py-1.5 rounded-full font-display">Cómo trabajamos</span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mt-5 font-display leading-[1.05] tracking-tight">Del proceso manual a una operación inteligente</h2>
+                <p class="mt-6 text-zinc-500 text-base sm:text-lg">Un camino claro, colaborativo y sin sorpresas desde el diagnóstico hasta la mejora continua.</p>
+            </div>
+
+            <div class="relative">
+                <div class="hidden lg:block absolute top-8 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" aria-hidden="true"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+                    {process.map((step, i) => (
+                        <article class="relative rounded-3xl border border-white/[0.07] bg-black/40 p-6 reveal" style={`animation-delay: ${i * 80}ms`}>
+                            <div class="relative z-10 w-16 h-16 rounded-2xl border border-blue-500/20 bg-zinc-950 flex items-center justify-center mb-7 shadow-lg shadow-black/40">
+                                <span class="text-sm font-black text-blue-300 font-display">{step.number}</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white font-display leading-tight">{step.title}</h3>
+                            <p class="mt-3 text-sm text-zinc-600 leading-relaxed">{step.description}</p>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-black py-20 lg:py-28 border-y border-white/[0.05]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 reveal">
+                <div class="max-w-2xl">
+                    <span class="text-[10px] font-bold text-blue-300 uppercase tracking-[0.2em] font-display">Tecnologías</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white mt-4 font-display tracking-tight">Una base robusta para crecer</h2>
+                </div>
+                <p class="max-w-md text-zinc-500 leading-relaxed">Elegimos tecnologías maduras, seguras y escalables según las necesidades de cada proyecto.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                {technologies.map((tech, i) => (
+                    <div class="rounded-2xl border border-white/[0.07] bg-white/[0.025] px-5 py-6 reveal" style={`animation-delay: ${i * 60}ms`}>
+                        <div class="w-2 h-2 rounded-full bg-blue-400 mb-5 shadow-[0_0_12px_rgba(96,165,250,.7)]"></div>
+                        <p class="text-sm font-bold text-white font-display">{tech.name}</p>
+                        <p class="mt-1.5 text-[10px] text-zinc-600 leading-relaxed">{tech.detail}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section class="relative bg-zinc-950 py-20 lg:py-28 overflow-hidden">
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16 reveal">
+                <span class="text-[10px] font-bold text-blue-300 uppercase tracking-[0.2em] bg-blue-500/10 border border-blue-500/15 px-3.5 py-1.5 rounded-full font-display">Preguntas frecuentes</span>
+                <h2 class="text-4xl sm:text-5xl font-black text-white mt-5 font-display tracking-tight">Lo que necesitas saber</h2>
+            </div>
+            <div class="space-y-3">
+                {faqs.map((faq, i) => (
+                    <details class="faq-item group rounded-2xl border border-white/[0.07] bg-black/30 overflow-hidden reveal" style={`animation-delay: ${i * 70}ms`}>
+                        <summary class="flex items-center justify-between gap-6 p-5 sm:p-6 cursor-pointer list-none text-left">
+                            <h3 class="text-sm sm:text-base font-bold text-zinc-200 font-display">{faq.question}</h3>
+                            <span class="faq-plus w-8 h-8 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center shrink-0 text-zinc-400 transition-transform duration-300">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            </span>
+                        </summary>
+                        <div class="px-5 sm:px-6 pb-6 -mt-1"><p class="text-sm text-zinc-500 leading-relaxed max-w-3xl">{faq.answer}</p></div>
+                    </details>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section id="diagnostico" class="relative bg-black py-20 lg:py-28 overflow-hidden scroll-mt-24">
+        <div class="absolute inset-0 automation-grid opacity-25" aria-hidden="true"></div>
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[46rem] h-[32rem] rounded-full bg-blue-600/10 blur-[140px]" aria-hidden="true"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-[.9fr_1.1fr] gap-12 lg:gap-20 items-center">
+                <div class="reveal">
+                <span class="inline-flex items-center gap-2 text-[10px] font-bold text-emerald-300 uppercase tracking-[0.18em] font-display"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>Primera conversación sin costo</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mt-6 font-display leading-[1.05] tracking-tight">¿Listo para que tu negocio trabaje solo?</h2>
+                    <p class="mt-6 text-zinc-400 text-base sm:text-lg leading-relaxed max-w-xl">Cuéntanos brevemente qué quieres mejorar. Guardaremos tus datos de contacto y luego podrás continuar directamente con nuestro equipo por WhatsApp.</p>
+
+                    <div class="mt-10 space-y-4">
+                        {["Diagnóstico inicial sin costo ni compromiso", "Respuesta directa de un asesor técnico", "Recomendaciones basadas en tu operación real"].map((item) => (
+                            <div class="flex items-center gap-4">
+                                <span class="w-10 h-10 rounded-full bg-blue-500/10 border border-blue-400/15 flex items-center justify-center shrink-0"><svg class="w-4 h-4 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span>
+                                <p class="text-sm text-zinc-300">{item}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div class="relative rounded-[2rem] border border-blue-400/15 bg-gradient-to-br from-blue-950/50 via-zinc-950/95 to-black p-6 sm:p-8 lg:p-10 overflow-hidden reveal shadow-2xl shadow-blue-950/20" style="animation-delay: 120ms;">
+                    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent"></div>
+                    <form id="automation-contact-form" action="https://formsubmit.co/ajax/contacto@gruporincon.com.co" method="POST" class="space-y-5" novalidate>
+                        <input type="hidden" name="_subject" value="Nuevo lead - Automatización y Desarrollo" />
+                        <input type="hidden" name="_template" value="table" />
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="automation-name" class="block text-sm font-medium text-zinc-300 mb-1.5 font-display">Nombre completo</label>
+                                <input type="text" id="automation-name" name="nombre" required autocomplete="name" placeholder="Ej: Ana Pérez" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-secondary-500/50 focus:border-secondary-500/50 transition-all duration-200" />
+                            </div>
+                            <div>
+                                <label for="automation-company" class="block text-sm font-medium text-zinc-300 mb-1.5 font-display">Empresa</label>
+                                <input type="text" id="automation-company" name="empresa" autocomplete="organization" placeholder="Ej: Mi Empresa" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-secondary-500/50 focus:border-secondary-500/50 transition-all duration-200" />
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="automation-email" class="block text-sm font-medium text-zinc-300 mb-1.5 font-display">Correo corporativo</label>
+                                <input type="email" id="automation-email" name="email" required autocomplete="email" placeholder="ana@empresa.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-secondary-500/50 focus:border-secondary-500/50 transition-all duration-200" />
+                            </div>
+                            <div>
+                                <label for="automation-phone" class="block text-sm font-medium text-zinc-300 mb-1.5 font-display">Teléfono / WhatsApp</label>
+                                <input type="tel" id="automation-phone" name="telefono" required autocomplete="tel" placeholder="+57 300 123 4567" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-secondary-500/50 focus:border-secondary-500/50 transition-all duration-200" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="automation-type" class="block text-sm font-medium text-zinc-300 mb-1.5 font-display">¿Qué necesitas?</label>
+                            <select id="automation-type" name="tipo_de_proyecto" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-secondary-500/50 focus:border-secondary-500/50 transition-all duration-200">
+                                <option value="" disabled selected class="bg-zinc-900">Selecciona una opción</option>
+                                {projectTypes.map((type) => <option value={type} class="bg-zinc-900">{type}</option>)}
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="automation-process" class="block text-sm font-medium text-zinc-300 mb-1.5 font-display">¿Qué proceso quieres mejorar?</label>
+                            <textarea id="automation-process" name="proceso_a_mejorar" required rows="4" placeholder="Cuéntanos qué tarea consume tiempo, qué herramientas usas y qué resultado esperas." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-secondary-500/50 focus:border-secondary-500/50 transition-all duration-200 resize-none"></textarea>
+                        </div>
+
+                        <label class="flex items-start gap-3 text-xs text-zinc-500 leading-relaxed cursor-pointer">
+                            <input type="checkbox" name="privacidad_aceptada" value="Sí" required class="mt-0.5 h-4 w-4 rounded border-white/20 bg-white/5 accent-blue-600 shrink-0" />
+                            <span>Acepto el tratamiento de mis datos según la <a href="/politica-de-privacidad" target="_blank" class="text-blue-300 hover:text-blue-200 underline underline-offset-2">política de privacidad</a>.</span>
+                        </label>
+
+                        <div id="automation-form-status" class="hidden rounded-xl border px-4 py-3 text-sm" role="status" aria-live="polite"></div>
+
+                        <button type="submit" class="glow-btn w-full cursor-pointer inline-flex items-center justify-center gap-2.5 bg-secondary-500 hover:bg-secondary-600 disabled:bg-zinc-700 disabled:cursor-wait text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide transition-all duration-300 shadow-lg shadow-blue-900/40">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+                            <span class="submit-label">Enviar datos y continuar en WhatsApp</span>
+                        </button>
+                        <p class="text-[11px] text-zinc-600 text-center">Tus datos están seguros. No compartimos información con terceros.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    const contactForm = document.querySelector<HTMLFormElement>("#automation-contact-form");
+
+    contactForm?.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        if (!contactForm.reportValidity()) return;
+
+        const submitButton = contactForm.querySelector<HTMLButtonElement>('button[type="submit"]');
+        const submitLabel = contactForm.querySelector<HTMLElement>(".submit-label");
+        const status = contactForm.querySelector<HTMLElement>("#automation-form-status");
+        const formData = new FormData(contactForm);
+        const originalLabel = submitLabel?.textContent || "Enviar datos y continuar en WhatsApp";
+
+        if (submitButton) submitButton.disabled = true;
+        if (submitLabel) submitLabel.textContent = "Enviando tus datos...";
+        status?.classList.add("hidden");
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: "POST",
+                body: formData,
+                headers: { Accept: "application/json" },
+            });
+
+            if (!response.ok) throw new Error("No fue posible enviar el formulario");
+
+            const name = String(formData.get("nombre") || "").trim();
+            const projectType = String(formData.get("tipo_de_proyecto") || "").trim();
+            const message = `Hola, soy ${name}. Acabo de completar el formulario de diagnóstico para: ${projectType}. Quiero continuar con la conversación.`;
+            window.location.href = `https://wa.me/584262590251?text=${encodeURIComponent(message)}`;
+        } catch {
+            if (status) {
+                status.textContent = "No pudimos enviar tus datos. Revisa tu conexión e inténtalo nuevamente.";
+                status.className = "rounded-xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-300";
+            }
+            if (submitButton) submitButton.disabled = false;
+            if (submitLabel) submitLabel.textContent = originalLabel;
+        }
+    });
+</script>
+
+<style>
+    .automation-grid {
+        background-image:
+            linear-gradient(rgba(59, 130, 246, 0.045) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59, 130, 246, 0.045) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: linear-gradient(to bottom, transparent, black 18%, black 75%, transparent);
+    }
+
+    .service-card {
+        transition: transform 300ms ease, border-color 300ms ease, background-color 300ms ease;
+    }
+
+    .service-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(96, 165, 250, 0.2);
+        background-color: rgba(24, 24, 27, 0.94);
+    }
+
+    .service-icon-blue { color: #93c5fd; background: rgba(59, 130, 246, .1); border-color: rgba(96, 165, 250, .18); }
+    .service-icon-violet { color: #c4b5fd; background: rgba(139, 92, 246, .1); border-color: rgba(167, 139, 250, .18); }
+    .service-icon-cyan { color: #67e8f9; background: rgba(6, 182, 212, .1); border-color: rgba(34, 211, 238, .18); }
+    .service-icon-emerald { color: #6ee7b7; background: rgba(16, 185, 129, .1); border-color: rgba(52, 211, 153, .18); }
+    .service-icon-amber { color: #fcd34d; background: rgba(245, 158, 11, .1); border-color: rgba(251, 191, 36, .18); }
+
+    .faq-item[open] .faq-plus {
+        transform: rotate(45deg);
+        color: #93c5fd;
+        border-color: rgba(96, 165, 250, 0.25);
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+</style>
