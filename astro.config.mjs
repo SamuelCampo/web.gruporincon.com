@@ -9,7 +9,9 @@ import partytown from "@astrojs/partytown";
 export default defineConfig({
   site: process.env.SITE_URL || "https://gruporincon.com.co",
   integrations: [
-    sitemap(),
+    sitemap({
+      filter: (page) => !new URL(page).pathname.startsWith('/propuesta-'),
+    }),
     partytown({
       config: {
         forward: ["dataLayer.push", "gtag"],
