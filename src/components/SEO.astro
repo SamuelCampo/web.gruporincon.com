@@ -1,0 +1,20 @@
+---
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// Define los datos de tu empresa u organización
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService", // O "LocalBusiness" si atiendes en ubicación física
+  name: "Grupo Rincón",
+  url: "https://www.gruporincon.com.co",
+  logo: new URL("/Logo/Logo blanco.png", canonicalURL).toString(), // Asegúrate de colocar la ruta real de tu logo
+  description:
+    "Agencia de desarrollo de software, páginas web y soluciones digitales integrales para PYMES en Colombia y Venezuela.",
+};
+---
+
+<!-- Inyección del JSON-LD en el HTML sin que Astro altere las comillas o caracteres -->
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify(schemaData)}
+/>
