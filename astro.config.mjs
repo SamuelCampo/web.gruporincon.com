@@ -7,7 +7,7 @@ import partytown from "@astrojs/partytown";
 
 
 export default defineConfig({
-  site: process.env.SITE_URL || "https://gruporincon.com.co",
+  site: process.env.SITE_URL || "https://www.gruporincon.com.co",
   integrations: [
     sitemap({
       filter: (page) => !new URL(page).pathname.startsWith('/propuesta-'),
