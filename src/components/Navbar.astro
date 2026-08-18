@@ -4,7 +4,7 @@ const links = [
   { href: "/#servicios", label: "Servicios" },
   { href: "/#proceso", label: "Proceso" },
   { href: "/#portafolio", label: "Portafolio" },
-  { href: "/nosotros", label: "Nosotros" },
+  { href: "/nosotros/", label: "Nosotros" },
 ];
 ---
 
@@ -144,9 +144,9 @@ const links = [
       navbarContainer?.classList.add(
         "backdrop-blur-md",
         "border",
-        "border-white/10"
+        "border-white/10",
       );
-      
+
       if (isMenuOpen) {
         navbarContainer?.classList.add("bg-black");
         navbarContainer?.classList.remove("bg-zinc-950/95");
@@ -154,7 +154,7 @@ const links = [
         navbarContainer?.classList.add("bg-zinc-950/95");
         navbarContainer?.classList.remove("bg-black");
       }
-      
+
       navbarContainer?.classList.remove("glass-panel");
     } else {
       navbarContainer?.classList.remove(
@@ -162,7 +162,7 @@ const links = [
         "bg-black",
         "backdrop-blur-md",
         "border",
-        "border-white/10"
+        "border-white/10",
       );
       navbarContainer?.classList.add("glass-panel");
     }
@@ -175,7 +175,7 @@ const links = [
       const expanded = toggle.getAttribute("aria-expanded") === "true";
       toggle.setAttribute("aria-expanded", String(!expanded));
       menu.classList.toggle("hidden");
-      
+
       if (!expanded) {
         navbarContainer?.classList.remove("rounded-full");
         navbarContainer?.classList.add("rounded-2xl");
