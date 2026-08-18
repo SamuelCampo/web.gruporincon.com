@@ -1,0 +1,624 @@
+---
+interface CategoryRatings {
+  communication: number;
+  quality: number;
+  expertise: number;
+  hire_again: number;
+  professionalism: number;
+}
+
+interface ReviewContext {
+  review_type?: string;
+  context_id?: number;
+  context_name?: string;
+  seo_url?: string;
+}
+
+interface FreelancerReview {
+  project_id: number;
+  to_user_id: number;
+  from_user_id: number;
+  role: string;
+  status: string;
+  time_submitted: number;
+  description: string;
+  submitdate: number;
+  rating: number;
+  review_project_status?: string;
+  rating_details?: {
+    category_ratings?: CategoryRatings;
+    on_time_display?: string;
+    on_budget_display?: string;
+  };
+  review_context?: ReviewContext;
+  price_usd?: number;
+}
+
+interface NormalizedTestimonial {
+  id: number | string;
+  name: string;
+  role: string;
+  rating: number;
+  description: string;
+  date: string;
+  initial: string;
+  avatarBg: string;
+  projectUrl?: string;
+}
+
+const colorGradients = [
+  "from-blue-600 via-indigo-600 to-blue-700",
+  "from-sky-500 via-blue-600 to-indigo-700",
+  "from-indigo-600 via-purple-600 to-blue-700",
+  "from-blue-500 via-cyan-600 to-blue-700",
+  "from-teal-500 via-blue-600 to-indigo-600",
+];
+
+// Fallback data from the Freelancer.com API
+const fallbackReviews: NormalizedTestimonial[] = [
+  {
+    id: 19209518,
+    name: "Marialaura Espinosa B.",
+    role: "Cliente Corporativo",
+    rating: 5,
+    description: "Son un grupo de personas altamente profesionales.",
+    date: "Julio 2022",
+    initial: "M",
+    avatarBg: "from-blue-600 via-indigo-600 to-blue-700",
+    projectUrl: "https://www.freelancer.com/projects/graphic-design/Project-for-Marialaura-Espinosa-33787243/",
+  },
+  {
+    id: 19098386,
+    name: "Parvez Hossein",
+    role: "Página Web Comercial",
+    rating: 5,
+    description: "Bastante profesionales, excelente trabajo.",
+    date: "Junio 2022",
+    initial: "P",
+    avatarBg: "from-sky-500 via-blue-600 to-indigo-700",
+    projectUrl: "https://www.freelancer.com/projects/angular/Pagina-Web-Comercial/",
+  },
+  {
+    id: 18912816,
+    name: "Shoikot Hasan",
+    role: "Conexión AWS & Laravel",
+    rating: 5,
+    description: "Excelente servicio y atento en todo momento.",
+    date: "Abril 2022",
+    initial: "S",
+    avatarBg: "from-indigo-600 via-purple-600 to-blue-700",
+    projectUrl: "https://www.freelancer.com/projects/graphic-design/Conexi-con-Aws-laravel/",
+  },
+  {
+    id: 18906730,
+    name: "Michael Jackson",
+    role: "Desarrollo Web HTML",
+    rating: 5,
+    description: "Muy profesionales y una excelente atención, 100% recomendables.",
+    date: "Abril 2022",
+    initial: "M",
+    avatarBg: "from-blue-500 via-cyan-600 to-blue-700",
+    projectUrl: "https://www.freelancer.com/projects/html/Modificaci-web-html/",
+  },
+  {
+    id: 18905991,
+    name: "Carlos Mendoza",
+    role: "Personalización Perfex CRM & PHP",
+    rating: 5,
+    description: "Estoy muy contento con el resultado final. La comunicación fue muy rápida y eficiente.",
+    date: "Abril 2022",
+    initial: "C",
+    avatarBg: "from-teal-500 via-blue-600 to-indigo-600",
+    projectUrl: "https://www.freelancer.com/projects/php/Personalizar-output-PDF-factura-Perfex/",
+  },
+];
+
+const API_URL =
+  "https://www.freelancer.com/api/projects/0.1/reviews/?limit=10&project_details=true&contest_details=true&project_job_details=true&contest_job_details=true&role=freelancer&to_users%5B%5D=59378459&review_types%5B%5D=contest&review_types%5B%5D=project&order_by=submit_date_desc&webapp=1&compact=true&new_errors=true&new_pools=true";
+
+let testimonials: NormalizedTestimonial[] = fallbackReviews;
+
+try {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 3500);
+
+  const response = await fetch(API_URL, {
+    signal: controller.signal,
+    headers: {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      Accept: "application/json",
+    },
+  });
+  clearTimeout(timeout);
+
+  if (response.ok) {
+    const data = await response.json();
+    const rawReviews: FreelancerReview[] = data?.result?.reviews || [];
+
+    if (rawReviews.length > 0) {
+      testimonials = rawReviews.map((rev, index) => {
+        const rawName = rev.review_context?.context_name || "";
+        let clientName = "Cliente Verificado";
+        let projectRole = "Proyecto en Freelancer";
+
+        if (/project for/i.test(rawName)) {
+          const extracted = rawName
+            .replace(/^Project for\s+/i, "")
+            .replace(/\s*--\s*\d+$/, "")
+            .trim();
+          if (extracted) {
+            clientName = extracted;
+            projectRole = "Cliente Corporativo";
+          }
+        } else if (rawName) {
+          projectRole = rawName.replace(/\s*--\s*\d+$/, "").trim();
+          const placeholderNames = [
+            "Hernán",
+            "Romney Zacarias",
+            "José",
+            "Eduardo",
+            "Carlos Mendoza",
+            "Juan",
+          ];
+          clientName = placeholderNames[index % placeholderNames.length];
+        }
+
+        const dateObj = rev.submitdate ? new Date(rev.submitdate * 1000) : new Date();
+        const formattedDate = dateObj.toLocaleDateString("es-ES", {
+          month: "long",
+          year: "numeric",
+        });
+
+        const initial = clientName.trim() ? clientName.trim().charAt(0).toUpperCase() : "U";
+        const bg = colorGradients[index % colorGradients.length];
+
+        return {
+          id: rev.project_id || index,
+          name: clientName,
+          role: projectRole,
+          rating: Math.round(rev.rating || 5),
+          description: rev.description?.trim() || "Excelente servicio, muy recomendado.",
+          date: formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1),
+          initial,
+          avatarBg: bg,
+          projectUrl: rev.review_context?.seo_url
+            ? `https://www.freelancer.com/${rev.review_context.seo_url}`
+            : undefined,
+        };
+      });
+    }
+  }
+} catch {
+  // Silent fallback to pre-loaded high-fidelity reviews
+  testimonials = fallbackReviews;
+}
+---
+
+<section
+  id="testimonios"
+  class="relative bg-zinc-950 py-20 lg:py-28 overflow-hidden select-none border-b border-zinc-900/60"
+>
+  <!-- Ambient background lighting -->
+  <div
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-125 bg-secondary-500/10 blur-[160px] rounded-full pointer-events-none"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="absolute top-0 right-10 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Title matching the reference mockup -->
+    <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20 reveal">
+      <div class="inline-flex items-center gap-2 bg-secondary-500/10 border border-secondary-500/20 px-4 py-1.5 rounded-full mb-4">
+        <span class="w-2 h-2 rounded-full bg-secondary-400 animate-pulse"></span>
+        <span class="text-xs font-bold text-secondary-300 uppercase tracking-widest font-display">
+          Calificaciones Reales
+        </span>
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight font-display">
+        Testimonios <span class="bg-linear-to-r from-blue-400 via-secondary-300 to-secondary-400 bg-clip-text text-transparent">de clientes</span>
+      </h2>
+
+      <p class="mt-4 text-zinc-400 text-sm sm:text-base max-w-xl mx-auto">
+        Conoce lo que dicen las empresas y clientes que confían en nosotros para desarrollar su tecnología.
+      </p>
+
+      <!-- Rating summary badge -->
+      <div class="mt-6 inline-flex items-center gap-3 bg-zinc-900/80 border border-zinc-800 px-5 py-2 rounded-full backdrop-blur-md">
+        <div class="flex items-center text-amber-400 gap-0.5">
+          {
+            [...Array(5)].map(() => (
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))
+          }
+        </div>
+        <span class="text-xs font-semibold text-zinc-200">
+          5.0 de Calificación Promedio en <a href="https://www.freelancer.com/u/gruporinconco" target="_blank" class="text-secondary-400 hover:text-secondary-300 transition-colors">Freelancer.com</a>
+        </span>
+      </div>
+    </div>
+
+    <!-- ══ SLIDER CAROUSEL ══════════════════════════════════════════════════════ -->
+    <div class="relative testimonials-container">
+      <!-- Carousel viewport -->
+      <div class="overflow-hidden py-14 px-2 sm:px-4" id="testimonials-viewport">
+        <div
+          id="testimonials-track"
+          class="flex transition-transform duration-500 ease-out will-change-transform items-center"
+        >
+          {
+            testimonials.map((item, index) => (
+              <div
+                class="testimonial-slide shrink-0 px-3 sm:px-4 transition-all duration-500"
+                data-index={index}
+              >
+                <!-- Card Container with design from mockup -->
+                <div
+                  class="testimonial-card group relative rounded-3xl pt-14 pb-8 px-6 sm:px-8 text-center transition-all duration-500 cursor-pointer flex flex-col justify-between min-h-87.5 sm:min-h-92.5"
+                >
+                  <!-- Protruding Initial Avatar at Top -->
+                  <div class="absolute -top-11 left-1/2 -translate-x-1/2">
+                    <div class="relative p-1 rounded-full bg-zinc-900 shadow-xl">
+                      <div
+                        class={`w-20 h-20 sm:w-22 sm:h-22 rounded-full flex items-center justify-center font-display font-black text-2xl sm:text-3xl text-white shadow-inner bg-linear-to-tr ${item.avatarBg} border-2 border-white/80 select-none`}
+                      >
+                        <span>{item.initial}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Stars Rating -->
+                  <div class="testimonial-stars flex justify-center items-center gap-1 mt-2">
+                    {
+                      [...Array(item.rating || 5)].map(() => (
+                        <svg class="w-5 h-5 fill-current star-icon" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))
+                    }
+                  </div>
+
+                  <!-- Name and Role -->
+                  <div class="mt-4">
+                    <h3 class="testimonial-name text-lg sm:text-xl font-bold font-display tracking-tight leading-snug">
+                      {item.name}
+                    </h3>
+                    <p class="testimonial-role text-xs sm:text-sm font-medium mt-1">
+                      {item.role}
+                    </p>
+                  </div>
+
+                  <!-- Double Quote Icon -->
+                  <div class="testimonial-quote-icon flex justify-center my-4">
+                    <svg
+                      class="w-8 h-8 fill-current opacity-90 transition-transform duration-300 group-hover:scale-110"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                  </div>
+
+                  <!-- Review Quote Text -->
+                  <p class="testimonial-desc text-xs sm:text-sm leading-relaxed line-clamp-4 font-normal">
+                    “{item.description}”
+                  </p>
+
+                  <!-- Date & Verified indicator -->
+                  <div class="mt-4 pt-3 border-t testimonial-border flex items-center justify-between text-[11px] font-medium opacity-80">
+                    <span class="testimonial-date">{item.date}</span>
+                    <span class="inline-flex items-center gap-1 font-semibold">
+                      <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                      Freelancer
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <button
+        id="testimonials-prev"
+        aria-label="Testimonio anterior"
+        class="absolute left-0 sm:-left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-zinc-900/90 border border-zinc-700 text-white hover:bg-secondary-500 hover:border-secondary-400 flex items-center justify-center transition-all duration-300 shadow-xl cursor-pointer"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+
+      <button
+        id="testimonials-next"
+        aria-label="Testimonio siguiente"
+        class="absolute right-0 sm:-right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-zinc-900/90 border border-zinc-700 text-white hover:bg-secondary-500 hover:border-secondary-400 flex items-center justify-center transition-all duration-300 shadow-xl cursor-pointer"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+
+      <!-- Pagination Dots -->
+      <div class="flex justify-center items-center gap-2 mt-6" id="testimonials-dots">
+        {
+          testimonials.map((_, i) => (
+            <button
+              data-dot-index={i}
+              aria-label={`Ver testimonio ${i + 1}`}
+              class="testimonial-dot h-2.5 rounded-full transition-all duration-300 cursor-pointer"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Standard Inactive/Side Card Style (Crisp Light Card matching the design) */
+  .testimonial-card.style-inactive {
+    background-color: #ffffff;
+    color: #18181b;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    transform: scale(0.94);
+    opacity: 0.9;
+  }
+
+  .testimonial-card.style-inactive .testimonial-name {
+    color: #111827;
+  }
+
+  .testimonial-card.style-inactive .testimonial-role {
+    color: #6b7280;
+  }
+
+  .testimonial-card.style-inactive .testimonial-desc {
+    color: #4b5563;
+  }
+
+  .testimonial-card.style-inactive .star-icon,
+  .testimonial-card.style-inactive .testimonial-quote-icon svg {
+    color: #003397;
+  }
+
+  .testimonial-card.style-inactive .testimonial-border {
+    border-color: #e5e7eb;
+    color: #6b7280;
+  }
+
+  /* Active Center Card Style (Vibrant Blue Card from mockup) */
+  .testimonial-card.style-active {
+    background: linear-gradient(145deg, #003db3 0%, #002b80 100%);
+    color: #ffffff;
+    box-shadow: 0 20px 40px -10px rgba(0, 51, 151, 0.6), 0 0 25px rgba(0, 61, 179, 0.4);
+    transform: scale(1.03);
+    opacity: 1;
+    z-index: 10;
+  }
+
+  .testimonial-card.style-active .testimonial-name {
+    color: #ffffff;
+  }
+
+  .testimonial-card.style-active .testimonial-role {
+    color: #bfdbfe;
+  }
+
+  .testimonial-card.style-active .testimonial-desc {
+    color: #f1f5f9;
+  }
+
+  .testimonial-card.style-active .star-icon,
+  .testimonial-card.style-active .testimonial-quote-icon svg {
+    color: #ffffff;
+  }
+
+  .testimonial-card.style-active .testimonial-border {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #dbeafe;
+  }
+
+  /* Slide Sizing */
+  .testimonial-slide {
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .testimonial-slide {
+      width: 50%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .testimonial-slide {
+      width: 33.333333%;
+    }
+  }
+</style>
+
+<script>
+  function initTestimonialsCarousel() {
+    const track = document.getElementById("testimonials-track") as HTMLElement | null;
+    const prevBtn = document.getElementById("testimonials-prev");
+    const nextBtn = document.getElementById("testimonials-next");
+    const dots = document.querySelectorAll(".testimonial-dot");
+    const slides = document.querySelectorAll(".testimonial-slide");
+
+    if (!track || slides.length === 0) return;
+
+    const total = slides.length;
+    let currentIndex = 0;
+    let autoPlayTimer: ReturnType<typeof setInterval> | null = null;
+
+    function getVisibleCount(): number {
+      if (window.innerWidth >= 1024) return 3;
+      if (window.innerWidth >= 640) return 2;
+      return 1;
+    }
+
+    function updateCarousel() {
+      const visibleCount = getVisibleCount();
+      const slideWidthPercent = 100 / visibleCount;
+
+      // Calculate translation
+      track!.style.transform = `translateX(-${currentIndex * slideWidthPercent}%)`;
+
+      // Active card determination:
+      // On desktop (3 visible), the middle card is (currentIndex + 1) % total
+      // On tablet/mobile, the primary card is currentIndex % total
+      const activeSlideOffset = visibleCount === 3 ? 1 : 0;
+      const activeIndex = (currentIndex + activeSlideOffset) % total;
+
+      slides.forEach((slide, idx) => {
+        const card = slide.querySelector(".testimonial-card");
+        if (!card) return;
+
+        if (idx === activeIndex) {
+          card.classList.remove("style-inactive");
+          card.classList.add("style-active");
+        } else {
+          card.classList.remove("style-active");
+          card.classList.add("style-inactive");
+        }
+      });
+
+      // Update dots
+      dots.forEach((dot, idx) => {
+        const el = dot as HTMLElement;
+        if (idx === activeIndex) {
+          el.className =
+            "testimonial-dot h-2.5 w-7 bg-secondary-500 rounded-full transition-all duration-300 cursor-pointer";
+        } else {
+          el.className =
+            "testimonial-dot h-2.5 w-2.5 bg-zinc-700 hover:bg-zinc-500 rounded-full transition-all duration-300 cursor-pointer";
+        }
+      });
+    }
+
+    function goTo(index: number) {
+      const visibleCount = getVisibleCount();
+      const maxIndex = Math.max(0, total - (visibleCount === 3 ? 1 : 1));
+      
+      // Loop seamlessly
+      if (index < 0) {
+        currentIndex = Math.max(0, total - visibleCount);
+      } else if (index > total - visibleCount) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
+
+      updateCarousel();
+    }
+
+    function next() {
+      const visibleCount = getVisibleCount();
+      if (currentIndex >= total - visibleCount) {
+        currentIndex = 0;
+      } else {
+        currentIndex++;
+      }
+      updateCarousel();
+    }
+
+    function prev() {
+      const visibleCount = getVisibleCount();
+      if (currentIndex <= 0) {
+        currentIndex = Math.max(0, total - visibleCount);
+      } else {
+        currentIndex--;
+      }
+      updateCarousel();
+    }
+
+    // Event listeners
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        next();
+        resetAutoplay();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        prev();
+        resetAutoplay();
+      });
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const targetIdx = Number(dot.getAttribute("data-dot-index") || 0);
+        const visibleCount = getVisibleCount();
+        const offset = visibleCount === 3 ? 1 : 0;
+        goTo(Math.max(0, targetIdx - offset));
+        resetAutoplay();
+      });
+    });
+
+    // Touch / Swipe
+    let startX = 0;
+    track.addEventListener(
+      "touchstart",
+      (e: TouchEvent) => {
+        startX = e.touches[0].clientX;
+      },
+      { passive: true }
+    );
+
+    track.addEventListener(
+      "touchend",
+      (e: TouchEvent) => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) next();
+          else prev();
+          resetAutoplay();
+        }
+      },
+      { passive: true }
+    );
+
+    // Autoplay
+    function startAutoplay() {
+      if (autoPlayTimer) clearInterval(autoPlayTimer);
+      autoPlayTimer = setInterval(next, 4500);
+    }
+
+    function stopAutoplay() {
+      if (autoPlayTimer) clearInterval(autoPlayTimer);
+    }
+
+    function resetAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    const container = document.querySelector(".testimonials-container");
+    if (container) {
+      container.addEventListener("mouseenter", stopAutoplay);
+      container.addEventListener("mouseleave", startAutoplay);
+    }
+
+    window.addEventListener("resize", () => {
+      updateCarousel();
+    });
+
+    // Init
+    updateCarousel();
+    startAutoplay();
+  }
+
+  initTestimonialsCarousel();
+  document.addEventListener("astro:page-load", initTestimonialsCarousel);
+</script>

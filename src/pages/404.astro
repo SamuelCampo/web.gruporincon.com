@@ -1,0 +1,208 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const quickLinks = [
+  {
+    title: "Servicios",
+    description: "Desarrollo web, tiendas online, apps y software",
+    href: "/#servicios",
+    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+  },
+  {
+    title: "Portafolio",
+    description: "Conoce proyectos reales y casos de éxito",
+    href: "/#portafolio",
+    icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
+  },
+  {
+    title: "Nosotros",
+    description: "Más de 10 años creando soluciones digitales",
+    href: "/nosotros",
+    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+  },
+];
+---
+
+<Layout
+  title="404 — Página no encontrada | Grupo Rincon"
+  description="La página que buscas no existe o ha sido movida. Vuelve al inicio o comunícate con un asesor de Grupo Rincon por WhatsApp."
+>
+  <section
+    class="min-h-[88vh] flex items-center justify-center pt-32 pb-20 lg:pt-36 lg:pb-28 bg-black relative overflow-hidden"
+  >
+    <!-- Background Gradient Glows -->
+    <div
+      class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-md h-112 sm:w-152 sm:h-152 lg:w-3xl lg:h-192 rounded-full bg-secondary-500/15 blur-[140px] pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="absolute bottom-10 right-10 w-72 h-72 rounded-full bg-blue-600/10 blur-[110px] pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="absolute top-20 left-10 w-60 h-60 rounded-full bg-indigo-500/5 blur-[100px] pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+
+    <!-- Tech Grid Background Texture -->
+    <div
+      class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] bg-size-[28px_28px] opacity-40 pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div
+      class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+    >
+      <!-- Badge -->
+      <div
+        class="reveal inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-secondary-500/10 border border-secondary-500/25 text-secondary-300 mb-6"
+      >
+        <span class="relative flex h-2 w-2">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-400 opacity-75"
+          ></span>
+          <span
+            class="relative inline-flex rounded-full h-2 w-2 bg-secondary-500"
+          ></span>
+        </span>
+        <span>Error 404 • Página No Encontrada</span>
+      </div>
+
+      <!-- Big Glowing 404 Number -->
+      <div class="reveal select-none my-2 sm:my-4">
+        <span
+          class="text-8xl sm:text-9xl lg:text-[11rem] font-black tracking-tighter font-display bg-linear-to-b from-white via-zinc-200 to-zinc-600 bg-clip-text text-transparent inline-block leading-none drop-shadow-[0_0_40px_rgba(0,51,151,0.35)]"
+        >
+          404
+        </span>
+      </div>
+
+      <!-- Main Heading & Subtext -->
+      <div class="reveal max-w-2xl mx-auto">
+        <h1
+          class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight font-display"
+        >
+          ¿Te has perdido en el espacio digital?
+        </h1>
+        <p
+          class="mt-4 text-zinc-400 text-sm sm:text-base lg:text-lg leading-relaxed"
+        >
+          La página que buscas no existe, ha cambiado de dirección o fue
+          retirada. No te preocupes, puedes volver al inicio o hablar
+          directamente con un asesor de nuestro equipo.
+        </p>
+      </div>
+
+      <!-- Main CTA Buttons -->
+      <div
+        class="reveal mt-8 mb-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto"
+      >
+        <!-- Button: Inicio -->
+        <a
+          href="/"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white hover:bg-zinc-200 text-zinc-950 px-7 py-3.5 rounded-full text-sm font-bold tracking-wide shadow-lg shadow-white/10 hover:shadow-white/20 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            stroke-width="2.5"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+            ></path>
+          </svg>
+          Volver al Inicio
+        </a>
+
+        <!-- Button: WhatsApp Advisor -->
+        <a
+          href="https://wa.me/584262590251?text=Hola%20Grupo%20Rinc%C3%B3n,%20estaba%20navegando%20en%20su%20web%20y%20necesito%20ayuda%20de%20un%20asesor."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="glow-btn w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-secondary-500 hover:bg-secondary-600 text-white px-7 py-3.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+            ></path>
+          </svg>
+          Contactar Asesor
+        </a>
+      </div>
+
+      <!-- Quick Navigation Cards -->
+      <div class="reveal mt-14 pt-10 border-t border-white/5 max-w-3xl mx-auto">
+        <p
+          class="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-6"
+        >
+          O explora nuestras secciones principales
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+          {
+            quickLinks.map((item) => (
+              <a
+                href={item.href}
+                class="glass-panel glass-panel-hover rounded-2xl p-5 group flex flex-col justify-between transition-all duration-300"
+              >
+                <div class="flex items-center justify-between mb-3">
+                  <div class="w-9 h-9 rounded-xl bg-secondary-500/10 border border-secondary-500/20 flex items-center justify-center text-secondary-400 group-hover:text-white group-hover:border-secondary-500/40 transition-colors">
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d={item.icon}
+                      />
+                    </svg>
+                  </div>
+                  <svg
+                    class="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-1 transition-all duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h2 class="text-sm font-bold text-white group-hover:text-secondary-300 transition-colors">
+                    {item.title}
+                  </h2>
+                  <p class="text-xs text-zinc-400 mt-1 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
