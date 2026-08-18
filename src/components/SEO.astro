@@ -3,12 +3,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 // Define los datos de tu empresa u organización
 const schemaData = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService", // O "LocalBusiness" si atiendes en ubicación física
+  "@type": "ProfessionalService",
   name: "Grupo Rincón",
-  url: "https://www.gruporincon.com.co",
-  logo: new URL("/Logo/Logo blanco.png", canonicalURL).toString(), // Asegúrate de colocar la ruta real de tu logo
+  url: "https://www.gruporincon.com.co/",
+  logo: "https://www.gruporincon.com.co/Logo%20blanco.png",
+  image: "https://www.gruporincon.com.co/Logo%20blanco.png",
   description:
-    "Agencia de desarrollo de software, páginas web y soluciones digitales integrales para PYMES en Colombia y Venezuela.",
+    "Agencia de desarrollo de software, páginas web y soluciones digitales integrales para PYMEs en Colombia y Venezuela.",
+  telephone: "+584262590251",
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Caracas",
+    addressRegion: "Miranda",
+    postalCode: "1070",
+    addressCountry: "VE",
+  },
   sameAs: [
     "https://www.facebook.com/profile.php?id=61586834372570",
     "https://www.instagram.com/gruporinconve/",
