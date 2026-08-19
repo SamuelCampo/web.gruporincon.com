@@ -1,4 +1,6 @@
 ---
+import Image from "astro/components/Image.astro";
+
 const projects = [
   {
     name: "Avalora",
@@ -99,8 +101,10 @@ const projects = [
               aria-label={`Ver proyecto ${project.name}`}
             >
               <!-- Background Image -->
-              <img
+              <Image
                 src={project.image}
+                width={1000}
+                height={1000}
                 alt={`Proyecto ${project.name} — ${project.industry}`}
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 loading={i === 0 ? "eager" : "lazy"}

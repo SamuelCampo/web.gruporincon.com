@@ -5,19 +5,48 @@
 <section
   class="relative min-h-screen flex items-center overflow-hidden bg-black"
 >
-  <!-- ══ VIDEO BACKGROUND ══════════════════════════════════════════════════ -->
+  <!-- ══ MOBILE BACKGROUND ════════════════════════════════════════════════ -->
+  <img
+    src="/hero/hero_mobile_video.webp"
+    alt=""
+    class="absolute inset-0 h-full w-full object-cover md:hidden"
+    fetchpriority="high"
+    decoding="async"
+    aria-hidden="true"
+  />
+
+  <!-- ══ DESKTOP VIDEO BACKGROUND ══════════════════════════════════════════ -->
   <video
     id="hero-video"
-    class="absolute inset-0 w-full h-full object-cover"
+    class="absolute inset-0 hidden h-full w-full object-cover md:block"
     autoplay
     loop
     muted
     playsinline
-    preload="auto"
+    preload="none"
     aria-hidden="true"
   >
-    <source src="/hero/Video 1.mp4" type="video/mp4" />
   </video>
+
+  <script>
+    const desktopMq = window.matchMedia("(min-width: 768px)");
+    const video = document.getElementById("hero-video") as HTMLVideoElement | null;
+
+    function loadHeroVideo() {
+      if (!video || video.querySelector("source") || !desktopMq.matches) return;
+
+      const source = document.createElement("source");
+      source.src = "/hero/Video 1.mp4";
+      source.type = "video/mp4";
+      video.appendChild(source);
+      video.load();
+      video.play().catch(() => {});
+    }
+
+    loadHeroVideo();
+    desktopMq.addEventListener("change", loadHeroVideo);
+  </script>
+
 
   <!-- ══ OVERLAYS ══════════════════════════════════════════════════════════ -->
   <!-- Dark veil so text is always readable -->
