@@ -24,4 +24,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   adapter: vercel(),
+  trailingSlash: 'always', // Agregamos esta configuración para que siempre se generen URLs con slash al final
 });
