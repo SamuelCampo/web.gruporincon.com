@@ -22,12 +22,16 @@ const links = [
         class="flex items-center gap-2 cursor-pointer"
         aria-label="Grupo Rincon - Inicio"
       >
-        <img
-          src="/Logo/Logo blanco.png"
-          alt="Grupo Rincon"
-          class="max-w-36 w-auto object-contain"
-          loading="eager"
-        />
+        <picture>
+          <source srcset="/Logo/Logo blanco.avif" type="image/avif" />
+          <source srcset="/Logo/Logo blanco.webp" type="image/webp" />
+          <img
+            src="/Logo/Logo blanco.webp"
+            alt="Grupo Rincon"
+            class="max-w-36 w-auto object-contain"
+            loading="eager"
+          />
+        </picture>
       </a>
 
       <!-- Desktop Links -->

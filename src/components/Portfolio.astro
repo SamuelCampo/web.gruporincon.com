@@ -1,48 +1,46 @@
 ---
-import Image from "astro/components/Image.astro";
-
 const projects = [
   {
     name: "Avalora",
     url: "https://avalora.com",
     industry: "Tecnología",
     description: " Integradora Tecnológica con años que desarrolla sistemas, infraestructuras, servicios y soluciones.",
-    image: "/portfolio/Avalora.png",
+    image: "/portfolio/Avalora",
   },
   {
     name: "Karina Rivera Mentora",
     url: "https://karinariveramentora.com",
     industry: "Coaching & Educación",
     description: "Sitio de alto impacto para coach certificada con embudo de ventas, agenda integrada y membresías.",
-    image: "/portfolio/Karina.png",
+    image: "/portfolio/Karina",
   },
   {
     name: "Explorex Group",
     url: "https://explorexgroup.com",
     industry: "Transporte",
     description: "Servicio de transporte turístico, viajes corporativos con vehículos modernos y conductores altamente capacitados. ",
-    image: "/portfolio/Explorex.png",
+    image: "/portfolio/Explorex",
   },
   {
     name: "Colectivo Traso",
     url: "https://colectivotraso.org",
     industry: "Organización Social",
     description: "Plataforma de captación de donantes y voluntarios para organización sin fines de lucro.",
-    image: "/portfolio/Colectivo.png",
+    image: "/portfolio/Colectivo",
   },
   {
     name: "Doral Cartagena",
     url: "https://doralcartagena.com",
     industry: "Hotelería & Turismo",
     description: "Equipo de constructores visionarios con experiencia en desarrollo urbano y residencial.",
-    image: "/portfolio/Doral.png",
+    image: "/portfolio/Doral",
   },
   {
     name: "Mexicarga",
     url: "https://mexicarga.com",
     industry: "Logística",
     description: "Equipo líder en soluciones logísticas, especializado en el envío y exportación de paquetería hacia toda la República Mexicana. ",
-    image: "/portfolio/mexicarga.png",
+    image: "/portfolio/mexicarga",
   },
 ];
 ---
@@ -101,14 +99,18 @@ const projects = [
               aria-label={`Ver proyecto ${project.name}`}
             >
               <!-- Background Image -->
-              <Image
-                src={project.image}
-                width={1000}
-                height={1000}
-                alt={`Proyecto ${project.name} — ${project.industry}`}
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                loading={i === 0 ? "eager" : "lazy"}
-              />
+              <picture class="absolute inset-0 h-full w-full">
+                <source srcset={`${project.image}.avif`} type="image/avif" />
+                <source srcset={`${project.image}.webp`} type="image/webp" />
+                <img
+                  src={`${project.image}.webp`}
+                  width={1000}
+                  height={1000}
+                  alt={`Proyecto ${project.name} — ${project.industry}`}
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  loading={i === 0 ? "eager" : "lazy"}
+                />
+              </picture>
               <!-- Gradient overlays -->
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent z-10"></div>
               <div class="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent z-10"></div>

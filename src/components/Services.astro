@@ -48,11 +48,15 @@ const services = [
   class="bg-zinc-950 py-20 lg:py-28 relative overflow-hidden"
 >
   <div class="absolute inset-0 z-0 pointer-events-none">
-    <img
-      src="/services/servicios.png"
-      alt="Servicios"
-      class="absolute right-0 top-0 w-full lg:w-[60%] h-[120%] object-cover opacity-60 mix-blend-screen translate-x-10 -translate-y-10"
-    />
+    <picture class="absolute right-0 top-0 w-full lg:w-[60%] h-[120%] translate-x-10 -translate-y-10">
+      <source srcset="/services/servicios.avif" type="image/avif" />
+      <source srcset="/services/servicios.webp" type="image/webp" />
+      <img
+        src="/services/servicios.webp"
+        alt="Servicios"
+        class="h-full w-full object-cover opacity-60 mix-blend-screen"
+      />
+    </picture>
     <div
       class="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/90 to-transparent"
     >

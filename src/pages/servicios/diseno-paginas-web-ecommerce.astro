@@ -8,7 +8,7 @@ const webProjects = [
         industry: "Coaching & Educación",
         description:
             "Sitio de alto impacto para coach certificada con embudo de ventas, agenda integrada y membresías.",
-        image: "/portfolio/Karina.png",
+        image: "/portfolio/Karina",
     },
     {
         name: "Doral Cartagena",
@@ -16,7 +16,7 @@ const webProjects = [
         industry: "Hotelería & Turismo",
         description:
             "Plataforma institucional para constructora visionaria con experiencia en desarrollo urbano y residencial.",
-        image: "/portfolio/Doral.png",
+        image: "/portfolio/Doral",
     },
 ];
 
@@ -620,11 +620,15 @@ const formOptions = {
                     <div
                         class="absolute inset-0 z-0 overflow-hidden rounded-[2rem]"
                     >
-                        <img
-                            src="/process/consultoria.png"
-                            alt=""
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
-                        />
+                        <picture class="block h-full w-full">
+                            <source srcset="/process/consultoria.avif" type="image/avif" />
+                            <source srcset="/process/consultoria.webp" type="image/webp" />
+                            <img
+                                src="/process/consultoria.webp"
+                                alt=""
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                            />
+                        </picture>
                         <div
                             class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/40 to-slate-900/90 z-10"
                         >
@@ -651,11 +655,15 @@ const formOptions = {
                     <div
                         class="absolute inset-0 z-0 overflow-hidden rounded-[2rem]"
                     >
-                        <img
-                            src="/process/UI UX.png"
-                            alt=""
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
-                        />
+                        <picture class="block h-full w-full">
+                            <source srcset="/process/UI UX.avif" type="image/avif" />
+                            <source srcset="/process/UI UX.webp" type="image/webp" />
+                            <img
+                                src="/process/UI UX.webp"
+                                alt=""
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                            />
+                        </picture>
                         <div
                             class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/40 to-slate-900/90 z-10"
                         >
@@ -682,11 +690,15 @@ const formOptions = {
                     <div
                         class="absolute inset-0 z-0 overflow-hidden rounded-[2rem]"
                     >
-                        <img
-                            src="/process/desarrollo.png"
-                            alt=""
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
-                        />
+                        <picture class="block h-full w-full">
+                            <source srcset="/process/desarrollo.avif" type="image/avif" />
+                            <source srcset="/process/desarrollo.webp" type="image/webp" />
+                            <img
+                                src="/process/desarrollo.webp"
+                                alt=""
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                            />
+                        </picture>
                         <div
                             class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/40 to-slate-900/90 z-10"
                         >
@@ -713,11 +725,15 @@ const formOptions = {
                     <div
                         class="absolute inset-0 z-0 overflow-hidden rounded-[2rem]"
                     >
-                        <img
-                            src="/process/lanzamiento.png"
-                            alt=""
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
-                        />
+                        <picture class="block h-full w-full">
+                            <source srcset="/process/lanzamiento.avif" type="image/avif" />
+                            <source srcset="/process/lanzamiento.webp" type="image/webp" />
+                            <img
+                                src="/process/lanzamiento.webp"
+                                alt=""
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                            />
+                        </picture>
                         <div
                             class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/40 to-slate-900/90 z-10"
                         >
@@ -785,12 +801,16 @@ const formOptions = {
                             style={`animation-delay: ${i * 150}ms`}
                         >
                             <div class="aspect-[16/10] relative">
-                                <img
-                                    src={project.image}
-                                    alt={`Proyecto ${project.name} — ${project.industry}`}
-                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                                    loading={i === 0 ? "eager" : "lazy"}
-                                />
+                                <picture class="absolute inset-0 h-full w-full">
+                                    <source srcset={`${project.image}.avif`} type="image/avif" />
+                                    <source srcset={`${project.image}.webp`} type="image/webp" />
+                                    <img
+                                        src={`${project.image}.webp`}
+                                        alt={`Proyecto ${project.name} — ${project.industry}`}
+                                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                                        loading={i === 0 ? "eager" : "lazy"}
+                                    />
+                                </picture>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent z-10" />
                                 <div class="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent z-10" />
                             </div>

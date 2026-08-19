@@ -6,14 +6,18 @@
   class="relative min-h-screen flex items-center overflow-hidden bg-black"
 >
   <!-- ══ MOBILE BACKGROUND ════════════════════════════════════════════════ -->
-  <img
-    src="/hero/hero_mobile_video.webp"
-    alt=""
-    class="absolute inset-0 h-full w-full object-cover md:hidden"
-    fetchpriority="high"
-    decoding="async"
-    aria-hidden="true"
-  />
+  <picture class="absolute inset-0 h-full w-full md:hidden">
+    <source srcset="/hero/hero_mobile_video.avif" type="image/avif" />
+    <source srcset="/hero/hero_mobile_video.webp" type="image/webp" />
+    <img
+      src="/hero/hero_mobile_video.webp"
+      alt=""
+      class="h-full w-full object-cover"
+      fetchpriority="high"
+      decoding="async"
+      aria-hidden="true"
+    />
+  </picture>
 
   <!-- ══ DESKTOP VIDEO BACKGROUND ══════════════════════════════════════════ -->
   <video

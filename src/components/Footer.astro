@@ -49,12 +49,16 @@ const footerLinks = [
           class="inline-block mb-4"
           aria-label="Grupo Rincon - Inicio"
         >
-          <img
-            src="/Logo/Logo blanco.png"
-            alt="Grupo Rincon"
-            class="h-10 w-auto object-contain"
-            loading="lazy"
-          />
+          <picture>
+            <source srcset="/Logo/Logo blanco.avif" type="image/avif" />
+            <source srcset="/Logo/Logo blanco.webp" type="image/webp" />
+            <img
+              src="/Logo/Logo blanco.webp"
+              alt="Grupo Rincon"
+              class="h-10 w-auto object-contain"
+              loading="lazy"
+            />
+          </picture>
         </a>
         <p class="text-zinc-500 text-sm leading-relaxed max-w-xs mb-6">
           Desarrollamos el software y la página web que tu negocio necesita para
