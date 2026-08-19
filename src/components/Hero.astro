@@ -1,23 +1,21 @@
 ---
-
+import { Image } from "astro:assets";
+import heroMobileVideo from "../assets/hero/hero_mobile_video.avif";
 ---
 
 <section
   class="relative min-h-screen flex items-center overflow-hidden bg-black"
 >
   <!-- ══ MOBILE BACKGROUND ════════════════════════════════════════════════ -->
-  <picture class="absolute inset-0 h-full w-full md:hidden">
-    <source srcset="/hero/hero_mobile_video.avif" type="image/avif" />
-    <source srcset="/hero/hero_mobile_video.webp" type="image/webp" />
-    <img
-      src="/hero/hero_mobile_video.webp"
-      alt=""
-      class="h-full w-full object-cover"
-      fetchpriority="high"
-      decoding="async"
-      aria-hidden="true"
-    />
-  </picture>
+  <Image
+    src={heroMobileVideo}
+    alt="Hero Mobile Video"
+    width={1000}
+    height={1000}
+    class="absolute inset-0 h-full w-full object-cover md:hidden"
+    aria-hidden="true"
+    loading="eager"
+  />
 
   <!-- ══ DESKTOP VIDEO BACKGROUND ══════════════════════════════════════════ -->
   <video
@@ -34,7 +32,9 @@
 
   <script>
     const desktopMq = window.matchMedia("(min-width: 768px)");
-    const video = document.getElementById("hero-video") as HTMLVideoElement | null;
+    const video = document.getElementById(
+      "hero-video",
+    ) as HTMLVideoElement | null;
 
     function loadHeroVideo() {
       if (!video || video.querySelector("source") || !desktopMq.matches) return;
@@ -50,7 +50,6 @@
     loadHeroVideo();
     desktopMq.addEventListener("change", loadHeroVideo);
   </script>
-
 
   <!-- ══ OVERLAYS ══════════════════════════════════════════════════════════ -->
   <!-- Dark veil so text is always readable -->

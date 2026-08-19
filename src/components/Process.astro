@@ -1,28 +1,34 @@
 ---
+import Image from "astro/components/Image.astro";
+import consultoria from "../assets/process/consultoria.webp";
+import UIUX from "../assets/process/UI UX.webp";
+import desarrollo from "../assets/process/desarrollo.webp";
+import lanzamiento from "../assets/process/lanzamiento.webp";
+
 const steps = [
   {
     number: "01",
     title: "Consultoría Inicial",
     description: "Analizamos a fondo las necesidades y los objetivos de tu negocio para trazar una ruta.",
-    image: "/process/consultoria"
+    image: consultoria
   },
   {
     number: "02",
     title: "Diseño UI/UX",
     description: "Modelamos visualmente tu plataforma. Creamos interfaces modernas e intuitivas.",
-    image: "/process/UI UX"
+    image: UIUX
   },
   {
     number: "03",
     title: "Desarrollo Experto",
     description: "Construimos tu plataforma escribiendo código limpio, seguro y escalable.",
-    image: "/process/desarrollo"
+    image: desarrollo
   },
   {
     number: "04",
     title: "Pruebas y Lanzamiento",
     description: "Sometemos el proyecto a rigurosos controles de calidad y rendimiento antes de publicarlo.",
-    image: "/process/lanzamiento"
+    image: lanzamiento
   },
 ];
 ---
@@ -60,7 +66,7 @@ const steps = [
           >
             <!-- Background Image -->
             <div class="absolute inset-0 z-0 overflow-hidden rounded-[2rem]">
-              <picture class="block h-full w-full">
+              {/* <picture class="block h-full w-full">
                 <source srcset={`${step.image}.avif`} type="image/avif" />
                 <source srcset={`${step.image}.webp`} type="image/webp" />
                 <img 
@@ -68,7 +74,14 @@ const steps = [
                   alt={step.title} 
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" 
                 />
-              </picture>
+              </picture> */}
+              <Image
+                src={step.image}
+                width={1000}
+                height={1000}
+                alt={step.title}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+              />
               <!-- Gradient Overlay for contrast -->
               <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/40 to-slate-900/90 z-10 transition-opacity duration-500"></div>
             </div>
