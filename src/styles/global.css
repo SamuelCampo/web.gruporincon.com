@@ -1,5 +1,37 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
+}
+
 @theme {
   --color-primary-50: #09090b;
   --color-primary-100: #121215;
@@ -38,6 +70,8 @@
   --color-surface-muted: #000414; /* Deepest dark blue-grey from brand */
   --color-border: rgba(255, 255, 255, 0.05);
 
+  --font-sans: "Inter", "Montserrat", system-ui, -apple-system, sans-serif;
+  --font-display: "Montserrat", "Inter", system-ui, sans-serif;
   --font-family-sans: "Inter", "Montserrat", system-ui, -apple-system, sans-serif;
   --font-family-display: "Montserrat", "Inter", system-ui, sans-serif;
 }
@@ -48,6 +82,7 @@ html {
 
 body {
   font-family: var(--font-family-sans);
+  font-optical-sizing: auto;
   color: var(--color-primary-600);
   background-color: var(--color-surface);
   overflow-x: hidden;
