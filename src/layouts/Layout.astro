@@ -95,18 +95,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         document.addEventListener("astro:page-load", observeReveals);
       });
     </script>
-    <script is:inline>
-      var ahrefs_analytics_script = document.createElement("script");
-      ahrefs_analytics_script.async = true;
-      ahrefs_analytics_script.src = "https://analytics.ahrefs.com/analytics.js";
-      ahrefs_analytics_script.setAttribute(
-        "data-key",
-        "ECGcFI1RYcHXFMXmW2SGKA",
-      );
-      document
-        .getElementsByTagName("head")[0]
-        .appendChild(ahrefs_analytics_script);
-    </script>
+    <script
+      src="https://analytics.ahrefs.com/analytics.js"
+      is:inline={true}
+      data-key="ECGcFI1RYcHXFMXmW2SGKA"
+      async></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPGR430P22"
     ></script>
