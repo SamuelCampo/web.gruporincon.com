@@ -175,11 +175,24 @@ const projects = [
     const currentEl = document.getElementById("portfolio-current");
 
     if (!track || !prevBtn || !nextBtn) return;
+    if (track.dataset.carouselReady === "true") return;
+    track.dataset.carouselReady = "true";
 
     // ── 1. Snapshot originals BEFORE touching the DOM ─────────────────────
     const originals = Array.from(track.children) as HTMLElement[];
     const N = originals.length;
     if (N === 0) return;
+
+    // Measure before cloning so we never read layout after DOM writes.
+    const lgMq = window.matchMedia("(min-width: 1024px)");
+    let stepPx = 0;
+
+    function measureStep() {
+      const gap = lgMq.matches ? 24 : 16;
+      stepPx = originals[0].offsetWidth + gap;
+    }
+
+    measureStep();
 
     // ── 2. Build clone sets ────────────────────────────────────────────────
     // We prepend clones of the LAST slides (so scrolling left from slide 0
@@ -199,36 +212,24 @@ const projects = [
       return c;
     }
 
-    // Prepend: reversed originals as clones before position 0
     originals.slice().reverse().forEach((el) => track.prepend(cloneCard(el)));
-    // Append: originals as clones after the last real slide
     originals.forEach((el) => track.appendChild(cloneCard(el)));
 
     // ── 3. State ──────────────────────────────────────────────────────────
-    // currentDomIdx always tracks our true position in the DOM.
-    // Real slides live at domIdx N … 2N-1.
-    let currentDomIdx = N; // start at real[0]
+    let currentDomIdx = N;
     let transitioning  = false;
 
     // ── 4. Helpers ────────────────────────────────────────────────────────
-    function cardWidth(): number {
-      const gap = window.innerWidth >= 1024 ? 24 : 16;
-      return (track.children[0] as HTMLElement).offsetWidth + gap;
-    }
-
     function jumpTo(idx: number) {
-      // Instant, no animation
       track.style.transition = "none";
-      track.style.transform  = `translateX(-${idx * cardWidth()}px)`;
-      track.getBoundingClientRect(); // force reflow
+      track.style.transform  = `translateX(-${idx * stepPx}px)`;
     }
 
     function slideTo(idx: number) {
       track.style.transition = "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)";
-      track.style.transform  = `translateX(-${idx * cardWidth()}px)`;
+      track.style.transform  = `translateX(-${idx * stepPx}px)`;
     }
 
-    // Map any domIdx → 0-based real index (0 … N-1)
     function toRealIdx(domIdx: number): number {
       return ((domIdx - N) % N + N) % N;
     }
@@ -253,7 +254,6 @@ const projects = [
       if (currentEl) currentEl.textContent = String(ri + 1).padStart(2, "0");
     }
 
-    // ── 6. Navigate by ±1 step ────────────────────────────────────────────
     function step(dir: 1 | -1) {
       if (transitioning) return;
       transitioning   = true;
@@ -262,7 +262,6 @@ const projects = [
       updateUI(currentDomIdx);
     }
 
-    // ── 7. Go directly to a real slide (for dots) ─────────────────────────
     function goToReal(ri: number) {
       if (transitioning) return;
       transitioning  = true;
@@ -271,27 +270,30 @@ const projects = [
       updateUI(currentDomIdx);
     }
 
-    // ── 8. After each transition: silently re-anchor if in clone zone ──────
-    track.addEventListener("transitionend", () => {
-      transitioning = false;
-      // Clone zone before originals: domIdx < N  → jump to real equivalent
-      // Clone zone after  originals: domIdx >= 2N → jump to real equivalent
+    // Snap back without forcing layout: wait one frame so the unanimated
+    // jump is painted before the next slideTo can re-enable transition.
+    track.addEventListener("transitionend", (e: TransitionEvent) => {
+      if (e.target !== track || e.propertyName !== "transform") return;
+
       if (currentDomIdx < N || currentDomIdx >= 2 * N) {
         currentDomIdx = N + toRealIdx(currentDomIdx);
         jumpTo(currentDomIdx);
+        requestAnimationFrame(() => {
+          transitioning = false;
+        });
+        return;
       }
+
+      transitioning = false;
     });
 
-    // ── 9. Init position ──────────────────────────────────────────────────
     jumpTo(currentDomIdx);
     updateUI(currentDomIdx);
 
-    // ── 10. Wire controls ─────────────────────────────────────────────────
     prevBtn.addEventListener("click", () => step(-1));
     nextBtn.addEventListener("click", () => step(1));
     dots.forEach((dot, i) => dot.addEventListener("click", () => goToReal(i)));
 
-    // Touch / swipe
     let startX = 0;
     track.addEventListener("touchstart", (e: TouchEvent) => { startX = e.touches[0].clientX; }, { passive: true });
     track.addEventListener("touchend",   (e: TouchEvent) => {
@@ -299,17 +301,22 @@ const projects = [
       if (Math.abs(diff) > 50) step(diff > 0 ? 1 : -1);
     });
 
-    // Keyboard (only when section is in viewport)
+    let inView = false;
+    const section = track.closest("section");
+    if (section) {
+      const io = new IntersectionObserver(
+        (entries) => { inView = entries.some((entry) => entry.isIntersecting); },
+        { threshold: 0 },
+      );
+      io.observe(section);
+    }
+
     document.addEventListener("keydown", (e: KeyboardEvent) => {
-      const section = track.closest("section");
-      if (!section) return;
-      const rect = section.getBoundingClientRect();
-      if (rect.top > window.innerHeight || rect.bottom < 0) return;
+      if (!inView) return;
       if (e.key === "ArrowRight") step(1);
       if (e.key === "ArrowLeft")  step(-1);
     });
 
-    // Autoplay — pauses on hover/focus
     let timer: ReturnType<typeof setInterval> | null = null;
     const play  = () => { if (timer) clearInterval(timer); timer = setInterval(() => step(1), 5000); };
     const pause = () => { if (timer) { clearInterval(timer); timer = null; } };
@@ -319,11 +326,18 @@ const projects = [
     track.addEventListener("focusin",    pause);
     track.addEventListener("focusout",   play);
 
-    // Recalculate on window resize
-    let resizeTimer: ReturnType<typeof setTimeout>;
-    window.addEventListener("resize", () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => jumpTo(currentDomIdx), 100);
+    // ResizeObserver runs after layout; use the entry size instead of offsetWidth.
+    const ro = new ResizeObserver((entries) => {
+      const box = entries[0]?.contentBoxSize?.[0];
+      const width = box?.inlineSize ?? entries[0]?.contentRect.width;
+      if (!width) return;
+      stepPx = width + (lgMq.matches ? 24 : 16);
+      jumpTo(currentDomIdx);
+    });
+    ro.observe(originals[0]);
+    lgMq.addEventListener("change", () => {
+      measureStep();
+      jumpTo(currentDomIdx);
     });
   }
 
