@@ -349,7 +349,8 @@ a {
 .feature-list {
   border-top: 1px solid #dfe3eb;
 }
-.feature-list > div {
+.feature-list > div,
+.feature-list-two > div {
   display: grid;
   grid-template-columns: 54px 1fr 25px;
   align-items: center;
@@ -363,6 +364,11 @@ a {
 .feature-list p {
   margin: 0;
   color: #1f2937;
+  font-weight: 650;
+}
+.feature-list-two p {
+  margin: 0;
+  color: #fff;
   font-weight: 650;
 }
 .feature-list b {

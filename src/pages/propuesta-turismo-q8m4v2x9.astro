@@ -1,0 +1,527 @@
+---
+import "../styles/propuesta-shopify.css";
+
+const phaseOne = [
+  "Desarrollo en WordPress optimizado para carga rápida y dispositivos móviles",
+  "Diseño UI/UX enfocado en conversión y registro",
+  "Formulario de captación: nombre, WhatsApp, correo y preferencias de viaje",
+  "Pantalla de confirmación y continuidad de atención por WhatsApp",
+  "Notificaciones automáticas por correo al equipo comercial",
+  "Panel centralizado de prospectos con filtros y exportación CSV/Excel",
+];
+
+const phaseTwo = [
+  "Catálogo de experiencias, hoteles, restaurantes y actividades",
+  "Fichas de servicio con galería, descripción, ubicación y beneficios",
+  "Módulo directo para solicitar cotizaciones",
+  "Filtros por categoría y destino",
+  "Sección pedagógica sobre el modelo Web3 y los tokens",
+];
+
+const scope = [
+  [
+    "01",
+    "Captar",
+    "Una landing page enfocada en convertir el interés inicial en registros organizados y accionables.",
+  ],
+  [
+    "02",
+    "Centralizar",
+    "Cada prospecto queda almacenado en WordPress y disponible para el equipo comercial.",
+  ],
+  [
+    "03",
+    "Atender",
+    "La conversación continúa de manera personalizada mediante asesores humanos, WhatsApp o correo.",
+  ],
+  [
+    "04",
+    "Presentar",
+    "El catálogo organiza experiencias y aliados en una experiencia clara, visual y fácil de explorar.",
+  ],
+  [
+    "05",
+    "Cotizar",
+    "Cada servicio incorpora un recorrido directo para solicitar una propuesta personalizada.",
+  ],
+  [
+    "06",
+    "Escalar",
+    "La arquitectura permite comenzar con el MVP y sumar el catálogo cuando la operación esté validada.",
+  ],
+];
+
+const timeline = [
+  [
+    "Semana 1",
+    "Arquitectura y diseño",
+    "Definición de estructura, mensajes, recorrido de captación y propuesta visual del MVP.",
+  ],
+  [
+    "Semana 2",
+    "Construcción del MVP",
+    "Desarrollo, formulario, confirmación, notificaciones, panel de prospectos y pruebas.",
+  ],
+  [
+    "Semanas 3–4",
+    "Catálogo digital",
+    "Configuración de categorías, fichas, filtros, búsqueda y solicitudes de cotización.",
+  ],
+  [
+    "Semana 5–6",
+    "Carga, pruebas y entrega",
+    "Carga del contenido suministrado, validación responsive, ajustes y lanzamiento.",
+  ],
+];
+
+const requirements = [
+  [
+    "01",
+    "Accesos",
+    "Dominio, hosting y cuentas necesarias para instalar, configurar y publicar WordPress.",
+  ],
+  [
+    "02",
+    "Identidad",
+    "Logo, paleta, tipografías y lineamientos visuales disponibles para el proyecto.",
+  ],
+  [
+    "03",
+    "Contenido",
+    "Textos, imágenes y beneficios definitivos para la landing y la sección Web3/tokens.",
+  ],
+  [
+    "04",
+    "Catálogo",
+    "Información autorizada de experiencias, hoteles, restaurantes, actividades, destinos y aliados.",
+  ],
+  [
+    "05",
+    "Operación comercial",
+    "Correo receptor, WhatsApp y responsables que atenderán registros y cotizaciones.",
+  ],
+  [
+    "06",
+    "Revisión",
+    "Una devolución consolidada por fase para mantener el calendario de trabajo.",
+  ],
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="robots"
+      content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"
+    />
+    <meta
+      name="googlebot"
+      content="noindex, nofollow, noarchive, nosnippet, noimageindex"
+    />
+    <meta name="bingbot" content="noindex, nofollow, noarchive" />
+    <meta name="GPTBot" content="noindex, nofollow, noarchive" />
+    <meta name="CCBot" content="noindex, nofollow, noarchive" />
+    <meta name="ClaudeBot" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      name="description"
+      content="Propuesta privada para una plataforma web de captación y catálogo turístico interactivo."
+    />
+    <title>Propuesta privada · Plataforma turística interactiva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="nav-shell">
+      <nav class="nav container" aria-label="Navegación de la propuesta">
+        <a
+          class="brand"
+          href="#inicio"
+          aria-label="Grupo Rincón, volver al inicio"
+          ><img
+            src="/Logo/Logo blanco.webp"
+            alt="Grupo Rincón"
+            width="148"
+            height="52"
+          /></a
+        >
+        <div class="nav-links">
+          <a href="#alcance">Alcance</a><a href="#fases">Fases</a><a
+            href="#inversion">Inversión</a
+          ><a href="#pagos">Pagos</a>
+        </div>
+        <a class="button button-small" href="#aceptacion">Aprobar propuesta</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div><div
+          class="grid-lines"
+        >
+        </div>
+        <div class="container hero-inner">
+          <div class="eyebrow">
+            <span></span> PROPUESTA CONFIDENCIAL · PROP-2026-091-V3
+          </div>
+          <h1>
+            Del primer registro a un <em>catálogo turístico interactivo.</em>
+          </h1>
+          <p class="hero-copy">
+            Una plataforma web por fases para captar prospectos, organizar la
+            atención comercial y escalar hacia un catálogo digital de
+            experiencias con solicitudes de cotización.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#inversion">Ver inversión <span>↓</span></a
+            ><a class="button button-ghost" href="#alcance">Explorar alcance</a>
+          </div>
+          <div class="hero-note">
+            <span class="lock">●</span> Proyecto Blockchain & Turismo · 26 de agosto
+            de 2026 · válido por 15 días
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="metrics section-tight"
+        aria-label="Resumen de la propuesta"
+      >
+        <div class="container metrics-grid">
+          <div><strong>USD 1.400</strong><span>Inversión total</span></div>
+          <div><strong>2 fases</strong><span>Implementación gradual</span></div>
+          <div>
+            <strong>5–6 semanas</strong><span>Tiempo estimado total</span>
+          </div>
+          <div><strong>60 días</strong><span>Soporte y garantía</span></div>
+        </div>
+      </section>
+
+      <section class="section dark">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow"><span></span> VISIÓN DEL PROYECTO</div>
+            <h2>
+              Un aparador digital con <em>atención verdaderamente humana.</em>
+            </h2>
+            <p>
+              La plataforma presentará el ecosistema turístico y permitirá
+              solicitar cotizaciones, mientras cada prospecto recibe atención
+              personalizada de un asesor. WordPress en modo catálogo ofrece una
+              base ágil para lanzar primero, validar el flujo comercial y
+              escalar después.
+            </p>
+          </div>
+          <div class="scope-grid">
+            <article class="scope-card">
+              <span>PRIMER PASO</span><h3>Captación organizada</h3><p>
+                El MVP centraliza datos clave y convierte el interés inicial en
+                oportunidades listas para atender.
+              </p>
+            </article>
+            <article class="scope-card">
+              <span>OPERACIÓN</span><h3>Asesoría personalizada</h3><p>
+                WhatsApp y correo mantienen la cercanía comercial sin
+                automatizar una conversación que requiere criterio humano.
+              </p>
+            </article>
+            <article class="scope-card">
+              <span>EVOLUCIÓN</span><h3>Catálogo cotizable</h3><p>
+                Experiencias y aliados se presentan con claridad y una acción
+                directa para solicitar presupuesto.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark" id="alcance">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow"><span></span> ARQUITECTURA COMERCIAL</div><h2>
+              Un recorrido diseñado para <em>captar, atender y escalar.</em>
+            </h2><p>
+              Cada bloque responde a una función concreta dentro del proceso
+              comercial de la plataforma.
+            </p>
+          </div>
+          <div class="scope-grid">
+            {
+              scope.map(([n, title, text]) => (
+                <article class="scope-card">
+                  <>
+                    <span>{n}</span>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="section light" id="fases">
+        <div class="container split">
+          <div class="sticky-copy">
+            <div class="eyebrow dark-eye"><span></span> FASE 1 · MVP</div><h2>
+              Landing de captación y <em>registro.</em>
+            </h2><p>
+              La primera salida al mercado reúne todo lo necesario para atraer
+              prospectos, registrar sus preferencias y entregar cada oportunidad
+              al equipo comercial.
+            </p><div class="price"><small>USD</small>$500</div><p>
+              Tiempo estimado: 2 semanas.
+            </p>
+          </div>
+          <div class="feature-list">
+            {
+              phaseOne.map((item, i) => (
+                <div>
+                  <>
+                    <span>{String(i + 1).padStart(2, "0")}</span>
+                    <p>{item}</p>
+                    <b>✓</b>
+                  </>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark">
+        <div class="container split">
+          <div>
+            <div class="eyebrow"><span></span> FASE 2 · ESCALA</div><h2>
+              Catálogo digital y <em>sistema de cotizaciones.</em>
+            </h2><p>
+              La segunda fase convierte la plataforma en un espacio de
+              exploración organizado por servicios, categorías y destinos.
+            </p><div class="price"><small>USD</small>$900</div><p>
+              Tiempo estimado: 3–4 semanas.
+            </p>
+          </div>
+          <div class="feature-list-two">
+            {
+              phaseTwo.map((item, i) => (
+                <div>
+                  <>
+                    <span>{String(i + 1).padStart(2, "0")}</span>
+                    <p> {item}</p>
+                    <b>✓</b>
+                  </>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark" id="inversion">
+        <div class="container">
+          <div class="section-heading center">
+            <div class="eyebrow"><span></span> INVERSIÓN</div><h2>
+              Dos fases claras, <em>una plataforma lista para crecer.</em>
+            </h2>
+          </div>
+          <div class="price-card">
+            <div class="price-top">
+              <div>
+                <span>Implementación completa</span><h3>
+                  Captación, catálogo y cotizaciones
+                </h3>
+              </div><div class="price"><small>USD</small>$1.400</div>
+            </div>
+            <div class="price-body">
+              <ul>
+                <li>Landing de captación</li><li>Panel de prospectos</li><li>
+                  Catálogo interactivo
+                </li><li>Fichas de servicios</li><li>Filtros y búsqueda</li><li>
+                  Solicitudes de cotización
+                </li>
+              </ul>
+              <div class="price-note">
+                <strong>Implementación por fases</strong><p>
+                  Cada fase se inicia con 50% y se completa con el 50% restante
+                  contra entrega y aprobación.
+                </p>
+              </div>
+            </div>
+          </div>
+          <p class="caption">
+            Hosting, dominio y licencias no están incluidos y serán cubiertos
+            directamente por el cliente.
+          </p>
+        </div>
+      </section>
+
+      <section class="section costs">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow dark-eye"><span></span> CONDICIONES</div><h2>
+              Un proceso transparente, <em>desde el inicio.</em>
+            </h2>
+          </div>
+          <div class="transaction-grid">
+            <article>
+              <span>Forma de pago</span><strong>50% / 50%</strong><p>
+                Mitad al comenzar cada fase y mitad contra entrega y aprobación.
+              </p>
+            </article>
+            <article>
+              <span>Garantía técnica</span><strong>60 días</strong><p>
+                Soporte y garantía sobre la implementación después del
+                lanzamiento.
+              </p>
+            </article>
+            <article class="accent">
+              <span>Infraestructura</span><strong>Por el cliente</strong><p>
+                Dominio, hosting, licencias y servicios de terceros se contratan
+                por separado.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark timeline-section" id="plan">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow"><span></span> PLAN DE TRABAJO</div><h2>
+              Una evolución ordenada <em>en cuatro etapas.</em>
+            </h2>
+          </div>
+          <div class="timeline">
+            {
+              timeline.map(([time, title, text], i) => (
+                <article>
+                  <>
+                    <div class="number">{i + 1}</div>
+                    <span>{time}</span>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="section payment" id="pagos">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow dark-eye"><span></span> MÉTODO DE PAGO</div><h2>
+              Cada fase avanza en <em>dos hitos.</em>
+            </h2>
+          </div>
+          <div class="payment-grid">
+            <article>
+              <strong>50%</strong><h3>Para reservar e iniciar</h3><p>
+                Al comienzo de cada fase
+              </p>
+            </article><article>
+              <strong>50%</strong><h3>Contra entrega</h3><p>
+                Después de revisión y aprobación
+              </p>
+            </article>
+          </div>
+          <div class="bank-card">
+            <div>
+              <span>DATOS PARA TRANSFERENCIA</span><h3>
+                Se comparten al aceptar la propuesta
+              </h3><p>
+                Los datos bancarios se enviarán por el canal comercial validado.
+              </p>
+            </div><div class="bank-status">
+              <span></span> Pendiente de confirmación
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark requirements">
+        <div class="container split">
+          <div>
+            <div class="eyebrow">
+              <span></span> REQUERIMIENTOS DEL CLIENTE
+            </div><h2>Lo que necesitamos para <em>comenzar.</em></h2>
+          </div>
+          <ol>
+            {
+              requirements.map(([n, title, text]) => (
+                <li>
+                  <>
+                    <span>{n}</span>
+                    <div>
+                      <>
+                        <h3>{title}</h3>
+                        <p>{text}</p>
+                      </>
+                    </div>
+                  </>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+        <div class="container requirement-alert">
+          <strong>El calendario comienza con el material completo.</strong><p>
+            Los tiempos de cada fase inician al recibir el anticipo, los accesos
+            y el contenido definitivo. Retrasos en entregas o aprobaciones
+            desplazan la fecha de publicación.
+          </p>
+        </div>
+      </section>
+
+      <section class="cta" id="aceptacion">
+        <div class="container cta-inner">
+          <div class="eyebrow"><span></span> SIGUIENTE PASO</div>
+          <h2>
+            Construyamos una experiencia turística <em>lista para convertir.</em
+            >
+          </h2>
+          <p>
+            Al aprobar coordinamos el anticipo de la primera fase, el checklist
+            de materiales y la fecha de inicio.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="button"
+              href="https://wa.me/584262590251?text=Hola%2C%20quiero%20aprobar%20la%20propuesta%20PROP-2026-091-V3%20para%20la%20plataforma%20tur%C3%ADstica."
+              rel="noreferrer">Aprobar por WhatsApp</a
+            ><a class="button button-ghost" href="#inicio">Volver arriba ↑</a>
+          </div>
+          <div class="validity">
+            Propuesta válida por 15 días · Ref. PROP-2026-091-V3 · Alcance
+            sujeto a los requerimientos y condiciones descritos.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="brand">
+          <img
+            src="/Logo/Logo blanco.webp"
+            alt="Grupo Rincón"
+            width="148"
+            height="52"
+          />
+        </div><p>
+          Desarrollamos la tecnología que tu negocio necesita para vender más y
+          operar mejor.
+        </p><span>Propuesta confidencial · 2026</span>
+      </div>
+    </footer>
+  </body>
+</html>
