@@ -6,6 +6,16 @@ import desarrollo from "../../assets/process/desarrollo.webp";
 import uiux from "../../assets/process/UI UX.webp";
 import lanzamiento from "../../assets/process/lanzamiento.webp";
 
+const siteURL = Astro.site ?? new URL("https://www.gruporincon.com.co");
+const breadcrumbs = [
+  { name: "Inicio", url: new URL("/", siteURL).toString() },
+  { name: "Servicios", url: new URL("/#servicios", siteURL).toString() },
+  {
+    name: "Diseño de páginas web y e-commerce",
+    url: new URL(Astro.url.pathname, siteURL).toString(),
+  },
+];
+
 const webProjects = [
   {
     name: "Karina Rivera Mentora",
@@ -35,6 +45,7 @@ const formOptions = {
 <Layout
   title="Diseño de Páginas Web y E-commerce para PYMEs | Grupo Rincón"
   description="Creamos páginas web rápidas y tiendas online (E-commerce) optimizadas para vender. Más de 10 años impulsando negocios en Colombia. ¡Cotiza tu proyecto hoy!"
+  breadcrumbs={breadcrumbs}
 >
   <!-- ════════════════════════════════════════════════════
        SECTION 1: HERO

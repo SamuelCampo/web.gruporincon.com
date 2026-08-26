@@ -5,6 +5,16 @@ const title = "Desarrollo de Apps Móviles | Grupo Rincón";
 const description =
   "Desarrollamos apps móviles híbridas para iOS y Android con Flutter y React Native: rápidas, escalables y conectadas a tu negocio. Cotiza gratis.";
 
+const siteURL = Astro.site ?? new URL("https://www.gruporincon.com.co");
+const breadcrumbs = [
+  { name: "Inicio", url: new URL("/", siteURL).toString() },
+  { name: "Servicios", url: new URL("/#servicios", siteURL).toString() },
+  {
+    name: "Desarrollo de aplicaciones móviles",
+    url: new URL(Astro.url.pathname, siteURL).toString(),
+  },
+];
+
 const solutions = [
   {
     title: "Apps para clientes",
@@ -135,7 +145,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} breadcrumbs={breadcrumbs}>
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section
