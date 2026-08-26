@@ -25,4 +25,7 @@ export default defineConfig({
   },
   adapter: vercel(),
   trailingSlash: 'always', // Agregamos esta configuración para que siempre se generen URLs con slash al final
+  build: {
+    inlineStylesheets: 'always',
+  }
 });
