@@ -66,6 +66,45 @@ const benefits = [
   "Mantén tus sistemas trabajando 24/7",
 ];
 
+const administrativeSolutions = [
+  {
+    title: "CRM y gestión de clientes",
+    description:
+      "Centraliza prospectos, clientes, cotizaciones, oportunidades comerciales y comunicaciones.",
+    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M15 7a3 3 0 11-6 0 3 3 0 016 0z",
+  },
+  {
+    title: "ERP e integración administrativa",
+    description:
+      "Conecta compras, ventas, proveedores, operaciones y procesos internos en una misma solución.",
+    icon: "M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 7h1m-1 4h1m4-4h1m-1 4h1m-6 10v-5h6v5",
+  },
+  {
+    title: "Inventario y productos",
+    description:
+      "Controla existencias, movimientos, almacenes, precios, alertas y disponibilidad de productos.",
+    icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
+  },
+  {
+    title: "Facturación y cobranzas",
+    description:
+      "Organiza facturas, pagos, cuentas por cobrar y estados de cada operación comercial.",
+    icon: "M9 14l2 2 4-4m5-5v10a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2h2l2-2h4l2 2h2a2 2 0 012 2z",
+  },
+  {
+    title: "Reportes empresariales",
+    description:
+      "Consulta indicadores de ventas, clientes, inventario y operaciones para tomar mejores decisiones.",
+    icon: "M9 17v-6m4 6V7m4 10v-3M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z",
+  },
+  {
+    title: "Paneles administrativos",
+    description:
+      "Gestiona usuarios, permisos, métricas y funciones específicas para cada área de tu empresa.",
+    icon: "M4 6h16M4 12h7m-7 6h7m4-6h5m-5 6h5",
+  },
+];
+
 const process = [
   {
     number: "01",
@@ -137,6 +176,11 @@ const faqs = [
     question: "¿Ofrecen soporte después de la implementación?",
     answer:
       "Sí. Nuestros proyectos incluyen un período de soporte y también ofrecemos planes de mantenimiento continuo para acompañar el crecimiento de la solución.",
+  },
+  {
+    question: "¿Desarrollan software administrativo?",
+    answer:
+      "Sí. Podemos crear sistemas para gestionar clientes, ventas, inventario, facturación, reportes y procesos internos. Primero analizamos la operación para definir si conviene desarrollar una plataforma nueva o integrar las herramientas que la empresa ya utiliza.",
   },
 ];
 
@@ -590,6 +634,111 @@ const faqSchema = {
             </article>
           ))
         }
+      </div>
+    </div>
+  </section>
+
+  <section class="relative bg-zinc-950 py-20 lg:py-28 overflow-hidden">
+    <div
+      class="absolute -top-32 -right-24 w-[34rem] h-[34rem] rounded-full bg-violet-600/[0.07] blur-[130px] pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="absolute -bottom-32 -left-24 w-[30rem] h-[30rem] rounded-full bg-blue-600/[0.06] blur-[130px] pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14 lg:mb-16 reveal"
+      >
+        <div class="max-w-3xl">
+          <span
+            class="inline-flex text-[10px] font-bold text-violet-300 uppercase tracking-[0.2em] bg-violet-500/10 border border-violet-500/15 px-3.5 py-1.5 rounded-full font-display"
+          >
+            Gestión empresarial
+          </span>
+          <h2
+            class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mt-5 font-display leading-[1.05] tracking-tight"
+          >
+            Software administrativo para empresas en Venezuela
+          </h2>
+          <p class="mt-6 text-zinc-400 text-base sm:text-lg leading-relaxed">
+            Desarrollamos e integramos software administrativo adaptado a los
+            procesos reales de cada empresa. Centralizamos clientes, ventas,
+            inventario, facturación, operaciones y reportes en una solución
+            fácil de administrar y preparada para crecer.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {
+          administrativeSolutions.map((solution, i) => (
+            <article
+              class="group rounded-3xl border border-white/[0.07] bg-black/35 p-7 reveal hover:border-violet-500/25 transition-colors duration-300"
+              style={`animation-delay: ${i * 60}ms`}
+            >
+              <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 border border-violet-500/20 bg-violet-500/10 text-violet-300 group-hover:bg-violet-500/15 transition-colors duration-300">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.8"
+                    d={solution.icon}
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display tracking-tight mb-3">
+                {solution.title}
+              </h3>
+              <p class="text-sm text-zinc-500 leading-relaxed">
+                {solution.description}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+
+      <div
+        class="mt-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 rounded-3xl border border-white/[0.08] bg-white/[0.025] p-6 sm:p-8 reveal"
+      >
+        <p class="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-3xl">
+          <strong class="text-zinc-200">Solución nueva o integración:</strong>
+          podemos desarrollar una plataforma desde cero o conectar las herramientas
+          que tu empresa ya utiliza mediante APIs. El alcance, la compatibilidad
+          con terceros y los requisitos de facturación se validan antes de comenzar.
+        </p>
+        <a
+          href="https://wa.me/584262590251?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20desarrollo%20o%20integraci%C3%B3n%20de%20un%20software%20administrativo%20para%20mi%20empresa."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 bg-violet-500 hover:bg-violet-400 text-white font-bold px-6 py-3.5 rounded-xl transition-colors duration-300 whitespace-nowrap font-display"
+        >
+          Cotizar software administrativo
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </a>
       </div>
     </div>
   </section>

@@ -9,7 +9,7 @@ const services = [
     link: "/servicios/diseno-paginas-web-ecommerce/",
   },
   {
-    title: "E-commerce a Medida",
+    title: "Tiendas Online & E-commerce",
     description:
       "Tiendas online escalables con pasarelas de pago locales e internacionales.",
     tech: ["WooCommerce"],
@@ -17,9 +17,9 @@ const services = [
     link: "/servicios/diseno-paginas-web-ecommerce/",
   },
   {
-    title: "Desarrollo & Automatización",
+    title: "Software Administrativo & Automatización",
     description:
-      "Automatizamos tareas repetitivas y construimos sistemas que trabajan por ti 24/7.",
+      "Creamos software administrativo y automatizamos procesos para que tu operación trabaje mejor.",
     tech: ["Laravel", "Python", "AWS"],
     icon: "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z",
     link: "/servicios/automatizacion-desarrollo/",
@@ -33,9 +33,9 @@ const services = [
     link: "/servicios/desarrollo-apps-moviles/",
   },
   {
-    title: "Soporte & Mantenimiento",
+    title: "Soporte WordPress en Venezuela",
     description:
-      "Nos encargamos de que todo funcione siempre: actualizaciones, backups y soporte proactivo.",
+      "Mantenimiento, actualizaciones, respaldos y soporte en Venezuela para cuidar tu sitio web.",
     tech: ["Monitoreo", "Updates"],
     icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
     link: "/servicios/soporte-mantenimiento-wordpress/",
@@ -95,8 +95,6 @@ const services = [
         services.map((service, i) => (
           <a
             href={`${service.link}`}
-            target="_blank"
-            rel="noopener noreferrer"
             class="group bg-zinc-900/40 border border-white/5 hover:border-white/10 rounded-2xl p-6 flex flex-col relative transition-all duration-300 reveal cursor-pointer h-full backdrop-blur-sm"
             style={`animation-delay: ${i * 100}ms`}
           >
