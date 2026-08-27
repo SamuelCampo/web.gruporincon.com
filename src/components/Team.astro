@@ -1,0 +1,133 @@
+---
+import type { ImageMetadata } from "astro";
+import memberOneAvif from "../assets/team/exec-02b6d193-5819-4a4d-a639-d97b10b94a30.avif";
+import memberOneWebp from "../assets/team/exec-02b6d193-5819-4a4d-a639-d97b10b94a30.webp";
+import memberTwoAvif from "../assets/team/exec-a5380d06-774c-4f65-b60f-ad737feca723.avif";
+import memberTwoWebp from "../assets/team/exec-a5380d06-774c-4f65-b60f-ad737feca723.webp";
+import memberThreeAvif from "../assets/team/exec-410a84a0-3afa-448e-bf55-4bb8da474b32.avif";
+import memberThreeWebp from "../assets/team/exec-410a84a0-3afa-448e-bf55-4bb8da474b32.webp";
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  linkedin?: string;
+  imageAvif: ImageMetadata;
+  imageWebp: ImageMetadata;
+}
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  members?: TeamMember[];
+}
+
+const {
+  eyebrow = "Nuestro equipo",
+  title = "Las personas detrás del código",
+  description = "Un equipo cercano, técnico y orientado a resultados. Conócenos y conversa con nosotros en LinkedIn.",
+  members = [
+    {
+      name: "Samuel Campo",
+      role: "CEO",
+      linkedin: "https://www.linkedin.com/in/luis-rincon-gr/",
+      imageAvif: memberOneAvif,
+      imageWebp: memberOneWebp,
+    },
+    {
+      name: "Miguel Ortega",
+      role: "Desarrollador Full Stack",
+      linkedin: "https://www.linkedin.com/in/miguel-ortega-963209254/",
+      imageAvif: memberTwoAvif,
+      imageWebp: memberTwoWebp,
+    },
+    {
+      name: "Marialaura Espinosa",
+      role: "Diseñadora UI/UX",
+      linkedin: "https://www.linkedin.com/in/marialaura-espinosa-715250186/",
+      imageAvif: memberThreeAvif,
+      imageWebp: memberThreeWebp,
+    },
+  ],
+} = Astro.props;
+---
+
+<section
+  id="equipo"
+  class="bg-zinc-950 py-20 lg:py-28 relative overflow-hidden border-y border-zinc-900/60"
+>
+  <div
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] h-80 rounded-full bg-blue-600/8 blur-[140px] pointer-events-none"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-20 reveal">
+      <span
+        class="inline-block text-xs font-bold text-blue-500 uppercase tracking-widest bg-blue-500/10 px-3.5 py-1.5 rounded-full"
+      >
+        {eyebrow}
+      </span>
+      <h2
+        class="text-3xl sm:text-4xl lg:text-5xl font-black text-white mt-4 tracking-tight font-display"
+      >
+        {title}
+      </h2>
+      <p class="mt-4 text-zinc-400 text-sm sm:text-base leading-relaxed">
+        {description}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+      {
+        members.map((member, i) => (
+          <article
+            class="group glass-panel glass-panel-hover rounded-3xl p-5 sm:p-6 flex flex-col items-center text-center reveal"
+            style={`animation-delay: ${i * 100}ms`}
+          >
+            <div class="relative w-full aspect-square overflow-hidden rounded-2xl mb-6">
+              <picture>
+                <source srcset={member.imageAvif.src} type="image/avif" />
+                <source srcset={member.imageWebp.src} type="image/webp" />
+                <img
+                  src={member.imageWebp.src}
+                  alt={`Retrato de ${member.name}`}
+                  width={member.imageWebp.width}
+                  height={member.imageWebp.height}
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+              </picture>
+            </div>
+
+            <h3 class="text-xl font-bold text-white tracking-tight font-display">
+              {member.name}
+            </h3>
+            <p class="mt-1 text-sm font-medium text-blue-400">{member.role}</p>
+
+            {member.linkedin ? (
+              <a
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-5 inline-flex items-center justify-center w-10 h-10 rounded-full border border-zinc-700 text-zinc-300 hover:text-white hover:border-blue-500 hover:bg-blue-600/20 transition-colors duration-300"
+                aria-label={`LinkedIn de ${member.name}`}
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </a>
+            ) : null}
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
