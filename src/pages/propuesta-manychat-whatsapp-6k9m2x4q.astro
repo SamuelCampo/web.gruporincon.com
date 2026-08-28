@@ -2,26 +2,30 @@
 import "../styles/propuesta-shopify.css";
 
 const scope = [
-  ["01", "Diagnóstico y ruta segura", "Revisión del Business Portfolio, WABA, número disponible y configuración actual para definir si se conectará un número nuevo o el número comercial existente."],
-  ["02", "Conexión de canales", "Vinculación de ManyChat con WhatsApp Business Platform e Instagram mediante los flujos autorizados de Meta, incluyendo la verificación del número."],
-  ["03", "Flujos de captación", "Una automatización inicial por canal para recibir al prospecto, identificar su necesidad, solicitar datos básicos y organizarlo mediante campos y etiquetas."],
-  ["04", "Entrega al equipo", "Configuración del punto de transferencia para que un asesor continúe la conversación con el contexto recopilado por la automatización."],
-  ["05", "Plantillas y cumplimiento", "Configuración de hasta dos plantillas de mensaje para revisión de Meta y criterios de uso dentro y fuera de la ventana de atención de 24 horas."],
-  ["06", "Pruebas y capacitación", "Validación de punta a punta, correcciones del alcance y sesión remota para que el equipo pueda operar la solución."],
+  ["01", "Canales de atención", "Conexión de WhatsApp Business e Instagram Direct con ManyChat para atender consultas desde los dos canales prioritarios."],
+  ["02", "Datos de la reserva", "El asistente solicitará nombre, teléfono, fechas de entrada y salida, número de huéspedes, alojamiento de interés y cualquier dato comercial acordado."],
+  ["03", "Registro en Google Sheets", "Cada oportunidad se guardará automáticamente en una hoja organizada, con sus datos, canal de origen y estado comercial."],
+  ["04", "Disponibilidad en Google Calendar", "La automatización consultará el calendario para orientar la disponibilidad. Después de la validación humana, la reserva confirmada podrá registrarse en el calendario acordado."],
+  ["05", "Entrega al asesor", "Cuando el prospecto esté calificado, exista una duda o se requiera confirmar la reserva, una persona continuará la conversación con todo el contexto."],
+  ["06", "Pruebas y capacitación", "Validación completa en ambos canales, una ronda de ajustes y sesión remota para que el equipo pueda operar la solución."],
 ];
 
 const features = [
-  "Auditoría inicial de Meta Business Portfolio, WABA y ManyChat",
+  "Auditoría inicial de las cuentas de Meta, Google y ManyChat",
   "Recomendación documentada: número actual o número nuevo",
   "Conexión de un número a WhatsApp Business Platform",
   "Configuración de un canal de WhatsApp en ManyChat",
   "Conexión de una cuenta profesional de Instagram en ManyChat",
   "Un flujo automatizado de bienvenida y calificación por canal",
-  "Hasta cinco preguntas o pasos conversacionales por flujo",
+  "Hasta ocho preguntas o pasos conversacionales por flujo",
   "Captura de nombre, empresa y necesidad del prospecto",
   "Campos personalizados y etiquetas para segmentación",
   "Transferencia de la conversación a un asesor",
   "Hasta dos plantillas enviadas a revisión de Meta",
+  "Integración con una hoja principal de Google Sheets",
+  "Consulta y registro en el calendario o calendarios acordados de Google Calendar",
+  "Registro del canal de origen y estado de cada oportunidad",
+  "Aviso al equipo cuando una solicitud necesite atención humana",
   "Mensaje de contingencia y salida hacia atención humana",
   "Pruebas en móvil y validación de eventos principales",
   "Una ronda consolidada de ajustes",
@@ -30,19 +34,21 @@ const features = [
 ];
 
 const phases = [
-  ["Días 1–2", "Diagnóstico", "Revisión de cuentas, accesos, número, permisos y definición de la ruta de conexión."],
-  ["Días 3–4", "Integración", "Vinculación de WhatsApp Business Platform e Instagram con ManyChat."],
-  ["Días 5–7", "Automatización", "Construcción de los dos flujos, etiquetas, captura de datos y plantillas."],
+  ["Días 1–2", "Diagnóstico", "Revisión de cuentas, alojamientos, proceso comercial, calendarios, accesos y permisos."],
+  ["Días 3–4", "Integración", "Vinculación de WhatsApp e Instagram con ManyChat y conexión con Google Sheets y Calendar."],
+  ["Días 5–7", "Automatización", "Construcción de los dos recorridos, captura de datos, consulta de disponibilidad y avisos al equipo."],
   ["Días 8–10", "Entrega", "Pruebas, ajustes, capacitación y puesta en producción."],
 ];
 
 const requirements = [
   ["01", "Accesos administrativos", "Facebook con control total del Business Portfolio, página de Facebook, cuenta profesional de Instagram, ManyChat y la cuenta de WhatsApp Business correspondiente."],
   ["02", "Número de teléfono", "Un número capaz de recibir el código de verificación. La decisión de migrar un número activo se tomará después del diagnóstico."],
-  ["03", "Datos del negocio", "Nombre comercial, categoría, sitio web, correo, dirección y demás información solicitada por Meta."],
-  ["04", "Guion comercial", "Servicios, preguntas de calificación, datos que se desean capturar y criterios para transferir el lead a un asesor."],
-  ["05", "Consentimiento", "Confirmación de que los contactos y comunicaciones cumplen las políticas de WhatsApp y cuentan con la autorización necesaria."],
-  ["06", "Disponibilidad", "Una persona autorizada para códigos de verificación, decisiones y devolución consolidada durante la implementación."],
+  ["03", "Acceso de Google", "Cuenta de Google autorizada, Google Sheet y Google Calendar existentes, o permiso para crear la estructura necesaria."],
+  ["04", "Información de alojamientos", "Listado de propiedades, capacidad, tarifas, temporadas, estadía mínima, horarios, políticas y disponibilidad inicial actualizada."],
+  ["05", "Proceso comercial", "Preguntas que se harán, estados de seguimiento, reglas para pasar la conversación a un asesor y criterios para confirmar o rechazar una solicitud."],
+  ["06", "Contenido aprobado", "Respuestas frecuentes, políticas de reserva, textos de bienvenida y mensajes que Renta Hogar autoriza a utilizar."],
+  ["07", "Consentimiento y privacidad", "Confirmación de que los contactos de WhatsApp e Instagram pueden recibir comunicaciones y definición de quién tendrá acceso a los datos almacenados."],
+  ["08", "Responsable del proyecto", "Una persona autorizada para códigos, accesos, decisiones, pruebas y devolución consolidada durante la implementación."],
 ];
 ---
 
@@ -58,8 +64,8 @@ const requirements = [
     <meta name="CCBot" content="noindex, nofollow, noarchive" />
     <meta name="ClaudeBot" content="noindex, nofollow, noarchive" />
     <meta name="referrer" content="no-referrer" />
-    <meta name="description" content="Propuesta privada para integrar WhatsApp Business e Instagram con ManyChat y automatizar la captación inicial de prospectos." />
-    <title>Propuesta privada · ManyChat + WhatsApp + Instagram</title>
+    <meta name="description" content="Propuesta privada para automatizar consultas de reservas de Renta Hogar desde WhatsApp Business e Instagram." />
+    <title>Propuesta privada · Automatización Renta Hogar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
@@ -77,9 +83,9 @@ const requirements = [
       <section class="hero" id="inicio">
         <div class="orb orb-one"></div><div class="orb orb-two"></div><div class="grid-lines"></div>
         <div class="container hero-inner">
-          <div class="eyebrow"><span></span> PROPUESTA CONFIDENCIAL · MANYCHAT + META</div>
-          <h1>De cada mensaje a una <em>oportunidad organizada.</em></h1>
-          <p class="hero-copy">Conectaremos WhatsApp Business e Instagram con ManyChat mediante las integraciones oficiales de Meta y construiremos un flujo por canal para recibir, calificar y entregar prospectos al equipo comercial.</p>
+          <div class="eyebrow"><span></span> PROPUESTA CONFIDENCIAL · RENTA HOGAR</div>
+          <h1>Más consultas atendidas. <em>Más oportunidades de reserva.</em></h1>
+          <p class="hero-copy">Organizaremos las consultas que llegan por WhatsApp e Instagram para responder más rápido, registrar cada oportunidad y ayudar al equipo de Renta Hogar a superar el 80% de ocupación.</p>
           <div class="hero-actions"><a class="button" href="#inversion">Ver inversión <span>↓</span></a><a class="button button-ghost" href="#alcance">Explorar alcance</a></div>
           <div class="hero-note"><span class="lock">●</span> Documento privado · válido por 15 días</div>
         </div>
@@ -96,18 +102,32 @@ const requirements = [
 
       <section class="section dark">
         <div class="container">
-          <div class="section-heading"><div class="eyebrow"><span></span> OBJETIVO</div><h2>Una atención más rápida, sin perder el <em>criterio humano.</em></h2><p>La solución automatiza la primera parte de la conversación y entrega al asesor un prospecto con contexto. El equipo conserva el control de la atención comercial.</p></div>
+          <div class="section-heading"><div class="eyebrow"><span></span> OBJETIVO COMERCIAL</div><h2>Responder antes para aumentar la <em>posibilidad de reservar.</em></h2><p>La automatización atenderá la primera parte de la consulta, organizará la información y avisará al equipo cuándo debe intervenir. La confirmación final de cada reserva permanecerá bajo control de Renta Hogar.</p></div>
           <div class="scope-grid">
             <article class="scope-card"><span>ENTRADA</span><h3>Respuesta inmediata</h3><p>El prospecto recibe una bienvenida clara apenas inicia la conversación.</p></article>
-            <article class="scope-card"><span>CALIFICACIÓN</span><h3>Datos útiles</h3><p>El flujo identifica la necesidad y registra información relevante antes de asignar la atención.</p></article>
-            <article class="scope-card"><span>CONTINUIDAD</span><h3>Entrega al asesor</h3><p>Una persona continúa la conversación con las respuestas y etiquetas ya organizadas.</p></article>
+            <article class="scope-card"><span>ORGANIZACIÓN</span><h3>Consulta registrada</h3><p>Fechas, huéspedes, alojamiento y datos de contacto quedan ordenados en Google Sheets.</p></article>
+            <article class="scope-card"><span>CONTINUIDAD</span><h3>Entrega al asesor</h3><p>Una persona recibe el contexto, confirma disponibilidad y continúa el cierre comercial.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark">
+        <div class="container">
+          <div class="section-heading"><div class="eyebrow"><span></span> ASÍ FUNCIONARÁ</div><h2>Un recorrido sencillo para el huésped y <em>útil para el equipo.</em></h2><p>El mismo proceso básico funcionará tanto en WhatsApp como en Instagram Direct.</p></div>
+          <div class="scope-grid">
+            <article class="scope-card"><span>PASO 01</span><h3>Llega la consulta</h3><p>La persona escribe por WhatsApp o Instagram y recibe una bienvenida inmediata.</p></article>
+            <article class="scope-card"><span>PASO 02</span><h3>Indica sus fechas</h3><p>El asistente solicita entrada, salida, número de huéspedes y alojamiento de interés.</p></article>
+            <article class="scope-card"><span>PASO 03</span><h3>Se revisa el calendario</h3><p>La solución consulta la información disponible en Google Calendar para orientar la respuesta.</p></article>
+            <article class="scope-card"><span>PASO 04</span><h3>Se registra la oportunidad</h3><p>Los datos se guardan en Google Sheets junto con el canal y estado de seguimiento.</p></article>
+            <article class="scope-card"><span>PASO 05</span><h3>Se avisa al equipo</h3><p>Un asesor recibe la solicitud cuando debe validar precio, disponibilidad o condiciones.</p></article>
+            <article class="scope-card"><span>PASO 06</span><h3>Se confirma de forma humana</h3><p>Renta Hogar valida la reserva y, al aprobarla, se registra en el calendario acordado.</p></article>
           </div>
         </div>
       </section>
 
       <section class="section dark" id="alcance">
         <div class="container">
-          <div class="section-heading"><div class="eyebrow"><span></span> ALCANCE DEL PROYECTO</div><h2>La base técnica y comercial para <em>activar el canal.</em></h2><p>El proyecto cubre una implementación inicial completa sobre una cuenta, un número y un flujo principal.</p></div>
+          <div class="section-heading"><div class="eyebrow"><span></span> FASE 1 · ALCANCE</div><h2>Lo necesario para <em>captar y organizar reservas.</em></h2><p>Esta primera fase cubre dos canales, un proceso inicial por canal y las conexiones acordadas con Google Sheets y Google Calendar.</p></div>
           <div class="scope-grid">{scope.map(([n, title, text]) => <article class="scope-card"><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
         </div>
       </section>
@@ -123,32 +143,33 @@ const requirements = [
         <div class="container">
           <div class="section-heading center"><div class="eyebrow"><span></span> INVERSIÓN</div><h2>Un alcance definido. <em>Una cifra clara.</em></h2></div>
           <div class="price-card">
-            <div class="price-top"><div><span>Implementación inicial · dos redes sociales</span><h3>ManyChat + WhatsApp Business + Instagram</h3></div><div class="price"><small>USD</small>$500</div></div>
+            <div class="price-top"><div><span>Fase 1 · implementación completa</span><h3>WhatsApp + Instagram + Sheets + Calendar</h3></div><div class="price"><small>USD</small>$500</div></div>
             <div class="price-body">
-              <ul><li>Diagnóstico de cuentas</li><li>WhatsApp + Instagram</li><li>Un número de WhatsApp</li><li>Un flujo por canal</li><li>Hasta dos plantillas de WhatsApp</li><li>Pruebas y capacitación</li></ul>
+              <ul><li>Diagnóstico de cuentas</li><li>WhatsApp + Instagram</li><li>Google Sheets</li><li>Google Calendar</li><li>Un flujo por canal</li><li>Pruebas y capacitación</li></ul>
               <div class="price-note"><strong>Precio cerrado</strong><p>Incluye el alcance descrito y una ronda consolidada de ajustes. Cualquier integración o flujo adicional se cotizará antes de ejecutarse.</p></div>
             </div>
           </div>
-          <p class="caption">El valor se calcula a razón de USD 250 por red social: WhatsApp Business + Instagram = USD 500. Cada red adicional tendrá un costo de USD 250 con un alcance equivalente. Las aprobaciones y permisos dependen de Meta.</p>
+          <p class="caption">El valor se calcula a razón de USD 250 por canal: WhatsApp Business + Instagram = USD 500. Las conexiones descritas con Google Sheets y Google Calendar forman parte de esta Fase 1. Las aprobaciones y permisos dependen de Meta y Google.</p>
         </div>
       </section>
 
       <section class="section costs" id="costos">
         <div class="container">
-          <div class="section-heading"><div class="eyebrow dark-eye"><span></span> COSTOS DE OPERACIÓN</div><h2>Servicios externos <em>separados de la implementación.</em></h2><p>El cliente contratará y pagará directamente las licencias, conversaciones y demás cargos de las plataformas.</p></div>
+          <div class="section-heading"><div class="eyebrow dark-eye"><span></span> INFRAESTRUCTURA Y COSTOS</div><h2>Sin servidor propio ni <em>mantenimiento mensual obligatorio.</em></h2><p>La solución funcionará con servicios en la nube administrados por sus proveedores. No requiere contratar un VPS de Hostinger ni pagar a Grupo Rincón una mensualidad fija de mantenimiento.</p></div>
           <div class="cost-table" role="table" aria-label="Costos externos">
             <div class="table-row table-head" role="row"><span>Concepto</span><span>Frecuencia</span><span>Valor</span><span>Responsable</span></div>
-            <div class="table-row"><b>Plan de ManyChat</b><span>Mensual</span><strong>Según plan vigente</strong><i>Cliente</i></div>
+            <div class="table-row"><b>ManyChat Pro</b><span>Mensual o anual</span><strong>Desde aprox. USD 30/mes</strong><i>Requerido</i></div>
+            <div class="table-row"><b>Servicio para conectar Google</b><span>Mensual</span><strong>Make, n8n Cloud o equivalente</strong><i>Cliente</i></div>
             <div class="table-row"><b>Mensajería de WhatsApp</b><span>Por uso</span><strong>Según tarifa de Meta</strong><i>Cliente</i></div>
             <div class="table-row"><b>Número telefónico</b><span>Según proveedor</span><strong>Variable</strong><i>Cliente</i></div>
-            <div class="table-row"><b>Integraciones adicionales</b><span>Según necesidad</span><strong>No incluidas</strong><i class="optional">Opcional</i></div>
             <div class="table-row total"><b>Implementación Grupo Rincón</b><span>Dos redes</span><strong>USD 500</strong><i>Esta propuesta</i></div>
           </div>
           <div class="transaction-grid">
-            <article><span>Ventana de atención</span><strong>24 horas</strong><p>Dentro de la ventana activa se responde normalmente según las reglas vigentes de WhatsApp.</p></article>
-            <article><span>Fuera de la ventana</span><strong>Plantilla aprobada</strong><p>La reactivación de una conversación requiere una plantilla autorizada por Meta.</p></article>
-            <article class="accent"><span>Recomendación</span><strong>Validar antes de migrar</strong><p>No se conectará un número activo sin revisar primero el impacto sobre la aplicación y el historial existente.</p></article>
+            <article><span>Costo mínimo de entrada</span><strong>Aprox. USD 30/mes</strong><p>Para conectar WhatsApp se requiere ManyChat Pro. El valor cercano a USD 30 mensuales corresponde a la modalidad anual mostrada por el proveedor.</p></article>
+            <article><span>Pago mes a mes</span><strong>Puede ser mayor</strong><p>ManyChat muestra un precio superior cuando se contrata mensualmente. El costo también puede crecer con la cantidad de contactos activos.</p></article>
+            <article class="accent"><span>Antes de contratar</span><strong>Aprobación del cliente</strong><p>Presentaremos la alternativa recomendada y sus costos vigentes. Renta Hogar aprobará cada servicio antes de activarlo.</p></article>
           </div>
+          <p class="caption">El presupuesto operativo total será superior a USD 30 mensuales cuando se sumen el servicio para conectar Google y los posibles cargos de WhatsApp o telefonía. Los precios pertenecen a terceros, pueden cambiar y deberán confirmarse al momento de contratar.</p>
         </div>
       </section>
 
@@ -158,10 +179,10 @@ const requirements = [
           <div class="scope-grid">
             <article class="scope-card"><span>RIESGO 01</span><h3>Número y aplicación actual</h3><p>Dependiendo de la modalidad disponible, conectar un número existente puede afectar su uso en la aplicación WhatsApp Business. No se migrará sin revisar y autorizar expresamente este impacto.</p></article>
             <article class="scope-card"><span>RIESGO 02</span><h3>Historial de conversaciones</h3><p>Las conversaciones previas pueden no transferirse a ManyChat o a la nueva configuración. El cliente debe respaldar la información importante antes de cualquier cambio.</p></article>
-            <article class="scope-card"><span>RIESGO 03</span><h3>Aprobaciones de Meta</h3><p>Meta puede rechazar o demorar la verificación del negocio, nombre visible, número o plantillas. Estos tiempos y decisiones no dependen de Grupo Rincón.</p></article>
-            <article class="scope-card"><span>RIESGO 04</span><h3>Interrupción temporal</h3><p>La verificación, migración o propagación de cambios puede generar una interrupción temporal del canal. Se coordinará una ventana de trabajo para reducir el impacto.</p></article>
+            <article class="scope-card"><span>RIESGO 03</span><h3>Aprobaciones y permisos</h3><p>Meta o Google pueden rechazar, limitar o demorar cuentas, nombres, plantillas y permisos. Estas decisiones no dependen de Grupo Rincón.</p></article>
+            <article class="scope-card"><span>RIESGO 04</span><h3>Disponibilidad desactualizada</h3><p>Si el equipo no mantiene Google Calendar al día, la automatización podría mostrar fechas incorrectas. El calendario debe actualizarse después de cada cambio o reserva.</p></article>
             <article class="scope-card"><span>RIESGO 05</span><h3>Políticas y consentimiento</h3><p>Mensajes sin autorización, bases compradas o incumplimientos de políticas pueden ocasionar restricciones, reducción de calidad o suspensión de la cuenta.</p></article>
-            <article class="scope-card"><span>RIESGO 06</span><h3>Costos y reglas de terceros</h3><p>Meta y ManyChat pueden modificar planes, tarifas, funciones y políticas. Esos cambios futuros no están incluidos en el valor de implementación.</p></article>
+            <article class="scope-card"><span>RIESGO 06</span><h3>Doble reserva o falla externa</h3><p>Google Calendar orienta la disponibilidad, pero no sustituye un sistema de reservas. Renta Hogar debe validar antes de confirmar y contar con un procedimiento manual si una plataforma falla.</p></article>
           </div>
           <div class="requirement-alert"><strong>Recomendación principal</strong><p>Cuando el número actual sostiene conversaciones importantes, recomendamos evaluar primero un número nuevo. La decisión final se documentará durante el diagnóstico y requerirá aprobación del cliente.</p></div>
         </div>
@@ -171,12 +192,14 @@ const requirements = [
         <div class="container">
           <div class="section-heading"><div class="eyebrow"><span></span> FUERA DEL ALCANCE</div><h2>Límites para una <em>primera fase controlada.</em></h2><p>Todo requerimiento adicional podrá estimarse como una fase posterior.</p></div>
           <div class="scope-grid">
-            <article class="scope-card"><span>NO INCLUIDO</span><h3>CRM a la medida</h3><p>No incluye desarrollo de software, integraciones por API, webhooks ni conexión con un CRM externo.</p></article>
+            <article class="scope-card"><span>FASE 2</span><h3>Gmail</h3><p>La lectura, clasificación o respuesta automática de correos se trasladará a una fase posterior.</p></article>
+            <article class="scope-card"><span>FASE 2</span><h3>TikTok</h3><p>La conexión y automatización de consultas provenientes de TikTok se evaluará en una fase posterior.</p></article>
             <article class="scope-card"><span>NO INCLUIDO</span><h3>Flujos adicionales</h3><p>No incluye campañas, embudos, bots para otros canales ni automatizaciones distintas al flujo descrito.</p></article>
             <article class="scope-card"><span>NO INCLUIDO</span><h3>Pauta y contenido</h3><p>No incluye anuncios de Meta, estrategia de medios, diseño de piezas ni producción de contenido comercial.</p></article>
             <article class="scope-card"><span>NO INCLUIDO</span><h3>Importación masiva</h3><p>No incluye limpieza, migración o envío a bases de contactos existentes.</p></article>
             <article class="scope-card"><span>NO INCLUIDO</span><h3>Aprobaciones de Meta</h3><p>No podemos garantizar la aprobación de cuentas, nombres, números o plantillas gestionadas por terceros.</p></article>
-            <article class="scope-card"><span>NO INCLUIDO</span><h3>Soporte mensual</h3><p>La garantía cubre errores del alcance implementado; operación continua y nuevas mejoras se cotizan aparte.</p></article>
+            <article class="scope-card"><span>NO INCLUIDO</span><h3>Sistema de reservas completo</h3><p>Google Calendar servirá como apoyo para consultar disponibilidad. No incluye pagos, contratos, bloqueo transaccional de inventario ni confirmación automática definitiva.</p></article>
+            <article class="scope-card"><span>NO INCLUIDO</span><h3>Mantenimiento fijo</h3><p>No existe una mensualidad obligatoria. Después de la garantía, cualquier ayuda o mejora se atenderá bajo demanda.</p></article>
           </div>
         </div>
       </section>
@@ -199,12 +222,23 @@ const requirements = [
         </div>
       </section>
 
+      <section class="section light" id="soporte">
+        <div class="container">
+          <div class="section-heading"><div class="eyebrow dark-eye"><span></span> GARANTÍA Y SOPORTE</div><h2>Estabilidad inicial sin una <em>mensualidad obligatoria.</em></h2><p>Renta Hogar tendrá acompañamiento durante la salida a producción y podrá solicitar ayuda puntual después de la garantía.</p></div>
+          <div class="transaction-grid">
+            <article><span>Primeros 30 días</span><strong>Garantía incluida</strong><p>Corregiremos sin costo los errores que pertenezcan al alcance implementado y aprobado.</p></article>
+            <article><span>Después de la garantía</span><strong>Horas bajo demanda</strong><p>Cada solicitud se revisará y se cotizarán únicamente las horas necesarias antes de comenzar. No existe pago mensual fijo.</p></article>
+            <article class="accent"><span>No cubre la garantía</span><strong>Cambios y terceros</strong><p>Nuevas funciones, cambios de contenido, fallas externas, bloqueos de cuentas o modificaciones de Meta, Google y ManyChat se cotizarán por separado.</p></article>
+          </div>
+        </div>
+      </section>
+
       <section class="section dark requirements">
         <div class="container split">
           <div><div class="eyebrow"><span></span> REQUERIMIENTOS DEL CLIENTE</div><h2>Lo necesario para <em>comenzar sin fricción.</em></h2></div>
           <ol>{requirements.map(([n, title, text]) => <li><span>{n}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol>
         </div>
-        <div class="container"><div class="requirement-alert"><strong>Los requisitos deben estar completos antes de iniciar</strong><p>El plazo comienza al recibir el pago inicial, accesos con permisos suficientes, número disponible, datos del negocio, guion aprobado y persona responsable. Demoras en accesos, códigos, contenido o aprobaciones desplazarán la fecha de entrega.</p></div></div>
+        <div class="container"><div class="requirement-alert"><strong>Los requisitos deben estar completos antes de iniciar</strong><p>El plazo comienza al recibir el pago inicial, accesos con permisos suficientes, número disponible, cuentas de Google, inventario de alojamientos, calendarios actualizados, reglas comerciales, contenido aprobado y persona responsable. Las demoras en estos elementos desplazarán la fecha de entrega.</p></div></div>
       </section>
 
       <section class="cta" id="aceptacion">
