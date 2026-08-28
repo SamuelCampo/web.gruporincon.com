@@ -1,48 +1,9 @@
 ---
-const projects = [
-  {
-    name: "Avalora",
-    url: "https://avalora.com",
-    industry: "Tecnología",
-    description: " Integradora Tecnológica con años que desarrolla sistemas, infraestructuras, servicios y soluciones.",
-    image: "/portfolio/Avalora",
-  },
-  {
-    name: "Karina Rivera Mentora",
-    url: "https://karinariveramentora.com",
-    industry: "Coaching & Educación",
-    description: "Sitio de alto impacto para coach certificada con embudo de ventas, agenda integrada y membresías.",
-    image: "/portfolio/Karina",
-  },
-  {
-    name: "Explorex Group",
-    url: "https://explorexgroup.com",
-    industry: "Transporte",
-    description: "Servicio de transporte turístico, viajes corporativos con vehículos modernos y conductores altamente capacitados. ",
-    image: "/portfolio/Explorex",
-  },
-  {
-    name: "Colectivo Traso",
-    url: "https://colectivotraso.org",
-    industry: "Organización Social",
-    description: "Plataforma de captación de donantes y voluntarios para organización sin fines de lucro.",
-    image: "/portfolio/Colectivo",
-  },
-  {
-    name: "Doral Cartagena",
-    url: "https://doralcartagena.com",
-    industry: "Hotelería & Turismo",
-    description: "Equipo de constructores visionarios con experiencia en desarrollo urbano y residencial.",
-    image: "/portfolio/Doral",
-  },
-  {
-    name: "Mexicarga",
-    url: "https://mexicarga.com",
-    industry: "Logística",
-    description: "Equipo líder en soluciones logísticas, especializado en el envío y exportación de paquetería hacia toda la República Mexicana. ",
-    image: "/portfolio/mexicarga",
-  },
-];
+import {
+  getSuccessCaseHref,
+  isExternalSuccessCase,
+  successCases as projects,
+} from "../data/successCases";
 ---
 
 <section id="portafolio" class="bg-zinc-950 py-20 lg:py-28 relative overflow-hidden">
@@ -60,8 +21,17 @@ const projects = [
             Proyectos que impulsan<br class="hidden sm:block" /> negocios reales.
           </h2>
         </div>
-        <!-- Arrow Controls -->
         <div class="flex items-center gap-3 flex-shrink-0">
+          <a
+            href="/casos-de-exito/"
+            class="mr-2 hidden sm:inline-flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-white transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary-400"
+          >
+            Ver todos
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <!-- Arrow Controls -->
           <button
             id="portfolio-prev"
             aria-label="Proyecto anterior"
@@ -90,9 +60,9 @@ const projects = [
         {
           projects.map((project, i) => (
             <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={getSuccessCaseHref(project)}
+              target={isExternalSuccessCase(project) ? "_blank" : undefined}
+              rel={isExternalSuccessCase(project) ? "noopener noreferrer" : undefined}
               data-portfolio-card
               class="group relative flex-shrink-0 rounded-2xl lg:rounded-3xl overflow-hidden cursor-pointer shadow-2xl shadow-black/50 transition-all duration-500"
               style="width: clamp(280px, 75vw, 860px); aspect-ratio: 16/10;"
@@ -118,7 +88,9 @@ const projects = [
               <div class="absolute inset-0 z-20 flex flex-col justify-end p-6 sm:p-8 lg:p-10">
                 <div class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                   <span class="inline-block text-[10px] font-bold text-secondary-300 uppercase tracking-widest bg-secondary-500/20 border border-secondary-500/30 backdrop-blur-sm px-3 py-1 rounded-full mb-3 font-display">
-                    {project.industry}
+                    {project.country
+                      ? `${project.industry} · ${project.country}`
+                      : project.industry}
                   </span>
                   <h3 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight font-display leading-tight">
                     {project.name}
@@ -127,7 +99,7 @@ const projects = [
                     {project.description}
                   </p>
                   <div class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-white/80 group-hover:text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                    <span>Visitar sitio</span>
+                    <span>{isExternalSuccessCase(project) ? "Visitar sitio" : "Ver caso completo"}</span>
                     <svg class="w-3.5 h-3.5 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
@@ -162,6 +134,17 @@ const projects = [
       <p class="text-center mt-4 text-xs text-zinc-600 font-display font-semibold tracking-widest">
         <span id="portfolio-current">01</span> / <span id="portfolio-total">{String(projects.length).padStart(2, '0')}</span>
       </p>
+      <div class="mt-7 text-center sm:hidden">
+        <a
+          href="/casos-de-exito/"
+          class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-xs font-bold text-zinc-300 transition-all duration-300 hover:border-secondary-500/30 hover:text-white"
+        >
+          Ver todos los casos
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
