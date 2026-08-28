@@ -2,12 +2,36 @@
 import "../styles/propuesta-shopify.css";
 
 const scope = [
-  ["01", "Planificación y respaldo", "Revisión del sitio, recuperación de accesos y respaldo del contenido disponible antes de realizar cualquier cambio."],
-  ["02", "Rediseño visual", "Nueva apariencia profesional para presentar la trayectoria, productos y servicios de Marari con mayor claridad y confianza."],
-  ["03", "WordPress + Elementor", "Reconstrucción del sitio en WordPress con Elementor para que el equipo pueda editar textos, imágenes, banners, fondos y colores sin programar."],
-  ["04", "Catálogo informativo", "Organización de categorías y productos o líneas de negocio como catálogo de consulta, con botones para solicitar información."],
-  ["05", "Contacto y estadísticas", "Formularios, WhatsApp y conexión con Google Site Kit para consultar desde WordPress las visitas y el comportamiento general de los usuarios."],
-  ["06", "Entrega y capacitación", "Pruebas, publicación, una ronda de ajustes y capacitación remota para administrar el contenido y consultar las estadísticas esenciales."],
+  [
+    "01",
+    "Planificación y respaldo",
+    "Revisión del sitio, recuperación de accesos y respaldo del contenido disponible antes de realizar cualquier cambio.",
+  ],
+  [
+    "02",
+    "Rediseño visual",
+    "Nueva apariencia profesional para presentar la trayectoria, productos y servicios de Marari con mayor claridad y confianza.",
+  ],
+  [
+    "03",
+    "WordPress + Elementor",
+    "Reconstrucción del sitio en WordPress con Elementor para que el equipo pueda editar textos, imágenes, banners, fondos y colores sin programar.",
+  ],
+  [
+    "04",
+    "Catálogo informativo",
+    "Organización de categorías y productos o líneas de negocio como catálogo de consulta, con botones para solicitar información.",
+  ],
+  [
+    "05",
+    "Contacto y estadísticas",
+    "Formularios, WhatsApp y conexión con Google Site Kit para consultar desde WordPress las visitas y el comportamiento general de los usuarios.",
+  ],
+  [
+    "06",
+    "Entrega y capacitación",
+    "Pruebas, publicación, una ronda de ajustes y capacitación remota para administrar el contenido y consultar las estadísticas esenciales.",
+  ],
 ];
 
 const features = [
@@ -36,20 +60,64 @@ const features = [
 ];
 
 const phases = [
-  ["Días 1–3", "Contenido y estructura", "Accesos, respaldo, inventario de páginas, textos, imágenes, categorías y definición del nuevo recorrido."],
-  ["Días 4–8", "Diseño", "Construcción de la propuesta visual y adaptación de las páginas principales en Elementor."],
-  ["Días 9–12", "Catálogo e integración", "Carga inicial, formularios, WhatsApp, ubicación, ajustes móviles y configuración administrativa."],
-  ["Días 13–15", "Pruebas y entrega", "Revisión consolidada, correcciones, capacitación, respaldo y publicación final."],
+  [
+    "Días 1–3",
+    "Contenido y estructura",
+    "Accesos, respaldo, inventario de páginas, textos, imágenes, categorías y definición del nuevo recorrido.",
+  ],
+  [
+    "Días 4–8",
+    "Diseño",
+    "Construcción de la propuesta visual y adaptación de las páginas principales en Elementor.",
+  ],
+  [
+    "Días 9–12",
+    "Catálogo e integración",
+    "Carga inicial, formularios, WhatsApp, ubicación, ajustes móviles y configuración administrativa.",
+  ],
+  [
+    "Días 13–15",
+    "Pruebas y entrega",
+    "Revisión consolidada, correcciones, capacitación, respaldo y publicación final.",
+  ],
 ];
 
 const requirements = [
-  ["01", "Dominio y hosting", "Acceso al proveedor del dominio marari.com.ve, panel del hosting y correos asociados. El servicio debe estar activo para poder publicar."],
-  ["02", "Sitio actual", "Archivos, base de datos, repositorio o acceso técnico al sitio existente para rescatar el contenido que esté disponible."],
-  ["03", "Identidad de marca", "Logo en buena calidad, colores, tipografías, manual de marca y referencias visuales disponibles."],
-  ["04", "Contenido corporativo", "Historia, descripción de la empresa, servicios, teléfonos, dirección, horarios, correos y redes sociales."],
-  ["05", "Productos", "Categorías, nombres, descripciones, fotografías y fichas técnicas de hasta 20 elementos iniciales, listos para publicar."],
-  ["06", "Cuenta de Google", "Una cuenta de Google administrada por Marari para conectar Site Kit y conservar la propiedad de las estadísticas."],
-  ["07", "Persona responsable", "Un contacto autorizado para entregar accesos, aprobar contenido y enviar una sola devolución consolidada."],
+  [
+    "01",
+    "Dominio y hosting",
+    "Acceso al proveedor del dominio marari.com.ve, panel del hosting y correos asociados. El servicio debe estar activo para poder publicar.",
+  ],
+  [
+    "02",
+    "Sitio actual",
+    "Archivos, base de datos, repositorio o acceso técnico al sitio existente para rescatar el contenido que esté disponible.",
+  ],
+  [
+    "03",
+    "Identidad de marca",
+    "Logo en buena calidad, colores, tipografías, manual de marca y referencias visuales disponibles.",
+  ],
+  [
+    "04",
+    "Contenido corporativo",
+    "Historia, descripción de la empresa, servicios, teléfonos, dirección, horarios, correos y redes sociales.",
+  ],
+  [
+    "05",
+    "Productos",
+    "Categorías, nombres, descripciones, fotografías y fichas técnicas de hasta 20 elementos iniciales, listos para publicar.",
+  ],
+  [
+    "06",
+    "Cuenta de Google",
+    "Una cuenta de Google administrada por Marari para conectar Site Kit y conservar la propiedad de las estadísticas.",
+  ],
+  [
+    "07",
+    "Persona responsable",
+    "Un contacto autorizado para entregar accesos, aprobar contenido y enviar una sola devolución consolidada.",
+  ],
 ];
 ---
 
@@ -58,41 +126,88 @@ const requirements = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate" />
-    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta
+      name="robots"
+      content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"
+    />
+    <meta
+      name="googlebot"
+      content="noindex, nofollow, noarchive, nosnippet, noimageindex"
+    />
     <meta name="bingbot" content="noindex, nofollow, noarchive" />
     <meta name="GPTBot" content="noindex, nofollow, noarchive" />
     <meta name="CCBot" content="noindex, nofollow, noarchive" />
     <meta name="ClaudeBot" content="noindex, nofollow, noarchive" />
     <meta name="referrer" content="no-referrer" />
-    <meta name="description" content="Propuesta privada para el rediseño y migración del sitio web de Marari a WordPress con Elementor." />
+    <meta
+      name="description"
+      content="Propuesta privada para el rediseño y migración del sitio web de Marari a WordPress con Elementor."
+    />
     <title>Propuesta privada · Rediseño web Marari</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header class="nav-shell">
       <nav class="nav container" aria-label="Navegación de la propuesta">
-        <a class="brand" href="#inicio" aria-label="Grupo Rincón, volver al inicio"><img src="/Logo/Logo blanco.webp" alt="Grupo Rincón" width="148" height="52" /></a>
-        <div class="nav-links"><a href="#alcance">Alcance</a><a href="#inversion">Inversión</a><a href="#plan">Plan</a><a href="#pagos">Pagos</a></div>
+        <a
+          class="brand"
+          href="#inicio"
+          aria-label="Grupo Rincón, volver al inicio"
+          ><img
+            src="/Logo/Logo blanco.webp"
+            alt="Grupo Rincón"
+            width="148"
+            height="52"
+          /></a
+        >
+        <div class="nav-links">
+          <a href="#alcance">Alcance</a><a href="#inversion">Inversión</a><a
+            href="#plan">Plan</a
+          ><a href="#pagos">Pagos</a>
+        </div>
         <a class="button button-small" href="#aceptacion">Aprobar propuesta</a>
       </nav>
     </header>
 
     <main>
       <section class="hero" id="inicio">
-        <div class="orb orb-one"></div><div class="orb orb-two"></div><div class="grid-lines"></div>
+        <div class="orb orb-one"></div><div class="orb orb-two"></div><div
+          class="grid-lines"
+        >
+        </div>
         <div class="container hero-inner">
-          <div class="eyebrow"><span></span> PROPUESTA CONFIDENCIAL · MARARI C.A.</div>
-          <h1>Una web renovada que Marari pueda <em>administrar con facilidad.</em></h1>
-          <p class="hero-copy">Rediseñaremos el sitio actual y lo reconstruiremos en WordPress con Elementor para presentar mejor la empresa, organizar su catálogo y permitir que el equipo actualice el contenido sin depender de programación.</p>
-          <div class="hero-actions"><a class="button" href="#inversion">Ver inversión <span>↓</span></a><a class="button button-ghost" href="#alcance">Explorar alcance</a></div>
-          <div class="hero-note"><span class="lock">●</span> Documento privado · válido por 15 días</div>
+          <div class="eyebrow">
+            <span></span> PROPUESTA CONFIDENCIAL · MARARI C.A.
+          </div>
+          <h1>
+            Una web renovada que Marari pueda <em
+              >administrar con facilidad.</em>
+          </h1>
+          <p class="hero-copy">
+            Rediseñaremos el sitio actual y lo reconstruiremos en WordPress con
+            Elementor para presentar mejor la empresa, organizar su catálogo y
+            permitir que el equipo actualice el contenido sin depender de
+            programación.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#inversion">Ver inversión <span>↓</span></a
+            ><a class="button button-ghost" href="#alcance">Explorar alcance</a>
+          </div>
+          <div class="hero-note">
+            <span class="lock">●</span> Documento privado · válido por 15 días
+          </div>
         </div>
       </section>
 
-      <section class="metrics section-tight" aria-label="Resumen de la propuesta">
+      <section
+        class="metrics section-tight"
+        aria-label="Resumen de la propuesta"
+      >
         <div class="container metrics-grid">
           <div><strong>USD 500</strong><span>Inversión total</span></div>
           <div><strong>15</strong><span>Días hábiles*</span></div>
@@ -103,126 +218,430 @@ const requirements = [
 
       <section class="section dark">
         <div class="container">
-          <div class="section-heading"><div class="eyebrow"><span></span> OPORTUNIDAD</div><h2>De un sitio difícil de modificar a una <em>herramienta comercial.</em></h2><p>La nueva web conservará el valor de la trayectoria de Marari y facilitará que clientes del sector agrícola, industrial, vehicular y marino encuentren productos, servicios y canales de contacto.</p></div>
+          <div class="section-heading">
+            <div class="eyebrow"><span></span> OPORTUNIDAD</div><h2>
+              De un sitio difícil de modificar a una <em
+                >herramienta comercial.</em>
+            </h2><p>
+              La nueva web conservará el valor de la trayectoria de Marari y
+              facilitará que clientes del sector agrícola, industrial, vehicular
+              y marino encuentren productos, servicios y canales de contacto.
+            </p>
+          </div>
           <div class="scope-grid">
-            <article class="scope-card"><span>HOY</span><h3>Sitio hecho a código</h3><p>Los cambios requieren conocimientos técnicos y el sitio actual no se encuentra disponible públicamente.</p></article>
-            <article class="scope-card"><span>PROPUESTA</span><h3>Gestión con Elementor</h3><p>El equipo podrá cambiar textos, imágenes, banners, fondos y colores desde un panel visual.</p></article>
-            <article class="scope-card"><span>RESULTADO</span><h3>Catálogo que genera consultas</h3><p>Productos y capacidades se presentarán de forma ordenada con accesos directos al equipo comercial.</p></article>
+            <article class="scope-card">
+              <span>HOY</span><h3>Sitio hecho a código</h3><p>
+                Los cambios requieren conocimientos técnicos y el sitio actual
+                no se encuentra disponible públicamente.
+              </p>
+            </article>
+            <article class="scope-card">
+              <span>PROPUESTA</span><h3>Gestión con Elementor</h3><p>
+                El equipo podrá cambiar textos, imágenes, banners, fondos y
+                colores desde un panel visual.
+              </p>
+            </article>
+            <article class="scope-card">
+              <span>RESULTADO</span><h3>Catálogo que genera consultas</h3><p>
+                Productos y capacidades se presentarán de forma ordenada con
+                accesos directos al equipo comercial.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="section dark" id="alcance">
         <div class="container">
-          <div class="section-heading"><div class="eyebrow"><span></span> ALCANCE DEL PROYECTO</div><h2>Una renovación pensada para <em>mostrar, actualizar y vender mejor.</em></h2><p>El alcance cubre un sitio corporativo con catálogo informativo. Las ventas se cerrarán mediante contacto directo con Marari.</p></div>
-          <div class="scope-grid">{scope.map(([n, title, text]) => <article class="scope-card"><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+          <div class="section-heading">
+            <div class="eyebrow"><span></span> ALCANCE DEL PROYECTO</div><h2>
+              Una renovación pensada para <em
+                >mostrar, actualizar y vender mejor.</em>
+            </h2><p>
+              El alcance cubre un sitio corporativo con catálogo informativo.
+              Las ventas se cerrarán mediante contacto directo con Marari.
+            </p>
+          </div>
+          <div class="scope-grid">
+            {
+              scope.map(([n, title, text]) => (
+                <article class="scope-card">
+                  <>
+                    <span>{n}</span>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </>
+                </article>
+              ))
+            }
+          </div>
         </div>
       </section>
 
       <section class="section light">
         <div class="container split">
-          <div class="sticky-copy"><div class="eyebrow dark-eye"><span></span> ENTREGABLES</div><h2>Lo necesario para una web <em>profesional y administrable.</em></h2><p>El proyecto se desarrollará con herramientas visuales de WordPress para que el equipo pueda encargarse de las actualizaciones habituales.</p></div>
-          <div class="feature-list">{features.map((item, i) => <div><span>{String(i + 1).padStart(2, "0")}</span><p>{item}</p><b>✓</b></div>)}</div>
+          <div class="sticky-copy">
+            <div class="eyebrow dark-eye"><span></span> ENTREGABLES</div><h2>
+              Lo necesario para una web <em>profesional y administrable.</em>
+            </h2><p>
+              El proyecto se desarrollará con herramientas visuales de WordPress
+              para que el equipo pueda encargarse de las actualizaciones
+              habituales.
+            </p>
+          </div>
+          <div class="feature-list">
+            {
+              features.map((item, i) => (
+                <div>
+                  <>
+                    <span>{String(i + 1).padStart(2, "0")}</span>
+                    <p>{item}</p>
+                    <b>✓</b>
+                  </>
+                </div>
+              ))
+            }
+          </div>
         </div>
       </section>
 
       <section class="section dark" id="inversion">
         <div class="container">
-          <div class="section-heading center"><div class="eyebrow"><span></span> INVERSIÓN</div><h2>Una cifra definida para una <em>renovación completa.</em></h2></div>
+          <div class="section-heading center">
+            <div class="eyebrow"><span></span> INVERSIÓN</div><h2>
+              Una cifra definida para una <em>renovación completa.</em>
+            </h2>
+          </div>
           <div class="price-card">
-            <div class="price-top"><div><span>Rediseño y migración</span><h3>Web Marari en WordPress + Elementor</h3></div><div class="price"><small>USD</small>$500</div></div>
+            <div class="price-top">
+              <div>
+                <span>Rediseño y migración</span><h3>
+                  Web Marari en WordPress + Elementor
+                </h3>
+              </div><div class="price"><small>USD</small>$500</div>
+            </div>
             <div class="price-body">
-              <ul><li>Rediseño responsive</li><li>WordPress + Elementor</li><li>Hasta seis páginas</li><li>Catálogo informativo inicial</li><li>Google Site Kit</li><li>Capacitación y garantía</li></ul>
-              <div class="price-note"><strong>Precio cerrado</strong><p>Incluye el alcance descrito y una ronda consolidada de ajustes. Cualquier página, producto o función adicional se cotizará antes de ejecutarse.</p></div>
+              <ul>
+                <li>Rediseño responsive</li><li>WordPress + Elementor</li><li>
+                  Hasta seis páginas
+                </li><li>Catálogo informativo inicial</li><li>
+                  Google Site Kit
+                </li><li>Capacitación y garantía</li>
+              </ul>
+              <div class="price-note">
+                <strong>Precio cerrado</strong><p>
+                  Incluye el alcance descrito y una ronda consolidada de
+                  ajustes. Cualquier página, producto o función adicional se
+                  cotizará antes de ejecutarse.
+                </p>
+              </div>
             </div>
           </div>
-          <p class="caption">Hosting, dominio, renovación de servicios suspendidos, Elementor Pro, plugins de pago y otras licencias no están incluidos. Marari los contratará directamente después de aprobar su costo.</p>
+          <p class="caption">
+            Hosting, dominio, renovación de servicios suspendidos, Elementor
+            Pro, plugins de pago y otras licencias no están incluidos. Marari
+            los contratará directamente después de aprobar su costo.
+          </p>
         </div>
       </section>
 
       <section class="section costs">
         <div class="container">
-          <div class="section-heading"><div class="eyebrow dark-eye"><span></span> COSTOS EXTERNOS</div><h2>Servicios que permanecen a nombre de <em>Marari.</em></h2><p>Estos pagos no forman parte de los USD 500 y solo se contratarán con autorización del cliente.</p></div>
+          <div class="section-heading">
+            <div class="eyebrow dark-eye"><span></span> COSTOS EXTERNOS</div><h2
+            >
+              Servicios que permanecen a nombre de <em>Marari.</em>
+            </h2><p>
+              Estos pagos no forman parte de los USD 500 y solo se contratarán
+              con autorización del cliente.
+            </p>
+          </div>
           <div class="cost-table" role="table" aria-label="Costos externos">
-            <div class="table-row table-head" role="row"><span>Concepto</span><span>Frecuencia</span><span>Valor</span><span>Responsable</span></div>
-            <div class="table-row"><b>Dominio marari.com.ve</b><span>Anual</span><strong>Según proveedor</strong><i>Cliente</i></div>
-            <div class="table-row"><b>Hosting compatible con WordPress</b><span>Anual o mensual</span><strong>Según plan</strong><i>Cliente</i></div>
-            <div class="table-row"><b>Elementor Pro</b><span>Anual</span><strong>Solo si se aprueba</strong><i class="optional">Opcional</i></div>
-            <div class="table-row"><b>Google Site Kit</b><span>Sin licencia</span><strong>USD 0</strong><i>Incluido</i></div>
-            <div class="table-row"><b>Plugins o licencias adicionales</b><span>Variable</span><strong>Según necesidad</strong><i class="optional">Opcional</i></div>
-            <div class="table-row total"><b>Implementación Grupo Rincón</b><span>Pago único</span><strong>USD 500</strong><i>Esta propuesta</i></div>
+            <div class="table-row table-head" role="row">
+              <span>Concepto</span><span>Frecuencia</span><span>Valor</span
+              ><span>Responsable</span>
+            </div>
+            <div class="table-row">
+              <b>Dominio marari.com.ve</b><span>Anual</span><strong
+                >Según proveedor</strong
+              ><i>Cliente</i>
+            </div>
+            <div class="table-row">
+              <b>Hosting compatible con WordPress</b><span>Anual o mensual</span
+              ><strong>Según plan</strong><i>Cliente</i>
+            </div>
+            <div class="table-row">
+              <b>Elementor Pro</b><span>Anual</span><strong
+                >Solo si se aprueba</strong
+              ><i class="optional">Opcional</i>
+            </div>
+            <div class="table-row">
+              <b>Google Site Kit</b><span>Sin licencia</span><strong
+                >USD 0</strong
+              ><i>Incluido</i>
+            </div>
+            <div class="table-row">
+              <b>Plugins o licencias adicionales</b><span>Variable</span><strong
+                >Según necesidad</strong
+              ><i class="optional">Opcional</i>
+            </div>
+            <div class="table-row total">
+              <b>Implementación Grupo Rincón</b><span>Pago único</span><strong
+                >USD 500</strong
+              ><i>Esta propuesta</i>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="section dark exclusions">
         <div class="container">
-          <div class="section-heading"><div class="eyebrow"><span></span> LÍMITES DEL ALCANCE</div><h2>Para evitar diferencias al momento de <em>entregar.</em></h2><p>Cualquier necesidad adicional puede desarrollarse como una segunda fase.</p></div>
+          <div class="section-heading">
+            <div class="eyebrow"><span></span> LÍMITES DEL ALCANCE</div><h2>
+              Para evitar diferencias al momento de <em>entregar.</em>
+            </h2><p>
+              Cualquier necesidad adicional puede desarrollarse como una segunda
+              fase.
+            </p>
+          </div>
           <div class="scope-grid">
-            <article class="scope-card"><span>NO INCLUIDO</span><h3>Tienda en línea</h3><p>No incluye carrito, pagos en línea, control de inventario, facturación ni despacho automático.</p></article>
-            <article class="scope-card"><span>NO INCLUIDO</span><h3>Reservas o cotizador</h3><p>No incluye reservas, cálculo automático de precios ni sistemas personalizados de cotización.</p></article>
-            <article class="scope-card"><span>NO INCLUIDO</span><h3>Carga ilimitada</h3><p>Incluye hasta 20 elementos iniciales de catálogo. El contenido adicional puede cargarlo Marari o cotizarse aparte.</p></article>
-            <article class="scope-card"><span>NO INCLUIDO</span><h3>Creación de contenido</h3><p>No incluye fotografía, video, fichas técnicas, branding, traducciones ni redacción completa de textos.</p></article>
-            <article class="scope-card"><span>NO INCLUIDO</span><h3>Marketing continuo</h3><p>No incluye publicidad, manejo de redes sociales, posicionamiento avanzado ni campañas mensuales.</p></article>
-            <article class="scope-card"><span>CONSIDERACIÓN</span><h3>Datos de estadísticas</h3><p>Las estadísticas comenzarán a recopilarse después de conectar y publicar Site Kit. No se garantiza la recuperación de datos históricos del sitio anterior.</p></article>
-            <article class="scope-card"><span>NO INCLUIDO</span><h3>Mantenimiento mensual</h3><p>La garantía cubre errores del trabajo entregado. Cambios futuros y soporte continuo se cotizan por separado.</p></article>
+            <article class="scope-card">
+              <span>NO INCLUIDO</span><h3>Tienda en línea</h3><p>
+                No incluye carrito, pagos en línea, control de inventario,
+                facturación ni despacho automático.
+              </p>
+            </article>
+            <article class="scope-card">
+              <span>NO INCLUIDO</span><h3>Reservas o cotizador</h3><p>
+                No incluye reservas, cálculo automático de precios ni sistemas
+                personalizados de cotización.
+              </p>
+            </article>
+            <article class="scope-card">
+              <span>NO INCLUIDO</span><h3>Carga ilimitada</h3><p>
+                Incluye hasta 20 elementos iniciales de catálogo. El contenido
+                adicional puede cargarlo Marari o cotizarse aparte.
+              </p>
+            </article>
+            <article class="scope-card">
+              <span>NO INCLUIDO</span><h3>Creación de contenido</h3><p>
+                No incluye fotografía, video, fichas técnicas, branding,
+                traducciones ni redacción completa de textos.
+              </p>
+            </article>
+            <article class="scope-card">
+              <span>NO INCLUIDO</span><h3>Marketing continuo</h3><p>
+                No incluye publicidad, manejo de redes sociales, posicionamiento
+                avanzado ni campañas mensuales.
+              </p>
+            </article>
+            <article class="scope-card">
+              <span>CONSIDERACIÓN</span><h3>Datos de estadísticas</h3><p>
+                Las estadísticas comenzarán a recopilarse después de conectar y
+                publicar Site Kit. No se garantiza la recuperación de datos
+                históricos del sitio anterior.
+              </p>
+            </article>
+            <article class="scope-card">
+              <span>NO INCLUIDO</span><h3>Mantenimiento mensual</h3><p>
+                La garantía cubre errores del trabajo entregado. Cambios futuros
+                y soporte continuo se cotizan por separado.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="section dark timeline-section" id="plan">
         <div class="container">
-          <div class="section-heading"><div class="eyebrow"><span></span> PLAN DE TRABAJO</div><h2>Quince días hábiles para <em>renovar y publicar.</em></h2><p>El tiempo comienza cuando recibamos el pago inicial, todos los accesos y el contenido completo.</p></div>
-          <div class="timeline">{phases.map(([time, title, text], i) => <article><div class="number">{i + 1}</div><span>{time}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+          <div class="section-heading">
+            <div class="eyebrow"><span></span> PLAN DE TRABAJO</div><h2>
+              Quince días hábiles para <em>renovar y publicar.</em>
+            </h2><p>
+              El tiempo comienza cuando recibamos el pago inicial, todos los
+              accesos y el contenido completo.
+            </p>
+          </div>
+          <div class="timeline">
+            {
+              phases.map(([time, title, text], i) => (
+                <article>
+                  <>
+                    <div class="number">{i + 1}</div>
+                    <span>{time}</span>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </>
+                </article>
+              ))
+            }
+          </div>
         </div>
       </section>
 
       <section class="section payment" id="pagos">
         <div class="container">
-          <div class="section-heading"><div class="eyebrow dark-eye"><span></span> MÉTODO DE PAGO</div><h2>Dos hitos para <em>avanzar con claridad.</em></h2></div>
-          <div class="payment-grid payment-grid-two">
-            <article><strong>50%</strong><h3>Reserva e inicio</h3><p>USD 250</p></article>
-            <article><strong>50%</strong><h3>Antes de publicar</h3><p>USD 250</p></article>
+          <div class="section-heading">
+            <div class="eyebrow dark-eye"><span></span> MÉTODO DE PAGO</div><h2>
+              Dos hitos para <em>avanzar con claridad.</em>
+            </h2>
           </div>
-          <div class="bank-card"><div><span>DATOS PARA TRANSFERENCIA</span><h3>Se comparten al aceptar la propuesta</h3><p>Los datos bancarios se enviarán por el canal comercial validado.</p></div><div class="bank-status"><span></span> Pendiente de confirmación</div></div>
+          <div class="payment-grid payment-grid-two">
+            <article>
+              <strong>50%</strong><h3>Reserva e inicio</h3><p>USD 250</p>
+            </article>
+            <article>
+              <strong>50%</strong><h3>Antes de publicar</h3><p>USD 250</p>
+            </article>
+          </div>
+          <div class="bank-card">
+            <div>
+              <span>DATOS PARA TRANSFERENCIA</span><h3>
+                Se comparten al aceptar la propuesta
+              </h3><p>
+                Los datos bancarios se enviarán por el canal comercial validado.
+              </p>
+            </div><div class="bank-status">
+              <span></span> Pendiente de confirmación
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="section light">
         <div class="container">
-          <div class="section-heading"><div class="eyebrow dark-eye"><span></span> GARANTÍA</div><h2>Treinta días para asegurar una <em>entrega estable.</em></h2><p>Durante los 30 días posteriores a la publicación corregiremos sin costo los errores relacionados con el alcance desarrollado por Grupo Rincón.</p></div>
+          <div class="section-heading">
+            <div class="eyebrow dark-eye"><span></span> GARANTÍA</div><h2>
+              Treinta días para asegurar una <em>entrega estable.</em>
+            </h2><p>
+              Durante los 30 días posteriores a la publicación corregiremos sin
+              costo los errores relacionados con el alcance desarrollado por
+              Grupo Rincón.
+            </p>
+          </div>
           <div class="transaction-grid">
-            <article><span>Incluido</span><strong>Errores del desarrollo</strong><p>Enlaces, formularios, visualización o funciones del alcance que no operen como fueron aprobadas.</p></article>
-            <article><span>No incluido</span><strong>Cambios nuevos</strong><p>Nuevas páginas, contenido, productos, diseño o funciones solicitadas después de aprobar la entrega.</p></article>
-            <article class="accent"><span>Terceros</span><strong>Fuera de garantía</strong><p>Caídas de hosting, dominio vencido, malware previo, fallas de correo o cambios de plugins externos.</p></article>
+            <article>
+              <span>Incluido</span><strong>Errores del desarrollo</strong><p>
+                Enlaces, formularios, visualización o funciones del alcance que
+                no operen como fueron aprobadas.
+              </p>
+            </article>
+            <article>
+              <span>No incluido</span><strong>Cambios nuevos</strong><p>
+                Nuevas páginas, contenido, productos, diseño o funciones
+                solicitadas después de aprobar la entrega.
+              </p>
+            </article>
+            <article class="accent">
+              <span>Terceros</span><strong>Fuera de garantía</strong><p>
+                Caídas de hosting, dominio vencido, malware previo, fallas de
+                correo o cambios de plugins externos.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="section dark requirements">
         <div class="container split">
-          <div><div class="eyebrow"><span></span> REQUERIMIENTOS DE MARARI</div><h2>Lo necesario para <em>comenzar a tiempo.</em></h2></div>
-          <ol>{requirements.map(([n, title, text]) => <li><span>{n}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol>
+          <div>
+            <div class="eyebrow"><span></span> REQUERIMIENTOS DE MARARI</div><h2
+            >
+              Lo necesario para <em>comenzar a tiempo.</em>
+            </h2>
+          </div>
+          <ol>
+            {
+              requirements.map(([n, title, text]) => (
+                <li>
+                  <>
+                    <span>{n}</span>
+                    <div>
+                      <>
+                        <h3>{title}</h3>
+                        <p>{text}</p>
+                      </>
+                    </div>
+                  </>
+                </li>
+              ))
+            }
+          </ol>
         </div>
-        <div class="container"><div class="requirement-alert"><strong>Estado actual del sitio</strong><p>Al momento de preparar esta propuesta, marari.com.ve muestra una suspensión de hosting. La recuperación o renovación del servicio debe resolverse antes de publicar. Si no es posible recuperar el sitio anterior, el proyecto se construirá con el material entregado directamente por Marari.</p></div></div>
+        <div class="container">
+          <div class="requirement-alert">
+            <strong>Estado actual del sitio</strong><p>
+              Al momento de preparar esta propuesta, marari.com.ve muestra una
+              suspensión de hosting. La recuperación o renovación del servicio
+              debe resolverse antes de publicar. Si no es posible recuperar el
+              sitio anterior, el proyecto se construirá con el material
+              entregado directamente por Marari.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section class="cta" id="aceptacion">
-        <div class="container cta-inner"><div class="eyebrow"><span></span> SIGUIENTE PASO</div><h2>Construyamos una web que Marari pueda <em>hacer suya.</em></h2><p>Para aceptar la propuesta, confirma por el canal comercial. Coordinaremos el pago inicial y la recepción de accesos y contenido.</p><div class="hero-actions"><a class="button" href="https://wa.me/584262590251?text=Hola%2C%20quiero%20aprobar%20la%20propuesta%20de%20redise%C3%B1o%20web%20para%20Marari" rel="nofollow noreferrer">Aprobar por WhatsApp</a></div><div class="validity">Propuesta válida por 15 días · Entrega en 15 días hábiles* · Garantía técnica de 30 días.</div></div>
+        <div class="container cta-inner">
+          <div class="eyebrow"><span></span> SIGUIENTE PASO</div><h2>
+            Construyamos una web que Marari pueda <em>hacer suya.</em>
+          </h2><p>
+            Para aceptar la propuesta, confirma por el canal comercial.
+            Coordinaremos el pago inicial y la recepción de accesos y contenido.
+          </p><div class="hero-actions">
+            <a
+              class="button"
+              href="https://wa.me/584262590251?text=Hola%2C%20quiero%20aprobar%20la%20propuesta%20de%20redise%C3%B1o%20web%20para%20Marari"
+              rel="nofollow noreferrer">Aprobar por WhatsApp</a>
+          </div><div class="validity">
+            Propuesta válida por 15 días · Entrega en 15 días hábiles* ·
+            Garantía técnica de 30 días.
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer><div class="container"><img src="/Logo/Logo blanco.webp" alt="Grupo Rincón" width="148" height="52" /><p>Propuesta confidencial preparada para Marari C.A. por Grupo Rincón.</p><span>© {new Date().getFullYear()} Grupo Rincón</span></div></footer>
+    <footer>
+      <div class="container">
+        <img
+          src="/Logo/Logo blanco.webp"
+          alt="Grupo Rincón"
+          width="148"
+          height="52"
+        /><p>
+          Propuesta confidencial preparada para Marari C.A. por Grupo Rincón.
+        </p><span>© {new Date().getFullYear()} Grupo Rincón</span>
+      </div>
+    </footer>
   </body>
 </html>
 
 <style>
-  a { cursor: pointer; }
-  a:focus-visible { outline: 3px solid #93c5fd; outline-offset: 4px; }
-  .payment-grid-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  @media (max-width: 650px) { .payment-grid-two { grid-template-columns: 1fr; } }
+  a {
+    cursor: pointer;
+  }
+  a:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 4px;
+  }
+  .payment-grid-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (max-width: 650px) {
+    .payment-grid-two {
+      grid-template-columns: 1fr;
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>
