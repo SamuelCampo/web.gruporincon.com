@@ -13,6 +13,18 @@ export interface SuccessCase {
 export const successCases: SuccessCase[] = [
   // Añade `internalUrl: "/casos-de-exito/slug/"` cuando exista el caso detallado.
   {
+    name: "Housiders + HouseReel",
+    slug: "housiders-housereel",
+    externalUrl: "https://housereel.es",
+    internalUrl: "/casos-de-exito/housiders-housereel/",
+    industry: "PropTech",
+    country: "España",
+    locationLabel: "España",
+    description:
+      "App e infraestructura audiovisual que convierten fotos y videos inmobiliarios en contenido profesional y propiedades publicadas automáticamente.",
+    image: "/portfolio/Housiders",
+  },
+  {
     name: "Avalora",
     slug: "avalora",
     externalUrl: "https://avalora.com",
