@@ -1,0 +1,765 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const title = "Cómo crear una página web gratis con WordPress";
+const description =
+  "Aprende cómo crear una página web gratis con WordPress desde Venezuela o Colombia, paso a paso, sin conocimientos";
+const siteURL = Astro.site ?? new URL("https://www.gruporincon.com.co");
+const canonicalURL = new URL(Astro.url.pathname, siteURL).toString();
+const breadcrumbs = [
+  { name: "Inicio", url: new URL("/", siteURL).toString() },
+  { name: "Blog", url: new URL("/Blogs/", siteURL).toString() },
+  { name: "Crear una página web gratis con WordPress", url: canonicalURL },
+];
+
+const faqs = [
+  {
+    question: "¿De verdad puedo crear una página web gratis con WordPress?",
+    answer:
+      "Sí. WordPress.com permite comenzar con una dirección gratuita terminada en wordpress.com. No necesitas comprar dominio ni hosting para publicar una primera versión.",
+  },
+  {
+    question: "¿Puedo crearla desde Venezuela o Colombia?",
+    answer:
+      "Sí. El proceso se realiza por internet y es el mismo en ambos países. Solo necesitas un correo electrónico y conexión a internet para abrir la cuenta y editar el sitio.",
+  },
+  {
+    question: "¿WordPress.com y WordPress.org son lo mismo?",
+    answer:
+      "No. WordPress.com ofrece una opción alojada que permite comenzar gratis. WordPress.org ofrece el programa WordPress para instalarlo en un hosting contratado por tu cuenta.",
+  },
+  {
+    question: "¿Cuándo conviene pasar a una página profesional?",
+    answer:
+      "Cuando necesitas un dominio propio, mayor libertad de diseño, integraciones, medición de resultados, una tienda o soporte técnico continuo.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline:
+    "Cómo crear una página web gratis con WordPress desde Venezuela o Colombia",
+  description,
+  datePublished: "2026-09-17",
+  dateModified: "2026-09-17",
+  mainEntityOfPage: canonicalURL,
+  inLanguage: "es",
+  author: {
+    "@type": "Organization",
+    name: "Grupo Rincón",
+    url: new URL("/nosotros/", siteURL).toString(),
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Grupo Rincón",
+    logo: {
+      "@type": "ImageObject",
+      url: new URL("/Logo/Logo blanco.webp", siteURL).toString(),
+    },
+  },
+};
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  breadcrumbs={breadcrumbs}
+  socialImage="/blogs/como-crear-pagina-web-gratis-wordpress.avif"
+  socialImageAlt="Cómo crear una página web gratis con WordPress desde Venezuela o Colombia"
+  socialImageWidth={1200}
+  socialImageHeight={630}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <article class="relative overflow-hidden pb-28 pt-36 sm:pt-44">
+    <div
+      class="absolute inset-x-0 top-0 h-[38rem] bg-[radial-gradient(circle_at_top,rgba(0,51,151,.28),transparent_58%)]"
+      aria-hidden="true"
+    >
+    </div>
+
+    <header class="relative mx-auto max-w-4xl px-5 text-center sm:px-8">
+      <a
+        href="/Blogs/"
+        class="inline-flex rounded-full border border-secondary-400/25 bg-secondary-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-secondary-300 hover:bg-secondary-500/20"
+        >Guías de WordPress</a
+      >
+      <h1
+        class="mt-7 font-display text-4xl font-black leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl"
+      >
+        Cómo crear una página web gratis con WordPress desde Venezuela o
+        Colombia
+      </h1>
+      <p
+        class="mx-auto mt-7 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl"
+      >
+        No necesitas saber programar ni pagar desde el primer día. En esta guía
+        aprenderás a publicar una web sencilla, entender sus límites y decidir
+        cuándo dar el salto a una solución profesional.
+      </p>
+      <div
+        class="mt-7 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-zinc-400"
+      >
+        <span>Por Grupo Rincón</span><span aria-hidden="true">·</span><time
+          datetime="2026-09-17">17 de septiembre de 2026</time
+        ><span aria-hidden="true">·</span><span>10 min de lectura</span>
+      </div>
+    </header>
+
+    <div class="relative mx-auto mt-14 max-w-7xl px-5 sm:px-8">
+      <figure
+        class="mb-10 overflow-hidden rounded-3xl border border-white/10 shadow-2xl shadow-blue-950/30"
+      >
+        <img
+          src="/blogs/como-crear-pagina-web-gratis-wordpress.avif"
+          alt="Portada de la guía para crear una página web gratis con WordPress"
+          width="1200"
+          height="630"
+          class="h-auto w-full"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </figure>
+      <nav
+        aria-label="Contenido del artículo"
+        class="rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-8"
+      >
+        <p class="font-display text-lg font-bold text-white">En esta guía</p>
+        <ol
+          class="mt-4 grid gap-2 text-sm leading-6 text-zinc-300 sm:grid-cols-2"
+        >
+          <li>
+            <a class="hover:text-secondary-300" href="#antes-de-empezar"
+              >1. Qué necesitas</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-secondary-300" href="#wordpress-com-org"
+              >2. WordPress.com o WordPress.org</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-secondary-300" href="#paso-a-paso"
+              >3. Paso a paso</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-secondary-300" href="#seo-local"
+              >4. SEO en Venezuela y Colombia</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-secondary-300" href="#limites"
+              >5. Límites del plan gratuito</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-secondary-300" href="#preguntas"
+              >6. Preguntas frecuentes</a
+            >
+          </li>
+        </ol>
+      </nav>
+
+      <div class="article-content mt-14">
+        <p class="lead">
+          Crear una página web desde Venezuela o Colombia es más fácil de lo que
+          parece. Para comenzar gratis, una de las rutas más simples es usar <strong
+            >WordPress.com</strong
+          >: la plataforma se ocupa del alojamiento y te entrega una dirección
+          como <em>tunegocio.wordpress.com</em>.
+        </p>
+        <p>
+          Esta opción sirve para aprender, validar una idea, publicar un
+          portafolio básico o darle una primera presencia digital a tu negocio.
+          Si después necesitas vender, usar un dominio propio o proyectar una
+          imagen más sólida, puedes mejorar el plan o pasar a una web
+          profesional.
+        </p>
+
+        <aside class="note">
+          <strong>La respuesta corta:</strong> sí puedes crear y publicar una página
+          gratis desde cualquiera de los dos países. No necesitas tarjeta para preparar
+          la versión inicial con la dirección gratuita de WordPress.com.
+        </aside>
+
+        <h2 id="antes-de-empezar">¿Qué necesitas antes de empezar?</h2>
+        <p>Ten a mano cinco cosas sencillas:</p>
+        <ul>
+          <li>Un correo electrónico al que puedas entrar.</li>
+          <li>El nombre de tu negocio, proyecto o marca personal.</li>
+          <li>Una explicación corta de lo que haces y a quién ayudas.</li>
+          <li>
+            Tu logo o, si todavía no lo tienes, el nombre escrito de forma
+            clara.
+          </li>
+          <li>
+            Un número de WhatsApp, correo o red social para recibir contactos.
+          </li>
+        </ul>
+        <p>
+          No hace falta esperar a tener todo perfecto. Puedes comenzar con una
+          página simple y mejorarla a medida que recibas preguntas de clientes
+          reales.
+        </p>
+
+        <h2 id="wordpress-com-org">
+          WordPress.com y WordPress.org: la diferencia sin tecnicismos
+        </h2>
+        <p>
+          Este punto suele causar confusión. Aunque comparten el nombre
+          WordPress, ofrecen dos caminos distintos:
+        </p>
+        <div class="comparison">
+          <div>
+            <h3>WordPress.com</h3><p>
+              Es el camino más fácil para empezar gratis. La plataforma aloja el
+              sitio y puede darte una dirección terminada en <strong
+                >.wordpress.com</strong
+              >. Es la opción que usamos en esta guía.
+            </p>
+          </div>
+          <div>
+            <h3>WordPress.org</h3><p>
+              Es el programa gratuito que instalas en un servicio de hosting. Da
+              más control, pero normalmente requiere pagar dominio y
+              alojamiento, además de encargarte del mantenimiento.
+            </p>
+          </div>
+        </div>
+        <p>
+          La documentación oficial de WordPress confirma que puedes continuar
+          con una dirección gratuita de WordPress.com. También explica que una
+          instalación propia necesita un servidor preparado para WordPress. En
+          otras palabras: el programa puede ser gratuito, pero una web
+          profesional no siempre tiene costo cero.
+        </p>
+
+        <h3>Comparación rápida de las opciones</h3>
+        <div
+          class="table-scroll"
+          role="region"
+          aria-label="Comparación de opciones para crear una página web con WordPress"
+          tabindex="0"
+        >
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Opción</th>
+                <th scope="col">Costo inicial</th>
+                <th scope="col">Dominio</th>
+                <th scope="col">Hosting</th>
+                <th scope="col">Dificultad</th>
+                <th scope="col">Recomendada para</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">WordPress.com gratuito</th>
+                <td><span class="status-free">Gratis</span></td>
+                <td><span class="nowrap">tumarca.wordpress.com</span></td>
+                <td>Incluido</td>
+                <td>Baja</td>
+                <td>Aprender o validar una idea</td>
+              </tr>
+              <tr>
+                <th scope="row">WordPress.com de pago</th>
+                <td>Variable según el plan</td>
+                <td>Dominio propio</td>
+                <td>Incluido</td>
+                <td>Baja</td>
+                <td>Negocios pequeños</td>
+              </tr>
+              <tr>
+                <th scope="row">WordPress.org</th>
+                <td>Dominio y hosting</td>
+                <td>Dominio propio</td>
+                <td>Contratado aparte</td>
+                <td>Media</td>
+                <td>Webs profesionales</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">
+          Los costos de los planes, dominios e impuestos pueden variar según el
+          proveedor, la fecha y el país desde el que se realiza la compra.
+        </p>
+
+        <h2 id="paso-a-paso">
+          Cómo crear una página web gratis con WordPress paso a paso
+        </h2>
+        <h3>1. Abre tu cuenta</h3>
+        <p>
+          Entra en <a
+            href="https://wordpress.com/es/"
+            target="_blank"
+            rel="noopener noreferrer">WordPress.com</a
+          >, selecciona la opción para comenzar y registra tu correo. Usa una
+          contraseña única que no tengas en otros servicios.
+        </p>
+
+        <h3>2. Elige el nombre y la dirección gratuita</h3>
+        <p>
+          Escribe un nombre corto, fácil de recordar y parecido al de tu
+          negocio. Cuando WordPress muestre las opciones, busca la dirección
+          gratuita que termina en <strong>.wordpress.com</strong>. Puedes añadir
+          un dominio propio más adelante.
+        </p>
+        <p>
+          Si tu negocio atiende una zona concreta, no necesitas meter la ciudad
+          dentro del dominio a la fuerza. Es mejor incluirla de forma natural en
+          los textos: “reparación de laptops en Caracas” o “asesoría contable
+          para empresas en Bogotá”.
+        </p>
+
+        <h3>3. Selecciona un diseño sencillo</h3>
+        <p>
+          Elige una plantilla limpia, con letras fáciles de leer y botones
+          visibles. Antes que los efectos o animaciones, prioriza que una
+          persona entienda en pocos segundos qué ofreces y cómo puede
+          contactarte.
+        </p>
+
+        <h3>4. Crea las páginas básicas</h3>
+        <p>
+          Para una primera versión no necesitas veinte secciones. Comienza con
+          estas:
+        </p>
+        <ul>
+          <li>
+            <strong>Inicio:</strong> explica qué haces, para quién y cuál es el siguiente
+            paso.
+          </li>
+          <li>
+            <strong>Servicios:</strong> describe cada solución con beneficios concretos.
+          </li>
+          <li>
+            <strong>Nosotros:</strong> cuenta quién está detrás del negocio y genera
+            confianza.
+          </li>
+          <li>
+            <strong>Contacto:</strong> incluye WhatsApp, correo, horario y ciudad
+            o zona de atención.
+          </li>
+        </ul>
+        <p>
+          Si tu objetivo es captar clientes con una campaña específica, una <a
+            href="/servicios/diseno-paginas-web-ecommerce/"
+            >página web o landing page</a
+          > profesional puede concentrar toda la información en un solo recorrido
+          y facilitar la medición de resultados.
+        </p>
+
+        <h3>5. Escribe textos que respondan preguntas reales</h3>
+        <p>
+          Evita frases genéricas como “somos los mejores”. Explica el problema
+          que resuelves, cómo trabajas, qué recibe el cliente y dónde prestas el
+          servicio. Usa párrafos cortos, títulos claros y palabras que tu
+          público realmente escribiría en Google.
+        </p>
+
+        <h3>6. Agrega imágenes ligeras y datos de contacto</h3>
+        <p>
+          Usa fotografías propias siempre que puedas. Comprímelas antes de
+          subirlas y escribe una descripción breve que explique qué muestran.
+          Revisa que el número de WhatsApp tenga el código del país: <strong
+            >+58</strong
+          > para Venezuela o <strong>+57</strong> para Colombia.
+        </p>
+
+        <h3>7. Revisa la versión móvil y publica</h3>
+        <p>
+          Abre la vista previa en tu teléfono. Comprueba los textos, enlaces y
+          botones. Cuando estés conforme, cambia el sitio de “Próximamente” a
+          público. WordPress ofrece una guía oficial para los primeros pasos y
+          la publicación del sitio.
+        </p>
+
+        <h2 id="seo-local">SEO básico para aparecer en Venezuela o Colombia</h2>
+        <p>
+          El SEO ayuda a que Google entienda tu página y la muestre ante
+          búsquedas relacionadas. No se trata de repetir “Venezuela” o
+          “Colombia” en cada línea. Se trata de responder bien a una necesidad
+          concreta.
+        </p>
+        <ol>
+          <li>
+            <strong>Define una búsqueda principal.</strong> Por ejemplo: “fotógrafo
+            de productos en Medellín” o “servicio técnico de computadoras en Valencia”.
+          </li>
+          <li>
+            <strong>Inclúyela con naturalidad.</strong> Úsala en el título, la introducción
+            y al menos un subtítulo cuando tenga sentido.
+          </li>
+          <li>
+            <strong>Aclara dónde trabajas.</strong> Indica ciudad, país, modalidad
+            presencial o remota y zonas atendidas.
+          </li>
+          <li>
+            <strong>Responde preguntas.</strong> Habla de tiempos, proceso, requisitos
+            y formas de contacto. Si publicas precios, señala la moneda y mantenlos
+            actualizados.
+          </li>
+          <li>
+            <strong>Conecta tus páginas.</strong> Enlaza cada artículo con el servicio
+            relacionado y usa textos descriptivos en los enlaces.
+          </li>
+        </ol>
+        <p>
+          Google recomienda crear contenido útil, confiable y pensado primero
+          para las personas; también aconseja usar palabras que el público
+          buscaría y enlaces que el buscador pueda seguir. Esa es una base mucho
+          más sana que llenar la página de palabras clave.
+        </p>
+
+        <h2 id="limites">¿Qué límites tiene una página web gratis?</h2>
+        <p>
+          La opción gratuita es valiosa para comenzar, pero puede quedarse corta
+          cuando el negocio crece:
+        </p>
+        <ul>
+          <li>
+            La dirección incluye <strong>wordpress.com</strong> y no se siente tan
+            propia como un dominio de marca.
+          </li>
+          <li>
+            Las opciones de diseño, almacenamiento e integraciones dependen del
+            plan disponible.
+          </li>
+          <li>
+            Algunas funciones avanzadas, plugins, comercio electrónico y
+            herramientas profesionales requieren un plan compatible.
+          </li>
+          <li>
+            Tú sigues siendo responsable de mantener textos, imágenes y datos de
+            contacto al día.
+          </li>
+        </ul>
+        <p>
+          El plan gratuito es una buena escuela y un punto de partida. Para una
+          empresa que ya vende, invierte en anuncios o necesita diferenciarse,
+          un dominio propio y una web diseñada alrededor de sus objetivos suelen
+          transmitir más confianza.
+        </p>
+
+        <section class="cta-box" aria-labelledby="cta-title">
+          <p class="eyebrow">¿Quieres avanzar más rápido?</p>
+          <h2 id="cta-title">
+            Convierte esa primera idea en una web lista para crecer
+          </h2>
+          <p>
+            En Grupo Rincón diseñamos páginas web y landing pages para negocios
+            de Venezuela y Colombia. También cuidamos sitios existentes para que
+            no tengas que resolver cada actualización por tu cuenta.
+          </p>
+          <div class="cta-actions">
+            <a href="/servicios/diseno-paginas-web-ecommerce/"
+              >Ver páginas web y landing pages</a
+            >
+            <a href="/servicios/soporte-mantenimiento-wordpress/"
+              >Conocer Soporte WordPress Venezuela</a
+            >
+          </div>
+        </section>
+
+        <h2 id="preguntas">Preguntas frecuentes</h2>
+        <div class="faq-list">
+          {
+            faqs.map((faq) => (
+              <details>
+                <>
+                  <summary>{faq.question}</summary>
+                  <p>{faq.answer}</p>
+                </>
+              </details>
+            ))
+          }
+        </div>
+
+        <h2>Fuentes consultadas</h2>
+        <p>
+          Este artículo fue preparado y contrastado con documentación de las
+          plataformas responsables:
+        </p>
+        <ul class="sources">
+          <li>
+            <a
+              href="https://wordpress.com/es/support/empezar-a-utilizar-wordpress-com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >WordPress.com: primeros pasos con tu sitio</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://wordpress.com/es/support/crear-varios-sitios-web/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >WordPress.com: crear un sitio y usar una dirección gratuita</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://wordpress.org/documentation/article/hosting-wordpress/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >WordPress.org: alojamiento y requisitos de WordPress</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=es"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Google Search Central: guía de SEO para principiantes</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=es"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Google Search Central: contenido útil y pensado para las personas</a
+            >
+          </li>
+        </ul>
+        <p class="update-note">
+          Última revisión: 17 de septiembre de 2026. Los planes y funciones de
+          WordPress pueden cambiar; consulta siempre su documentación oficial
+          antes de elegir.
+        </p>
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .article-content {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: #d4d4d8;
+  }
+  .article-content p {
+    margin: 1.25rem 0;
+  }
+  .article-content .lead {
+    font-size: 1.25rem;
+    line-height: 1.75;
+    color: #f4f4f5;
+  }
+  .article-content h2 {
+    scroll-margin-top: 8rem;
+    margin: 3.75rem 0 1.25rem;
+    font-family: var(--font-family-display);
+    font-size: 1.85rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: #fff;
+  }
+  .article-content h3 {
+    margin: 2.25rem 0 0.65rem;
+    font-family: var(--font-family-display);
+    font-size: 1.25rem;
+    font-weight: 750;
+    color: #fff;
+  }
+  .article-content ul,
+  .article-content ol {
+    margin: 1.25rem 0;
+    padding-left: 1.4rem;
+  }
+  .article-content li {
+    margin: 0.65rem 0;
+    padding-left: 0.35rem;
+  }
+  .article-content ul {
+    list-style: disc;
+  }
+  .article-content ol {
+    list-style: decimal;
+  }
+  .article-content strong {
+    color: #f4f4f5;
+  }
+  .article-content a {
+    color: #a5b4fc;
+    text-decoration: underline;
+    text-decoration-color: rgba(165, 180, 252, 0.45);
+    text-underline-offset: 3px;
+  }
+  .article-content a:hover {
+    color: #fff;
+  }
+  .note {
+    margin: 2rem 0;
+    border-left: 3px solid #818cf8;
+    border-radius: 0 1rem 1rem 0;
+    background: rgba(0, 51, 151, 0.15);
+    padding: 1.25rem 1.5rem;
+    color: #e4e4e7;
+  }
+  .comparison {
+    display: grid;
+    gap: 1rem;
+    margin: 1.75rem 0;
+  }
+  .comparison > div {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.035);
+    padding: 1.4rem;
+  }
+  .comparison h3 {
+    margin: 0;
+  }
+  .comparison p {
+    margin: 0.65rem 0 0;
+  }
+  .table-scroll {
+    margin: 1.5rem 0 0.75rem;
+    overflow-x: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.025);
+    outline: none;
+  }
+  .table-scroll:focus-visible {
+    box-shadow: 0 0 0 2px #818cf8;
+  }
+  .table-scroll table {
+    width: 100%;
+    min-width: 820px;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .table-scroll th,
+  .table-scroll td {
+    padding: 1rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .table-scroll thead th {
+    background: rgba(0, 51, 151, 0.25);
+    font-family: var(--font-family-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .table-scroll tbody th {
+    color: #fff;
+    font-weight: 700;
+  }
+  .table-scroll tbody tr:last-child th,
+  .table-scroll tbody tr:last-child td {
+    border-bottom: 0;
+  }
+  .table-scroll tbody tr:hover {
+    background: rgba(255, 255, 255, 0.025);
+  }
+  .status-free {
+    display: inline-flex;
+    border-radius: 999px;
+    background: rgba(52, 211, 153, 0.12);
+    padding: 0.15rem 0.55rem;
+    font-weight: 700;
+    color: #6ee7b7;
+  }
+  .nowrap {
+    white-space: nowrap;
+  }
+  .article-content .table-note {
+    margin-top: 0.75rem;
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: #a1a1aa;
+  }
+  .cta-box {
+    margin: 4rem 0;
+    border: 1px solid rgba(129, 140, 248, 0.25);
+    border-radius: 1.75rem;
+    background: linear-gradient(
+      145deg,
+      rgba(0, 51, 151, 0.28),
+      rgba(255, 255, 255, 0.03)
+    );
+    padding: 2rem;
+    text-align: center;
+  }
+  .cta-box h2 {
+    margin: 0.5rem auto 1rem;
+    max-width: 35rem;
+  }
+  .cta-box .eyebrow {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #a5b4fc;
+  }
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  .cta-actions a {
+    border-radius: 999px;
+    background: #003397;
+    padding: 0.8rem 1.15rem;
+    font-size: 0.9rem;
+    font-weight: 750;
+    color: #fff;
+    text-decoration: none;
+  }
+  .cta-actions a + a {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .faq-list details {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.15rem 0;
+  }
+  .faq-list summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: #fff;
+  }
+  .faq-list details p {
+    margin: 0.75rem 0 0;
+  }
+  .sources {
+    font-size: 0.95rem;
+  }
+  .update-note {
+    margin-top: 2rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.25rem;
+    font-size: 0.875rem;
+    color: #a1a1aa;
+  }
+  @media (min-width: 640px) {
+    .comparison {
+      grid-template-columns: 1fr 1fr;
+    }
+    .cta-box {
+      padding: 2.75rem;
+    }
+  }
+</style>
