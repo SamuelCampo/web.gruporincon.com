@@ -8,7 +8,7 @@ const siteURL = Astro.site ?? new URL("https://www.gruporincon.com.co");
 const canonicalURL = new URL(Astro.url.pathname, siteURL).toString();
 const breadcrumbs = [
   { name: "Inicio", url: new URL("/", siteURL).toString() },
-  { name: "Blog", url: new URL("/Blogs/", siteURL).toString() },
+  { name: "Blog", url: new URL("/blogs/", siteURL).toString() },
   { name: "Crear una página web gratis con WordPress", url: canonicalURL },
 ];
 
