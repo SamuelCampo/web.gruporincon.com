@@ -1,0 +1,341 @@
+---
+import "../styles/propuesta-shopify.css";
+
+const scope = [
+  [
+    "01",
+    "Agenda del técnico",
+    "Acceso individual para consultar los servicios del día, prioridades, horarios, clientes, direcciones, equipos y fallas reportadas.",
+  ],
+  [
+    "02",
+    "Llegada verificada",
+    "Apertura de navegación, registro de ubicación, distancia al cliente y hora de llegada antes de iniciar la atención.",
+  ],
+  [
+    "03",
+    "Ejecución documentada",
+    "Control del inicio y fin del servicio, evidencia fotográfica antes, durante y después, observaciones, diagnóstico y trabajo realizado.",
+  ],
+  [
+    "04",
+    "Asistente técnico",
+    "Consulta guiada de códigos de error y fallas para sugerir causas probables, pasos de diagnóstico y advertencias de seguridad.",
+  ],
+  [
+    "05",
+    "Reporte al cliente",
+    "Generación de un reporte con tiempos, ubicación, equipo, hallazgos, fotografías, recomendación, nombre y firma de quien recibe.",
+  ],
+  [
+    "06",
+    "Control operativo",
+    "Panel para crear y asignar órdenes, visualizar la agenda, seguir estados en vivo y consultar indicadores de servicio y desempeño.",
+  ],
+];
+
+const technicianFeatures = [
+  "Inicio de sesión individual para personal técnico",
+  "Agenda diaria con servicios asignados y prioridades",
+  "Detalle del cliente, contacto, dirección y referencia",
+  "Ficha del equipo y descripción de la falla reportada",
+  "Navegación hacia el servicio y validación de ubicación",
+  "Registro de llegada, inicio, finalización y duración",
+  "Fotografías clasificadas en antes, durante y después",
+  "Observaciones técnicas, actividades y materiales utilizados",
+  "Asistente para códigos de error, causas y pasos de diagnóstico",
+  "Recomendaciones de mantenimiento para el cliente",
+  "Confirmación de datos y firma de recepción",
+  "Vista previa y envío del reporte por WhatsApp y correo",
+];
+
+const operationsFeatures = [
+  "Dashboard de servicios, clientes, puntualidad y reportes completos",
+  "Actividad operativa en tiempo real",
+  "Agenda por día, semana y mes",
+  "Vista de carga y disponibilidad por técnico",
+  "Creación de órdenes con cliente, dirección, equipo y falla",
+  "Asignación sugerida según disponibilidad y cercanía",
+  "Notificación de nuevas órdenes al técnico",
+  "Seguimiento por estado: asignado, en ruta, en curso y completado",
+  "Historial de servicios y reportes entregados",
+  "Indicadores de desempeño y calificación por técnico",
+  "Búsqueda por orden, cliente o técnico",
+  "Gestión centralizada de la información del servicio",
+];
+
+const phases = [
+  [
+    "Fase 1",
+    "Descubrimiento técnico",
+    "Validación del proceso actual, roles, datos, tipos de equipo, estados, reglas de asignación e integraciones necesarias.",
+  ],
+  [
+    "Fase 2",
+    "Diseño y arquitectura",
+    "Ajuste de los recorridos mostrados en el prototipo, definición del modelo de datos y aprobación de pantallas clave.",
+  ],
+  [
+    "Fase 3",
+    "Desarrollo del MVP",
+    "Construcción de la experiencia del técnico, el panel de operaciones, órdenes, evidencias, reportes e indicadores acordados.",
+  ],
+  [
+    "Fase 4",
+    "Pruebas y salida",
+    "Prueba piloto con usuarios reales, correcciones consolidadas, capacitación, carga inicial y puesta en producción.",
+  ],
+];
+
+const requirements = [
+  [
+    "01",
+    "Flujo operativo",
+    "Estados definitivos de una orden, responsables, criterios de asignación, prioridades y reglas para iniciar o cerrar un servicio.",
+  ],
+  [
+    "02",
+    "Datos maestros",
+    "Listado inicial de técnicos, clientes, direcciones, tipos de equipo, capacidades, refrigerantes, marcas y fallas frecuentes.",
+  ],
+  [
+    "03",
+    "Formato de reporte",
+    "Campos obligatorios, identidad visual, responsables de firma, recomendaciones y canales autorizados para entregar el documento.",
+  ],
+  [
+    "04",
+    "Base de conocimiento",
+    "Manuales, tablas, códigos de error y procedimientos aprobados que podrán alimentar el asistente técnico.",
+  ],
+  [
+    "05",
+    "Integraciones",
+    "Confirmación de proveedor de mapas, correo, WhatsApp, almacenamiento y cualquier sistema actual que deba intercambiar información.",
+  ],
+  [
+    "06",
+    "Piloto y aprobación",
+    "Un responsable de proyecto y un grupo reducido de técnicos disponibles para revisar, probar y aprobar cada entrega.",
+  ],
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="robots"
+      content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"
+    />
+    <meta
+      name="googlebot"
+      content="noindex, nofollow, noarchive, nosnippet, noimageindex"
+    />
+    <meta name="bingbot" content="noindex, nofollow, noarchive" />
+    <meta name="GPTBot" content="noindex, nofollow, noarchive" />
+    <meta name="CCBot" content="noindex, nofollow, noarchive" />
+    <meta name="ClaudeBot" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      name="description"
+      content="Propuesta privada para la plataforma de gestión de servicios técnicos de INSUMECA."
+    />
+    <title>Propuesta privada · Plataforma de servicios INSUMECA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="nav-shell">
+      <nav class="nav container" aria-label="Navegación de la propuesta">
+        <a class="brand" href="#inicio" aria-label="Grupo Rincón, volver al inicio">
+          <img src="/Logo/Logo blanco.webp" alt="Grupo Rincón" width="148" height="52" />
+        </a>
+        <div class="nav-links">
+          <a href="#alcance">Alcance</a><a href="#operacion">Operación</a><a href="#plan">Plan</a><a href="#inversion">Inversión</a>
+        </div>
+        <a class="button button-small" href="#aceptacion">Aprobar propuesta</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div><div class="grid-lines"></div>
+        <div class="container hero-inner hero-inner-video">
+          <div class="eyebrow"><span></span> PROPUESTA CONFIDENCIAL · INSUMECA</div>
+          <h1>Del despacho de la orden al reporte final, <em>todo conectado.</em></h1>
+          <p class="hero-copy">
+            Conoce la propuesta para coordinar servicios técnicos, acompañar al personal en campo y convertir cada visita en información útil para operaciones.
+          </p>
+          <div class="hero-video-card">
+            <iframe
+              src="https://www.youtube.com/embed/vk98Ycgi02M?rel=0"
+              title="Presentación de la plataforma de servicios técnicos para INSUMECA"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="hero-actions">
+            <a class="button" href="#inversion">Ver inversión <span>↓</span></a><a class="button button-ghost" href="#alcance">Explorar alcance</a>
+          </div>
+          <div class="hero-note"><span class="lock">●</span> Documento privado · propuesta comercial</div>
+        </div>
+      </section>
+
+      <section class="metrics section-tight" aria-label="Resumen de la propuesta">
+        <div class="container metrics-grid">
+          <div><strong>USD 1.800</strong><span>Inversión total</span></div>
+          <div><strong>2</strong><span>Experiencias conectadas</span></div>
+          <div><strong>3</strong><span>Momentos de evidencia</span></div>
+          <div><strong>En vivo</strong><span>Seguimiento operativo</span></div>
+        </div>
+      </section>
+
+      <section class="section dark">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow"><span></span> VISIÓN DEL PROYECTO</div>
+            <h2>Una misma operación, <em>dos experiencias.</em></h2>
+            <p>
+              El técnico necesita claridad y rapidez desde el teléfono. Coordinación necesita visibilidad para asignar, acompañar y medir. La plataforma mantendrá ambos recorridos sincronizados alrededor de cada orden de servicio.
+            </p>
+          </div>
+          <div class="scope-grid">
+            <article class="scope-card"><span>TÉCNICO EN CAMPO</span><h3>Agenda y ejecución</h3><p>Servicios del día, ruta, llegada, evidencias, diagnóstico, firma y reporte desde una interfaz móvil.</p></article>
+            <article class="scope-card"><span>COORDINACIÓN</span><h3>Planificación y control</h3><p>Creación de órdenes, agenda, disponibilidad, asignación, seguimiento e indicadores desde el panel web.</p></article>
+            <article class="scope-card"><span>CLIENTE</span><h3>Cierre documentado</h3><p>Un reporte claro con el trabajo realizado, fotografías, recomendaciones y confirmación de recepción.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark" id="alcance">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow"><span></span> ALCANCE FUNCIONAL</div>
+            <h2>El recorrido completo del servicio, <em>sin perder contexto.</em></h2>
+            <p>La propuesta convierte el flujo presentado en el video en seis capacidades conectadas.</p>
+          </div>
+          <div class="scope-grid">
+            {scope.map(([n, title, text]) => <article class="scope-card"><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="section light" id="operacion">
+        <div class="container split">
+          <div class="sticky-copy">
+            <div class="eyebrow dark-eye"><span></span> EXPERIENCIA DEL TÉCNICO</div>
+            <h2>La agenda de servicios, <em>en la mano.</em></h2>
+            <p>Una interfaz móvil enfocada en ejecutar el trabajo con menos pasos, registrar evidencia y cerrar cada visita con información completa.</p>
+          </div>
+          <div class="feature-list">
+            {technicianFeatures.map((item, i) => <div><span>{String(i + 1).padStart(2, "0")}</span><p>{item}</p><b>✓</b></div>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark">
+        <div class="container split">
+          <div class="sticky-copy">
+            <div class="eyebrow"><span></span> PANEL DE OPERACIONES</div>
+            <h2>Asignar mejor y saber <em>qué está ocurriendo.</em></h2>
+            <p>Coordinación podrá organizar la jornada, detectar órdenes sin asignar y consultar el avance operativo sin depender de mensajes dispersos.</p>
+          </div>
+          <div class="feature-list feature-list-dark">
+            {operationsFeatures.map((item, i) => <div><span>{String(i + 1).padStart(2, "0")}</span><p>{item}</p><b>✓</b></div>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="section costs">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow dark-eye"><span></span> AUTOMATIZACIONES CLAVE</div>
+            <h2>Menos tareas manuales, <em>más trazabilidad.</em></h2>
+          </div>
+          <div class="transaction-grid">
+            <article><span>ASIGNACIÓN</span><strong>Disponibilidad</strong><p>La coordinación compara cercanía, agenda y desempeño antes de asignar cada orden.</p></article>
+            <article><span>DOCUMENTACIÓN</span><strong>Reporte automático</strong><p>Los datos capturados durante la visita se convierten en un documento consistente para el cliente.</p></article>
+            <article class="accent"><span>CONOCIMIENTO</span><strong>Asistente técnico</strong><p>Códigos, manuales y procedimientos aprobados ayudan al técnico a diagnosticar sin sustituir su criterio profesional.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark timeline-section" id="plan">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow"><span></span> PLAN DE TRABAJO</div>
+            <h2>De prototipo a operación, <em>por etapas verificables.</em></h2>
+            <p>El cronograma definitivo se establece después del descubrimiento técnico y la aprobación del alcance funcional.</p>
+          </div>
+          <div class="timeline">
+            {phases.map(([time, title, text], i) => <article><div class="number">{i + 1}</div><span>{time}</span><h3>{title}</h3><p>{text}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark" id="inversion">
+        <div class="container">
+          <div class="section-heading center">
+            <div class="eyebrow"><span></span> INVERSIÓN</div>
+            <h2>Una inversión para transformar <em>la operación técnica.</em></h2>
+          </div>
+          <div class="price-card">
+            <div class="price-top"><div><span>Plataforma de gestión de servicios técnicos</span><h3>MVP INSUMECA</h3></div><div class="price"><small>USD</small>$1,800</div></div>
+            <div class="price-body">
+              <ul><li>Interfaz móvil para técnicos</li><li>Panel web de operaciones</li><li>Órdenes y agenda</li><li>Evidencias y reportes</li><li>Asistente técnico</li><li>Prueba piloto y capacitación</li></ul>
+              <div class="price-note"><strong>Precio del proyecto</strong><p>El valor cubre el alcance funcional descrito en esta propuesta. Cualquier módulo, integración o requerimiento adicional se cotizará antes de ejecutarse.</p></div>
+            </div>
+          </div>
+          <p class="caption">Servicios de mapas, mensajería, correo, inteligencia artificial, almacenamiento, dominio, infraestructura y otras plataformas de terceros se presupuestarán según el consumo y proveedor seleccionados.</p>
+        </div>
+      </section>
+
+      <section class="section dark exclusions">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow"><span></span> LÍMITES DE ESTA FASE</div>
+            <h2>Un MVP enfocado, <em>sin supuestos ocultos.</em></h2>
+            <p>Estas capacidades requieren una definición o cotización independiente si se incorporan al proyecto.</p>
+          </div>
+          <div class="scope-grid">
+            <article class="scope-card"><span>POR DEFINIR</span><h3>Aplicaciones nativas</h3><p>La publicación independiente en App Store o Google Play no se presume incluida hasta elegir la arquitectura final.</p></article>
+            <article class="scope-card"><span>POR DEFINIR</span><h3>Integración con sistemas actuales</h3><p>ERP, CRM, facturación, inventario u otras APIs se estimarán después de revisar documentación y accesos.</p></article>
+            <article class="scope-card"><span>POR DEFINIR</span><h3>WhatsApp transaccional</h3><p>Plantillas, proveedor oficial, conversaciones y costos de Meta dependen de la configuración aprobada.</p></article>
+            <article class="scope-card"><span>NO INCLUIDO</span><h3>Compra de dispositivos</h3><p>Teléfonos, tabletas, cámaras, GPS y planes de datos corresponden a INSUMECA.</p></article>
+            <article class="scope-card"><span>NO INCLUIDO</span><h3>Contenido técnico</h3><p>INSUMECA suministra y aprueba manuales, procedimientos, tablas, códigos y recomendaciones de seguridad.</p></article>
+            <article class="scope-card"><span>NO INCLUIDO</span><h3>Soporte indefinido</h3><p>La garantía cubrirá errores de implementación durante el período acordado; mejoras y operación continua se contratan aparte.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark requirements">
+        <div class="container split">
+          <div><div class="eyebrow"><span></span> INFORMACIÓN PARA COTIZAR</div><h2>Lo que necesitamos para <em>cerrar la propuesta.</em></h2></div>
+          <ol>{requirements.map(([n, title, text]) => <li><span>{n}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol>
+        </div>
+        <div class="container requirement-alert"><strong>El proyecto comienza con una sesión de descubrimiento.</strong><p>Con estos datos confirmamos la arquitectura, el cronograma, los servicios de terceros y los criterios de aceptación del MVP.</p></div>
+      </section>
+
+      <section class="cta" id="aceptacion">
+        <div class="container cta-inner">
+          <div class="eyebrow"><span></span> SIGUIENTE PASO</div>
+          <h2>Convirtamos el prototipo en <em>una operación conectada.</em></h2>
+          <p>Al aprobar coordinamos la sesión técnica inicial, el calendario de trabajo y los accesos necesarios para comenzar.</p>
+          <div class="hero-actions"><a class="button" href="https://wa.me/584262590251?text=Hola%2C%20quiero%20aprobar%20la%20propuesta%20de%20la%20plataforma%20de%20servicios%20t%C3%A9cnicos%20para%20INSUMECA%20por%20USD%201.800." rel="noreferrer">Aprobar por WhatsApp</a><a class="button button-ghost" href="#inicio">Volver arriba ↑</a></div>
+          <div class="validity">Documento confidencial · inversión total USD 1.800 · alcance sujeto a las condiciones aquí descritas.</div>
+        </div>
+      </section>
+    </main>
+
+    <footer><div class="container"><div class="brand"><img src="/Logo/Logo blanco.webp" alt="Grupo Rincón" width="148" height="52" /></div><p>Desarrollamos la tecnología que tu negocio necesita para vender más y operar mejor.</p><span>Propuesta confidencial · 2026</span></div></footer>
+  </body>
+</html>

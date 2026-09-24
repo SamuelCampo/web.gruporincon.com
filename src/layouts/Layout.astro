@@ -46,7 +46,10 @@ const socialImageType = socialImage.endsWith(".avif")
     <script is:inline>
       (function (w, d, i) {
         w.dataLayer = w.dataLayer || [];
-        w.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        w.dataLayer.push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
 
         var loaded = false;
         function loadGTM() {
@@ -58,9 +61,11 @@ const socialImageType = socialImage.endsWith(".avif")
           d.head.appendChild(s);
         }
 
-        ["pointerdown", "keydown", "scroll", "touchstart"].forEach(function (evt) {
-          w.addEventListener(evt, loadGTM, { once: true, passive: true });
-        });
+        ["pointerdown", "keydown", "scroll", "touchstart"].forEach(
+          function (evt) {
+            w.addEventListener(evt, loadGTM, { once: true, passive: true });
+          },
+        );
 
         function schedule() {
           if ("requestIdleCallback" in w) {
@@ -96,14 +101,23 @@ const socialImageType = socialImage.endsWith(".avif")
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content="Grupo Rincon" />
-    <meta
-      property="og:image"
-      content={socialImageURL}
-    />
+    <meta property="og:image" content={socialImageURL} />
     <meta property="og:image:alt" content={socialImageAlt} />
-    {socialImageType && <meta property="og:image:type" content={socialImageType} />}
-    {socialImageWidth && <meta property="og:image:width" content={String(socialImageWidth)} />}
-    {socialImageHeight && <meta property="og:image:height" content={String(socialImageHeight)} />}
+    {
+      socialImageType && (
+        <meta property="og:image:type" content={socialImageType} />
+      )
+    }
+    {
+      socialImageWidth && (
+        <meta property="og:image:width" content={String(socialImageWidth)} />
+      )
+    }
+    {
+      socialImageHeight && (
+        <meta property="og:image:height" content={String(socialImageHeight)} />
+      )
+    }
     <meta
       property="og:logo"
       content={new URL("/Logo/Logo blanco.webp", canonicalURL).toString()}
@@ -115,10 +129,7 @@ const socialImageType = socialImage.endsWith(".avif")
       content={description ||
         "Desarrollamos el software y las páginas web que tu negocio necesita para crecer en el mundo digital."}
     />
-    <meta
-      name="twitter:image"
-      content={socialImageURL}
-    />
+    <meta name="twitter:image" content={socialImageURL} />
     <meta name="twitter:image:alt" content={socialImageAlt} />
     <link rel="canonical" href={canonicalURL} />
     <link
@@ -164,6 +175,12 @@ const socialImageType = socialImage.endsWith(".avif")
       async></script>
     <Analytics />
     <SEO breadcrumbs={breadcrumbs} />
+    <!-- TrustBox script -->
+    <script
+      type="text/javascript"
+      src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+      async></script>
+    <!-- End TrustBox script -->
   </head>
   <body class="bg-black text-zinc-300 antialiased">
     <!-- Google Tag Manager (noscript) -->
