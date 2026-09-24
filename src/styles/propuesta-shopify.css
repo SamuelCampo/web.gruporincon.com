@@ -175,6 +175,53 @@ a {
 .hero-inner-video .hero-actions {
   justify-content: center;
 }
+.hero-alternative {
+  width: min(1080px, 100%);
+  margin: 34px auto 0;
+  padding: 18px 20px 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  text-align: left;
+  border: 1px solid rgba(129, 140, 248, 0.28);
+  border-radius: 18px;
+  background: rgba(10, 18, 38, 0.72);
+  backdrop-filter: blur(14px);
+}
+.hero-alternative span {
+  display: block;
+  color: #fff;
+  font-weight: 800;
+}
+.hero-alternative p {
+  margin: 3px 0 0;
+  color: #aeb6c6;
+  font-size: 14px;
+}
+.hero-alternative > a {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 17px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  transition: 0.2s;
+}
+.hero-alternative > a:hover {
+  transform: translateY(-2px);
+  border-color: rgba(129, 140, 248, 0.72);
+  background: rgba(129, 140, 248, 0.14);
+}
+.hero-alternative > a span {
+  color: #a5b4fc;
+  font-size: 16px;
+}
 .hero-video-card {
   position: relative;
   overflow: hidden;
@@ -840,6 +887,16 @@ footer > div > span {
   .hero-video-card {
     margin-top: 30px;
     border-radius: 16px;
+  }
+  .hero-alternative {
+    margin-top: 28px;
+    padding: 20px;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  .hero-alternative > a {
+    justify-content: center;
   }
   .container {
     width: min(100% - 28px, 1160px);
