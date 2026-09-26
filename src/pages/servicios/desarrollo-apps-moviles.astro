@@ -1,9 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 
-const title = "Desarrollo de Apps Móviles | Grupo Rincón";
+const title = "Desarrollo de Apps en Colombia y Venezuela | Grupo Rincón";
 const description =
-  "Desarrollamos apps móviles híbridas para iOS y Android con Flutter y React Native: rápidas, escalables y conectadas a tu negocio. Cotiza gratis.";
+  "Desarrollamos aplicaciones móviles para empresas en Colombia y Venezuela. Creamos MVPs, apps iOS y Android, integraciones y soporte. Cotiza tu proyecto.";
 
 const siteURL = Astro.site ?? new URL("https://www.gruporincon.com.co");
 const breadcrumbs = [
@@ -108,6 +108,17 @@ const projectTypes = [
 
 const faqs = [
   {
+    question:
+      "¿Desarrollan aplicaciones móviles para empresas en Colombia y Venezuela?",
+    answer:
+      "Sí. Acompañamos proyectos de empresas en Colombia y Venezuela desde el diagnóstico, la definición del alcance y el diseño UX/UI hasta el desarrollo, las integraciones y la publicación. Adaptamos la propuesta a los objetivos, usuarios y operación de cada negocio.",
+  },
+  {
+    question: "¿Qué necesito para cotizar el desarrollo de una aplicación móvil?",
+    answer:
+      "No necesitas tener una especificación técnica terminada. Para comenzar, cuéntanos qué problema quieres resolver, quién usará la app, qué funciones imaginas y qué sistemas debe conectar. Con esa información definimos un primer alcance y los siguientes pasos.",
+  },
+  {
     question: "¿Qué es una aplicación móvil híbrida?",
     answer:
       "Es una aplicación desarrollada con una base tecnológica compartida que permite ofrecer una experiencia para iOS y Android, reduciendo duplicación de trabajo sin renunciar a una interfaz de calidad.",
@@ -143,10 +154,37 @@ const faqSchema = {
     acceptedAnswer: { "@type": "Answer", text: faq.answer },
   })),
 };
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Desarrollo de aplicaciones móviles",
+  serviceType: "Desarrollo de aplicaciones móviles para iOS y Android",
+  description,
+  url: new URL(Astro.url.pathname, siteURL).toString(),
+  provider: {
+    "@type": "ProfessionalService",
+    name: "Grupo Rincón",
+    url: siteURL.toString(),
+  },
+  areaServed: [
+    { "@type": "Country", name: "Colombia" },
+    { "@type": "Country", name: "Venezuela" },
+  ],
+};
 ---
 
-<Layout title={title} description={description} breadcrumbs={breadcrumbs}>
+<Layout
+  title={title}
+  description={description}
+  breadcrumbs={breadcrumbs}
+  socialImage="/open-image.webp"
+  socialImageAlt="Desarrollo de aplicaciones móviles en Colombia y Venezuela"
+  socialImageWidth={1600}
+  socialImageHeight={833}
+>
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
   <section
     class="relative min-h-screen flex items-center overflow-hidden bg-black"
@@ -194,18 +232,28 @@ const faqSchema = {
           <h1
             class="text-4xl sm:text-5xl lg:text-[4.25rem] font-black text-white leading-[1.02] tracking-tight font-display"
           >
-            Desarrollo de apps móviles<br class="hidden sm:block" />
+            Desarrollo de aplicaciones móviles<br class="hidden sm:block" />
             <span
               class="bg-gradient-to-r from-blue-300 via-indigo-300 to-violet-400 bg-clip-text text-transparent"
-              >con Flutter y React Native</span
+              >en Colombia y Venezuela</span
             >
           </h1>
           <p
             class="mt-7 text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl"
           >
-            Creamos aplicaciones híbridas rápidas, intuitivas y escalables que
-            conectan tu negocio con usuarios de iOS y Android desde una
-            estrategia tecnológica unificada.
+            Desarrollamos apps para empresas en Colombia y Venezuela.
+          </p>
+          <p
+            class="mt-4 text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl"
+          >
+            Creamos MVPs, apps para iOS y Android e integraciones con tus
+            sistemas.
+          </p>
+          <p
+            class="mt-4 text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl"
+          >
+            Primero definimos el problema. Después diseñamos y construimos una
+            solución lista para crecer.
           </p>
           <div
             class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
@@ -377,6 +425,58 @@ const faqSchema = {
     </div>
   </section>
 
+  <section class="relative bg-black py-20 lg:py-28 overflow-hidden">
+    <div
+      class="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-blue-600/[0.08] blur-[120px]"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
+        <div class="reveal">
+          <span
+            class="rounded-full border border-blue-500/15 bg-blue-500/10 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-blue-300 font-display"
+            >Enfoque regional</span
+          >
+          <h2
+            class="mt-5 text-3xl font-black leading-[1.08] tracking-tight text-white font-display sm:text-4xl lg:text-5xl"
+          >
+            Desarrollo de aplicaciones móviles para empresas en Colombia y Venezuela
+          </h2>
+        </div>
+        <div class="reveal" style="animation-delay: 100ms;">
+          <p class="text-lg leading-relaxed text-zinc-300 sm:text-xl">
+            Una aplicación útil empieza por entender la operación que debe
+            mejorar. Definimos alcance, usuarios, flujos e integraciones antes
+            de elegir la tecnología y construir la primera versión.
+          </p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            <article class="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-6">
+              <h3 class="font-display text-lg font-bold text-white">Para empresas en Colombia</h3>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-500">
+                Diseñamos aplicaciones para ventas, servicios, operación y
+                nuevos productos digitales, con un alcance claro antes de
+                iniciar el desarrollo.
+              </p>
+            </article>
+            <article class="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-6">
+              <h3 class="font-display text-lg font-bold text-white">Para empresas en Venezuela</h3>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-500">
+                Convertimos procesos internos, atención al cliente e ideas de
+                negocio en productos móviles medibles y preparados para crecer.
+              </p>
+            </article>
+          </div>
+          <p class="mt-6 text-sm leading-relaxed text-zinc-500">
+            El objetivo no es crear una app por crearla: es lanzar una solución
+            que responda a una necesidad real, pueda integrarse a tu operación y
+            tenga un camino claro de evolución.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="relative bg-zinc-950 py-20 lg:py-28 overflow-hidden">
     <div
       class="absolute right-0 top-0 w-[32rem] h-[32rem] rounded-full bg-blue-600/[0.04] blur-[130px]"
@@ -399,14 +499,13 @@ const faqSchema = {
         </div>
         <div class="reveal" style="animation-delay: 100ms;">
           <p class="text-lg sm:text-xl text-zinc-300 leading-relaxed">
-            Una app híbrida permite construir para iOS y Android con una base
-            tecnológica compartida, acelerando el lanzamiento y simplificando su
-            evolución.
+            Una app híbrida funciona en iOS y Android. Usamos una base de código
+            común para lanzar antes y facilitar los cambios futuros.
           </p><p class="mt-6 text-base text-zinc-500 leading-relaxed">
             En Grupo Rincón elegimos entre <strong class="text-zinc-300"
               >Flutter y React Native</strong
-            > según la experiencia, integraciones, ecosistema y objetivos reales del
-            producto. La tecnología se adapta al proyecto, no al contrario.
+            > según las metas de tu producto. Revisamos las integraciones y el
+            equipo que lo mantendrá. La tecnología se adapta al proyecto.
           </p><div class="mt-10 grid grid-cols-2 gap-4">
             <div
               class="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-6"
@@ -444,8 +543,8 @@ const faqSchema = {
         >
           Apps que resuelven necesidades reales
         </h2><p class="mt-6 text-zinc-500 text-base sm:text-lg max-w-2xl">
-          Diseñamos productos móviles alrededor de tus usuarios, procesos y
-          objetivos de negocio.
+          Diseñamos apps a partir de tus usuarios y procesos. Cada función debe
+          ayudar a cumplir un objetivo de negocio.
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -506,9 +605,9 @@ const faqSchema = {
           class="text-4xl sm:text-5xl lg:text-[3.5rem] font-black mt-5 font-display leading-[1.06] tracking-tight"
         >
           Flutter o React Native según tu producto
-        </h2><p class="mt-6 text-slate-600 text-lg">
-          Ambas tecnologías permiten crear aplicaciones multiplataforma sólidas.
-          La elección depende de tu contexto.
+          </h2><p class="mt-6 text-slate-600 text-lg">
+          Ambas opciones permiten crear apps para iOS y Android. Elegimos la que
+          mejor encaja con tu producto y equipo.
         </p>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
