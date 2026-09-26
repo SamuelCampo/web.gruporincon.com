@@ -13,6 +13,18 @@ export interface SuccessCase {
 export const successCases: SuccessCase[] = [
   // Añade `internalUrl: "/casos-de-exito/slug/"` cuando exista el caso detallado.
   {
+    name: "Job&Go",
+    slug: "job-and-go",
+    externalUrl: "https://www.trianglerrhh.es/",
+    internalUrl: "/casos-de-exito/job-and-go/",
+    industry: "Recursos Humanos",
+    country: "España",
+    locationLabel: "Sevilla, España",
+    description:
+      "App móvil de empleo para Triangle Solutions RRHH con ofertas diarias, filtros, mensajería con consultores y perfil profesional.",
+    image: "/portfolio/JobAndGo",
+  },
+  {
     name: "Housiders + HouseReel",
     slug: "housiders-housereel",
     externalUrl: "https://housereel.es",

@@ -19,6 +19,13 @@
 			"status": 308
 		},
 		{
+			"src": "^/sitemap\\.xml$",
+			"headers": {
+				"Location": "/sitemap-index.xml"
+			},
+			"status": 301
+		},
+		{
 			"handle": "filesystem"
 		},
 		{

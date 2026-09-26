@@ -24,6 +24,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   adapter: vercel(),
+  redirects: {
+    '/sitemap.xml': '/sitemap-index.xml',
+  },
   trailingSlash: 'always', // Agregamos esta configuración para que siempre se generen URLs con slash al final
   build: {
     inlineStylesheets: 'always',

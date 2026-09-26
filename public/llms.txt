@@ -1,0 +1,34 @@
+# Grupo Rincón
+
+> Grupo Rincón es una agencia de desarrollo web y software a la medida para empresas y PYMEs de Venezuela y Colombia. Diseña páginas web y tiendas online, desarrolla apps móviles para iOS y Android, crea software a medida con automatización de procesos y ofrece soporte y mantenimiento.
+
+- Sitios: https://www.gruporincon.com.co (Colombia) y gruporincon.com.ve (Venezuela)
+- Atiende a empresas en Caracas, Maracaibo, Valencia, Bogotá, Medellín, Cali, Cartagena y el resto de Latinoamérica.
+- Contacto por WhatsApp: Venezuela https://wa.me/584262590251 · Colombia https://wa.me/573219646346
+- Redes: https://www.instagram.com/gruporinconve/ · https://www.tiktok.com/@gruporinconve
+
+## Servicios
+
+- [Desarrollo de apps móviles](https://www.gruporincon.com.co/servicios/desarrollo-apps-moviles/): apps híbridas para iOS y Android con Flutter y React Native, desde la primera versión hasta la publicación en las tiendas.
+- [Software a medida y automatización](https://www.gruporincon.com.co/servicios/automatizacion-desarrollo/): sistemas internos, paneles, portales de clientes, integraciones y automatización de tareas con Laravel, Python y AWS, con planes de mantenimiento.
+- [Diseño de páginas web y e-commerce](https://www.gruporincon.com.co/servicios/diseno-paginas-web-ecommerce/): páginas web rápidas, landing pages y tiendas online para PYMEs.
+- [Soporte y mantenimiento WordPress](https://www.gruporincon.com.co/servicios/soporte-mantenimiento-wordpress/): actualizaciones, copias de seguridad, seguridad y soporte para sitios WordPress.
+
+## Casos de éxito
+
+- [Todos los casos de éxito](https://www.gruporincon.com.co/casos-de-exito/): proyectos para empresas de tecnología, recursos humanos, educación, transporte, logística, inmobiliaria y organizaciones sociales.
+- [Job&Go – Triangle Solutions RRHH (España)](https://www.gruporincon.com.co/casos-de-exito/job-and-go/): app móvil de empleo con ofertas diarias, filtros, chat entre consultores y candidatos, y perfil profesional.
+- [Housiders + HouseReel (España)](https://www.gruporincon.com.co/casos-de-exito/housiders-housereel/): app y portal inmobiliario que convierten fotos y videos en contenido profesional con IA y AWS.
+- [Doral Cartagena (Colombia)](https://www.gruporincon.com.co/casos-de-exito/doral-cartagena/): catálogo inmobiliario en WordPress y Elementor para captar oportunidades comerciales.
+- [Mexicarga (México)](https://www.gruporincon.com.co/casos-de-exito/mexicarga/): paso de un HTML estático a un sitio WordPress orientado a cotizaciones.
+
+## Empresa y recursos
+
+- [Nosotros](https://www.gruporincon.com.co/nosotros/): propósito, valores y equipo de Grupo Rincón.
+- [Blog](https://www.gruporincon.com.co/blogs/): guías sobre páginas web, WordPress y crecimiento digital para negocios en Venezuela y Colombia.
+- [Cómo crear una página web gratis con WordPress](https://www.gruporincon.com.co/blogs/como-crear-una-pagina-web-gratis-con-wordpress/)
+
+## Optional
+
+- [Política de privacidad](https://www.gruporincon.com.co/politica-de-privacidad/)
+- [Mapa del sitio](https://www.gruporincon.com.co/sitemap-index.xml)
