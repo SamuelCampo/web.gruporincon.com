@@ -1,9 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 
-const title = "Desarrollo de Apps en Colombia y Venezuela | Grupo Rincón";
+const title = "Desarrollo de Apps y MVPs en Colombia y Venezuela | Grupo Rincón";
 const description =
-  "Desarrollamos aplicaciones móviles para empresas en Colombia y Venezuela. Creamos MVPs, apps iOS y Android, integraciones y soporte. Cotiza tu proyecto.";
+  "Desarrollamos apps móviles para empresas en Colombia y Venezuela. Creamos MVPs, apps iOS y Android con Flutter o React Native. Cotiza tu proyecto.";
 
 const siteURL = Astro.site ?? new URL("https://www.gruporincon.com.co");
 const breadcrumbs = [
@@ -604,10 +604,12 @@ const serviceSchema = {
         ><h2
           class="text-4xl sm:text-5xl lg:text-[3.5rem] font-black mt-5 font-display leading-[1.06] tracking-tight"
         >
-          Flutter o React Native según tu producto
+          ¿Flutter o React Native: cuál conviene para tu app?
           </h2><p class="mt-6 text-slate-600 text-lg">
-          Ambas opciones permiten crear apps para iOS y Android. Elegimos la que
-          mejor encaja con tu producto y equipo.
+          <strong class="text-slate-900">Respuesta corta:</strong> Flutter suele
+          funcionar mejor cuando el diseño visual es prioritario. React Native es
+          una buena opción si tu equipo ya trabaja con JavaScript. Evaluamos tu
+          caso antes de decidir.
         </p>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -702,6 +704,37 @@ const serviceSchema = {
             }
           </div>
         </article>
+      </div>
+      <div class="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <table class="w-full min-w-[640px] border-collapse text-left text-sm">
+          <caption class="sr-only">
+            Comparación entre Flutter y React Native para desarrollar una aplicación móvil
+          </caption>
+          <thead class="bg-slate-950 text-white">
+            <tr>
+              <th scope="col" class="px-5 py-4 font-display text-sm font-bold">Aspecto</th>
+              <th scope="col" class="px-5 py-4 font-display text-sm font-bold">Flutter</th>
+              <th scope="col" class="px-5 py-4 font-display text-sm font-bold">React Native</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-600">
+            <tr>
+              <th scope="row" class="px-5 py-4 font-semibold text-slate-900">Tecnología</th>
+              <td class="px-5 py-4">Dart</td>
+              <td class="px-5 py-4">JavaScript o TypeScript</td>
+            </tr>
+            <tr>
+              <th scope="row" class="px-5 py-4 font-semibold text-slate-900">Mejor encaje</th>
+              <td class="px-5 py-4">Interfaces visuales muy personalizadas</td>
+              <td class="px-5 py-4">Equipos con experiencia previa en React</td>
+            </tr>
+            <tr>
+              <th scope="row" class="px-5 py-4 font-semibold text-slate-900">Resultado</th>
+              <td class="px-5 py-4">Una app para iOS y Android</td>
+              <td class="px-5 py-4">Una app para iOS y Android</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
