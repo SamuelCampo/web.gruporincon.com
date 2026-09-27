@@ -92,8 +92,11 @@ export const MARKETS: Record<MarketId, Market> = {
 };
 
 /** Mercado que se está compilando. */
-export const MARKET_ID: MarketId =
-  import.meta.env.SITE_MARKET === "ve" ? "ve" : "co";
+// Lo inyecta astro.config.mjs (vite.define) a partir de la variable SITE_MARKET.
+// No usar import.meta.env aquí: en Vercel las variables sin prefijo PUBLIC_
+// no llegan al código compilado.
+declare const __SITE_MARKET__: string;
+export const MARKET_ID: MarketId = __SITE_MARKET__ === "ve" ? "ve" : "co";
 
 /** Datos del mercado actual. */
 export const M: Market = MARKETS[MARKET_ID];

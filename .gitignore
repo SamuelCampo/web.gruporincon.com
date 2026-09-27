@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# salida de compilación de Vercel: se genera en cada despliegue, no se sube al repo
+.vercel/

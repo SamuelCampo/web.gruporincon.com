@@ -7,7 +7,9 @@ import partytown from "@astrojs/partytown";
 import robotsTxt from 'astro-robots-txt';
 
 // Mercado que se compila: "co" (gruporincon.com.co, por defecto) o "ve" (gruporincon.com.ve).
-// En Vercel se define con la variable PUBLIC_SITE_MARKET en cada proyecto.
+// En Vercel se define con la variable SITE_MARKET en cada proyecto.
+// Se inyecta en el código como __SITE_MARKET__ (ver vite.define), así funciona
+// igual en local y en Vercel, en el servidor y en los <script> del navegador.
 // En local: `pnpm dev:ve` / `pnpm build:ve` (ver package.json).
 const env = process.env;
 const MARKET = env.SITE_MARKET === "ve" ? "ve" : "co";
@@ -38,6 +40,9 @@ export default defineConfig({
     })
   ],
   vite: {
+    define: {
+      __SITE_MARKET__: JSON.stringify(MARKET),
+    },
     plugins: [tailwindcss()],
   },
   adapter: vercel(),
