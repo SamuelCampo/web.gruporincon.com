@@ -10,7 +10,7 @@ import robotsTxt from 'astro-robots-txt';
 // En Vercel se define con la variable PUBLIC_SITE_MARKET en cada proyecto.
 // En local: `pnpm dev:ve` / `pnpm build:ve` (ver package.json).
 const env = process.env;
-const MARKET = env.PUBLIC_SITE_MARKET === "ve" ? "ve" : "co";
+const MARKET = env.SITE_MARKET === "ve" ? "ve" : "co";
 const MARKET_URLS = {
   co: "https://www.gruporincon.com.co",
   ve: "https://www.gruporincon.com.ve",
