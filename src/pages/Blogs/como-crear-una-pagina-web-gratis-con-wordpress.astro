@@ -1,10 +1,12 @@
 ---
+import { MARKETS } from "../../config/markets";
 import Layout from "../../layouts/Layout.astro";
 
 const title = "Cómo crear una página web gratis con WordPress";
 const description =
   "Aprende cómo crear una página web gratis con WordPress desde Venezuela o Colombia, paso a paso, sin conocimientos";
-const siteURL = Astro.site ?? new URL("https://www.gruporincon.com.co");
+// El blog es igual en ambos dominios: su canonical vive en .com.co (ver CANONICAL_ONLY).
+const siteURL = new URL(MARKETS.co.url);
 const canonicalURL = new URL(Astro.url.pathname, siteURL).toString();
 const breadcrumbs = [
   { name: "Inicio", url: new URL("/", siteURL).toString() },

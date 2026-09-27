@@ -1,4 +1,5 @@
 ---
+import { M, pick, waLink } from "../../config/markets";
 import Layout from "../../layouts/Layout.astro";
 import Image from "astro/components/Image.astro";
 import consultoria from "../../assets/process/consultoria.webp";
@@ -37,9 +38,12 @@ const webProjects = [
 
 const faqs = [
   {
-    question: "¿Qué medios de pago pueden integrar en Venezuela?",
+    question: `¿Qué medios de pago pueden integrar en ${M.country}?`,
     answer:
-      "Podemos preparar tiendas online para trabajar con Pago Móvil, transferencias bancarias, PayPal, Mercado Pago, Stripe y otras pasarelas locales o internacionales. La disponibilidad depende del país de registro, la moneda, la cuenta comercial y los requisitos de cada proveedor, por lo que validamos la compatibilidad antes de comenzar.",
+      pick({
+        ve: "Podemos preparar tiendas online para trabajar con Pago Móvil, transferencias bancarias, PayPal, Mercado Pago, Stripe y otras pasarelas locales o internacionales.",
+        co: "Podemos preparar tiendas online para trabajar con ePayco, PayU, Bold, Mercado Pago, transferencias bancarias, PayPal, Stripe y otras pasarelas locales o internacionales.",
+      }) + " La disponibilidad depende del país de registro, la moneda, la cuenta comercial y los requisitos de cada proveedor, por lo que validamos la compatibilidad antes de comenzar.",
   },
 ];
 
@@ -58,14 +62,14 @@ const faqSchema = {
 
 const formOptions = {
   needs: ["Página Web", "Landing Page", "Tienda Online", "No estoy seguro"],
-  budgetsCOP: ["Menos de $3M", "$3M a $7M", "Más de $7M"],
-  budgetsUSD: ["Menos de $500", "$500 a $1.500", "Más de $1.500"],
+  budgets: M.budgets,
+  budgetLabel: M.budgetLabel,
 };
 ---
 
 <Layout
-  title="Diseño de Páginas Web y E-commerce para PYMEs | Grupo Rincón"
-  description="Creamos páginas web rápidas y tiendas online (E-commerce) optimizadas para vender. Más de 10 años impulsando negocios en Colombia. ¡Cotiza tu proyecto hoy!"
+  title={`Diseño de Páginas Web y Tiendas Online en ${M.country} | Grupo Rincón`}
+  description={`Creamos páginas web rápidas y tiendas online optimizadas para vender, con pagos locales y WhatsApp. Más de 10 años impulsando PYMEs en ${M.country}. Cotiza hoy.`}
   breadcrumbs={breadcrumbs}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -151,7 +155,7 @@ const formOptions = {
               Cotizar mi Proyecto
             </a>
             <a
-              href="https://wa.me/584262590251"
+              href={waLink()}
               target="_blank"
               rel="noopener noreferrer"
               class="cursor-pointer inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white/80 hover:text-white px-8 py-4 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10"
@@ -589,7 +593,7 @@ const formOptions = {
         </div>
       </div>
 
-      <!-- Medios de pago e integraciones para Venezuela -->
+      <!-- Medios de pago e integraciones del mercado -->
       <div
         class="mt-24 lg:mt-32 relative overflow-hidden glass-panel rounded-[2rem] border border-white/10 p-6 sm:p-10 lg:p-12 reveal"
       >
@@ -617,7 +621,7 @@ const formOptions = {
               <h3
                 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-display tracking-tight leading-tight"
               >
-                Medios de pago e integraciones para Venezuela
+                Medios de pago e integraciones para {M.country}
               </h3>
               <p
                 class="text-zinc-400 text-base sm:text-lg leading-relaxed mt-5"
@@ -651,10 +655,16 @@ const formOptions = {
                   ></path>
                 </svg>
               </div>
-              <h4 class="text-white font-bold font-display mb-2">Pago Móvil</h4>
+              <h4 class="text-white font-bold font-display mb-2">
+                {pick({ ve: "Pago Móvil", co: "ePayco, PayU y Bold" })}
+              </h4>
               <p class="text-sm text-zinc-400 leading-relaxed">
-                Registro de datos y comprobantes para validar pagos de forma
-                organizada.
+                {
+                  pick({
+                    ve: "Registro de datos y comprobantes para validar pagos de forma organizada.",
+                    co: "Pasarelas locales para cobrar con tarjeta, PSE y otros medios según la cuenta comercial.",
+                  })
+                }
               </p>
             </article>
 
@@ -814,7 +824,7 @@ const formOptions = {
               de pago se validan antes de contratar y comenzar el desarrollo.
             </p>
             <a
-              href="https://wa.me/584262590251?text=Hola%2C%20quiero%20consultar%20qu%C3%A9%20medios%20de%20pago%20pueden%20integrar%20en%20mi%20tienda%20online."
+              href={waLink("Hola, quiero consultar qué medios de pago pueden integrar en mi tienda online.")}
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold px-6 py-3 rounded-xl transition-colors duration-300 whitespace-nowrap font-display"
@@ -1325,7 +1335,7 @@ const formOptions = {
                 for="presupuesto"
                 id="budget-label"
                 class="block text-sm font-medium text-zinc-300 mb-1.5 font-display"
-                >Presupuesto estimado</label
+                >{formOptions.budgetLabel}</label
               >
               <select
                 id="presupuesto"
@@ -1336,6 +1346,13 @@ const formOptions = {
                 <option value="" disabled selected class="bg-zinc-900"
                   >Selecciona un rango</option
                 >
+                {
+                  formOptions.budgets.map((opt) => (
+                    <option value={opt} class="bg-zinc-900">
+                      {opt}
+                    </option>
+                  ))
+                }
               </select>
             </div>
 
@@ -1368,28 +1385,3 @@ const formOptions = {
   </section>
 </Layout>
 
-<script>
-  (function () {
-    const host = window.location.hostname;
-    const isVE = host.includes("com.ve") || host.includes("localhost");
-    const select = document.getElementById("presupuesto");
-    const label = document.getElementById("budget-label");
-    if (!select || !label) return;
-
-    const options = isVE
-      ? ["Menos de \$500", "\$500 a \$1.500", "Más de \$1.500"]
-      : ["Menos de \$3M", "\$3M a \$7M", "Más de \$7M"];
-
-    label.textContent = isVE
-      ? "Presupuesto estimado (USD)"
-      : "Presupuesto estimado (COP)";
-
-    options.forEach(function (opt) {
-      const el = document.createElement("option");
-      el.value = opt;
-      el.textContent = opt;
-      el.className = "bg-zinc-900";
-      select.appendChild(el);
-    });
-  })();
-</script>

@@ -1,4 +1,5 @@
 ---
+import { M } from "../config/markets";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Testimonials from "../components/Testimonials.astro";
@@ -13,7 +14,7 @@ import Team from "../components/Team.astro";
 
 <Layout
   title="Grupo Rincon | Desarrollo de Software y Páginas Web"
-  description="Creamos páginas web, tiendas online y landing pages optimizadas para vender en Caracas y toda Venezuela. Cotiza tu proyecto con Grupo Rincón."
+  description={M.homeDescription}
 >
   <Hero />
 

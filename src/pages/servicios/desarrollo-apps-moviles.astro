@@ -1,9 +1,10 @@
 ---
+import { M, OTHER } from "../../config/markets";
 import Layout from "../../layouts/Layout.astro";
 
-const title = "Desarrollo de Apps y MVPs en Colombia y Venezuela | Grupo Rincón";
+const title = `Desarrollo de Apps y MVPs en ${M.country} y ${OTHER.country} | Grupo Rincón`;
 const description =
-  "Desarrollamos apps móviles para empresas en Colombia y Venezuela. Creamos MVPs, apps iOS y Android con Flutter o React Native. Cotiza tu proyecto.";
+  `Desarrollamos apps móviles para empresas en ${M.country} y ${OTHER.country}. Creamos MVPs, apps iOS y Android con Flutter o React Native. Cotiza tu proyecto.`;
 
 const siteURL = Astro.site ?? new URL("https://www.gruporincon.com.co");
 const breadcrumbs = [
@@ -1157,6 +1158,7 @@ const serviceSchema = {
 </Layout>
 
 <script>
+  import { waLink } from "../../config/markets";
   const mobileContactForm = document.querySelector<HTMLFormElement>(
     "#mobile-contact-form",
   );
@@ -1187,7 +1189,7 @@ const serviceSchema = {
       const name = String(formData.get("nombre") || "").trim();
       const projectType = String(formData.get("tipo_de_proyecto") || "").trim();
       const message = `Hola, soy ${name}. Acabo de completar el formulario para: ${projectType}. Quiero conversar sobre el desarrollo de mi aplicación móvil.`;
-      window.location.href = `https://wa.me/584262590251?text=${encodeURIComponent(message)}`;
+      window.location.href = waLink(message);
     } catch {
       if (status) {
         status.textContent =

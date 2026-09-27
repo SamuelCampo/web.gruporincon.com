@@ -1,4 +1,6 @@
 ---
+import { M } from "../config/markets";
+
 interface BreadcrumbItem {
   name: string;
   url: string;
@@ -10,19 +12,25 @@ interface Props {
 
 const { breadcrumbs = [] } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-// Define los datos de tu empresa u organización
+// Datos de la empresa para el mercado que se está compilando.
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": `${M.url}/#organization`,
   name: "Grupo Rincón",
-  url: "https://www.gruporincon.com.co/",
-  logo: "https://www.gruporincon.com.co/Logo/Logo%20blanco.webp",
-  image: "https://www.gruporincon.com.co/Logo/Logo%20blanco.webp",
-  description:
-    "Agencia de desarrollo de software, páginas web y soluciones digitales integrales para PYMEs en Colombia y Venezuela.",
-  telephone: "+584262590251",
+  url: `${M.url}/`,
+  logo: `${M.url}/Logo/Logo%20blanco.webp`,
+  image: `${M.url}/Logo/Logo%20blanco.webp`,
+  description: M.defaultDescription,
+  telephone: M.phone,
   priceRange: "$$",
+  ...(M.address && {
+    address: { "@type": "PostalAddress", ...M.address },
+  }),
+  areaServed: [
+    ...M.cities.map((name) => ({ "@type": "City", name })),
+    { "@type": "Country", name: M.country },
+  ],
   sameAs: [
     "https://www.facebook.com/profile.php?id=61586834372570",
     "https://www.instagram.com/gruporinconve/",

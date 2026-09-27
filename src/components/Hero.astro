@@ -1,4 +1,5 @@
 ---
+import { M, waLink } from "../config/markets";
 import { Image } from "astro:assets";
 import heroMobileVideo from "../assets/hero/hero_mobile_video.avif";
 ---
@@ -93,7 +94,7 @@ import heroMobileVideo from "../assets/hero/hero_mobile_video.avif";
         <span
           class="bg-gradient-to-r from-secondary-300 via-blue-300 to-secondary-400 bg-clip-text text-transparent"
         >
-          vender más y operar mejor en Venezuela.
+          vender más y operar mejor en {M.country}.
         </span>
       </h1>
 
@@ -104,7 +105,7 @@ import heroMobileVideo from "../assets/hero/hero_mobile_video.avif";
         class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal"
       >
         <a
-          href="https://wa.me/584262590251"
+          href={waLink()}
           target="_blank"
           rel="noopener noreferrer"
           class="glow-btn cursor-pointer inline-flex items-center gap-2.5 bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide transition-all duration-300 shadow-lg shadow-secondary-500/30"

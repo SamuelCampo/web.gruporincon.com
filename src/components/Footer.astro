@@ -1,16 +1,26 @@
 ---
+import { M, OTHER, isVE, waLink } from "../config/markets";
+
 const year = new Date().getFullYear();
 
+const serviceLinks = [
+  ...(isVE
+    ? [
+        { href: "/diseno-paginas-web-caracas/", label: "Diseño web en Caracas" },
+        {
+          href: "/desarrollo-web-a-medida-caracas/",
+          label: "Desarrollo web a medida en Caracas",
+        },
+      ]
+    : []),
+  { href: "/servicios/diseno-paginas-web-ecommerce/", label: "Páginas Web y E-commerce" },
+  { href: "/servicios/automatizacion-desarrollo/", label: "Software a la Medida" },
+  { href: "/servicios/desarrollo-apps-moviles/", label: "Apps Móviles" },
+  { href: "/servicios/soporte-mantenimiento-wordpress/", label: "Soporte WordPress" },
+];
+
 const footerLinks = [
-  {
-    title: "Servicios",
-    links: [
-      { href: "/#servicios", label: "Páginas Web" },
-      { href: "/#servicios", label: "E-commerce" },
-      { href: "/#servicios", label: "Software a la Medida" },
-      { href: "/#servicios", label: "Apps Móviles" },
-    ],
-  },
+  { title: "Servicios", links: serviceLinks },
   {
     title: "Enlaces",
     links: [
@@ -22,20 +32,18 @@ const footerLinks = [
   },
   {
     title: "Contacto",
-    links: [
-      {
-        href: "https://wa.me/584262590251",
-        label: "WhatsApp Venezuela",
-        external: true,
-      },
-      {
-        href: "https://wa.me/573219646346",
-        label: "WhatsApp Colombia",
-        external: true,
-      },
-    ],
+    // El mercado actual va primero.
+    links: [M, OTHER].map((market) => ({
+      href: waLink(undefined, market),
+      label: `WhatsApp ${market.country}`,
+      external: true,
+    })),
   },
 ];
+
+const locationLine = isVE
+  ? "Desarrollo de páginas web y software en Caracas para empresas de toda Venezuela."
+  : "Desarrollo de páginas web y software para empresas de toda Colombia.";
 ---
 
 <footer class="bg-zinc-950 border-t border-zinc-900/80 text-zinc-400">
@@ -138,16 +146,20 @@ const footerLinks = [
         <div
           class="flex items-center gap-4 text-xs font-semibold tracking-wider"
         >
-          <span>gruporincon.com.ve</span>
+          <span>{M.domain}</span>
           <span class="text-zinc-800">|</span>
-          <span>gruporincon.com.co</span>
+          <a
+            href={`${OTHER.url}/`}
+            hreflang={OTHER.hreflang}
+            class="hover:text-white transition-colors"
+            >¿Estás en {OTHER.country}? {OTHER.domain}</a
+          >
         </div>
       </div>
       <p
         class="mt-4 text-xs text-zinc-600 text-center md:text-left leading-relaxed"
       >
-        Desarrollo de software en Caracas, Maracaibo, Valencia, Bogotá,
-        Medellín, Cali, Cartagena y toda Latinoamérica.
+        {locationLine}
       </p>
     </div>
   </div>

@@ -7,7 +7,11 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "dev:ve": "PUBLIC_SITE_MARKET=ve astro dev",
+    "dev:co": "PUBLIC_SITE_MARKET=co astro dev",
     "build": "astro build",
+    "build:ve": "PUBLIC_SITE_MARKET=ve astro build",
+    "build:co": "PUBLIC_SITE_MARKET=co astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

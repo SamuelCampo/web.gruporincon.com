@@ -1,0 +1,21 @@
+---
+/**
+ * Landings exclusivas de un mercado (p. ej. Caracas sólo en gruporincon.com.ve).
+ * Sólo se generan las del mercado que se está compilando; en el otro dominio
+ * no existen, así que no hay contenido duplicado.
+ */
+import MarketLanding from "../landings/MarketLanding.astro";
+import { LANDINGS } from "../landings/data";
+import { MARKET_ID } from "../config/markets";
+
+export function getStaticPaths() {
+  return LANDINGS.filter((l) => l.market === MARKET_ID).map((landing) => ({
+    params: { landing: landing.slug },
+    props: { landing },
+  }));
+}
+
+const { landing } = Astro.props;
+---
+
+<MarketLanding landing={landing} />

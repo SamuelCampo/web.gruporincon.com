@@ -1,0 +1,333 @@
+---
+/**
+ * Plantilla de las landings exclusivas de un mercado.
+ * El contenido vive en src/landings/data.ts.
+ */
+import Layout from "../layouts/Layout.astro";
+import Process from "../components/Process.astro";
+import { M, waLink, marketUrl } from "../config/markets";
+import {
+  successCases,
+  getSuccessCaseHref,
+  isExternalSuccessCase,
+} from "../data/successCases";
+import type { LandingData } from "./data";
+
+interface Props {
+  landing: LandingData;
+}
+
+const { landing } = Astro.props;
+const pageUrl = marketUrl(`/${landing.slug}/`);
+
+const breadcrumbs = [
+  { name: "Inicio", url: marketUrl("/") },
+  { name: landing.breadcrumb, url: pageUrl },
+];
+
+const cases = landing.caseSlugs
+  .map((slug) => successCases.find((c) => c.slug === slug))
+  .filter((c): c is NonNullable<typeof c> => Boolean(c));
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: landing.faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: landing.service.name,
+  serviceType: landing.service.serviceType,
+  url: pageUrl,
+  provider: { "@id": `${M.url}/#organization` },
+  areaServed: [
+    ...M.cities.map((name) => ({ "@type": "City", name })),
+    { "@type": "Country", name: M.country },
+  ],
+};
+---
+
+<Layout
+  title={landing.title}
+  description={landing.description}
+  breadcrumbs={breadcrumbs}
+  markets={[landing.market]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-black">
+    <div
+      class="absolute top-[-10%] left-[-10%] w-[55%] h-[55%] rounded-full bg-secondary-500/10 blur-[140px] pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-20 lg:pt-44 lg:pb-28"
+    >
+      <nav aria-label="Ruta de navegación" class="mb-8 text-xs text-zinc-500">
+        <a href="/" class="hover:text-white transition-colors">Inicio</a>
+        <span class="mx-2 text-zinc-700">/</span>
+        <span class="text-zinc-400">{landing.breadcrumb}</span>
+      </nav>
+      <div
+        class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full mb-8"
+      >
+        <span class="w-1.5 h-1.5 rounded-full bg-secondary-400 animate-pulse"
+        ></span>
+        <span
+          class="text-xs font-semibold text-zinc-300 tracking-widest uppercase font-display"
+          >{landing.hero.badge}</span
+        >
+      </div>
+      <h1
+        class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight font-display"
+      >
+        {landing.hero.h1}{" "}
+        <span
+          class="bg-gradient-to-r from-secondary-300 via-blue-300 to-secondary-400 bg-clip-text text-transparent"
+          >{landing.hero.highlight}</span
+        >
+      </h1>
+      <p class="mt-6 text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl">
+        {landing.hero.intro}
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-start gap-4">
+        <a
+          href={waLink(landing.hero.waText)}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="glow-btn inline-flex items-center gap-2.5 bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide transition-all duration-300 shadow-lg shadow-secondary-500/30"
+        >
+          Cotizar por WhatsApp
+        </a>
+        <a
+          href="#preguntas-frecuentes"
+          class="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white/80 hover:text-white px-8 py-4 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 bg-white/5 hover:bg-white/10"
+        >
+          Ver preguntas frecuentes
+        </a>
+      </div>
+      <dl class="mt-14 grid grid-cols-3 gap-4 max-w-xl">
+        <div>
+          <dt class="text-xs text-zinc-500">Años de experiencia</dt>
+          <dd class="text-2xl sm:text-3xl font-black text-white font-display">+10</dd>
+        </div>
+        <div>
+          <dt class="text-xs text-zinc-500">Proyectos entregados</dt>
+          <dd class="text-2xl sm:text-3xl font-black text-white font-display">+100</dd>
+        </div>
+        <div>
+          <dt class="text-xs text-zinc-500">Países con clientes</dt>
+          <dd class="text-2xl sm:text-3xl font-black text-white font-display">8</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- SECCIONES -->
+  {
+    landing.sections.map((section, index) => (
+      <section
+        class={`${index % 2 === 0 ? "bg-zinc-950" : "bg-black"} py-20 lg:py-28`}
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-12 reveal">
+            <span class="inline-block text-xs font-bold text-secondary-400 uppercase tracking-widest bg-secondary-500/10 px-3.5 py-1.5 rounded-full font-display mb-5 border border-secondary-500/20">
+              {section.eyebrow}
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-display tracking-tight leading-tight">
+              {section.title}
+            </h2>
+            {section.intro && (
+              <p class="text-zinc-400 text-base sm:text-lg leading-relaxed mt-5">
+                {section.intro}
+              </p>
+            )}
+          </div>
+
+          {section.cards && (
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal">
+              {section.cards.map((card) => (
+                <article class="glass-panel border border-white/10 rounded-2xl p-6 flex flex-col">
+                  <h3 class="text-white font-bold font-display text-lg mb-3">
+                    {card.title}
+                  </h3>
+                  <p class="text-sm text-zinc-400 leading-relaxed flex-1">
+                    {card.text}
+                  </p>
+                  {card.meta && (
+                    <p class="mt-5 text-sm font-bold text-secondary-300 font-display">
+                      {card.meta}
+                    </p>
+                  )}
+                </article>
+              ))}
+            </div>
+          )}
+
+          {section.bullets && (
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 reveal">
+              {section.bullets.map((item) => (
+                <li class="flex gap-3 glass-panel border border-white/10 rounded-2xl p-5 text-zinc-300 text-sm sm:text-base leading-relaxed">
+                  <span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary-400 shrink-0" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {section.chips && (
+            <div class="flex flex-wrap gap-2 reveal">
+              {section.chips.map((chip) => (
+                <span class="text-sm font-medium text-zinc-300 bg-white/5 border border-white/10 px-4 py-2 rounded-full font-display">
+                  {chip}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    ))
+  }
+
+  <!-- CASOS -->
+  <section class="bg-zinc-950 py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12 reveal">
+        <h2
+          class="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-display tracking-tight leading-tight"
+        >
+          {landing.casesTitle}
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg leading-relaxed mt-5">
+          {landing.casesIntro}
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+        {
+          cases.map((item) => (
+            <a
+              href={getSuccessCaseHref(item)}
+              target={isExternalSuccessCase(item) ? "_blank" : undefined}
+              rel={isExternalSuccessCase(item) ? "noopener noreferrer" : undefined}
+              class="group glass-panel border border-white/10 rounded-2xl overflow-hidden hover:border-secondary-500/40 transition-colors"
+            >
+              <picture>
+                <source srcset={`${item.image}.avif`} type="image/avif" />
+                <source srcset={`${item.image}.webp`} type="image/webp" />
+                <img
+                  src={`${item.image}.webp`}
+                  alt={`Proyecto ${item.name}`}
+                  class="w-full aspect-[16/10] object-cover"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="p-6">
+                <p class="text-xs text-zinc-500 mb-2">
+                  {item.industry}
+                  {item.locationLabel && ` · ${item.locationLabel}`}
+                </p>
+                <h3 class="text-white font-bold font-display text-lg mb-2 group-hover:text-secondary-300 transition-colors">
+                  {item.name}
+                </h3>
+                <p class="text-sm text-zinc-400 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+      <a
+        href="/casos-de-exito/"
+        class="inline-block mt-10 text-sm font-semibold text-secondary-300 hover:text-white transition-colors"
+        >Ver todos los casos de éxito →</a
+      >
+    </div>
+  </section>
+
+  <Process />
+
+  <!-- FAQ -->
+  <section id="preguntas-frecuentes" class="bg-zinc-950 py-20 lg:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2
+        class="text-3xl sm:text-4xl font-black text-white font-display tracking-tight leading-tight mb-10 reveal"
+      >
+        Preguntas frecuentes
+      </h2>
+      <div class="space-y-3">
+        {
+          landing.faqs.map((faq) => (
+            <details class="group rounded-2xl border border-white/10 bg-black/25 overflow-hidden">
+              <summary class="flex items-center justify-between gap-5 p-5 sm:p-6 cursor-pointer list-none">
+                <h3 class="text-sm sm:text-base font-bold text-zinc-200 font-display">
+                  {faq.question}
+                </h3>
+                <span
+                  class="text-zinc-400 text-xl leading-none transition-transform group-open:rotate-45"
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+              </summary>
+              <div class="px-5 sm:px-6 pb-6 -mt-1">
+                <p class="text-sm text-zinc-400 leading-relaxed">{faq.answer}</p>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+
+      <div class="mt-12">
+        <h2 class="text-sm font-bold text-zinc-500 uppercase tracking-widest font-display mb-4">
+          También te puede interesar
+        </h2>
+        <ul class="flex flex-wrap gap-3">
+          {
+            landing.related.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="inline-block text-sm text-zinc-300 hover:text-white bg-white/5 border border-white/10 px-4 py-2 rounded-full transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-black py-20 lg:py-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      <h2
+        class="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-display tracking-tight leading-tight"
+      >
+        {landing.cta.title}
+      </h2>
+      <p class="text-zinc-400 text-base sm:text-lg leading-relaxed mt-5">
+        {landing.cta.text}
+      </p>
+      <a
+        href={waLink(landing.cta.waText)}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="glow-btn mt-10 inline-flex items-center gap-2.5 bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide transition-all duration-300 shadow-lg shadow-secondary-500/30"
+      >
+        Escríbenos por WhatsApp
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,4 +1,5 @@
 ---
+import { waLink } from "../../config/markets";
 import Layout from "../../layouts/Layout.astro";
 
 const title = "Soporte y Mantenimiento WordPress | Grupo Rincón";
@@ -161,7 +162,7 @@ const faqSchema = {
 };
 
 const getWhatsAppURL = (plan: string) =>
-  `https://wa.me/584262590251?text=${encodeURIComponent(`Hola, quiero información sobre el Plan ${plan} de soporte WordPress.`)}`;
+  waLink(`Hola, quiero información sobre el Plan ${plan} de soporte WordPress.`);
 ---
 
 <Layout title={title} description={description} breadcrumbs={breadcrumbs}>

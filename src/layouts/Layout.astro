@@ -5,6 +5,14 @@ import Footer from "../components/Footer.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
 import Analytics from "@vercel/analytics/astro";
 import SEO from "../components/SEO.astro";
+import {
+  M,
+  MARKETS,
+  MARKET_ID,
+  DEFAULT_MARKET,
+  CANONICAL_ONLY,
+  type MarketId,
+} from "../config/markets";
 
 interface BreadcrumbItem {
   name: string;
@@ -19,6 +27,10 @@ export interface Props {
   socialImageAlt?: string;
   socialImageWidth?: number;
   socialImageHeight?: number;
+  /** Mercados donde existe esta misma URL. Por defecto, ambos (lleva hreflang). */
+  markets?: MarketId[];
+  /** Fuerza el canonical a un dominio (contenido idéntico en ambos sitios). */
+  canonicalMarket?: MarketId;
 }
 
 const {
@@ -29,8 +41,26 @@ const {
   socialImageAlt = "Grupo Rincon — Desarrollo web y software",
   socialImageWidth,
   socialImageHeight,
+  markets = ["ve", "co"],
 } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const pathname = Astro.url.pathname;
+const forcedCanonical: MarketId | undefined =
+  Astro.props.canonicalMarket ??
+  CANONICAL_ONLY.find((c) => pathname.startsWith(c.prefix))?.market;
+const canonicalMarket: MarketId = forcedCanonical ?? MARKET_ID;
+const canonicalURL = new URL(pathname, MARKETS[canonicalMarket].url);
+// hreflang sólo cuando la página existe en ambos dominios y cada uno es su propio
+// canonical. Si el canonical está forzado a un dominio (blog), no hay alternativas.
+const alternates =
+  !forcedCanonical && markets.length > 1
+    ? markets.map((id) => ({
+        hreflang: MARKETS[id].hreflang,
+        href: new URL(pathname, MARKETS[id].url).toString(),
+      }))
+    : [];
+const xDefault = markets.includes(DEFAULT_MARKET)
+  ? new URL(pathname, MARKETS[DEFAULT_MARKET].url).toString()
+  : null;
 const socialImageURL = new URL(socialImage, canonicalURL).toString();
 const socialImageType = socialImage.endsWith(".avif")
   ? "image/avif"
@@ -40,7 +70,7 @@ const socialImageType = socialImage.endsWith(".avif")
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={M.hreflang}>
   <head>
     <!-- Google Tag Manager: se carga tras idle o primera interacción para no competir con LCP/FCP -->
     <script is:inline>
@@ -84,12 +114,11 @@ const socialImageType = socialImage.endsWith(".avif")
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content={description ||
-        "Grupo Rincon — Agencia de desarrollo de software, páginas web y soluciones digitales integrales para PYMES en Colombia y Venezuela."}
+      content={description || M.defaultDescription}
     />
     <meta
       name="keywords"
-      content="desarrollo web, desarrollo de software, diseño web, páginas web, aplicaciones web, soluciones digitales, PYMES, Colombia, Venezuela, Grupo Rincon, tecnología"
+      content={M.keywords}
     />
     <meta name="author" content="Grupo Rincon" />
     <meta property="og:title" content={title} />
@@ -101,6 +130,7 @@ const socialImageType = socialImage.endsWith(".avif")
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content="Grupo Rincon" />
+    <meta property="og:locale" content={M.ogLocale} />
     <meta property="og:image" content={socialImageURL} />
     <meta property="og:image:alt" content={socialImageAlt} />
     {
@@ -132,6 +162,16 @@ const socialImageType = socialImage.endsWith(".avif")
     <meta name="twitter:image" content={socialImageURL} />
     <meta name="twitter:image:alt" content={socialImageAlt} />
     <link rel="canonical" href={canonicalURL} />
+    {
+      alternates.map((alt) => (
+        <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+      ))
+    }
+    {
+      alternates.length > 0 && xDefault && (
+        <link rel="alternate" hreflang="x-default" href={xDefault} />
+      )
+    }
     <link
       rel="preload"
       href="/fonts/Inter-VariableFont_opsz,wght.ttf"

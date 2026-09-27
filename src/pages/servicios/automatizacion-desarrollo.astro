@@ -1,4 +1,5 @@
 ---
+import { waLink } from "../../config/markets";
 import Layout from "../../layouts/Layout.astro";
 
 const siteURL = Astro.site ?? new URL("https://www.gruporincon.com.co");
@@ -718,7 +719,7 @@ const faqSchema = {
           con terceros y los requisitos de facturación se validan antes de comenzar.
         </p>
         <a
-          href="https://wa.me/584262590251?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20desarrollo%20o%20integraci%C3%B3n%20de%20un%20software%20administrativo%20para%20mi%20empresa."
+          href={waLink("Hola, quiero información sobre el desarrollo o integración de un software administrativo para mi empresa.")}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center justify-center gap-2 bg-violet-500 hover:bg-violet-400 text-white font-bold px-6 py-3.5 rounded-xl transition-colors duration-300 whitespace-nowrap font-display"
@@ -1225,6 +1226,7 @@ const faqSchema = {
 </Layout>
 
 <script>
+  import { waLink } from "../../config/markets";
   const contactForm = document.querySelector<HTMLFormElement>(
     "#automation-contact-form",
   );
@@ -1261,7 +1263,7 @@ const faqSchema = {
       const name = String(formData.get("nombre") || "").trim();
       const projectType = String(formData.get("tipo_de_proyecto") || "").trim();
       const message = `Hola, soy ${name}. Acabo de completar el formulario de diagnóstico para: ${projectType}. Quiero continuar con la conversación.`;
-      window.location.href = `https://wa.me/584262590251?text=${encodeURIComponent(message)}`;
+      window.location.href = waLink(message);
     } catch {
       if (status) {
         status.textContent =
