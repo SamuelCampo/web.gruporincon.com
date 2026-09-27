@@ -73,9 +73,11 @@ const socialImageType = socialImage.endsWith(".avif")
 <html lang={M.hreflang}>
   <head>
     <!-- Google Tag Manager: se carga tras idle o primera interacción para no competir con LCP/FCP -->
-    <script is:inline>
+    <script is:inline define:vars={{ gtmId: M.gtmId, siteMarket: M.id }}>
       (function (w, d, i) {
         w.dataLayer = w.dataLayer || [];
+        // País del sitio, disponible en GTM como variable de capa de datos "site_market".
+        w.dataLayer.push({ site_market: siteMarket });
         w.dataLayer.push({
           "gtm.start": new Date().getTime(),
           event: "gtm.js",
@@ -107,7 +109,7 @@ const socialImageType = socialImage.endsWith(".avif")
 
         if (d.readyState === "complete") schedule();
         else w.addEventListener("load", schedule);
-      })(window, document, "GTM-TKMC3FKH");
+      })(window, document, gtmId);
     </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
@@ -226,7 +228,7 @@ const socialImageType = socialImage.endsWith(".avif")
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-TKMC3FKH"
+        src={`https://www.googletagmanager.com/ns.html?id=${M.gtmId}`}
         height="0"
         width="0"
         style="display:none;visibility:hidden"></iframe></noscript

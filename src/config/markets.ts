@@ -38,6 +38,8 @@ export interface Market {
   defaultDescription: string;
   homeDescription: string;
   keywords: string;
+  /** Contenedor de Google Tag Manager de este dominio. */
+  gtmId: string;
 }
 
 export const MARKETS: Record<MarketId, Market> = {
@@ -67,6 +69,7 @@ export const MARKETS: Record<MarketId, Market> = {
       "Creamos páginas web, tiendas online y software a la medida para empresas en Caracas y toda Venezuela, conectados a WhatsApp. Cotiza tu proyecto.",
     keywords:
       "diseño de páginas web Caracas, empresa de diseño web Caracas, agencia de desarrollo web Caracas, desarrollo de software Venezuela, tiendas online Venezuela, Grupo Rincón",
+    gtmId: "GTM-P4825J7T",
   },
   co: {
     id: "co",
@@ -88,6 +91,7 @@ export const MARKETS: Record<MarketId, Market> = {
       "Creamos páginas web, tiendas online y software a la medida para empresas en Colombia, conectados a WhatsApp. Cotiza tu proyecto con Grupo Rincón.",
     keywords:
       "desarrollo de software Colombia, diseño de páginas web Colombia, tiendas online Colombia, desarrollo de apps Colombia, Grupo Rincón",
+    gtmId: "GTM-TKMC3FKH",
   },
 };
 
