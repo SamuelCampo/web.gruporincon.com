@@ -1,26 +1,11 @@
 /**
- * Contenido de las landings exclusivas de un mercado (MARKET_ONLY_PAGES).
+ * Datos de las landings exclusivas de un mercado: SEO, hero, casos, FAQs y CTA.
+ * Las secciones visuales viven en cada componente (DisenoWebCaracas.astro, ...).
  *
  * Regla: aquí sólo va información verdadera y verificable. Precios, plazos,
  * métodos de pago o casos nuevos se añaden cuando estén confirmados.
  */
 import type { MarketId } from "../config/markets";
-
-export interface LandingCard {
-  title: string;
-  text: string;
-  /** Línea corta opcional, p. ej. un precio "desde". */
-  meta?: string;
-}
-
-export interface LandingSection {
-  eyebrow: string;
-  title: string;
-  intro?: string;
-  cards?: LandingCard[];
-  bullets?: string[];
-  chips?: string[];
-}
 
 export interface LandingData {
   slug: string;
@@ -30,7 +15,6 @@ export interface LandingData {
   breadcrumb: string;
   service: { name: string; serviceType: string };
   hero: { badge: string; h1: string; highlight: string; intro: string; waText: string };
-  sections: LandingSection[];
   casesTitle: string;
   casesIntro: string;
   caseSlugs: string[];
@@ -53,85 +37,9 @@ export const LANDINGS: LandingData[] = [
       h1: "Diseño de páginas web en Caracas que convierten visitas en",
       highlight: "clientes por WhatsApp",
       intro:
-        "Somos un equipo de desarrollo de software con más de 10 años creando páginas web, tiendas online y sistemas para PYMEs. Diseñamos tu web para que cargue rápido en el celular, explique bien lo que vendes y lleve cada visita a una conversación de venta.",
+        "Páginas web y tiendas online rápidas en el celular, pensadas para que cada visita termine en una conversación de venta.",
       waText: "Hola, quiero cotizar una página web para mi negocio en Caracas.",
     },
-    sections: [
-      {
-        eyebrow: "Tipos de página web",
-        title: "¿Qué tipo de página web necesita tu negocio?",
-        intro:
-          "No todos los negocios necesitan lo mismo. Te recomendamos el formato según lo que quieres lograr, no según lo más caro.",
-        cards: [
-          {
-            title: "Landing page",
-            text: "Una sola página enfocada en un servicio o campaña, con botón de WhatsApp y formulario. Ideal para anuncios en Instagram o Google.",
-            meta: "Desde US$400",
-          },
-          {
-            title: "Web corporativa",
-            text: "Varias páginas para presentar tu empresa, servicios, casos y contacto. Autogestionable en WordPress o de alto rendimiento en Astro.",
-            meta: "Según alcance",
-          },
-          {
-            title: "Tienda online",
-            text: "Catálogo, carrito y medios de pago locales o internacionales con WooCommerce o desarrollo a medida.",
-            meta: "Según alcance",
-          },
-          {
-            title: "Web + sistema",
-            text: "Tu web conectada a un cotizador, un CRM o tu inventario, para que los pedidos no se pierdan entre chats y hojas de cálculo.",
-            meta: "Según alcance",
-          },
-        ],
-      },
-      {
-        eyebrow: "Pensado para Venezuela",
-        title: "Cobra y atiende a tus clientes como ya compran en Venezuela",
-        intro:
-          "Tu web tiene que funcionar con los medios de pago y los canales que tus clientes ya usan. La compatibilidad de cada medio se valida antes de empezar.",
-        cards: [
-          {
-            title: "Pago Móvil y transferencias",
-            text: "Registro de datos y comprobantes para validar cada pago de forma ordenada.",
-          },
-          {
-            title: "Pagos internacionales",
-            text: "PayPal, Stripe o Mercado Pago cuando la cuenta y el proyecto son compatibles.",
-          },
-          {
-            title: "WhatsApp como canal de venta",
-            text: "Botones con mensaje prellenado según la página o el producto, para saber qué te están pidiendo desde el primer mensaje.",
-          },
-          {
-            title: "Rápida en datos móviles",
-            text: "Imágenes optimizadas y código liviano para que tu web cargue bien aunque la señal no acompañe.",
-          },
-        ],
-      },
-      {
-        eyebrow: "Por qué Grupo Rincón",
-        title: "Un equipo de software, no sólo un diseñador",
-        cards: [
-          {
-            title: "Web que vende, no un folleto",
-            text: "Estructuramos cada página para captar contactos: mensajes claros, llamadas a la acción y seguimiento de conversiones.",
-          },
-          {
-            title: "Crece contigo",
-            text: "Si mañana necesitas un cotizador, un CRM o automatizar respuestas, lo desarrolla el mismo equipo que hizo tu web.",
-          },
-          {
-            title: "Trato directo",
-            text: "Hablas con quien diseña y programa tu proyecto, por WhatsApp y videollamada, en horario de Venezuela.",
-          },
-          {
-            title: "Acompañamiento después del lanzamiento",
-            text: "Planes de mantenimiento con respaldos, actualizaciones y soporte para que tu web siga segura y rápida.",
-          },
-        ],
-      },
-    ],
     casesTitle: "Proyectos que hemos entregado",
     casesIntro:
       "Hemos trabajado para empresas en Venezuela, Colombia, España y México. Estos son algunos de los proyectos publicados.",
@@ -197,50 +105,9 @@ export const LANDINGS: LandingData[] = [
       h1: "Agencia de desarrollo web a medida en",
       highlight: "Caracas",
       intro:
-        "Creamos sistemas web, portales y automatizaciones para empresas que ya venden y necesitan ordenar su operación: menos Excel, menos tareas manuales y más visibilidad sobre clientes, cotizaciones e inventario.",
+        "Sistemas web, portales y automatizaciones para empresas que necesitan ordenar clientes, cotizaciones e inventario.",
       waText: "Hola, quiero conversar sobre un desarrollo web a medida para mi empresa en Caracas.",
     },
-    sections: [
-      {
-        eyebrow: "Qué desarrollamos",
-        title: "Software web hecho para cómo trabaja tu empresa",
-        cards: [
-          {
-            title: "Sistemas administrativos",
-            text: "CRM, cotizaciones, inventario, cobranza o gestión de clientes, con roles y reportes según tu proceso.",
-          },
-          {
-            title: "Portales y plataformas",
-            text: "Portales para clientes, proveedores o equipos internos, con acceso seguro y datos en un solo lugar.",
-          },
-          {
-            title: "Automatización e integraciones",
-            text: "Conectamos tu web, WhatsApp, correo y formularios para que los datos lleguen solos al sistema correcto.",
-          },
-          {
-            title: "Apps móviles conectadas",
-            text: "Apps para iOS y Android que usan la misma base de datos que tu sistema web.",
-          },
-        ],
-      },
-      {
-        eyebrow: "¿Es para ti?",
-        title: "Cuándo tu empresa necesita un sistema y no sólo una página",
-        bullets: [
-          "Tus pedidos o cotizaciones viven entre chats de WhatsApp y hojas de Excel.",
-          "Dependes de una persona para saber cómo va cada cliente o cada venta.",
-          "Repites a mano las mismas tareas todos los días: copiar datos, enviar correos, actualizar precios.",
-          "Tu herramienta actual ya no se adapta a tu proceso y pagas por funciones que no usas.",
-        ],
-      },
-      {
-        eyebrow: "Tecnología",
-        title: "Tecnología probada, elegida para cada proyecto",
-        intro:
-          "Usamos herramientas modernas y mantenibles, y elegimos cada una según el problema, no por moda.",
-        chips: ["Laravel", "Livewire", "Filament", "Python", "PostgreSQL", "AWS", "Astro", "React Native", "Flutter"],
-      },
-    ],
     casesTitle: "Proyectos a medida que hemos entregado",
     casesIntro:
       "Plataformas y apps desarrolladas para empresas en España y México, con el mismo equipo que atiende a empresas en Venezuela.",

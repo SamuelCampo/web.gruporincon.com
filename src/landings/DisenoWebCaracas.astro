@@ -1,0 +1,319 @@
+---
+/** Landing: Diseño de páginas web en Caracas (sólo gruporincon.com.ve). */
+import LandingPage from "./parts/LandingPage.astro";
+import LandingHero from "./parts/LandingHero.astro";
+import SectionHeading from "./parts/SectionHeading.astro";
+import BrowserFrame from "./parts/BrowserFrame.astro";
+import IconTile from "./parts/IconTile.astro";
+import Icon from "./parts/Icon.astro";
+import { TONES } from "./parts/tones";
+import type { LandingData } from "./data";
+
+interface Props {
+  landing: LandingData;
+}
+const { landing } = Astro.props;
+
+const webTypes = [
+  { key: "landing", title: "Landing page", text: "Una página para una campaña o servicio.", price: "Desde US$400", icon: "layout", tone: "blue" },
+  { key: "corporativa", title: "Web corporativa", text: "Tu empresa, servicios y casos en varias páginas.", price: "Según alcance", icon: "globe", tone: "violet" },
+  { key: "tienda", title: "Tienda online", text: "Catálogo, carrito y pagos locales.", price: "Según alcance", icon: "cart", tone: "emerald" },
+  { key: "sistema", title: "Web + sistema", text: "Conectada a cotizador, CRM o inventario.", price: "Según alcance", icon: "cpu", tone: "amber" },
+] as const;
+
+const localFeatures = [
+  { title: "Pago Móvil y transferencias", text: "Comprobantes ordenados para validar cada pago.", icon: "phone", tone: "emerald" },
+  { title: "Pagos internacionales", text: "PayPal, Stripe o Mercado Pago si tu cuenta lo permite.", icon: "globe", tone: "sky" },
+  { title: "WhatsApp en cada página", text: "Mensajes prellenados según el producto o servicio.", icon: "chat", tone: "emerald" },
+  { title: "Rápida con datos móviles", text: "Imágenes optimizadas y código liviano.", icon: "bolt", tone: "amber" },
+] as const;
+---
+
+<LandingPage landing={landing}>
+  <LandingHero landing={landing}>
+    <!-- Visual: web + conversación de WhatsApp -->
+    <div slot="visual" class="relative max-w-xl mx-auto lg:ml-auto pb-16 sm:pb-10">
+      <div
+        class="absolute inset-6 bg-gradient-to-br from-secondary-500/30 to-emerald-500/20 blur-3xl rounded-full"
+        aria-hidden="true"
+      >
+      </div>
+      <BrowserFrame url="tunegocio.com.ve" class="relative rotate-[1.5deg]">
+        <picture>
+          <source srcset="/mockup-rivera.avif" type="image/avif" />
+          <img
+            src="/mockup-rivera.webp"
+            alt="Ejemplo de página web profesional en computador"
+            class="w-full aspect-[4/3] object-cover"
+            width="1024"
+            height="1024"
+            loading="eager"
+          />
+        </picture>
+      </BrowserFrame>
+
+      <!-- Chat de WhatsApp -->
+      <div
+        class="absolute -bottom-2 -left-2 sm:-left-10 w-64 sm:w-72 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/70 bg-zinc-900 -rotate-2"
+      >
+        <div class="flex items-center gap-2.5 bg-[#075e54] px-4 py-2.5">
+          <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
+            <Icon name="chat" class="w-3.5 h-3.5 text-white" />
+          </div>
+          <div>
+            <p class="text-xs font-bold text-white leading-tight">Tu negocio</p>
+            <p class="text-[10px] text-white/70 leading-tight">en línea</p>
+          </div>
+        </div>
+        <div class="p-3 space-y-2 bg-[#0b141a]">
+          <p class="ml-auto max-w-[85%] text-[11px] leading-snug text-white bg-[#005c4b] rounded-xl rounded-tr-sm px-3 py-2">
+            Hola, vi su web. ¿Tienen disponible este producto?
+          </p>
+          <p class="max-w-[85%] text-[11px] leading-snug text-zinc-200 bg-[#202c33] rounded-xl rounded-tl-sm px-3 py-2">
+            ¡Hola! Sí, te envío los detalles y el precio.
+          </p>
+        </div>
+      </div>
+
+      <!-- Chips flotantes -->
+      <div
+        class="absolute -top-4 right-2 sm:-right-4 flex items-center gap-2 bg-zinc-900/95 border border-amber-500/30 rounded-full pl-2 pr-4 py-2 shadow-xl"
+      >
+        <span class="w-7 h-7 rounded-full bg-amber-500/15 text-amber-400 flex items-center justify-center">
+          <Icon name="bolt" class="w-4 h-4" />
+        </span>
+        <span class="text-xs font-bold text-white">Rápida en el celular</span>
+      </div>
+      <div
+        class="absolute bottom-10 -right-2 sm:-right-6 flex items-center gap-2 bg-zinc-900/95 border border-emerald-500/30 rounded-full pl-2 pr-4 py-2 shadow-xl"
+      >
+        <span class="w-7 h-7 rounded-full bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
+          <Icon name="check" class="w-4 h-4" />
+        </span>
+        <span class="text-xs font-bold text-white">Pago Móvil</span>
+      </div>
+    </div>
+  </LandingHero>
+
+  <!-- TIPOS DE WEB: tarjetas con mini wireframes -->
+  <section class="bg-zinc-950 py-20 lg:py-28 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        eyebrow="Tipos de página web"
+        title="¿Qué necesita tu negocio?"
+        intro="Te recomendamos el formato según tu objetivo, no según lo más caro."
+        center
+      />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
+        {
+          webTypes.map((t) => (
+            <article class={`group glass-panel border border-white/10 ${TONES[t.tone].ring} rounded-3xl p-5 flex flex-col transition-colors`}>
+              <!-- Wireframe -->
+              <div class={`relative rounded-2xl bg-gradient-to-br ${TONES[t.tone].glow} to-transparent border border-white/5 p-4 h-40 overflow-hidden mb-5`}>
+                <div class="flex gap-1 mb-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-white/30" />
+                  <span class="w-1.5 h-1.5 rounded-full bg-white/30" />
+                  <span class="w-1.5 h-1.5 rounded-full bg-white/30" />
+                </div>
+                {t.key === "landing" && (
+                  <div class="space-y-2">
+                    <div class="h-3 w-3/4 rounded bg-white/70" />
+                    <div class="h-2 w-1/2 rounded bg-white/25" />
+                    <div class={`h-5 w-20 rounded-full mt-3 ${TONES[t.tone].soft}`} />
+                    <div class="grid grid-cols-3 gap-1.5 pt-3">
+                      <div class="h-8 rounded bg-white/10" />
+                      <div class="h-8 rounded bg-white/10" />
+                      <div class="h-8 rounded bg-white/10" />
+                    </div>
+                  </div>
+                )}
+                {t.key === "corporativa" && (
+                  <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                      <div class="h-2 w-8 rounded bg-white/60" />
+                      <div class="flex gap-1">
+                        <div class="h-1.5 w-5 rounded bg-white/25" />
+                        <div class="h-1.5 w-5 rounded bg-white/25" />
+                        <div class="h-1.5 w-5 rounded bg-white/25" />
+                      </div>
+                    </div>
+                    <div class={`h-12 rounded-lg ${TONES[t.tone].soft} opacity-60`} />
+                    <div class="grid grid-cols-2 gap-1.5">
+                      <div class="h-10 rounded bg-white/10" />
+                      <div class="h-10 rounded bg-white/10" />
+                    </div>
+                  </div>
+                )}
+                {t.key === "tienda" && (
+                  <div class="grid grid-cols-3 gap-2">
+                    {[0, 1, 2, 3, 4, 5].map((i) => (
+                      <div class="space-y-1">
+                        <div class={`h-9 rounded-md ${i === 1 ? TONES[t.tone].soft : "bg-white/15"}`} />
+                        <div class="h-1.5 w-3/4 rounded bg-white/30" />
+                        <div class="h-1.5 w-1/2 rounded bg-emerald-300/60" />
+                      </div>
+                    ))}
+                    <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-emerald-400/80 flex items-center justify-center text-zinc-950">
+                      <Icon name="cart" class="w-4 h-4" />
+                    </div>
+                  </div>
+                )}
+                {t.key === "sistema" && (
+                  <div class="flex gap-2 h-[6.5rem]">
+                    <div class="w-6 rounded bg-white/10 space-y-1.5 p-1">
+                      <div class="h-1.5 rounded bg-white/40" />
+                      <div class="h-1.5 rounded bg-white/20" />
+                      <div class="h-1.5 rounded bg-white/20" />
+                    </div>
+                    <div class="flex-1 space-y-2">
+                      <div class="flex items-end gap-1 h-12">
+                        {[40, 65, 50, 85, 70, 95].map((h) => (
+                          <div class={`flex-1 rounded-t ${TONES[t.tone].soft}`} style={`height:${h}%`} />
+                        ))}
+                      </div>
+                      <div class="h-2 rounded bg-white/15" />
+                      <div class="h-2 rounded bg-white/10" />
+                      <div class="h-2 w-2/3 rounded bg-white/10" />
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div class="flex items-center gap-3 mb-2">
+                <IconTile icon={t.icon} tone={t.tone} />
+                <h3 class="text-white font-bold font-display text-lg leading-tight">{t.title}</h3>
+              </div>
+              <p class="text-sm text-zinc-400 leading-relaxed flex-1">{t.text}</p>
+              <p class="mt-4 inline-flex self-start text-xs font-bold text-white bg-white/10 border border-white/10 rounded-full px-3 py-1.5 font-display">
+                {t.price}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- PENSADO PARA VENEZUELA: teléfono con checkout -->
+  <section class="bg-black py-20 lg:py-28 relative overflow-hidden">
+    <div
+      class="absolute top-1/3 -left-40 w-[520px] h-[520px] rounded-full bg-emerald-500/10 blur-[140px] pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+      <!-- Teléfono -->
+      <div class="order-2 lg:order-1 flex justify-center reveal">
+        <div class="relative">
+          <div class="absolute inset-0 bg-emerald-500/20 blur-3xl rounded-full" aria-hidden="true"></div>
+          <div class="relative w-[270px] rounded-[2.75rem] border-[10px] border-zinc-800 bg-zinc-950 shadow-2xl shadow-black/70 overflow-hidden">
+            <div class="h-6 flex justify-center items-center">
+              <span class="w-20 h-4 rounded-full bg-zinc-800"></span>
+            </div>
+            <div class="px-5 pb-6 pt-2">
+              <p class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">Tu pedido</p>
+              <div class="mt-2 flex items-center gap-3 rounded-2xl bg-white/5 border border-white/5 p-3">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-violet-400/70 to-blue-400/70"></div>
+                <div class="flex-1 space-y-1.5">
+                  <div class="h-2 w-3/4 rounded bg-white/50"></div>
+                  <div class="h-1.5 w-1/2 rounded bg-white/20"></div>
+                </div>
+              </div>
+              <p class="mt-5 text-xs font-bold text-white">¿Cómo quieres pagar?</p>
+              <ul class="mt-3 space-y-2 text-xs">
+                <li class="flex items-center justify-between rounded-xl border border-emerald-400/60 bg-emerald-500/10 px-3 py-2.5 text-white font-semibold">
+                  <span class="flex items-center gap-2"><Icon name="phone" class="w-4 h-4 text-emerald-400" /> Pago Móvil</span>
+                  <span class="w-4 h-4 rounded-full border-4 border-emerald-400 bg-zinc-950"></span>
+                </li>
+                <li class="flex items-center justify-between rounded-xl border border-white/10 px-3 py-2.5 text-zinc-300">
+                  <span class="flex items-center gap-2"><Icon name="bank" class="w-4 h-4 text-sky-400" /> Transferencia</span>
+                  <span class="w-4 h-4 rounded-full border border-white/20"></span>
+                </li>
+                <li class="flex items-center justify-between rounded-xl border border-white/10 px-3 py-2.5 text-zinc-300">
+                  <span class="flex items-center gap-2"><Icon name="globe" class="w-4 h-4 text-violet-400" /> PayPal / Stripe</span>
+                  <span class="w-4 h-4 rounded-full border border-white/20"></span>
+                </li>
+              </ul>
+              <div class="mt-5 flex items-center justify-center gap-2 rounded-full bg-[#25d366] text-zinc-950 text-xs font-bold py-3">
+                <Icon name="chat" class="w-4 h-4" /> Enviar comprobante
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-1 lg:order-2">
+        <SectionHeading
+          eyebrow="Pensado para Venezuela"
+          title="Cobra como ya compran tus clientes"
+        />
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal">
+          {
+            localFeatures.map((f) => (
+              <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                <IconTile icon={f.icon} tone={f.tone} />
+                <h3 class="mt-4 text-white font-bold font-display">{f.title}</h3>
+                <p class="mt-1.5 text-sm text-zinc-400 leading-relaxed">{f.text}</p>
+              </div>
+            ))
+          }
+        </div>
+        <p class="mt-5 text-xs text-zinc-500">
+          Validamos la compatibilidad de cada medio de pago antes de empezar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ GRUPO RINCÓN: bento -->
+  <section class="bg-zinc-950 py-20 lg:py-28 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        eyebrow="Por qué Grupo Rincón"
+        title="Un equipo de software, no sólo un diseñador"
+        center
+      />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 reveal">
+        <!-- Embudo -->
+        <div class="md:col-span-2 rounded-3xl border border-white/10 bg-gradient-to-br from-secondary-600/40 via-zinc-950 to-zinc-950 p-7 lg:p-9 overflow-hidden">
+          <IconTile icon="trend" tone="blue" size="lg" />
+          <h3 class="mt-5 text-2xl font-black text-white font-display tracking-tight">Una web que vende, no un folleto</h3>
+          <p class="mt-2 text-sm text-zinc-400 max-w-md">Cada página lleva a una acción: escribirte, cotizar o comprar.</p>
+          <div class="mt-8 space-y-3 max-w-lg">
+            {[
+              { label: "Visitas", w: "100%", c: "bg-blue-400/70" },
+              { label: "Conversaciones", w: "62%", c: "bg-violet-400/70" },
+              { label: "Clientes", w: "34%", c: "bg-emerald-400/80" },
+            ].map((s) => (
+              <div class="flex items-center gap-3">
+                <span class="w-28 text-xs font-semibold text-zinc-300">{s.label}</span>
+                <div class="flex-1 h-7 rounded-lg bg-white/5 overflow-hidden">
+                  <div class={`h-full rounded-lg ${s.c}`} style={`width:${s.w}`} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <!-- Imagen -->
+        <div class="relative rounded-3xl overflow-hidden border border-white/10 min-h-[260px]">
+          <picture>
+            <source srcset="/mockup-explorex.avif" type="image/avif" />
+            <img src="/mockup-explorex.webp" alt="Ejemplo de diseño web moderno" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1024" height="1024" />
+          </picture>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+          <p class="absolute bottom-5 left-5 right-5 text-white font-bold font-display">Diseño a la medida de tu marca</p>
+        </div>
+        {[
+          { title: "Crece contigo", text: "Cotizador, CRM o automatizaciones: el mismo equipo.", icon: "cpu", tone: "violet" },
+          { title: "Trato directo", text: "Hablas con quien diseña y programa, en horario de Venezuela.", icon: "users", tone: "emerald" },
+          { title: "Después del lanzamiento", text: "Respaldos, actualizaciones y soporte mensual.", icon: "shield", tone: "amber" },
+        ].map((c) => (
+          <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-7">
+            <IconTile icon={c.icon as any} tone={c.tone as any} size="lg" />
+            <h3 class="mt-5 text-lg font-bold text-white font-display">{c.title}</h3>
+            <p class="mt-1.5 text-sm text-zinc-400 leading-relaxed">{c.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</LandingPage>

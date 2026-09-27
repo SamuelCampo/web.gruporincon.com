@@ -1,0 +1,235 @@
+---
+/** Landing: Desarrollo web a medida en Caracas (sólo gruporincon.com.ve). */
+import LandingPage from "./parts/LandingPage.astro";
+import LandingHero from "./parts/LandingHero.astro";
+import SectionHeading from "./parts/SectionHeading.astro";
+import BrowserFrame from "./parts/BrowserFrame.astro";
+import IconTile from "./parts/IconTile.astro";
+import Icon from "./parts/Icon.astro";
+import { TONES } from "./parts/tones";
+import type { LandingData } from "./data";
+
+interface Props {
+  landing: LandingData;
+}
+const { landing } = Astro.props;
+
+const builds = [
+  { title: "Sistemas administrativos", text: "Tu proceso, con roles y reportes.", tags: ["CRM", "Cotizaciones", "Inventario", "Cobranza"], icon: "table", tone: "blue" },
+  { title: "Portales y plataformas", text: "Acceso seguro para clientes o equipos.", tags: ["Clientes", "Proveedores", "Intranet"], icon: "users", tone: "violet" },
+  { title: "Automatización", text: "Los datos llegan solos a donde deben.", tags: ["WhatsApp", "Correo", "Formularios"], icon: "refresh", tone: "emerald" },
+  { title: "Apps móviles", text: "iOS y Android sobre la misma base de datos.", tags: ["Flutter", "React Native"], icon: "phone", tone: "amber" },
+] as const;
+
+const before = ["Pedidos repartidos en 5 chats", "cotizacion_final_v7.xlsx", "¿Quién llamó a este cliente?", "Copiar y pegar datos cada día"];
+const after = ["Clientes y pedidos en un solo lugar", "Cotizaciones con un clic", "Avisos automáticos por WhatsApp", "Reportes siempre al día"];
+
+const hubNodes = [
+  { label: "WhatsApp", icon: "chat", tone: "emerald", pos: "top-0 left-1/2 -translate-x-1/2" },
+  { label: "Tu web", icon: "globe", tone: "blue", pos: "top-[22%] right-0" },
+  { label: "Pagos", icon: "cash", tone: "amber", pos: "bottom-[22%] right-0" },
+  { label: "App móvil", icon: "phone", tone: "violet", pos: "bottom-0 left-1/2 -translate-x-1/2" },
+  { label: "Excel", icon: "table", tone: "sky", pos: "bottom-[22%] left-0" },
+  { label: "Correo", icon: "mail", tone: "rose", pos: "top-[22%] left-0" },
+] as const;
+
+const stack = [
+  { name: "Laravel", dot: "bg-rose-500" },
+  { name: "Livewire", dot: "bg-pink-400" },
+  { name: "Filament", dot: "bg-amber-400" },
+  { name: "Python", dot: "bg-yellow-300" },
+  { name: "PostgreSQL", dot: "bg-sky-500" },
+  { name: "AWS", dot: "bg-orange-400" },
+  { name: "Astro", dot: "bg-violet-500" },
+  { name: "React Native", dot: "bg-cyan-400" },
+  { name: "Flutter", dot: "bg-blue-400" },
+];
+
+const rows = [
+  { name: "Cotización #1042", status: "Nueva", c: "bg-blue-500/15 text-blue-300" },
+  { name: "Cotización #1041", status: "En proceso", c: "bg-amber-500/15 text-amber-300" },
+  { name: "Cotización #1040", status: "Aprobada", c: "bg-emerald-500/15 text-emerald-300" },
+];
+---
+
+<LandingPage landing={landing}>
+  <LandingHero landing={landing}>
+    <!-- Visual: panel de un sistema -->
+    <div slot="visual" class="relative max-w-xl mx-auto lg:ml-auto pb-10">
+      <div class="absolute inset-6 bg-gradient-to-br from-violet-500/25 to-secondary-500/30 blur-3xl rounded-full" aria-hidden="true"></div>
+      <BrowserFrame url="sistema.tuempresa.com" class="relative">
+        <div class="flex text-[10px]">
+          <div class="hidden sm:flex w-12 flex-col items-center gap-3 py-4 border-r border-white/5 bg-black/30">
+            <span class="w-6 h-6 rounded-lg bg-secondary-500"></span>
+            <Icon name="chart" class="w-4 h-4 text-white" />
+            <Icon name="users" class="w-4 h-4 text-zinc-500" />
+            <Icon name="table" class="w-4 h-4 text-zinc-500" />
+            <Icon name="cash" class="w-4 h-4 text-zinc-500" />
+          </div>
+          <div class="flex-1 p-4 space-y-3">
+            <div class="flex items-center justify-between">
+              <p class="text-xs font-bold text-white">Resumen del mes</p>
+              <span class="rounded-full bg-white/5 border border-white/10 px-2 py-0.5 text-zinc-400">Septiembre</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <div class="rounded-xl bg-white/5 border border-white/5 p-2.5">
+                <p class="text-zinc-500">Cotizaciones</p>
+                <p class="text-base font-black text-white font-display">128</p>
+                <p class="text-emerald-400 font-semibold">+18%</p>
+              </div>
+              <div class="rounded-xl bg-white/5 border border-white/5 p-2.5">
+                <p class="text-zinc-500">Clientes</p>
+                <p class="text-base font-black text-white font-display">342</p>
+                <p class="text-emerald-400 font-semibold">+9%</p>
+              </div>
+              <div class="rounded-xl bg-white/5 border border-white/5 p-2.5">
+                <p class="text-zinc-500">Por cobrar</p>
+                <p class="text-base font-black text-white font-display">$4,2k</p>
+                <p class="text-amber-400 font-semibold">12 docs</p>
+              </div>
+            </div>
+            <div class="rounded-xl bg-white/5 border border-white/5 p-3">
+              <div class="flex items-end gap-1.5 h-16">
+                {[35, 55, 45, 70, 60, 80, 72, 95].map((h, i) => (
+                  <div class={`flex-1 rounded-t ${i === 7 ? "bg-emerald-400" : "bg-secondary-400/60"}`} style={`height:${h}%`} />
+                ))}
+              </div>
+            </div>
+            <div class="rounded-xl border border-white/5 divide-y divide-white/5">
+              {rows.map((r) => (
+                <div class="flex items-center justify-between px-3 py-2">
+                  <span class="text-zinc-300 truncate">{r.name}</span>
+                  <span class={`rounded-full px-2 py-0.5 font-semibold ${r.c}`}>{r.status}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </BrowserFrame>
+      <div class="absolute -bottom-1 -left-2 sm:-left-8 flex items-center gap-2.5 bg-zinc-900/95 border border-emerald-500/30 rounded-2xl pl-2.5 pr-4 py-2.5 shadow-xl">
+        <span class="w-8 h-8 rounded-full bg-[#25d366] text-zinc-950 flex items-center justify-center">
+          <Icon name="chat" class="w-4 h-4" />
+        </span>
+        <span class="text-xs leading-tight">
+          <span class="block font-bold text-white">Cotización enviada</span>
+          <span class="text-zinc-400">por WhatsApp · automático</span>
+        </span>
+      </div>
+      <div class="absolute -top-4 right-2 sm:-right-4 flex items-center gap-2 bg-zinc-900/95 border border-violet-500/30 rounded-full pl-2 pr-4 py-2 shadow-xl">
+        <span class="w-7 h-7 rounded-full bg-violet-500/15 text-violet-400 flex items-center justify-center">
+          <Icon name="x" class="w-4 h-4" />
+        </span>
+        <span class="text-xs font-bold text-white">Adiós al Excel</span>
+      </div>
+    </div>
+  </LandingHero>
+
+  <!-- QUÉ DESARROLLAMOS -->
+  <section class="bg-zinc-950 py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading eyebrow="Qué desarrollamos" title="Software hecho para cómo trabaja tu empresa" center />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
+        {
+          builds.map((b) => (
+            <article class={`relative overflow-hidden rounded-3xl border border-white/10 ${TONES[b.tone].ring} bg-white/[0.03] p-6 transition-colors`}>
+              <div class={`absolute -top-16 -right-16 w-40 h-40 rounded-full bg-gradient-to-br ${TONES[b.tone].glow} to-transparent blur-2xl`} />
+              <div class="relative">
+                <IconTile icon={b.icon} tone={b.tone} size="lg" />
+                <h3 class="mt-5 text-lg font-bold text-white font-display">{b.title}</h3>
+                <p class="mt-1.5 text-sm text-zinc-400">{b.text}</p>
+                <div class="mt-5 flex flex-wrap gap-1.5">
+                  {b.tags.map((tag) => (
+                    <span class="text-[11px] font-medium text-zinc-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ANTES / DESPUÉS -->
+  <section class="bg-black py-20 lg:py-28 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading eyebrow="¿Es para ti?" title="Cuándo necesitas un sistema y no sólo una página" center />
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 items-center reveal">
+        <div class="rounded-3xl border border-rose-500/20 bg-rose-500/[0.04] p-7">
+          <p class="text-xs font-bold uppercase tracking-widest text-rose-400 font-display">Hoy</p>
+          <ul class="mt-5 space-y-3">
+            {before.map((item, i) => (
+              <li class={`flex items-center gap-3 rounded-xl bg-black/40 border border-white/5 px-4 py-3 text-sm text-zinc-300 ${i % 2 ? "sm:ml-6" : ""}`}>
+                <span class="w-6 h-6 rounded-full bg-rose-500/15 text-rose-400 flex items-center justify-center shrink-0"><Icon name="x" class="w-3.5 h-3.5" /></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="flex justify-center">
+          <span class="w-14 h-14 rounded-full bg-secondary-500 text-white flex items-center justify-center shadow-lg shadow-secondary-500/40 rotate-90 lg:rotate-0">
+            <Icon name="arrow" class="w-6 h-6" />
+          </span>
+        </div>
+        <div class="rounded-3xl border border-emerald-500/25 bg-emerald-500/[0.05] p-7">
+          <p class="text-xs font-bold uppercase tracking-widest text-emerald-400 font-display">Con tu sistema</p>
+          <ul class="mt-5 space-y-3">
+            {after.map((item) => (
+              <li class="flex items-center gap-3 rounded-xl bg-black/40 border border-white/5 px-4 py-3 text-sm text-white">
+                <span class="w-6 h-6 rounded-full bg-emerald-500/15 text-emerald-400 flex items-center justify-center shrink-0"><Icon name="check" class="w-3.5 h-3.5" /></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTEGRACIONES + TECNOLOGÍA -->
+  <section class="bg-zinc-950 py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute top-1/4 right-0 w-[480px] h-[480px] rounded-full bg-violet-500/10 blur-[140px] pointer-events-none" aria-hidden="true"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+      <div>
+        <SectionHeading
+          eyebrow="Integraciones"
+          title="Todo conectado a un solo sistema"
+          intro="Lo que hoy usas sigue funcionando: lo conectamos."
+        />
+        <p class="text-xs font-bold uppercase tracking-widest text-zinc-500 font-display mb-4">Tecnología que usamos</p>
+        <ul class="flex flex-wrap gap-2 reveal">
+          {stack.map((s) => (
+            <li class="flex items-center gap-2 text-sm font-medium text-zinc-200 bg-white/5 border border-white/10 px-3.5 py-2 rounded-full">
+              <span class={`w-2 h-2 rounded-full ${s.dot}`} />
+              {s.name}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <!-- Diagrama hub -->
+      <div class="relative mx-auto w-full max-w-[420px] aspect-square reveal">
+        <svg class="absolute inset-0 w-full h-full text-white/10" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-dasharray="1.5 2" stroke-width="0.4" />
+          <g stroke="currentColor" stroke-width="0.4">
+            <line x1="50" y1="50" x2="50" y2="8" />
+            <line x1="50" y1="50" x2="92" y2="30" />
+            <line x1="50" y1="50" x2="92" y2="70" />
+            <line x1="50" y1="50" x2="50" y2="92" />
+            <line x1="50" y1="50" x2="8" y2="70" />
+            <line x1="50" y1="50" x2="8" y2="30" />
+          </g>
+        </svg>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-gradient-to-br from-secondary-500 to-violet-600 flex flex-col items-center justify-center text-center shadow-2xl shadow-secondary-500/40 border border-white/20">
+          <Icon name="cpu" class="w-7 h-7 text-white" />
+          <span class="mt-1 text-xs font-black text-white font-display">Tu sistema</span>
+        </div>
+        {hubNodes.map((n) => (
+          <div class={`absolute ${n.pos} flex flex-col items-center gap-1.5`}>
+            <IconTile icon={n.icon} tone={n.tone} size="lg" />
+            <span class="text-[11px] font-semibold text-zinc-300 bg-zinc-950/80 px-2 rounded">{n.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</LandingPage>

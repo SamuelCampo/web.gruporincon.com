@@ -4,7 +4,8 @@
  * Sólo se generan las del mercado que se está compilando; en el otro dominio
  * no existen, así que no hay contenido duplicado.
  */
-import MarketLanding from "../landings/MarketLanding.astro";
+import DisenoWebCaracas from "../landings/DisenoWebCaracas.astro";
+import DesarrolloWebCaracas from "../landings/DesarrolloWebCaracas.astro";
 import { LANDINGS } from "../landings/data";
 import { MARKET_ID } from "../config/markets";
 
@@ -15,7 +16,13 @@ export function getStaticPaths() {
   }));
 }
 
+const COMPONENTS = {
+  "diseno-paginas-web-caracas": DisenoWebCaracas,
+  "desarrollo-web-a-medida-caracas": DesarrolloWebCaracas,
+} as const;
+
 const { landing } = Astro.props;
+const Page = COMPONENTS[landing.slug as keyof typeof COMPONENTS];
 ---
 
-<MarketLanding landing={landing} />
+<Page landing={landing} />
