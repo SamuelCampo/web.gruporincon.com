@@ -28,7 +28,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const path = new URL(page).pathname;
-        if (path.startsWith('/propuesta-')) return false;
+        if (path.startsWith('/propuesta-') || path.startsWith('/reportes/')) return false;
         // No listar en este sitemap lo que tiene su canonical en el otro dominio.
         return !CANONICAL_ONLY.some((c) => path.startsWith(c.prefix) && c.market !== MARKET);
       },
