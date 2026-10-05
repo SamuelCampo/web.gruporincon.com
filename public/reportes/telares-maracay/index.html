@@ -1,0 +1,548 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Telares Maracay · Septiembre 2026</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="bingbot" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: informe de marca en una sola columna ancha (1120px), secciones abiertas sobre fondo oscuro; tarjetas solo donde un bloque es un objeto propio (KPIs, logros, acciones). Tema oscuro único por decisión de marca, igual que los informes anteriores. */
+:root{
+  color-scheme: dark;
+  --bg:#090b11;
+  --surface:#10131c;
+  --surface-2:#151a26;
+  --line:#1e2433;
+  --fg:#f3f5fa;
+  --muted:#99a2b6;
+  --faint:#5f6880;
+  --accent:#3b74ff;
+  --accent-dim:#2a3a66;
+  --accent-soft:rgba(59,116,255,.12);
+  --accent-line:rgba(59,116,255,.38);
+  --good:#2fbf71;
+  --warn:#f2a33a;
+  --bad:#ef4d4d;
+  --good-soft:rgba(47,191,113,.12);
+  --warn-soft:rgba(242,163,58,.12);
+  --bad-soft:rgba(239,77,77,.12);
+  --display:"Montserrat", "Arial Black", system-ui, sans-serif;
+  --body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.6;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:56px 80px;display:flex;flex-direction:column;gap:72px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-weight:900;font-size:clamp(34px,6vw,60px);line-height:1.04}
+h1 .hl{color:var(--accent)}
+h2{font-weight:800;font-size:clamp(24px,3.4vw,32px);line-height:1.15}
+h3{font-weight:700;font-size:17px;line-height:1.3}
+p{margin:0}
+code{font-size:13px;background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--fg)}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--accent-line);background:var(--accent-soft);color:var(--accent);border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;width:fit-content}
+.sec-head{display:flex;flex-direction:column;gap:12px;max-width:68ch;margin-bottom:28px}
+.lead{font-size:17px;color:var(--muted);max-width:62ch}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end;position:relative}
+.hero-text{display:flex;flex-direction:column;gap:20px;min-width:0}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:13px;color:var(--muted);border-left:2px solid var(--accent);padding-left:16px}
+.meta b{color:var(--fg);font-weight:600}
+.weave{position:absolute;right:-40px;top:-48px;width:240px;opacity:.16;pointer-events:none}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.kpi .lbl{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.kpi .val{font-family:var(--display);font-weight:800;font-size:36px;line-height:1.1}
+.kpi .note{font-size:13px;color:var(--muted)}
+.kpi .src{font-size:11px;color:var(--faint);margin-top:auto;padding-top:6px}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.02em}
+.t-good{background:var(--good-soft);color:var(--good)}
+.t-warn{background:var(--warn-soft);color:var(--warn)}
+.t-bad{background:var(--bad-soft);color:var(--bad)}
+.t-acc{background:var(--accent-soft);color:var(--accent)}
+.c-good{color:var(--good)} .c-warn{color:var(--warn)} .c-bad{color:var(--bad)}
+
+/* Chart */
+.chart-box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:20px}
+.chart-scroll{overflow-x:auto}
+.chart-scroll svg{display:block;min-width:640px;width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:18px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.thirds{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-radius:12px;overflow:hidden}
+.thirds div{background:var(--surface-2);padding:16px 18px;display:flex;flex-direction:column;gap:2px}
+.thirds .t{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.thirds .v{font-family:var(--display);font-weight:800;font-size:22px}
+.thirds .s{font-size:13px;color:var(--muted)}
+
+/* Wins */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.ico{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;color:var(--accent)}
+.ico svg{width:20px;height:20px}
+.card p{color:var(--muted);font-size:14px}
+.card .big{font-family:var(--display);font-weight:800;font-size:28px;color:var(--fg);line-height:1}
+
+/* Bars */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.split > *{min-width:0}
+.bars{display:flex;flex-direction:column;gap:12px}
+.bars h3{margin-bottom:6px}
+.bar-row{display:grid;grid-template-columns:150px 1fr 48px;gap:12px;align-items:center;font-size:14px}
+.bar-row .track{height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+.bar-row .fill{display:block;height:100%;background:var(--accent);border-radius:99px}
+.bar-row .fill.dim{background:var(--accent-dim)}
+.bar-row .fill.warn{background:var(--warn)}
+.bar-row .n{text-align:right;font-variant-numeric:tabular-nums;color:var(--fg);font-weight:600}
+.bar-row .name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted)}
+.note-box{font-size:13px;color:var(--muted);border:1px dashed var(--line);border-radius:12px;padding:12px 14px}
+.note-box b{color:var(--warn)}
+
+/* Devices */
+.devices{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.dev{border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.dev .row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.dev .row b{color:var(--fg);font-variant-numeric:tabular-nums}
+
+/* Table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:14px 18px;background:var(--surface);border-bottom:1px solid var(--line)}
+td{padding:12px 18px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums;vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right}
+.q{font-weight:500}
+.q small{display:block;color:var(--faint);font-weight:400;font-size:12px}
+.tables{display:flex;flex-direction:column;gap:20px}
+.tbl-title{font-family:var(--display);font-weight:700;font-size:17px;margin-bottom:12px}
+
+/* AI */
+.ai{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;background:#10192b;border:1px solid var(--accent-line);border-radius:20px;padding:32px}
+.ai > *{min-width:0}
+.ai-list{display:flex;flex-direction:column;gap:10px}
+.ai-item{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--line);font-size:14px}
+.ai-item .qq{flex:1;min-width:0}
+.ai-item .tag{margin-left:auto;white-space:nowrap}
+
+/* PSI */
+.psi{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.psi-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:20px;min-width:0}
+.psi-top{display:flex;align-items:center;gap:20px}
+.gauge{width:96px;height:96px;flex:none}
+.scores{display:flex;flex-wrap:wrap;gap:8px}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.m{border-radius:12px;padding:12px 14px;background:var(--surface-2);display:flex;flex-direction:column;gap:2px}
+.m .k{font-size:12px;color:var(--muted)}
+.m .v{font-family:var(--display);font-weight:800;font-size:20px;font-variant-numeric:tabular-nums}
+.m.bad .v{color:var(--bad)} .m.warn .v{color:var(--warn)} .m.good .v{color:var(--good)}
+.m .g{font-size:11px;color:var(--faint)}
+
+/* Issues */
+.issues{display:flex;flex-direction:column;gap:12px}
+.issue{display:grid;grid-template-columns:6px 1fr auto;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.issue .stripe{background:var(--bad)}
+.issue.warn .stripe{background:var(--warn)}
+.issue.info .stripe{background:var(--accent)}
+.issue .body{padding:20px 0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.issue .body p{color:var(--muted);font-size:14px}
+.issue .side{padding:20px 22px 20px 0;display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right}
+.issue .side .ev{font-size:12px;color:var(--faint);max-width:22ch}
+
+/* Projection */
+.scen{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sc{border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:8px;background:var(--surface)}
+.sc.main{border-color:var(--accent);background:#10192b}
+.sc .v{font-family:var(--display);font-weight:900;font-size:40px;line-height:1}
+.sc .u{font-size:13px;color:var(--muted)}
+.sc p{font-size:13px;color:var(--muted)}
+
+/* Plan */
+.weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.wk{border-top:2px solid var(--accent);padding-top:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.wk .w{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.1em;text-transform:uppercase}
+.wk .d{font-size:12px;color:var(--faint);margin-top:-6px}
+.wk h3{font-size:16px}
+.wk ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px;display:flex;flex-direction:column;gap:6px}
+.wk .out{margin-top:auto;font-size:13px;border-radius:10px;background:var(--surface);border:1px solid var(--line);padding:10px 12px;color:var(--muted)}
+.wk .out b{color:var(--good);font-weight:600}
+
+.foot{border-top:1px solid var(--line);padding-top:24px;font-size:12px;color:var(--faint);display:flex;flex-direction:column;gap:6px}
+
+@media (max-width:900px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .grid3,.scen{grid-template-columns:1fr}
+  .split,.ai,.psi,.hero{grid-template-columns:1fr}
+  .weeks{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:520px){
+  .wrap{gap:56px;padding-block:36px 56px}
+  .kpis,.weeks,.devices,.thirds{grid-template-columns:1fr}
+  .metrics{grid-template-columns:1fr 1fr}
+  .bar-row{grid-template-columns:110px 1fr 40px}
+  .issue{grid-template-columns:6px 1fr}
+  .issue .side{grid-column:2;align-items:flex-start;text-align:left;padding:0 20px 20px 0}
+  .ai{padding:22px}
+  .ai-item{flex-wrap:wrap}
+  .weave{display:none}
+}
+</style>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <svg class="weave" viewBox="0 0 100 100" aria-hidden="true">
+      <g fill="#3b74ff">
+        <rect x="6" y="10" width="88" height="8" rx="4"/><rect x="6" y="30" width="88" height="8" rx="4"/><rect x="6" y="50" width="88" height="8" rx="4"/><rect x="6" y="70" width="88" height="8" rx="4"/>
+        <rect x="14" y="2" width="8" height="96" rx="4"/><rect x="38" y="2" width="8" height="96" rx="4"/><rect x="62" y="2" width="8" height="96" rx="4"/><rect x="86" y="2" width="8" height="96" rx="4" opacity=".6"/>
+      </g>
+    </svg>
+    <div class="hero-text">
+      <span class="pill">Informe mensual · Septiembre 2026</span>
+      <h1>Rendimiento web de <span class="hl">Telares Maracay</span></h1>
+      <p class="lead">Septiembre recuperó terreno frente a agosto: más clics por día, mejor CTR y mejor posición media, con la última semana como la más fuerte del mes. La marca y Jeantex siguen siendo el motor. Los frenos son la carga en celulares, miles de impresiones de "tubería verde" que no se convierten en visitas y páginas técnicas del servidor que Google está indexando.</p>
+    </div>
+    <div class="meta">
+      <span>Sitio</span><b>telaresmaracay.com</b>
+      <span>Search Console</span><b>1 – 29 sept 2026 (comparado con jul y ago)</b>
+      <span>Analytics (GA4)</span><b>1 – 30 sept 2026</b>
+      <span>PageSpeed</span><b>4 oct 2026</b>
+    </div>
+  </header>
+
+  <!-- KPIs -->
+  <section>
+    <div class="sec-head">
+      <span class="pill">Resumen del mes</span>
+      <h2>Las cifras de septiembre</h2>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><span class="lbl">Clics desde Google</span><span class="val num">255</span><span class="note"><span class="tag t-good">↑ 6 % por día vs agosto</span></span><span class="src">Search Console · 29 días</span></div>
+      <div class="kpi"><span class="lbl">Impresiones</span><span class="val num">6.340</span><span class="note"><span class="tag t-warn">↓ 3 % por día vs agosto</span></span><span class="src">Search Console</span></div>
+      <div class="kpi"><span class="lbl">CTR medio</span><span class="val num">4,0 %</span><span class="note"><span class="tag t-good">Agosto 3,7 %</span></span><span class="src">Search Console</span></div>
+      <div class="kpi"><span class="lbl">Posición media</span><span class="val num">6,6</span><span class="note"><span class="tag t-good">Agosto 7,4</span></span><span class="src">Search Console · ponderada</span></div>
+      <div class="kpi"><span class="lbl">Usuarios activos</span><span class="val num">483</span><span class="note">467 nuevos · 566 sesiones · <span class="tag t-warn">~140 automatizados</span></span><span class="src">Analytics</span></div>
+      <div class="kpi"><span class="lbl">Interacción media</span><span class="val num">44 s</span><span class="note"><span class="tag t-warn">Rebote 56,2 %</span></span><span class="src">Analytics</span></div>
+      <div class="kpi"><span class="lbl">Rendimiento móvil</span><span class="val num c-warn">69</span><span class="note"><span class="tag t-bad">LCP 7,0 s</span></span><span class="src">PageSpeed</span></div>
+      <div class="kpi"><span class="lbl">Rendimiento escritorio</span><span class="val num c-good">98</span><span class="note">SEO 100 · Prácticas 96</span><span class="src">PageSpeed</span></div>
+    </div>
+  </section>
+
+  <!-- EVOLUCIÓN -->
+  <section>
+    <div class="sec-head">
+      <span class="pill">Evolución diaria</span>
+      <h2>Cada semana mejor que la anterior</h2>
+      <p class="lead">Los clics semanales subieron de 58 a 59, 66 y 72. El patrón es de empresa a empresa: lunes a viernes concentran la actividad y los domingos caen a 1–3 clics. Los mejores días fueron el 16 y el 24, con 16 clics cada uno.</p>
+    </div>
+    <div class="chart-box">
+      <div class="legend"><span><i style="background:var(--accent-dim)"></i>Impresiones</span><span><i style="background:var(--accent)"></i>Clics</span><span><i style="background:rgba(242,163,58,.35)"></i>Fin de semana</span></div>
+      <div class="chart-scroll" id="chart"></div>
+      <div class="thirds">
+        <div><span class="t">Julio</span><span class="v num">305 clics</span><span class="s num">9,8 por día · CTR 3,7 % · pos. 6,4</span></div>
+        <div><span class="t">Agosto</span><span class="v num c-warn">256 clics</span><span class="s num">8,3 por día · CTR 3,7 % · pos. 7,4</span></div>
+        <div><span class="t">Septiembre (1–29)</span><span class="v num c-good">255 clics</span><span class="s num">8,8 por día · CTR 4,0 % · pos. 6,6</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUENOS RESULTADOS -->
+  <section>
+    <div class="sec-head">
+      <span class="pill">Buenos resultados</span>
+      <h2>Lo que funcionó este mes</h2>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+        <span class="big num">Pos. 1,9</span>
+        <h3>La marca se encuentra de primera</h3>
+        <p>"telares maracay" y "grupo telares maracay" sumaron 152 clics en tres meses con un CTR de 26 %. La segunda llega al 51 %: casi uno de cada dos que la busca entra al sitio.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1 18h-4l-1-10-1 10H7z"/></svg></div>
+        <span class="big num">154 clics</span>
+        <h3>Jeantex es la segunda puerta de entrada</h3>
+        <p>La página de Jeantex trae más clics que cualquier otra después de la portada (CTR 10,4 %). En Analytics tuvo 108 vistas con apenas 24 % de rebote.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+        <span class="big num">7,4 → 6,6</span>
+        <h3>Recuperación de posiciones</h3>
+        <p>Tras un agosto flojo, la posición media mejoró casi un puesto y el CTR pasó de 3,7 % a 4,0 %. La última semana (72 clics) fue la mejor del mes.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <span class="big num">49 clics</span>
+        <h3>Las marcas del grupo atraen visitas</h3>
+        <p>Emporio de las Telas (49 clics y 3 % de rebote en Analytics), Emporio de la Seguridad (39), Confmar (26) y Deshilasa (CTR 21 %) generan tráfico propio y retienen bien.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.2L4 17.2z"/><path d="M8 9h8M8 12h5"/></svg></div>
+        <span class="big num">16 %</span>
+        <h3>Contacto con intención real</h3>
+        <p>La página de Contacto tuvo 51 vistas de 32 usuarios y solo 16 % de rebote. Quien llega ahí busca escribir o llamar, por eso conviene medirlo como conversión.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <span class="big num">98 / 100</span>
+        <h3>Escritorio rápido y SEO técnico perfecto</h3>
+        <p>En computadora la página principal aparece en 0,7 s. SEO 100 y buenas prácticas 96 en ambos dispositivos. La base está bien; lo pendiente es el celular.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCIA -->
+  <section>
+    <div class="sec-head">
+      <span class="pill">Audiencia y fuentes</span>
+      <h2>Quién llega y desde dónde</h2>
+      <p class="lead">Google trae más de la mitad de las sesiones. El público real es venezolano y se concentra en Caracas, Maracay y su zona industrial (Turmero, Cagua, La Victoria), Maracaibo y Valencia. Singapur aparece primero, pero no es público: Search Console registra solo 1 clic desde ese país.</p>
+    </div>
+    <div class="split">
+      <div class="bars">
+        <h3>Sesiones por fuente</h3>
+        <div class="bar-row"><span class="name">google / organic</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="n">299</span></div>
+        <div class="bar-row"><span class="name">directo</span><span class="track"><span class="fill dim" style="width:82.3%"></span></span><span class="n">246</span></div>
+        <div class="bar-row"><span class="name">bing / organic</span><span class="track"><span class="fill" style="width:3%"></span></span><span class="n">9</span></div>
+        <div class="bar-row"><span class="name">chatgpt.com (IA)</span><span class="track"><span class="fill" style="width:1.5%"></span></span><span class="n">3</span></div>
+        <div class="bar-row"><span class="name">facebook.com</span><span class="track"><span class="fill dim" style="width:1.5%"></span></span><span class="n">3</span></div>
+        <div class="bar-row"><span class="name">yahoo y otros</span><span class="track"><span class="fill dim" style="width:2%"></span></span><span class="n">6</span></div>
+        <h3 style="margin-top:22px">Dispositivo (clics de Google, 3 meses)</h3>
+        <div class="devices">
+          <div class="dev"><span class="tag t-acc" style="width:fit-content">Móvil · 52 %</span><div class="row">Clics <b>431</b></div><div class="row">Impresiones <b>14.649</b></div><div class="row">CTR <b>2,9 %</b></div><div class="row">Posición <b>5,4</b></div></div>
+          <div class="dev"><span class="tag t-acc" style="width:fit-content;opacity:.75">Escritorio · 48 %</span><div class="row">Clics <b>393</b></div><div class="row">Impresiones <b>6.995</b></div><div class="row">CTR <b>5,6 %</b></div><div class="row">Posición <b>9,7</b></div></div>
+        </div>
+      </div>
+      <div class="bars">
+        <h3>Usuarios por ciudad</h3>
+        <div class="bar-row"><span class="name">Singapur (bots)</span><span class="track"><span class="fill warn" style="width:100%"></span></span><span class="n">117</span></div>
+        <div class="bar-row"><span class="name">Caracas</span><span class="track"><span class="fill" style="width:59.8%"></span></span><span class="n">70</span></div>
+        <div class="bar-row"><span class="name">Maracay</span><span class="track"><span class="fill" style="width:33.3%"></span></span><span class="n">39</span></div>
+        <div class="bar-row"><span class="name">Maracaibo</span><span class="track"><span class="fill" style="width:17.1%"></span></span><span class="n">20</span></div>
+        <div class="bar-row"><span class="name">Turmero</span><span class="track"><span class="fill" style="width:11.1%"></span></span><span class="n">13</span></div>
+        <div class="bar-row"><span class="name">Dublín (bots)</span><span class="track"><span class="fill warn" style="width:9.4%"></span></span><span class="n">11</span></div>
+        <div class="bar-row"><span class="name">Valencia</span><span class="track"><span class="fill" style="width:8.5%"></span></span><span class="n">10</span></div>
+        <p class="note-box"><b>Tráfico automatizado:</b> Singapur, Dublín, Ashburn, Boardman y Frankfurt son centros de datos. Suman cerca de 140 de los 483 usuarios, inflan el tráfico directo y el rebote. Sin ellos, el sitio tuvo unos 340 usuarios reales.</p>
+        <h3 style="margin-top:12px">Clics por país (3 meses)</h3>
+        <div class="bar-row"><span class="name">Venezuela</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="n">664</span></div>
+        <div class="bar-row"><span class="name">EE. UU.</span><span class="track"><span class="fill dim" style="width:5.3%"></span></span><span class="n">35</span></div>
+        <div class="bar-row"><span class="name">Colombia</span><span class="track"><span class="fill dim" style="width:3.2%"></span></span><span class="n">21</span></div>
+        <div class="bar-row"><span class="name">España</span><span class="track"><span class="fill dim" style="width:2.3%"></span></span><span class="n">15</span></div>
+        <div class="bar-row"><span class="name">Perú</span><span class="track"><span class="fill dim" style="width:2%"></span></span><span class="n">13</span></div>
+        <div class="bar-row"><span class="name">México</span><span class="track"><span class="fill dim" style="width:1.7%"></span></span><span class="n">11</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BÚSQUEDAS Y PÁGINAS -->
+  <section>
+    <div class="sec-head">
+      <span class="pill">Búsquedas y páginas</span>
+      <h2>Qué busca la gente y dónde aterriza</h2>
+      <p class="lead">Los clics vienen casi todos de búsquedas de marca. Los temas informativos (tubería verde, hilado) generan miles de impresiones con muy pocos clics: es la mayor oportunidad de crecimiento sin depender de que la gente ya conozca al grupo.</p>
+    </div>
+    <div class="tables">
+      <div>
+        <p class="tbl-title">Grupos de búsquedas · últimos 3 meses</p>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Grupo</th><th>Tipo</th><th class="r">Consultas</th><th class="r">Clics</th><th class="r">Impr.</th><th class="r">CTR</th><th class="r">Posición</th></tr></thead>
+            <tbody>
+              <tr><td class="q">Telares Maracay<small>telares maracay · grupo telares maracay · club telares maracay</small></td><td><span class="tag t-acc">Marca</span></td><td class="r">5</td><td class="r">152</td><td class="r">580</td><td class="r">26,2 %</td><td class="r">1,9</td></tr>
+              <tr><td class="q">Jeantex<small>jeantex · jeantex s.a · jean tex · jentex</small></td><td><span class="tag t-acc">Marca</span></td><td class="r">5</td><td class="r">77</td><td class="r">574</td><td class="r">13,4 %</td><td class="r">5,6</td></tr>
+              <tr><td class="q">Otras marcas del grupo<small>emporio de las telas · sábanas lexington · confmar · polytex · redizar</small></td><td><span class="tag t-acc">Marca</span></td><td class="r">—</td><td class="r">43</td><td class="r">—</td><td class="r">—</td><td class="r">3 – 5</td></tr>
+              <tr><td class="q">Tubería verde<small>tubo verde · tubería verde · cómo se llama el tubo verde…</small></td><td><span class="tag t-warn">Informativa</span></td><td class="r">95</td><td class="r">6</td><td class="r">2.541</td><td class="r c-bad">0,24 %</td><td class="r c-good">3,1</td></tr>
+              <tr><td class="q">Hilado y fibras<small>hilado · hilandería · cómo se hace el hilo · cardado</small></td><td><span class="tag t-warn">Informativa</span></td><td class="r">110</td><td class="r">3</td><td class="r">1.208</td><td class="r c-bad">0,25 %</td><td class="r c-bad">22,5</td></tr>
+              <tr><td class="q">Tela de polipropileno<small>tela no tejida · tela pp · tela descartable</small></td><td><span class="tag t-good">Producto</span></td><td class="r">16</td><td class="r">2</td><td class="r">180</td><td class="r">1,1 %</td><td class="r">8,9</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <p class="tbl-title">Páginas con más impresiones · últimos 3 meses</p>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Página</th><th class="r">Clics</th><th class="r">Impr.</th><th class="r">CTR</th><th class="r">Posición</th><th>Lectura</th></tr></thead>
+            <tbody>
+              <tr><td class="q">Artículo: importancia de la tubería verde</td><td class="r">11</td><td class="r">5.239</td><td class="r c-bad">0,21 %</td><td class="r">4,7</td><td><span class="tag t-bad">Título no atrae</span></td></tr>
+              <tr><td class="q">Artículo: el proceso de hilado</td><td class="r">27</td><td class="r">3.751</td><td class="r">0,72 %</td><td class="r c-warn">13,9</td><td><span class="tag t-warn">Página 2 de Google</span></td></tr>
+              <tr><td class="q">Portada</td><td class="r">250</td><td class="r">2.815</td><td class="r">8,9 %</td><td class="r">4,7</td><td><span class="tag t-good">Sana</span></td></tr>
+              <tr><td class="q">Sobre nosotros</td><td class="r">76</td><td class="r">2.728</td><td class="r c-warn">2,8 %</td><td class="r">6,4</td><td><span class="tag t-warn">Mejorar descripción</span></td></tr>
+              <tr><td class="q">Jeantex</td><td class="r">154</td><td class="r">1.483</td><td class="r">10,4 %</td><td class="r">4,3</td><td><span class="tag t-good">Sana</span></td></tr>
+              <tr><td class="q">Tubo verde (Polytex)</td><td class="r">11</td><td class="r">1.307</td><td class="r c-bad">0,84 %</td><td class="r c-good">3,1</td><td><span class="tag t-bad">Título no atrae</span></td></tr>
+              <tr><td class="q">Polytex telas no tejidas</td><td class="r">11</td><td class="r">685</td><td class="r">1,6 %</td><td class="r">6,0</td><td><span class="tag t-warn">Mejorar descripción</span></td></tr>
+              <tr><td class="q">Emporio de la Seguridad</td><td class="r">39</td><td class="r">568</td><td class="r">6,9 %</td><td class="r">5,9</td><td><span class="tag t-good">Sana</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IA -->
+  <section class="ai">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span class="pill">Visibilidad en IA</span>
+      <h2>Los asistentes de IA ya usan el sitio como fuente</h2>
+      <p class="muted">ChatGPT envió 3 sesiones este mes, y Search Console muestra preguntas conversacionales típicas del Modo IA de Google, donde el sitio aparece como fuente. La gente pregunta por dirección, RIF, teléfono, correo y directivos. Hoy el sitio no tiene un archivo <code>llms.txt</code> que responda (PageSpeed marca 0/3 en navegación con agentes en celular y 1/3 en escritorio), y esos datos no están agrupados en una sola página que la IA pueda citar.</p>
+    </div>
+    <div class="ai-list">
+      <div class="ai-item"><span class="qq">"dame la dirección por google maps"</span><span class="tag t-acc">Ubicación</span></div>
+      <div class="ai-item"><span class="qq">"cual es el rif"</span><span class="tag t-acc">Datos fiscales</span></div>
+      <div class="ai-item"><span class="qq">"números de contacto?" · "necesito el correo electronico"</span><span class="tag t-acc">Contacto</span></div>
+      <div class="ai-item"><span class="qq">"quienes la dirigen?" · "the owners"</span><span class="tag t-acc">Empresa</span></div>
+      <div class="ai-item"><span class="qq">"horarios de trabajo"</span><span class="tag t-acc">Horario</span></div>
+    </div>
+  </section>
+
+  <!-- PAGESPEED -->
+  <section>
+    <div class="sec-head">
+      <span class="pill">Rendimiento técnico</span>
+      <h2>Excelente en computadora, lenta en celular</h2>
+      <p class="lead">En celular con 4G lenta, la imagen principal tarda 7 segundos en aparecer; Google recomienda menos de 2,5 s. La causa principal son hojas de estilo y scripts que bloquean la carga (3,3 s de ahorro posible) y archivos que el navegador no guarda en caché. El 52 % de los clics llega desde móviles.</p>
+    </div>
+    <div class="psi">
+      <div class="psi-card">
+        <div class="psi-top">
+          <svg class="gauge" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#1e2433" stroke-width="9"/><circle cx="50" cy="50" r="42" fill="none" stroke="#f2a33a" stroke-width="9" stroke-linecap="round" stroke-dasharray="182.1 263.9" transform="rotate(-90 50 50)"/><text x="50" y="58" text-anchor="middle" fill="#f2a33a" font-family="Montserrat, Arial" font-weight="800" font-size="26">69</text></svg>
+          <div style="display:flex;flex-direction:column;gap:8px"><h3>Celulares</h3><div class="scores"><span class="tag t-good">Accesibilidad 91</span><span class="tag t-good">Prácticas 96</span><span class="tag t-good">SEO 100</span><span class="tag t-bad">Agentes 0/3</span></div></div>
+        </div>
+        <div class="metrics">
+          <div class="m warn"><span class="k">First Contentful Paint</span><span class="v">2,7 s</span><span class="g">Meta ≤ 1,8 s</span></div>
+          <div class="m bad"><span class="k">Largest Contentful Paint</span><span class="v">7,0 s</span><span class="g">Meta ≤ 2,5 s</span></div>
+          <div class="m good"><span class="k">Total Blocking Time</span><span class="v">50 ms</span><span class="g">Meta ≤ 200 ms</span></div>
+          <div class="m warn"><span class="k">Cumulative Layout Shift</span><span class="v">0,107</span><span class="g">Meta ≤ 0,1</span></div>
+          <div class="m good"><span class="k">Speed Index</span><span class="v">3,3 s</span><span class="g">Meta ≤ 3,4 s</span></div>
+          <div class="m bad"><span class="k">Bloqueo de render</span><span class="v">3.340 ms</span><span class="g">Ahorro estimado</span></div>
+        </div>
+      </div>
+      <div class="psi-card">
+        <div class="psi-top">
+          <svg class="gauge" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#1e2433" stroke-width="9"/><circle cx="50" cy="50" r="42" fill="none" stroke="#2fbf71" stroke-width="9" stroke-linecap="round" stroke-dasharray="258.6 263.9" transform="rotate(-90 50 50)"/><text x="50" y="58" text-anchor="middle" fill="#2fbf71" font-family="Montserrat, Arial" font-weight="800" font-size="26">98</text></svg>
+          <div style="display:flex;flex-direction:column;gap:8px"><h3>Escritorio</h3><div class="scores"><span class="tag t-good">Accesibilidad 94</span><span class="tag t-good">Prácticas 96</span><span class="tag t-good">SEO 100</span><span class="tag t-bad">Agentes 1/3</span></div></div>
+        </div>
+        <div class="metrics">
+          <div class="m good"><span class="k">First Contentful Paint</span><span class="v">0,7 s</span><span class="g">Meta ≤ 0,9 s</span></div>
+          <div class="m good"><span class="k">Largest Contentful Paint</span><span class="v">0,7 s</span><span class="g">Meta ≤ 1,2 s</span></div>
+          <div class="m good"><span class="k">Total Blocking Time</span><span class="v">80 ms</span><span class="g">Meta ≤ 150 ms</span></div>
+          <div class="m good"><span class="k">Cumulative Layout Shift</span><span class="v">0,062</span><span class="g">Meta ≤ 0,1</span></div>
+          <div class="m good"><span class="k">Speed Index</span><span class="v">1,1 s</span><span class="g">Meta ≤ 1,3 s</span></div>
+          <div class="m bad"><span class="k">Bloqueo de render</span><span class="v">1.390 ms</span><span class="g">Ahorro estimado</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEJORAS -->
+  <section>
+    <div class="sec-head">
+      <span class="pill">Puntos de mejora</span>
+      <h2>Qué corregir, en orden de impacto</h2>
+    </div>
+    <div class="issues">
+      <div class="issue"><span class="stripe"></span><div class="body"><h3>Carga lenta en celulares</h3><p>Recursos que bloquean el renderizado (3.340 ms), caché del navegador sin configurar (417 KiB), imágenes sin optimizar (190 KiB), 196 KiB de JavaScript y 26 KiB de CSS sin usar. Activar la carga optimizada de recursos de Elementor, generar el CSS crítico, servir la imagen del carrusel en WebP con <code>fetchpriority="high"</code> y sin carga diferida, configurar caché de larga duración y reservar el alto del carrusel para bajar el CLS de 0,107.</p></div><div class="side"><span class="tag t-bad">Crítico</span><span class="ev">Móvil 69 · LCP 7,0 s</span></div></div>
+      <div class="issue"><span class="stripe"></span><div class="body"><h3>El servidor muestra carpetas internas y Google las indexa</h3><p>43 direcciones de <code>/wp-includes/</code> recibieron impresiones, con parámetros como <code>?NA</code> o <code>?MD</code> que son los de un listado de carpetas abierto en el servidor. Además de restar calidad al sitio, expone su estructura. Se corrige con <code>Options -Indexes</code> en el .htaccess. También aparecen páginas de prueba, archivos por fecha, autores y la categoría "Uncategorized".</p></div><div class="side"><span class="tag t-bad">Crítico</span><span class="ev">60+ URLs técnicas en Google</span></div></div>
+      <div class="issue"><span class="stripe"></span><div class="body"><h3>No hay conversiones medidas y los datos tienen bots</h3><p>"Eventos clave" está vacío, así que no se sabe cuántas visitas terminan en una llamada, un WhatsApp, un correo o una descarga del catálogo. A la vez, cerca de 140 usuarios automatizados distorsionan usuarios, tráfico directo y rebote. Hay que marcar esos eventos y crear una vista de informe que excluya los centros de datos.</p></div><div class="side"><span class="tag t-bad">Crítico</span><span class="ev">GA4 · 0 eventos clave</span></div></div>
+      <div class="issue warn"><span class="stripe"></span><div class="body"><h3>"Tubería verde" se ve mucho y casi no se pulsa</h3><p>El artículo y la página de Tubo verde suman más de 6.500 impresiones en posición 3–5, con CTR de 0,2–0,8 %. Google responde la pregunta en el propio buscador y el título no da razones para entrar. Reescribir título y descripción con la respuesta directa ("tubería PPR de termofusión") y un gancho comercial, agregar preguntas frecuentes con datos estructurados y un botón hacia distribuidores de Polytex.</p></div><div class="side"><span class="tag t-warn">Alto</span><span class="ev">CTR 0,21 % en 5.239 impr.</span></div></div>
+      <div class="issue warn"><span class="stripe"></span><div class="body"><h3>Versión en inglés duplicada y desordenada</h3><p>Hay copias con sufijos (<code>/en/jeantex-5/</code>, <code>/en/confmar-4/</code>, <code>/en/tubo-verde-2/</code>), páginas en inglés con direcciones en español y títulos traducidos de forma automática ("Maracay Looms"). Unificar una sola versión por página, revisar las etiquetas hreflang y redirigir las copias.</p></div><div class="side"><span class="tag t-warn">Alto</span><span class="ev">7 duplicados en /en/</span></div></div>
+      <div class="issue info"><span class="stripe"></span><div class="body"><h3>El artículo de hilado está en la segunda página</h3><p>Con 3.751 impresiones en posición 13,9, subir a la primera página multiplicaría sus clics. Actualizar el contenido con las etapas (apertura, cardado, estirado, hilatura), agregar fotos propias de Deshilasa y enlazarlo desde las páginas de marcas.</p></div><div class="side"><span class="tag t-acc">Medio</span><span class="ev">Pos. 13,9</span></div></div>
+      <div class="issue info"><span class="stripe"></span><div class="body"><h3>Datos de empresa para buscadores e IA</h3><p>Crear una página de preguntas frecuentes con RIF, dirección con mapa, teléfonos, correo y horario; publicar un <code>llms.txt</code> y corregir lo que marca accesibilidad: enlaces sin nombre, menú no enfocable con teclado y falta de región principal. Mejorar también la descripción de "Sobre nosotros" (2.728 impresiones, CTR 2,8 %).</p></div><div class="side"><span class="tag t-acc">Medio</span><span class="ev">Accesibilidad 91 · Agentes 0/3</span></div></div>
+    </div>
+  </section>
+
+  <!-- PROYECCIÓN -->
+  <section>
+    <div class="sec-head">
+      <span class="pill">Proyección · Octubre 2026</span>
+      <h2>Qué esperar el próximo mes</h2>
+      <p class="lead">Calculado con el ritmo diario de septiembre para los 31 días de octubre. Las cifras son rangos: la estacionalidad B2B y las actualizaciones de Google pueden moverlas.</p>
+    </div>
+    <div class="scen">
+      <div class="sc"><span class="tag t-warn" style="width:fit-content">Base</span><span class="v num">~270</span><span class="u">clics · ~6.800 impresiones</span><p>Si se repite el promedio de septiembre (8,8 clics por día) sin cambios en el sitio.</p></div>
+      <div class="sc main"><span class="tag t-acc" style="width:fit-content">Tendencia</span><span class="v num">~285</span><span class="u">clics · ~6.900 impresiones</span><p>Si se mantiene el ritmo de la segunda quincena (9,2 clics por día), el escenario más probable hoy.</p></div>
+      <div class="sc"><span class="tag t-good" style="width:fit-content">Con mejoras</span><span class="v num">320+</span><span class="u">clics · 7.000+ impresiones</span><p>Si en la primera quincena se reescriben los títulos de tubería verde y se corrige la velocidad móvil. Subir el CTR de esas páginas al 1,5 % suma unos 25 clics.</p></div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-top:28px">
+      <table>
+        <thead><tr><th>Indicador</th><th class="r">Septiembre</th><th class="r">Meta octubre</th><th>Fuente</th></tr></thead>
+        <tbody>
+          <tr><td>Clics orgánicos</td><td class="r">255</td><td class="r">285</td><td>Search Console</td></tr>
+          <tr><td>Impresiones</td><td class="r">6.340</td><td class="r">6.900</td><td>Search Console</td></tr>
+          <tr><td>CTR medio</td><td class="r">4,0 %</td><td class="r">≥ 4,5 %</td><td>Search Console</td></tr>
+          <tr><td>Posición media</td><td class="r">6,6</td><td class="r">≤ 6,0</td><td>Search Console</td></tr>
+          <tr><td>CTR de las páginas de tubería verde</td><td class="r">0,2 – 0,8 %</td><td class="r">≥ 1,5 %</td><td>Search Console</td></tr>
+          <tr><td>Rendimiento móvil</td><td class="r">69</td><td class="r">≥ 85</td><td>PageSpeed</td></tr>
+          <tr><td>LCP móvil</td><td class="r">7,0 s</td><td class="r">≤ 2,5 s</td><td>PageSpeed</td></tr>
+          <tr><td>CLS móvil</td><td class="r">0,107</td><td class="r">≤ 0,1</td><td>PageSpeed</td></tr>
+          <tr><td>URLs técnicas con impresiones</td><td class="r">60+</td><td class="r">En retirada (0 nuevas)</td><td>Search Console</td></tr>
+          <tr><td>Eventos clave (contactos)</td><td class="r">Sin medir</td><td class="r">Medidos desde la semana 1</td><td>Analytics</td></tr>
+          <tr><td>Porcentaje de rebote (sin bots)</td><td class="r">56,2 %*</td><td class="r">≤ 50 %</td><td>Analytics</td></tr>
+          <tr><td>Interacción media</td><td class="r">44 s</td><td class="r">≥ 55 s</td><td>Analytics</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PLAN -->
+  <section>
+    <div class="sec-head">
+      <span class="pill">Plan de mejoras · Octubre 2026</span>
+      <h2>Cuatro semanas, de lo urgente a lo que hace crecer</h2>
+      <p class="lead">Primero se cierra lo que expone al sitio y lo que impide medir; después velocidad, luego contenido. Cada semana tiene un resultado que se puede comprobar.</p>
+    </div>
+    <div class="weeks">
+      <div class="wk"><span class="w">Semana 1</span><span class="d">5 – 11 oct</span><h3>Seguridad y medición</h3><ul><li>Desactivar el listado de carpetas (<code>Options -Indexes</code>)</li><li>Despublicar o marcar noindex las páginas de prueba, autores, fechas y "Uncategorized"</li><li>Configurar eventos clave en GA4: WhatsApp, teléfono, correo, formulario y descarga del catálogo</li><li>Crear vista sin tráfico de centros de datos</li></ul><p class="out"><b>Resultado:</b> conversiones visibles y carpetas internas cerradas.</p></div>
+      <div class="wk"><span class="w">Semana 2</span><span class="d">12 – 18 oct</span><h3>Velocidad en celular</h3><ul><li>Activar carga optimizada de recursos en Elementor y CSS crítico</li><li>Caché de larga duración para estáticos</li><li>Imagen del carrusel en WebP, prioridad alta y alto reservado</li><li>Revisar los límites de CPU del hosting</li><li>Medir de nuevo en PageSpeed</li></ul><p class="out"><b>Resultado:</b> móvil ≥ 85 y LCP ≤ 2,5 s.</p></div>
+      <div class="wk"><span class="w">Semana 3</span><span class="d">19 – 25 oct</span><h3>Más clics con lo que ya se ve</h3><ul><li>Reescribir títulos y descripciones de tubería verde, Tubo verde, Sobre nosotros y Polytex</li><li>Agregar preguntas frecuentes con datos estructurados en tubería verde</li><li>Ordenar la versión en inglés y redirigir duplicados</li><li>Enviar sitemap limpio a Search Console</li></ul><p class="out"><b>Resultado:</b> CTR de tubería verde ≥ 1,5 % a fin de mes.</p></div>
+      <div class="wk"><span class="w">Semana 4</span><span class="d">26 oct – 1 nov</span><h3>Contenido y presencia en IA</h3><ul><li>Actualizar el artículo de hilado y enlazarlo desde Deshilasa y Jeantex</li><li>Página de datos de empresa: RIF, mapa, contactos, horario</li><li>Publicar <code>llms.txt</code> y corregir accesibilidad</li><li>Preparar el informe de octubre</li></ul><p class="out"><b>Resultado:</b> hilado camino a primera página y agentes 3/3.</p></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>Fuentes: Google Search Console (búsqueda web, exportación de los últimos 3 meses: 30 jun – 29 sept 2026; los datos del 30 sept aún no estaban disponibles), Google Analytics 4 (1 – 30 sept 2026) y PageSpeed Insights (4 oct 2026, Lighthouse 13.5.0, Moto G Power emulado con 4G lenta).</span>
+    <span>Las tablas de consultas, páginas, países y dispositivos cubren los tres meses exportados (826 clics, 21.767 impresiones). Las consultas visibles suman 304 clics; el resto son búsquedas poco frecuentes que Google no detalla. La posición media mensual está ponderada por impresiones. *El rebote de septiembre incluye tráfico automatizado.</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var c=[15,4,9,11,6,1,12,8,10,8,7,5,10,11,15,16,6,7,4,3,15,6,11,16,11,8,2,8,10];
+  var im=[262,254,288,236,176,137,244,189,244,278,204,176,164,251,285,284,214,218,151,132,232,242,255,247,185,130,160,268,234];
+  var wkend=[5,6,12,13,19,20,26,27];
+  var W=760,H=300,L=40,R=12,T=16,B=30;
+  var gap=12, topH=(H-T-B-gap)*0.55, botH=(H-T-B-gap)-topH;
+  var n=c.length, step=(W-L-R)/n, bw=step*0.56;
+  var yI=function(v){return T+topH-(v/300)*topH;};
+  var y0=T+topH+gap;
+  var yC=function(v){return y0+botH-(v/20)*botH;};
+  var s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Impresiones y clics diarios en Google, 1 al 29 de septiembre de 2026" font-family="Inter, system-ui, sans-serif">';
+  wkend.forEach(function(d){var i=d-1;s+='<rect x="'+(L+step*i)+'" y="'+T+'" width="'+step+'" height="'+(H-T-B)+'" fill="rgba(242,163,58,.06)"/>';});
+  [0,100,200,300].forEach(function(v){var y=yI(v);s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y+'" y2="'+y+'" stroke="#1e2433" stroke-width="1"/><text x="'+(L-8)+'" y="'+(y+4)+'" text-anchor="end" font-size="10" fill="#5f6880">'+v+'</text>';});
+  [0,10,20].forEach(function(v){var y=yC(v);s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y+'" y2="'+y+'" stroke="#1e2433" stroke-width="1"/><text x="'+(L-8)+'" y="'+(y+4)+'" text-anchor="end" font-size="10" fill="#5f6880">'+v+'</text>';});
+  var pts=im.map(function(v,i){return [L+step*i+step/2,yI(v)];});
+  var d='M'+pts[0][0]+','+yI(0)+' '+pts.map(function(p){return 'L'+p[0]+','+p[1];}).join(' ')+' L'+pts[n-1][0]+','+yI(0)+'Z';
+  s+='<path d="'+d+'" fill="rgba(59,116,255,.14)"/>';
+  s+='<path d="'+pts.map(function(p,i){return (i?'L':'M')+p[0]+','+p[1];}).join(' ')+'" fill="none" stroke="#5b86ff" stroke-width="1.8" stroke-linejoin="round"/>';
+  var last=pts[n-1]; s+='<circle cx="'+last[0]+'" cy="'+last[1]+'" r="4" fill="#3b74ff" stroke="#090b11" stroke-width="2"/><text x="'+(last[0]-8)+'" y="'+(last[1]-6)+'" text-anchor="end" font-size="11" font-weight="700" fill="#f3f5fa">234</text>';
+  var pk=pts[2]; s+='<text x="'+pk[0]+'" y="'+(pk[1]-6)+'" text-anchor="middle" font-size="10" fill="#99a2b6">288</text>';
+  c.forEach(function(v,i){var x=L+step*i+(step-bw)/2;var y=yC(v);var h=yC(0)-y;var hot=v>=15;
+    s+='<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+Math.max(h,0).toFixed(1)+'" rx="2" fill="'+(hot?'#3b74ff':'#2f5fd6')+'"/>';
+    if(hot) s+='<text x="'+(x+bw/2)+'" y="'+(y-5)+'" text-anchor="middle" font-size="11" font-weight="700" fill="#f3f5fa">'+v+'</text>';
+    var day=i+1; if(day===1||day%4===1||day===29) s+='<text x="'+(L+step*i+step/2)+'" y="'+(H-10)+'" text-anchor="middle" font-size="10" fill="#5f6880">'+day+'</text>';
+  });
+  s+='<text x="'+(L+4)+'" y="'+(T+10)+'" font-size="10" fill="#99a2b6">Impresiones</text>';
+  s+='<text x="'+(W-R)+'" y="'+(y0+8)+'" text-anchor="end" font-size="10" fill="#99a2b6">Clics</text>';
+  s+='</svg>';
+  document.getElementById('chart').innerHTML=s;
+})();
+</script>
+
+</body></html>
