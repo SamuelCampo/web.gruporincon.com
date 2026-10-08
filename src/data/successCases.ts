@@ -9,10 +9,25 @@ export interface SuccessCase {
   description: string;
   image: string;
   imageFormat?: "png";
+  visual?: "faktu";
 }
 
 export const successCases: SuccessCase[] = [
   // Añade `internalUrl: "/casos-de-exito/slug/"` cuando exista el caso detallado.
+  {
+    name: "Faktu",
+    slug: "faktu",
+    externalUrl: "https://faktu.net/",
+    internalUrl: "/casos-de-exito/faktu/",
+    industry: "Fintech y cobranza",
+    country: "Chile",
+    locationLabel: "Chile",
+    description:
+      "Sistema de gestión de cobranza con contratación en línea, pagos, control de facturas y procesos automáticos.",
+    image: "/casos/faktu/logo-color",
+    imageFormat: "png",
+    visual: "faktu",
+  },
   {
     name: "RENOLAB",
     slug: "renolab",

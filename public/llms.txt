@@ -22,6 +22,7 @@
 - [Doral Cartagena (Colombia)](https://www.gruporincon.com.co/casos-de-exito/doral-cartagena/): catálogo inmobiliario en WordPress y Elementor para captar oportunidades comerciales.
 - [Mexicarga (México)](https://www.gruporincon.com.co/casos-de-exito/mexicarga/): paso de un HTML estático a un sitio WordPress orientado a cotizaciones.
 - [RENOLAB (Chile)](https://www.gruporincon.com.co/casos-de-exito/renolab/): sitio corporativo en WordPress y PWA en Vue para presentar servicios y administrar la operación de clientes.
+- [Faktu (Chile)](https://www.gruporincon.com.co/casos-de-exito/faktu/): sistema de cobranza con contratación y pago en línea, control de facturas, automatizaciones e infraestructura AWS.
 
 ## Empresa y recursos
 

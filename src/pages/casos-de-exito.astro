@@ -6,6 +6,7 @@ import {
   isExternalSuccessCase,
   successCases,
 } from "../data/successCases";
+import FaktuCaseVisual from "../components/FaktuCaseVisual.astro";
 
 const canonicalBase = Astro.site || Astro.url;
 const industriesCount = new Set(successCases.map((item) => item.industry)).size;
@@ -162,7 +163,9 @@ const collectionSchema = {
                   aria-label={`${external ? "Visitar el proyecto" : "Ver el caso de éxito de"} ${item.name}`}
                 >
                   <div class="relative aspect-[16/10] overflow-hidden bg-zinc-900">
-                    {item.imageFormat === "png" ? (
+                    {item.visual === "faktu" ? (
+                      <FaktuCaseVisual compact />
+                    ) : item.imageFormat === "png" ? (
                       <img
                         src={`${item.image}.png`}
                         width="1536"

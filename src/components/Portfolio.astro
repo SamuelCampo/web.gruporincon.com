@@ -4,6 +4,7 @@ import {
   isExternalSuccessCase,
   successCases as projects,
 } from "../data/successCases";
+import FaktuCaseVisual from "./FaktuCaseVisual.astro";
 ---
 
 <section id="portafolio" class="bg-zinc-950 py-20 lg:py-28 relative overflow-hidden">
@@ -69,7 +70,9 @@ import {
               aria-label={`Ver proyecto ${project.name}`}
             >
               <!-- Background Image -->
-              {project.imageFormat === "png" ? (
+              {project.visual === "faktu" ? (
+                <FaktuCaseVisual compact />
+              ) : project.imageFormat === "png" ? (
                 <img
                   src={`${project.image}.png`}
                   width={1536}
