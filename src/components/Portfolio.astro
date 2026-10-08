@@ -72,9 +72,9 @@ import FaktuCaseVisual from "./FaktuCaseVisual.astro";
               <!-- Background Image -->
               {project.visual === "faktu" ? (
                 <FaktuCaseVisual compact />
-              ) : project.imageFormat === "png" ? (
+              ) : project.imageFormat === "png" || project.imageFormat === "webp" ? (
                 <img
-                  src={`${project.image}.png`}
+                  src={`${project.image}.${project.imageFormat}`}
                   width={1536}
                   height={1024}
                   alt={`Proyecto ${project.name} — ${project.industry}`}

@@ -165,9 +165,9 @@ const collectionSchema = {
                   <div class="relative aspect-[16/10] overflow-hidden bg-zinc-900">
                     {item.visual === "faktu" ? (
                       <FaktuCaseVisual compact />
-                    ) : item.imageFormat === "png" ? (
+                    ) : item.imageFormat === "png" || item.imageFormat === "webp" ? (
                       <img
-                        src={`${item.image}.png`}
+                        src={`${item.image}.${item.imageFormat}`}
                         width="1536"
                         height="1024"
                         alt={`Proyecto digital de ${item.name}`}

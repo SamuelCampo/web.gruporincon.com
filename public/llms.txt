@@ -23,6 +23,7 @@
 - [Mexicarga (México)](https://www.gruporincon.com.co/casos-de-exito/mexicarga/): paso de un HTML estático a un sitio WordPress orientado a cotizaciones.
 - [RENOLAB (Chile)](https://www.gruporincon.com.co/casos-de-exito/renolab/): sitio corporativo en WordPress y PWA en Vue para presentar servicios y administrar la operación de clientes.
 - [Faktu (Chile)](https://www.gruporincon.com.co/casos-de-exito/faktu/): sistema de cobranza con contratación y pago en línea, control de facturas, automatizaciones e infraestructura AWS.
+- [Aliat (Colombia)](https://www.gruporincon.com.co/casos-de-exito/aliat/): migración de Next.js a WordPress y Elementor para que el equipo administre el contenido sin perder una experiencia de carga ágil.
 
 ## Empresa y recursos
 

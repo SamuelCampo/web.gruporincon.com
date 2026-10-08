@@ -8,12 +8,25 @@ export interface SuccessCase {
   locationLabel?: string;
   description: string;
   image: string;
-  imageFormat?: "png";
+  imageFormat?: "png" | "webp";
   visual?: "faktu";
 }
 
 export const successCases: SuccessCase[] = [
   // Añade `internalUrl: "/casos-de-exito/slug/"` cuando exista el caso detallado.
+  {
+    name: "Aliat",
+    slug: "aliat",
+    externalUrl: "https://aliatesp.com/",
+    internalUrl: "/casos-de-exito/aliat/",
+    industry: "Servicios públicos",
+    country: "Colombia",
+    locationLabel: "Cartagena, Colombia",
+    description:
+      "Migración de Next.js a WordPress y Elementor: un sitio ágil que ahora puede administrar el equipo de Aliat.",
+    image: "/casos/aliat/equipo",
+    imageFormat: "webp",
+  },
   {
     name: "Faktu",
     slug: "faktu",
