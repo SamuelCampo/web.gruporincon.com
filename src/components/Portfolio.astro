@@ -69,18 +69,29 @@ import {
               aria-label={`Ver proyecto ${project.name}`}
             >
               <!-- Background Image -->
-              <picture class="absolute inset-0 h-full w-full">
-                <source srcset={`${project.image}.avif`} type="image/avif" />
-                <source srcset={`${project.image}.webp`} type="image/webp" />
+              {project.imageFormat === "png" ? (
                 <img
-                  src={`${project.image}.webp`}
-                  width={1000}
-                  height={1000}
+                  src={`${project.image}.png`}
+                  width={1536}
+                  height={1024}
                   alt={`Proyecto ${project.name} — ${project.industry}`}
-                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                   loading={i === 0 ? "eager" : "lazy"}
                 />
-              </picture>
+              ) : (
+                <picture class="absolute inset-0 h-full w-full">
+                  <source srcset={`${project.image}.avif`} type="image/avif" />
+                  <source srcset={`${project.image}.webp`} type="image/webp" />
+                  <img
+                    src={`${project.image}.webp`}
+                    width={1000}
+                    height={1000}
+                    alt={`Proyecto ${project.name} — ${project.industry}`}
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    loading={i === 0 ? "eager" : "lazy"}
+                  />
+                </picture>
+              )}
               <!-- Gradient overlays -->
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent z-10"></div>
               <div class="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent z-10"></div>

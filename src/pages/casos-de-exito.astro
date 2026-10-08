@@ -8,6 +8,10 @@ import {
 } from "../data/successCases";
 
 const canonicalBase = Astro.site || Astro.url;
+const industriesCount = new Set(successCases.map((item) => item.industry)).size;
+const countriesCount = new Set(
+  successCases.flatMap((item) => (item.country ? [item.country] : [])),
+).size;
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -105,9 +109,9 @@ const collectionSchema = {
       >
         <span><strong class="text-2xl text-white">{successCases.length}</strong> proyectos destacados</span>
         <span class="hidden h-5 w-px bg-white/10 sm:block"></span>
-        <span><strong class="text-2xl text-white">7</strong> industrias representadas</span>
+        <span><strong class="text-2xl text-white">{industriesCount}</strong> industrias representadas</span>
         <span class="hidden h-5 w-px bg-white/10 sm:block"></span>
-        <span><strong class="text-2xl text-white">3</strong> países confirmados</span>
+        <span><strong class="text-2xl text-white">{countriesCount}</strong> países confirmados</span>
       </div>
     </div>
   </section>
@@ -158,18 +162,29 @@ const collectionSchema = {
                   aria-label={`${external ? "Visitar el proyecto" : "Ver el caso de éxito de"} ${item.name}`}
                 >
                   <div class="relative aspect-[16/10] overflow-hidden bg-zinc-900">
-                    <picture>
-                      <source srcset={`${item.image}.avif`} type="image/avif" />
-                      <source srcset={`${item.image}.webp`} type="image/webp" />
+                    {item.imageFormat === "png" ? (
                       <img
-                        src={`${item.image}.webp`}
-                        width="1000"
-                        height="625"
+                        src={`${item.image}.png`}
+                        width="1536"
+                        height="1024"
                         alt={`Proyecto digital de ${item.name}`}
                         class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
                         loading="lazy"
                       />
-                    </picture>
+                    ) : (
+                      <picture>
+                        <source srcset={`${item.image}.avif`} type="image/avif" />
+                        <source srcset={`${item.image}.webp`} type="image/webp" />
+                        <img
+                          src={`${item.image}.webp`}
+                          width="1000"
+                          height="625"
+                          alt={`Proyecto digital de ${item.name}`}
+                          class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                          loading="lazy"
+                        />
+                      </picture>
+                    )}
                     <div class="absolute inset-0 bg-linear-to-t from-black/45 via-transparent to-transparent" />
                     <div class="absolute left-5 top-5 flex items-center gap-2">
                       <span class="rounded-full border border-white/15 bg-black/55 px-3 py-1.5 font-display text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-md">

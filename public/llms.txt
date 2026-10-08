@@ -21,6 +21,7 @@
 - [Housiders + HouseReel (España)](https://www.gruporincon.com.co/casos-de-exito/housiders-housereel/): app y portal inmobiliario que convierten fotos y videos en contenido profesional con IA y AWS.
 - [Doral Cartagena (Colombia)](https://www.gruporincon.com.co/casos-de-exito/doral-cartagena/): catálogo inmobiliario en WordPress y Elementor para captar oportunidades comerciales.
 - [Mexicarga (México)](https://www.gruporincon.com.co/casos-de-exito/mexicarga/): paso de un HTML estático a un sitio WordPress orientado a cotizaciones.
+- [RENOLAB (Chile)](https://www.gruporincon.com.co/casos-de-exito/renolab/): sitio corporativo en WordPress y PWA en Vue para presentar servicios y administrar la operación de clientes.
 
 ## Empresa y recursos
 

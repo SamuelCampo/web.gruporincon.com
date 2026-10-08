@@ -8,10 +8,24 @@ export interface SuccessCase {
   locationLabel?: string;
   description: string;
   image: string;
+  imageFormat?: "png";
 }
 
 export const successCases: SuccessCase[] = [
   // Añade `internalUrl: "/casos-de-exito/slug/"` cuando exista el caso detallado.
+  {
+    name: "RENOLAB",
+    slug: "renolab",
+    externalUrl: "https://renolab.cl/",
+    internalUrl: "/casos-de-exito/renolab/",
+    industry: "Servicios técnicos",
+    country: "Chile",
+    locationLabel: "Chile",
+    description:
+      "Sitio corporativo en WordPress y PWA en Vue para presentar servicios y administrar la operación de clientes.",
+    image: "/casos/renolab/pwa-macbook",
+    imageFormat: "png",
+  },
   {
     name: "Job&Go",
     slug: "job-and-go",
